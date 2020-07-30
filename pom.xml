@@ -1,0 +1,1029 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.hiwepy</groupId>
+	<artifactId>hitool</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>${project.groupId}:${project.artifactId}</name>
+	<url>https://github.com/hiwepy/${project.artifactId}</url>
+	<description>通用工具组件(An Common Tools Component)</description>
+	
+	<modules>
+		<module>hitool-core</module>
+		<module>hitool-crypto</module>
+		<module>hitool-freemarker</module>
+		<module>hitool-lrc4j</module>
+		<module>hitool-mail</module>
+	</modules>
+	
+	<!--开源协议采用Apache 2.0协议-->
+	<licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+	<!-- 组织信息 -->
+	<organization>
+		<name>Jeebiz</name>
+		<url>www.jeebiz.net</url>
+	</organization>
+  	
+	<!-- 开发者信息 -->
+	<developers>
+		<developer>
+			<name>wandl</name>
+			<email>hnxyhcwdl1003@163.com</email>
+			<organization>jeebiz</organization>
+      		<organizationUrl>http://www.jeebiz.net</organizationUrl>
+			<roles>
+	            <role>developer</role>
+	        </roles>
+			<timezone>+8</timezone>
+		</developer>
+	</developers>
+    
+	<!-- 配置部署的远程仓库:让Maven知道当我要发布release版本或者snapshot版本是需要发布到哪个地址 -->
+	<distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>Nexus Release Repository</name>
+            <!-- <url>http://127.0.0.1:8081/repository/maven-releases/</url> -->
+            <url>http://192.168.1.100:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <!-- <url>http://127.0.0.1:8081/repository/maven-snapshots/</url> -->
+            <url>http://192.168.1.100:8081/repository/maven-snapshots/</url>
+            <!-- 表示是否为Snapshot版本分配一个包含时间戳的构建号 -->
+			<uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+	 
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<defaultLibBundleDir>lib</defaultLibBundleDir>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<maxmem>512M</maxmem>
+					</configuration>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>${maven-deploy-plugin.version}</version>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>${maven-enforcer-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>default-cli</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<phase>validate</phase>
+							<configuration>
+								<rules>
+									<requireMavenVersion>
+										<message>
+	                                        <![CDATA[You are running an older version of Maven. This application requires at least Maven ${maven.version}.]]>
+										</message>
+										<version>[${maven.version}.0,)</version>
+									</requireMavenVersion>
+									<requireJavaVersion>
+										<message>
+	                                        <![CDATA[You are running an older version of Java. This application requires at least JDK ${java.version}.]]>
+										</message>
+										<version>[${java.version}.0,)</version>
+									</requireJavaVersion>
+								</rules>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${maven-gpg-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>${maven-install-plugin.version}</version>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-release-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${maven-release-plugin.version}</version>
+					<configuration>
+						<tagNameFormat>v@{project.version}</tagNameFormat>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<useReleaseProfile>false</useReleaseProfile>
+						<releaseProfiles>release</releaseProfiles>
+						<goals>deploy</goals>
+					</configuration>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+					<configuration>
+						<testFailureIgnore>true</testFailureIgnore>
+						<attach>true</attach>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar-no-fork</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.vertsion}</version>
+					<configuration>
+						<!-- 跳过单元测试 -->
+						<skip>true</skip>
+						<skipTests>true</skipTests>
+						<!-- forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 pretest： 
+							每一个测试创建一个新进程，为每个测试创建新的JVM是单独测试的最彻底方式，但也是最慢的，不适合hudson上持续回归。 once：在一个进程中进行所有测试。once为默认设置，在Hudson上持续回归时建议使用默认设置。 
+							always：在一个进程中并行的运行脚本，Junit4.7以上版本才可以使用，surefire的版本要在2.6以上提供这个功能，其中 threadCount：执行时，指定可分配的线程数量。只和参数parallel配合使用有效。默认：5。 -->
+						<forkMode>once</forkMode>
+						<argLine>-Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m
+							-Dfile.encoding=UTF-8</argLine>
+						<additionalClasspathElements>
+							<additionalClasspathElement>${basedir}/target/test-classes</additionalClasspathElement>
+						</additionalClasspathElements>
+						<includes>
+							<include>**/*Test.java</include>
+						</includes>
+						<excludes>
+							<exclude>**/TestBean.java</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<skipIfEmpty>true</skipIfEmpty>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin.version}</version>
+					<configuration>
+						<aggregate>true</aggregate>
+						<argLine>-Dfile.encoding=UTF-8</argLine>
+						<charset>${project.build.sourceEncoding}</charset>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<docencoding>${project.build.sourceEncoding}</docencoding>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<phase>package</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<version>${maven-nexus-staging-plugin.version}</version>
+					<extensions>true</extensions>
+					<configuration>
+						<serverId>ossrh</serverId>
+						<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+						<autoReleaseAfterClose>false</autoReleaseAfterClose>
+						<!-- <sslAllowAll>true</sslAllowAll> -->
+						<stagingProgressPauseDurationSeconds>60</stagingProgressPauseDurationSeconds>
+						<stagingProgressTimeoutMinutes>20</stagingProgressTimeoutMinutes>
+						<detectBuildFailures>true</detectBuildFailures>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<!--环境检查插件：代码编译前的环境检查 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+			</plugin>
+			<!-- 编译插件：编译主代码至主输出目录 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<!-- 资源插件：复制主资源文件至主输出目录 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<!-- 单元测试插件 ：执行测试用例 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<!-- jar包生成插件 ：创建项目jar包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+			<!-- 源码插件:发布时自动将源码同时发布 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<!-- 文档插件:发布时自动生成文档 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>-->
+			<!-- 安装插件：将项目输出构件安装到本地仓库 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+			</plugin>
+			<!-- 发布插件 ：将项目输出构件部署到远程仓库 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<cglib.version>3.2.4</cglib.version>
+		<cos.version>2020.4</cos.version>
+		<bcprov.version>1.63</bcprov.version>
+		<bcpkix.version>${bcprov.version}</bcpkix.version>
+		<bcmail.version>${bcprov.version}</bcmail.version>
+		<bcpg.version>${bcprov.version}</bcpg.version>
+		<bctls.version>${bcprov.version}</bctls.version>
+		<commons-beanutils.version>1.9.3</commons-beanutils.version>
+		<commons-codec.version>1.13</commons-codec.version>
+		<commons-collections.version>3.2.2</commons-collections.version>
+		<commons-collections4.version>4.1</commons-collections4.version>
+		<commons-compress.version>1.9</commons-compress.version>
+		<commons-email.version>1.4</commons-email.version>
+		<commons-fileupload.version>1.3.2</commons-fileupload.version>
+		<commons-io.version>2.6</commons-io.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<commons-lang3.version>3.5</commons-lang3.version>
+		<commons-logging.version>1.2</commons-logging.version>
+		<commons-net.version>3.6</commons-net.version>
+		<commons-pool2.version>2.7.0</commons-pool2.version>
+		<commons-text.version>1.4</commons-text.version>
+		<dom4j.version>1.6.1</dom4j.version>
+		<fastjson.version>1.2.51</fastjson.version>
+		<freemarker.version>2.3.23</freemarker.version>
+		<guava.version>26.0-jre</guava.version>
+		<jakarta-regexp.version>1.4</jakarta-regexp.version>
+		<jaxen.version>1.1.1</jaxen.version>
+		<janino.version>2.6.1</janino.version>
+		<java.version>1.8</java.version>
+		<javassist.version>3.21.0-GA</javassist.version>
+		<javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+		<javax.activation.version>1.1.1</javax.activation.version>
+		<javax.mail-api.version>1.6.0-rc1</javax.mail-api.version>
+		<javax.el.version>3.0.0</javax.el.version>
+		<javax.jsp-api.version>2.3.1</javax.jsp-api.version>
+		<javax.jstl-api.version>1.2.1</javax.jstl-api.version>
+		<javax.jstl-impl.version>1.2.5</javax.jstl-impl.version>
+		<javax.persistence-api.version>1.0.2</javax.persistence-api.version>
+		<javax.portlet-api.version>3.0.0</javax.portlet-api.version>
+		<javax.servlet-api.version>3.0.1</javax.servlet-api.version>
+		<javax.websocket-api.version>1.1</javax.websocket-api.version>
+		<jaxb.version>2.2.11</jaxb.version>
+		<jdom.version>2.0.2</jdom.version>
+		<jmock.version>2.6.0</jmock.version>
+		<jsf.version>2.0.2-b10</jsf.version>
+		<jsonlib.version>2.4</jsonlib.version>
+		<json-simple.version>1.1.1</json-simple.version>
+		<junrar.version>3.0.0</junrar.version>
+		<junit.version>4.12</junit.version>
+		<oro.version>2.0.8</oro.version>
+		<ognl.version>3.2.7</ognl.version>
+		<pinyin4j.version>2.5.1</pinyin4j.version>
+		<proxool.version>0.9.1</proxool.version>
+		<png-encoder.version>1.5</png-encoder.version>
+		<servlet-api.version>3.0.1</servlet-api.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<stax2-api.version>3.1.1</stax2-api.version>
+		<struts1.version>1.2.9</struts1.version>
+		<struts2.version>2.5.17</struts2.version> <!-- 2.3.x（JDK 1.6），2.5.x（JDK 1.7 ） -->
+		<struts2-xwork.version>2.3.35</struts2-xwork.version>
+		<sitemesh.version>2.4.2</sitemesh.version>
+		<sitemesh3.version>3.0.1</sitemesh3.version>
+		<simple-xml.version>2.3.4</simple-xml.version>
+		<spring.version>4.3.15.RELEASE</spring.version>
+		<maven.version>3.0</maven.version>
+		<maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		<maven-dependency-plugin.version>3.0.1</maven-dependency-plugin.version>
+		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+		<maven-enforcer-plugin.version>3.0.0-M1</maven-enforcer-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+		<maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
+		<maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+		<maven-surefire-plugin.vertsion>2.21.0</maven-surefire-plugin.vertsion>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>
+		<xmlbeans.version>2.6.0</xmlbeans.version>
+		<xerces.version>2.11.0</xerces.version>
+		<xmlschema-core.version>2.0.2</xmlschema-core.version>
+		<xstream.version>1.4.8</xstream.version>
+		<xml-apis.version>1.3.04</xml-apis.version>
+		<zip64file.version>1.02</zip64file.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- ######################测试工具包###################### -->
+			
+			<!--junit : Junit测试是程序员测试，即白盒测试 -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+			<!--dbunit ：dbunit是一个基于junit扩展的数据库测试框架 -->
+			<dependency>
+				<groupId>org.dbunit</groupId>
+				<artifactId>dbunit</artifactId>
+				<version>${dbunit.version}</version>
+			</dependency>
+			<!--
+				httpunit：HttpUnit是SourceForge下面的一个开源项目，它是基于JUnit的一个测试框架，主要关注于测试Web应用；
+				解决使用JUnit框架无法对远程Web内容进行测试的弊端
+			-->
+			<dependency>
+				<groupId>org.httpunit</groupId>
+				<artifactId>httpunit</artifactId>
+				<version>${httpunit.version}</version>
+			</dependency>
+			<!--jmock：JMock是一个使用模拟对象机制测试Java代码的开发包 -->
+			<dependency>
+				<groupId>org.jmock</groupId>
+				<artifactId>jmock-junit4</artifactId>
+				<version>${jmock.version}</version>
+			</dependency>
+			
+		 	<!-- ###################### Java Mail 组件  ###################### -->
+			
+			<!-- The JavaBeans(TM) Activation Framework is used by the JavaMail(TM) API to manage MIME data -->
+			<dependency>
+				<groupId>javax.activation</groupId>
+				<artifactId>activation</artifactId>
+				<version>${javax.activation.version}</version>
+			</dependency>
+			<!-- JavaMail API  -->
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>javax.mail-api</artifactId>
+				<version>${javax.mail-api.version}</version>
+			</dependency>
+			<!-- JavaMail API (sun)
+			注意：
+				有的jar没有包含sun的实现，只包含了api，这类jar名称通常为javax.mail-api-x.x.x.jar，在使用smtp协议发邮件过程中会报错：
+				另一种jar是包含了sun的实现的，名称通常为javax.mail-x.x.x.jar，使用smtp协议发邮件正常！
+			-->
+			<dependency>
+			    <groupId>com.sun.mail</groupId>
+			    <artifactId>javax.mail</artifactId>
+			    <version>${javax.mail-api.version}</version>
+			</dependency>
+			
+			<!-- ###################### Java Web API ###################### -->
+			
+			<dependency>
+				<groupId>com.sun</groupId>
+				<artifactId>tools</artifactId>
+				<version>1.5.0</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+			<dependency>
+			    <groupId>javax.annotation</groupId>
+			    <artifactId>javax.annotation-api</artifactId>
+			    <version>${javax.annotation-api.version}</version>
+			</dependency>
+			<!-- The Java Portlet API version 3.0 developed by the Java Community Process JSR-362 Expert Group. -->
+			<dependency>
+				<groupId>javax.portlet</groupId>
+				<artifactId>portlet-api</artifactId>
+				<version>${javax.portlet-api.version}</version>
+			</dependency>
+			<!-- Java Servlet API -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${javax.servlet-api.version}</version>
+			</dependency>
+			<!-- JavaServer Pages(TM) API  -->
+			<dependency>
+			    <groupId>javax.servlet.jsp</groupId>
+			    <artifactId>javax.servlet.jsp-api</artifactId>
+			    <version>${javax.jsp-api.version}</version>
+			</dependency>
+			<!-- JavaServer Pages(TM) Standard Tag Library API -->
+			<!-- JSTL（JSP Standard Tag Library，JSP标准标签库) 是一个不断完善的开放源代码的JSP标签库，是由apache的jakarta小组来维护的。 -->
+			<dependency>
+			    <groupId>javax.servlet.jsp.jstl</groupId>
+			    <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+			    <version>${javax.jstl-api.version}</version>
+			</dependency>
+			<!-- An implementation of the JSP Standard Tag Library (JSTL).  -->
+			<dependency>
+			    <groupId>org.apache.taglibs</groupId>
+			    <artifactId>taglibs-standard-impl</artifactId>
+			    <version>${javax.jstl-impl.version}</version>
+			</dependency>
+			<!-- Expression Language 3.0 API   -->
+			<dependency>
+			    <groupId>javax.el</groupId>
+			    <artifactId>javax.el-api</artifactId>
+			    <version>${javax.el.version}</version>
+			</dependency>
+			<!-- Java Persistence API  -->
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>${javax.persistence-api.version}</version>
+			</dependency>
+			<!-- JSR 356: Java API for WebSocket  -->
+			<dependency>
+			    <groupId>javax.websocket</groupId>
+			    <artifactId>javax.websocket-api</artifactId>
+			    <version>${javax.websocket-api.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>javax.websocket</groupId>
+			    <artifactId>javax.websocket-client-api</artifactId>
+			    <version>${javax.websocket-api.version}</version>
+			</dependency>
+			
+			<!-- SiteMesh 是一个网页布局和修饰的框架，利用它可以将网页的内容和页面结构分离，以达到页面结构共享的目的 -->
+			<dependency>
+			    <groupId>opensymphony</groupId>
+			    <artifactId>sitemesh</artifactId>
+			    <version>${sitemesh.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.sitemesh</groupId>
+				<artifactId>sitemesh</artifactId>
+				<version>${sitemesh3.version}</version>
+			</dependency>
+			<!-- Java Image Processing Pages  -->
+			<dependency>
+				<groupId>com.jhlabs</groupId>
+				<artifactId>filters</artifactId>
+				<version>2.0.235-1</version>
+			</dependency>
+			
+			<!-- ######################XML校验工具###################### -->
+			
+			<!-- Sun Multi Schema XML Validator Isorelax  -->
+			<dependency>
+			    <groupId>com.sun.xml.bind.jaxb</groupId>
+			    <artifactId>isorelax</artifactId>
+			    <version>20090621</version>
+			</dependency>
+			<dependency>
+			    <groupId>com.github.relaxng</groupId>
+			    <artifactId>relaxngDatatype</artifactId>
+			    <version>2011.1</version>
+			</dependency>
+			<!-- Sun Multi Schema XML Validator  -->
+			<dependency>
+				<groupId>net.java.dev.msv</groupId>
+				<artifactId>msv-core</artifactId>
+				<version>2013.6.1</version>
+			</dependency>
+			<!-- XML Schema datatypes library  -->
+			<dependency>
+				<groupId>net.java.dev.msv</groupId>
+				<artifactId>xsdlib</artifactId>
+				<version>2013.6.1</version>
+			</dependency>
+			<!-- SAX-like API for parsing XML DTDs.  -->
+			<dependency>
+				<groupId>com.sun.xml.dtd-parser</groupId>
+				<artifactId>dtd-parser</artifactId>
+				<version>1.2</version>
+			</dependency>
+			
+			<!-- ######################XML解析转换工具包###################### -->
+			
+			<!--  Dom4j是一个Java的XML API，类似于jdom，用来读写XML文件的工具包。 -->
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${dom4j.version}</version>
+			</dependency>
+			<!--JDOM是一种使用 XML（标准通用标记语言下的一个子集） 的独特 Java 工具包，。它的设计包含 Java 语言的语法乃至语义。-->
+			<dependency>
+				<groupId>org.jdom</groupId>
+				<artifactId>jdom</artifactId>
+				<version>${jdom.version}</version>
+			</dependency>
+			<!-- XStream是 thoughtworks开发的开源框架，用于实现XML数据于Java对象、Json数据的转换 -->
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>${xstream.version}</version>
+			</dependency>
+			<!-- XML Pull Parsing API  -->
+			<dependency>
+				<groupId>xmlpull</groupId>
+				<artifactId>xmlpull</artifactId>
+				<version>1.1.3.4d_b4_min</version>
+			</dependency>
+			<!-- 
+			Simple 是一个 Java 框架，用于简化序列化和反序列化 XML 的过程。使用 Simple，开发人员可以简化（名字由此而来）将简单老 Java 对象（POJO）转换成 XML
+			 文档的过程 — 即所谓的序列化（serialization）过程。Simple 也可促进相反的过程：开发人员可以将 XML 文档转换成 POJO — 即所谓的反序列化（deserialization）过程。
+			 -->
+			<dependency>
+				<groupId>org.simpleframework</groupId>
+				<artifactId>simple-xml</artifactId>
+				<version>${simple-xml.version}</version>
+			</dependency>
+			<!--
+				Jaxen是一个Java编写的开源的XPath库。这是适应多种不同的对象模型，包括DOM，XOM，dom4j和JDOM。
+				也可以作为适配器，转换Java字节代码或XML的Java bean为xml，从而使您可以使用XPath查询这些树了。
+			-->
+			<dependency>
+				<groupId>jaxen</groupId>
+				<artifactId>jaxen</artifactId>
+				<version>${jaxen.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>jaxen</groupId>
+						<artifactId>jaxen</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>jdom</groupId>
+						<artifactId>jdom</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>xml-apis</groupId>
+						<artifactId>xml-apis</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!--
+				JAXB能够使用Jackson对JAXB注解的支持实现(jackson-module-jaxb-annotations)，既方便生成XML，也方便生成JSON，
+				这样一来可以更好的标志可以转换为JSON对象的JAVA类。JAXB允许JAVA人员将JAVA类映射为XML表示方式，常用的注解包括：@XmlRootElement,@XmlElement等等。
+			-->
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-core</artifactId>
+				<version>${jaxb.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>${jaxb.version}</version>
+			</dependency>
+			<!-- XMLBeans是一个XML-Java绑定工具，利用它可以很方便地解析XML文档。 -->
+			<dependency>
+				<groupId>org.apache.xmlbeans</groupId>
+				<artifactId>xmlbeans</artifactId>
+				<version>${xmlbeans.version}</version>
+			</dependency>
+			<!-- Xerces是一个开放源代码的XML语法分析器。从JDK1.5以后，Xerces就成了JDK的XML默认实现 -->
+			<dependency>
+				<groupId>xerces</groupId>
+				<artifactId>xercesImpl</artifactId>
+				<version>${xerces.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>xml-resolver</groupId>
+				<artifactId>xml-resolver</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<!-- Serializer to write out XML, HTML etc. as a stream of characters from an input DOM or from input SAX events.  -->
+			<dependency>
+				<groupId>xalan</groupId>
+				<artifactId>serializer</artifactId>
+				<version>2.7.2</version>
+			</dependency>
+			<!-- Xml Apis -->
+			<dependency>
+				<groupId>xml-apis</groupId>
+	 			<artifactId>xml-apis</artifactId>
+	 			<version>${xml-apis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>xml-apis</groupId>
+	 			<artifactId>xml-apis-ext</artifactId>
+	 			<version>${xml-apis.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+			<dependency>
+			    <groupId>com.alibaba</groupId>
+			    <artifactId>fastjson</artifactId>
+			    <version>${fastjson.version}</version>
+			</dependency>
+			
+			<!--Javassist是一个开源的分析、编辑和创建Java字节码的类库。struts2 依赖此jar-->
+			<dependency>
+				<groupId>org.javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>${javassist.version}</version>
+			</dependency>
+			
+			<!-- ######################日志组件工具包###################### -->
+			
+			<!-- 
+				实现各个日志组件之间的桥接并最终输出到log4j2 ：
+				
+				实现方案：
+	
+					第一步：将日志系统全部无缝先切换到slf4j
+						1、去掉commons-logging（其实去不去都可以），使用jcl-over-slf4j将commons-logging的底层日志输出切换到slf4j
+				        2、使用jul-to-slf4j，将jul的日志输出切换到slf4j
+				       	3、 去掉log4j1(必须去掉),使用log4j-slf4j-impl,将slf4j的日志输出切换到log4j2
+					第二步：使slf4j选择log4j2来作为底层日志输出
+						加入以下jar包：
+					    slf4j-api
+					    log4j-api
+					    log4j-core
+			-->
+			
+			<!--
+				Jakarta Commons Logging (JCL) 提供的是一个日志 (Log) 接口 (interface)
+				，同时兼顾轻量级和不依赖于具体的日志实现工具 。 它提供给中间件 /
+				日志工具开发者一个简单的日志操作抽象，允许程序开发人员使用不同的具体日志实现工具。用户被假定已熟悉某种日志实现工具的更高级别的细节。
+				JCL 提供的接口，对其它一些日志工具，包括 Log4J, Avalon LogKit, and JDK 1.4
+				等，进行了简单的包装，此接口更接近于 Log4J 和 LogKit 的实现。
+			-->
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${commons-logging.version}</version>
+			</dependency>
+			
+			<!-- Slf4j 1.x -->
+			
+			<!-- SLF4J，即简单日志门面（Simple Logging Facade for Java），不是具体的日志解决方案，它只服务于各种各样
+			 的日志系统。按照官方的说法，SLF4J是一个用于日志系统的简单Facade，允许最终用户在部署其应用时使用其所希望的日志系统。 -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- commons-logging到 slf4j的桥梁 -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<!-- jdk-logging到slf4j的桥梁 -->
+			<dependency>
+			    <groupId>org.slf4j</groupId>
+			    <artifactId>jul-to-slf4j</artifactId>
+			    <version>${slf4j.version}</version>
+			</dependency>
+			
+			<!-- ###################### 基础常用工具包 ###################### -->
+			
+			<!-- 常用功能包括类型转换和动态bean的创建 -->
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${commons-beanutils.version}</version>
+			</dependency>
+			<!-- 一个各种集合类和集合工具类的封装 -->
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons-collections.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>${commons-collections4.version}</version>
+			</dependency>
+			<!-- apache 上传组件 -->
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${commons-fileupload.version}</version>
+			</dependency>
+			<!-- O'Reilly公司的Java HTTP文件上传组件，简单实用，做的非常好。  -->
+			<dependency>
+			    <groupId>com.jfinal</groupId>
+			    <artifactId>cos</artifactId>
+			    <version>${cos.version}</version>
+			</dependency>
+			<!-- Commons项目中用来处理IO的一些工具类包 -->
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+			<!-- Commons项目中用来处理Java基本对象方法的工具类包， 可以简化很多平时经常要用到的写法， 例如判断字符串是否为空等等 -->
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			
+			<!-- org.apache.commons  -->
+			<!--Commons Compress 用以实现将文件压缩或解压成 tar、zip、bzip2 等格式 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-compress</artifactId>
+				<version>${commons-compress.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.janino</groupId>
+				<artifactId>janino</artifactId>
+				<version>${janino.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+			<dependency>
+				<groupId>commons-net</groupId>
+				<artifactId>commons-net</artifactId>
+				<version>${commons-net.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
+				<version>${commons-pool2.version}</version>
+			</dependency>
+			<!-- 
+				Commons-Email的目的是提供一组用于发送Email的API,它基于Java Mail API基础之上并进行了简化。
+				它提供的主要Java类有：SimpleEmail：这个类用于发送简单的文本类型email。MultiPartEmail：这个类允许发送文本消息并附带附件。
+				HtmlEmail：用于发送Html格式的附件并支持内含图片。
+				EmailAttachment：这是一个简单的容器类用于简化附件的处理。
+			 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-email</artifactId>
+				<version>${commons-email.version}</version>
+			</dependency>
+			<!-- An open source java library to handle zip files  -->
+			<dependency>
+			    <groupId>net.lingala.zip4j</groupId>
+			    <artifactId>zip4j</artifactId>
+			    <version>1.3.2</version>
+			</dependency>
+			
+			<!-- PNG Encoder 是一个 Java 类，用来将图像保存为 PNG 格式，该项目只包含两个 java 文件 -->
+			<dependency>
+				<groupId>com.keypoint</groupId>
+				<artifactId>png-encoder</artifactId>
+				<version>${png-encoder.version}</version>
+			</dependency>
+			<!--pinyin4j 中文拼音处理组件-->
+			<dependency>
+				<groupId>com.belerweb</groupId>
+				<artifactId>pinyin4j</artifactId>
+				<version>${pinyin4j.version}</version>
+			</dependency>
+			
+			<!--Regexp是一个100 纯java正则式处理包，是Jonathan Locke捐给Apache软件基金会的。-->
+			<dependency>
+				<groupId>jakarta-regexp</groupId>
+				<artifactId>jakarta-regexp</artifactId>
+				<version>${jakarta-regexp.version}</version>
+			</dependency>
+			<!-- Jakarta-ORO 是一个Java工具包用来在 Java 类中进行文本处理的功能，提供兼容 Perl5 的正则表达式、类 AWK 的正则表达式等。 -->
+			<dependency>
+				<groupId>oro</groupId>
+				<artifactId>oro</artifactId>
+				<version>${oro.version}</version>
+			</dependency>
+			<!--zip压缩工具包 -->
+			<dependency>
+				<groupId>net.sourceforge.zip64file</groupId>
+				<artifactId>zip64file</artifactId>
+				<version>${zip64file.version}</version>
+			</dependency>
+			<!-- 
+				OGNL是Object-Graph Navigation Language的缩写，它是一种功能强大的表达式语言，通过它简单一致的表达式语法，可以存取对象的任意属性，
+				调用对象的方法，遍历整个对象的结构图，实现字段类型转化等功能。它使用相同的表达式去存取对象的属性。
+			 -->
+			<dependency>
+				<groupId>ognl</groupId>
+				<artifactId>ognl</artifactId>
+				<version>${ognl.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>javassist</groupId>
+						<artifactId>javassist</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>ognl</groupId>
+						<artifactId>ognl</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			
+			<!-- FreeMarker是一个用Java语言编写的模板引擎，它基于模板来生成文本输出 -->
+			<dependency>
+				<groupId>org.freemarker</groupId>
+				<artifactId>freemarker</artifactId>
+				<version>${freemarker.version}</version>
+			</dependency>
+			
+			<!-- ###################### Spring 4.x 核心框架  ###################### -->
+			
+			<!-- 基于代理的AOP支持 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- 基于AspectJ的切面 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- Bean支持，包括Groovy  -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- 应用程序的运行时环境，包括调度和远程处理的抽象 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- 用于把常用的第三方 类库集成到Spring的应用环境中的支持类 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- 被大多数其他Spring模块使用的核心工具类 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- Spring的表达式语言（SpEL） -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- Web支持包，包括客户端和web的远程访问 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- REST的web服务和用于web应用程序的mvc实现 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- 介于组件和业务之前的Spring扩展 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-biz</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+						
+			<!--
+				Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections] 、缓存
+				[caching] 、原生类型支持 [primitives support] 、 并发库 [concurrency libraries]
+				、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等等。
+			-->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+	    	  
+			<!-- JUnRar是一个采用纯Java实现的rar文件压缩和解压缩的开源类库。  --> 
+			<!-- https://mvnrepository.com/artifact/com.github.junrar/junrar -->
+			<dependency>
+			    <groupId>com.github.junrar</groupId>
+			    <artifactId>junrar</artifactId>
+			    <version>${junrar.version}</version>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+	
+		<!-- JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.  -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- The slf4j API  -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- commons-logging到 slf4j的桥梁 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- jdk-logging到slf4j的桥梁 -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>jul-to-slf4j</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+	
+</project>

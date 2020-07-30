@@ -1,0 +1,19 @@
+import org.apache.regexp.RE;
+import org.apache.regexp.RECompiler;
+
+public class TestReg {
+
+public static void main(String[] args) {
+RE re = new RE(); // 新建正则表达式对象;
+RECompiler compiler = new RECompiler(); // 新建编译对象;
+re.setProgram(compiler.compile("^c(([ab])t)$")); // 编译
+boolean bool = re.match("cat"); // 测试是否匹配;
+System.out.println(bool);
+if (bool) {
+for (int i = 0; i < re.getParenCount(); i++) {
+System.out.println(re.getParen(i)); // 匹配组;
+}
+}
+}
+
+}
