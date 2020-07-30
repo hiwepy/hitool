@@ -320,7 +320,7 @@
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
-		<commons-beanutils.version>1.9.3</commons-beanutils.version>
+		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<commons-codec.version>1.13</commons-codec.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<commons-collections4.version>4.1</commons-collections4.version>
