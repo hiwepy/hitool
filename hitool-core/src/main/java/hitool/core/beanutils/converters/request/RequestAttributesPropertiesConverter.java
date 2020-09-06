@@ -3,7 +3,6 @@ package hitool.core.beanutils.converters.request;
 import java.util.Enumeration;
 import java.util.Properties;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.ConversionException;
@@ -17,7 +16,7 @@ public class RequestAttributesPropertiesConverter implements Converter {
 			throw new ConversionException("No value specified");
 		}
 		// ServletRequest Attribute to Properties
-		if (value.getClass().equals(HttpServletRequest.class) || (value instanceof ServletRequest)) {
+		if (value.getClass().isAssignableFrom(HttpServletRequest.class)) {
 			try {
 				Properties result = new Properties();
 				HttpServletRequest request = (HttpServletRequest) value;

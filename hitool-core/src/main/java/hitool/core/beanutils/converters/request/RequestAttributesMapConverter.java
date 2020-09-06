@@ -4,7 +4,6 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.ConversionException;
@@ -18,7 +17,7 @@ public class RequestAttributesMapConverter implements Converter {
 			throw new ConversionException("No value specified");
 		}
 		// ServletRequest Attribute to Map
-		if (value.getClass().equals(HttpServletRequest.class) || (value instanceof ServletRequest)) {
+		if (value.getClass().isAssignableFrom(HttpServletRequest.class)) {
 			try {
 				Map<String, Object> map = new HashMap<String, Object>();
 				HttpServletRequest request = (HttpServletRequest) value;

@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.ConversionException;
 import org.apache.commons.beanutils.Converter;
@@ -18,7 +17,7 @@ public class RequestParametersPropertiesConverter implements Converter {
 			throw new ConversionException("No value specified");
 		}
 		// ServletRequest Parameters to Properties
-		if (value.getClass().equals(HttpServletRequest.class) || (value instanceof ServletRequest)) {
+		if (value.getClass().isAssignableFrom(ServletRequest.class)) {
 			try {
 				ServletRequest request = (ServletRequest) value;
 				Properties result = new Properties();

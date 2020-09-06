@@ -2,7 +2,6 @@ package hitool.core.beanutils.converters.request;
 
 import java.util.Enumeration;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.ConversionException;
@@ -18,7 +17,7 @@ public class RequestAttributesBeanConverter implements Converter  {
             throw new ConversionException("No value specified");
         }
 		//ServletRequest Attribute to JavaBean 
-		if(value.getClass().equals(HttpServletRequest.class)||(value instanceof ServletRequest)){
+		if (value.getClass().isAssignableFrom(HttpServletRequest.class)) {
 			try {
 				HttpServletRequest request = (HttpServletRequest)value;
 				Enumeration<String> enu = request.getAttributeNames();
