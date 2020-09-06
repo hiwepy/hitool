@@ -17,6 +17,7 @@
 		<module>hitool-freemarker</module>
 		<module>hitool-lrc4j</module>
 		<module>hitool-mail</module>
+		<module>hitool-web</module>
 	</modules>
 	
 	<!--开源协议采用Apache 2.0协议-->
