@@ -33,6 +33,7 @@ import java.security.GeneralSecurityException;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
@@ -96,6 +97,18 @@ public class SSLContexts {
 				trustManager == null ? null : new TrustManager[] { trustManager });
 	}
 
+	public static SSLContext createTrustSSLContext() throws SSLInitializationException {
+        try {
+            final SSLContext sslContext = SSLContext.getInstance(SSLContextBuilder.TLS);
+            sslContext.init(null, new TrustManager[] { TrustManagerUtils.getAcceptAllTrustManager() }, new SecureRandom());
+            return sslContext;
+        } catch (final NoSuchAlgorithmException ex) {
+            throw new SSLInitializationException(ex.getMessage(), ex);
+        } catch (final KeyManagementException ex) {
+            throw new SSLInitializationException(ex.getMessage(), ex);
+        }
+    }
+ 
 	/**
 	 * Create and initialise an SSLContext.
 	 * 
