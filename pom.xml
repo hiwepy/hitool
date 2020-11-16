@@ -396,7 +396,7 @@
 		<xmlbeans.version>2.6.0</xmlbeans.version>
 		<xerces.version>2.11.0</xerces.version>
 		<xmlschema-core.version>2.0.2</xmlschema-core.version>
-		<xstream.version>1.4.8</xstream.version>
+		<xstream.version>1.4.13-java7</xstream.version>
 		<xml-apis.version>1.3.04</xml-apis.version>
 		<zip64file.version>1.02</zip64file.version>
 	</properties>
