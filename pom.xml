@@ -326,9 +326,9 @@
 		<commons-pool2.version>2.7.0</commons-pool2.version>
 		<commons-text.version>1.4</commons-text.version>
 		<dom4j.version>1.6.1</dom4j.version>
-		<fastjson.version>1.2.51</fastjson.version>
+		<fastjson.version>1.2.74</fastjson.version>
 		<freemarker.version>2.3.23</freemarker.version>
-		<guava.version>26.0-jre</guava.version>
+		<guava.version>29.0-jre</guava.version>
 		<jakarta-regexp.version>1.4</jakarta-regexp.version>
 		<jaxen.version>1.1.1</jaxen.version>
 		<janino.version>2.6.1</janino.version>
