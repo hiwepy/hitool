@@ -11,44 +11,31 @@
 	<url>https://github.com/hiwepy/${project.artifactId}</url>
 	<description>通用工具组件(An Common Tools Component)</description>
 	
-	<modules>
-		<module>hitool-core</module>
-		<module>hitool-crypto</module>
-		<module>hitool-freemarker</module>
-		<module>hitool-lrc4j</module>
-		<module>hitool-mail</module>
-		<module>hitool-web</module>
-	</modules>
-	
-	<!--开源协议采用Apache 2.0协议-->
 	<licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
 
-	<!-- 组织信息 -->
-	<organization>
-		<name>Jeebiz</name>
-		<url>www.jeebiz.net</url>
-	</organization>
-  	
-	<!-- 开发者信息 -->
+	<scm>
+		<connection>scm:git:https:github.com/hiwepy/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:https:github.com/hiwepy/${project.artifactId}.git</developerConnection>
+		<url>https:github.com/hiwepy/${project.artifactId}</url>
+		<tag>${project.artifactId}</tag>
+	</scm>
+
 	<developers>
 		<developer>
 			<name>wandl</name>
 			<email>hnxyhcwdl1003@163.com</email>
-			<organization>jeebiz</organization>
-      		<organizationUrl>http://www.jeebiz.net</organizationUrl>
 			<roles>
-	            <role>developer</role>
-	        </roles>
+				<role>developer</role>
+			</roles>
 			<timezone>+8</timezone>
 		</developer>
 	</developers>
-    
+	
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
@@ -56,10 +43,10 @@
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<repository>
-			<id>ossrh</id>
+		    <id>ossrh</id>
 			<name>Maven Central Staging Repository</name>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
+		    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		 </repository>
 	</distributionManagement>
 
 	<build>
@@ -1052,11 +1039,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<!-- commons-logging到 slf4j的桥梁 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -1071,5 +1053,14 @@
 		</dependency>
 		
 	</dependencies>
+	
+	<modules>
+		<module>hitool-core</module>
+		<module>hitool-crypto</module>
+		<module>hitool-freemarker</module>
+		<module>hitool-lrc4j</module>
+		<module>hitool-mail</module>
+		<module>hitool-web</module>
+	</modules>
 	
 </project>
