@@ -5,24 +5,24 @@ package hitool.crypto.algorithm;
 import java.math.BigInteger;
 import java.util.Random;
 
-/**
+/*
  * @author 陈明 E-mail:chenming@sansec.com.cn
  * @version 创建时间：2011-4-15 上午11:03:41
  * @		修改时间：2011-5-31 
  * 
  */
 public class SM3Digest {
-	private static final int BYTE_LENGTH = 32; 					/**SM3值的长度*/
-	private static final int BLOCK_LENGTH = 64;					/**SM3分组长度*/
-	private static final int BUFFER_LENGTH = BLOCK_LENGTH * 1;	/**缓冲区长度*/
-	private byte[] xBuf = new byte[BUFFER_LENGTH];				/**缓冲区*/
-	private int xBufOff;										/**缓冲区偏移量*/
-	private byte[] V = SM3.iv.clone();							/**初始向量*/
+	private static final int BYTE_LENGTH = 32; 					/*SM3值的长度*/
+	private static final int BLOCK_LENGTH = 64;					/*SM3分组长度*/
+	private static final int BUFFER_LENGTH = BLOCK_LENGTH * 1;	/*缓冲区长度*/
+	private byte[] xBuf = new byte[BUFFER_LENGTH];				/*缓冲区*/
+	private int xBufOff;										/*缓冲区偏移量*/
+	private byte[] V = SM3.iv.clone();							/*初始向量*/
 	private int cntBlock = 0; 
 	public SM3Digest() {
 	}
 	
-	/**
+	/*
 	 * SM3结果输出
 	 * @param out 保存SM3结构的缓冲区
 	 * @param outOff 缓冲区偏移量
@@ -42,7 +42,7 @@ public class SM3Digest {
 		V = SM3.iv.clone();
 	}
 
-	/**
+	/*
 	 * 明文输入
 	 * @param in 明文输入缓冲区
 	 * @param inOff 缓冲区偏移量
@@ -132,7 +132,7 @@ public class SM3Digest {
 		return out;
 	}
 
-	/**
+	/*
 	 * @param affineX SM2公钥仿射坐标X
 	 * @param affineX SM2公钥仿射坐标Y
 	 * @param id 
@@ -352,7 +352,7 @@ class SM3 {
 			return GG2j(X, Y, Z);
 		}
 	}
-	/***********************************************/
+	/**********************************************/
 	// 逻辑位运算函数
 	private static int FF1j(int X, int Y, int Z) {
 		int tmp = X ^ Y ^ Z;
@@ -394,7 +394,7 @@ class SM3 {
 		return t;
 	}
 	
-	/**
+	/*
 	 * 对最后一个分组字节数据padding
 	 * @param in
 	 * @param bLen 分组个数
@@ -424,7 +424,7 @@ class SM3 {
 		return out;
 	}
 	
-	/**
+	/*
 	 * 字节数组逆序
 	 * @param in
 	 * @return
@@ -558,7 +558,7 @@ class Util {
 		System.out.println("Gx len = " + Gx.toByteArray().length);
 		System.out.println("Gy len = " + Gy.toByteArray().length);
 	}*/
-	/**
+	/*
 	 * 整形转换成网络传输的字节流（字节数组）型数据
 	 * @param num 一个整型数据
 	 * @return 4个字节的自己数组
@@ -574,7 +574,7 @@ class Util {
 		return bytes;
 	}
 	
-	/**
+	/*
 	 * 四个字节的字节数据转换成一个整形数据
 	 * @param bytes 4个字节的字节数组
 	 * @return 一个整型数据

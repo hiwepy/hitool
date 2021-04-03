@@ -19,146 +19,146 @@ import hitool.core.lang3.StringUtils;
 
 public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
-	/** 短日时间格式：HH:mm */
+	/* 短日时间格式：HH:mm */
 	public static final String SHORT_TIME_FORMAT = "HH:mm";
-	/** 短日时间格式：HH:mm */
+	/* 短日时间格式：HH:mm */
 	public static final SimpleDateFormat FORMAT_SHORT_TIME = new SimpleDateFormat(SHORT_TIME_FORMAT);
-	/** 短日时间格式：HH时mm分 */
+	/* 短日时间格式：HH时mm分 */
 	public static final String SHORT_TIME_FORMAT_CN = "HH时mm分";
-	/** 短日时间格式：HH时mm分 */
+	/* 短日时间格式：HH时mm分 */
 	public static final SimpleDateFormat FORMAT_SHORT_TIME_CN = new SimpleDateFormat(SHORT_TIME_FORMAT_CN);
-	/** 时间格式：HH:mm:ss */
+	/* 时间格式：HH:mm:ss */
 	public static final String TIME_FORMAT = "HH:mm:ss";
-	/** 时间格式：HH:mm:ss */
+	/* 时间格式：HH:mm:ss */
 	public static final SimpleDateFormat FORMAT_TIME = new SimpleDateFormat(TIME_FORMAT);
-	/** 时间格式：HH时mm分ss秒 */
+	/* 时间格式：HH时mm分ss秒 */
 	public static final String TIME_FORMAT_CN = "HH时mm分ss秒";
-	/** 时间格式：HH时mm分ss秒 */
+	/* 时间格式：HH时mm分ss秒 */
 	public static final SimpleDateFormat FORMAT_TIME_CN = new SimpleDateFormat(TIME_FORMAT_CN);
-	/** 时间格式,主要是针对timestamp：HH:mm:ss:SS */
+	/* 时间格式,主要是针对timestamp：HH:mm:ss:SS */
 	public static final String TIME_LONGFORMAT = "HH:mm:ss:SS";
-	/** 时间格式,主要是针对timestamp：HH:mm:ss:SS */
+	/* 时间格式,主要是针对timestamp：HH:mm:ss:SS */
 	public static final SimpleDateFormat FORMAT_LONGTIME = new SimpleDateFormat(TIME_LONGFORMAT);
-	/** 时间格式,主要是针对timestamp：HH时mm分ss秒SS毫秒 */
+	/* 时间格式,主要是针对timestamp：HH时mm分ss秒SS毫秒 */
 	public static final String TIME_LONGFORMAT_CN = "HH时mm分ss秒SS毫秒";
-	/** 时间格式,主要是针对timestamp：HH时mm分ss秒SS毫秒 */
+	/* 时间格式,主要是针对timestamp：HH时mm分ss秒SS毫秒 */
 	public static final SimpleDateFormat FORMAT_LONGTIME_CN = new SimpleDateFormat(TIME_LONGFORMAT_CN);
 
-	/** 短日期格式：yyyy-MM-dd */
+	/* 短日期格式：yyyy-MM-dd */
 	public static final String DATE_FORMAT = "yyyy-MM-dd";
-	/** 短日期格式：yyyy-MM-dd */
+	/* 短日期格式：yyyy-MM-dd */
 	public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat(DATE_FORMAT);
-	/** 短日期格式：yyyy/MM/dd */
+	/* 短日期格式：yyyy/MM/dd */
 	public static final String DATE_FORMAT_TWO = "yyyy/MM/dd";
-	/** 短日期格式：yyyy/MM/dd */
+	/* 短日期格式：yyyy/MM/dd */
 	public static final SimpleDateFormat FORMAT_DATE_TWO = new SimpleDateFormat(DATE_FORMAT_TWO);
-	/** 短日期格式：yyyy年MM月dd日 */
+	/* 短日期格式：yyyy年MM月dd日 */
 	public static final String DATE_FORMAT_CN = "yyyy年MM月dd日";
-	/** 短日期格式：yyyy年MM月dd日 */
+	/* 短日期格式：yyyy年MM月dd日 */
 	public static final SimpleDateFormat FORMAT_DATE_CN = new SimpleDateFormat(DATE_FORMAT_CN);
 
-	/** 日期格式：yyyy-MM */
+	/* 日期格式：yyyy-MM */
 	public static final String MONTH_FORMAT = "yyyy-MM";
-	/** 日期格式：yyyy-MM */
+	/* 日期格式：yyyy-MM */
 	public static final SimpleDateFormat FORMAT_MONTH = new SimpleDateFormat(MONTH_FORMAT);
-	/** 日期格式：yyyy/MM */
+	/* 日期格式：yyyy/MM */
 	public static final String MONTH_FORMAT_TWO = "yyyy/MM";
-	/** 日期格式：yyyy/MM */
+	/* 日期格式：yyyy/MM */
 	public static final SimpleDateFormat FORMAT_MONTH_TWO = new SimpleDateFormat(MONTH_FORMAT_TWO);
-	/** 日期格式：yyyy年MM月 */
+	/* 日期格式：yyyy年MM月 */
 	public static final String MONTH_FORMAT_CN = "yyyy年MM月";
-	/** 日期格式：yyyy年MM月 */
+	/* 日期格式：yyyy年MM月 */
 	public static final SimpleDateFormat FORMAT_MONTH_CN = new SimpleDateFormat(MONTH_FORMAT_CN);
-	/** 日期格式：EEE, dd MMM yyyy */
+	/* 日期格式：EEE, dd MMM yyyy */
 	public static final String EEE_DATE_FORMAT = "EEE, dd MMM yyyy";
-	/** 日期格式：EEE, dd MMM yyyy */
+	/* 日期格式：EEE, dd MMM yyyy */
 	public static final SimpleDateFormat FORMAT_EEE_DATE = new SimpleDateFormat(EEE_DATE_FORMAT);
-	/** 日期格式：dd MMM yyyy */
+	/* 日期格式：dd MMM yyyy */
 	public static final String MMM_DATE_FORMAT = "dd MMM yyyy";
-	/** 日期格式：dd MMM yyyy */
+	/* 日期格式：dd MMM yyyy */
 	public static final SimpleDateFormat FORMAT_MMM_DATE = new SimpleDateFormat(MMM_DATE_FORMAT);
-	/** 日期格式：dd MMM yyyy HH:mm:ss */
+	/* 日期格式：dd MMM yyyy HH:mm:ss */
 	public static final String MMM_DATE_TIME_FORMAT = MMM_DATE_FORMAT + " " + TIME_FORMAT;
-	/** 日期格式：dd MMM yyyy HH:mm:ss */
+	/* 日期格式：dd MMM yyyy HH:mm:ss */
 	public static final SimpleDateFormat FORMAT_MMM_DATE_TIME = new SimpleDateFormat(MMM_DATE_TIME_FORMAT);
 
-	/** 日期格式：yyyy-MM-dd HH:mm */
+	/* 日期格式：yyyy-MM-dd HH:mm */
 	public static final String DATE_TIME_FORMAT = DATE_FORMAT + " " + SHORT_TIME_FORMAT;
-	/** 日期格式：yyyy-MM-dd HH:mm */
+	/* 日期格式：yyyy-MM-dd HH:mm */
 	public static final SimpleDateFormat FORMAT_DATE_TIME = new SimpleDateFormat(DATE_TIME_FORMAT);
-	/** 日期格式：yyyy/MM/dd HH:mm */
+	/* 日期格式：yyyy/MM/dd HH:mm */
 	public static final String DATE_TIME_FORMAT_TWO = DATE_FORMAT_TWO + " " + SHORT_TIME_FORMAT;
-	/** 日期格式：yyyy年MM月dd日 HH:mm */
+	/* 日期格式：yyyy年MM月dd日 HH:mm */
 	public static final SimpleDateFormat FORMAT_DATE_TIME_TWO = new SimpleDateFormat(DATE_TIME_FORMAT_TWO);
-	/** 日期格式：yyyy年MM月dd日 HH:mm */
+	/* 日期格式：yyyy年MM月dd日 HH:mm */
 	public static final String DATE_TIME_FORMAT_CN = DATE_FORMAT_CN + " " + SHORT_TIME_FORMAT;
-	/** 日期格式：yyyy年MM月dd日 HH:mm */
+	/* 日期格式：yyyy年MM月dd日 HH:mm */
 	public static final SimpleDateFormat FORMAT_DATE_TIME_CN = new SimpleDateFormat(DATE_TIME_FORMAT_CN);
 
-	/** 长日期格式：yyyy-MM-dd HH:mm:ss */
+	/* 长日期格式：yyyy-MM-dd HH:mm:ss */
 	public static final String DATE_LONGFORMAT = DATE_FORMAT + " " + TIME_FORMAT;
-	/** 长日期格式：yyyy-MM-dd HH:mm:ss */
+	/* 长日期格式：yyyy-MM-dd HH:mm:ss */
 	public static final SimpleDateFormat FORMAT_LONGDATE = new SimpleDateFormat(DATE_LONGFORMAT);
-	/** 长日期格式：yyyy/MM/dd HH:mm:ss */
+	/* 长日期格式：yyyy/MM/dd HH:mm:ss */
 	public static final String DATE_LONGFORMAT_TWO = DATE_FORMAT_TWO + " " + TIME_FORMAT;
-	/** 长日期格式：yyyy/MM/dd HH:mm:ss */
+	/* 长日期格式：yyyy/MM/dd HH:mm:ss */
 	public static final SimpleDateFormat FORMAT_LONGDATE_TWO = new SimpleDateFormat(DATE_LONGFORMAT_TWO);
-	/** 长日期格式：yyyy年MM月dd日 HH:mm:ss */
+	/* 长日期格式：yyyy年MM月dd日 HH:mm:ss */
 	public static final String DATE_LONGFORMAT_DATE_CN = DATE_FORMAT_CN + " " + TIME_FORMAT;
-	/** 长日期格式：yyyy年MM月dd日 HH:mm:ss */
+	/* 长日期格式：yyyy年MM月dd日 HH:mm:ss */
 	public static final SimpleDateFormat FORMAT_LONGDATE_DATE_CN = new SimpleDateFormat(DATE_LONGFORMAT_DATE_CN);
-	/** 长日期格式：yyyy年MM月dd日 HH时mm分ss秒 */
+	/* 长日期格式：yyyy年MM月dd日 HH时mm分ss秒 */
 	public static final String DATE_LONGFORMAT_TIME_CN = DATE_FORMAT_CN + " " + TIME_FORMAT_CN;
-	/** 长日期格式：yyyy年MM月dd日 HH时mm分ss秒 */
+	/* 长日期格式：yyyy年MM月dd日 HH时mm分ss秒 */
 	public static final SimpleDateFormat FORMAT_LONGDATE_TIME_CN = new SimpleDateFormat(DATE_LONGFORMAT_TIME_CN);
 
-	/** 长日期格式,主要是针对timestamp：yyyy-MM-dd HH:mm:ss.SSS */
+	/* 长日期格式,主要是针对timestamp：yyyy-MM-dd HH:mm:ss.SSS */
 	public static final String TIMESTAMP_FORMAT = DATE_FORMAT + " " + TIME_LONGFORMAT;
-	/** 长日期格式,主要是针对timestamp：yyyy-MM-dd HH:mm:ss.SSS */
+	/* 长日期格式,主要是针对timestamp：yyyy-MM-dd HH:mm:ss.SSS */
 	public static final SimpleDateFormat FORMAT_TIMESTAMP = new SimpleDateFormat(TIMESTAMP_FORMAT);
-	/** 长日期格式,主要是针对timestamp：yyyy/MM/dd HH:mm:ss.SSS */
+	/* 长日期格式,主要是针对timestamp：yyyy/MM/dd HH:mm:ss.SSS */
 	public static final String TIMESTAMP_FORMAT_TWO = DATE_FORMAT_TWO + " " + TIME_LONGFORMAT;
-	/** 长日期格式,主要是针对timestamp：yyyy/MM/dd HH:mm:ss.SSS */
+	/* 长日期格式,主要是针对timestamp：yyyy/MM/dd HH:mm:ss.SSS */
 	public static final SimpleDateFormat FORMAT_TIMESTAMP_TWO = new SimpleDateFormat(TIMESTAMP_FORMAT_TWO);
-	/** 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH:mm:ss.SSS */
+	/* 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH:mm:ss.SSS */
 	public static final String TIMESTAMP_FORMAT_DATE_CN = DATE_FORMAT_CN + " " + TIME_LONGFORMAT;
-	/** 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH:mm:ss.SSS */
+	/* 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH:mm:ss.SSS */
 	public static final SimpleDateFormat FORMAT_TIMESTAMP_DATE_CN = new SimpleDateFormat(TIMESTAMP_FORMAT_DATE_CN);
-	/** 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH时mm分ss秒SS毫秒 */
+	/* 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH时mm分ss秒SS毫秒 */
 	public static final String TIMESTAMP_FORMAT_TIME_CN = DATE_FORMAT_CN + " " + TIME_LONGFORMAT_CN;
-	/** 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH时mm分ss秒SS毫秒 */
+	/* 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH时mm分ss秒SS毫秒 */
 	public static final SimpleDateFormat FORMAT_TIMESTAMP_TIME_CN = new SimpleDateFormat(TIMESTAMP_FORMAT_TIME_CN);
 
-	/**
+	/*
 	 * 默认验证日期正则表达式
 	 */
 	protected static final String DATE_PATTERN = "(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29)";
-	/**
+	/*
 	 * yyyy-MM-dd HH:mm:ss.SSS 格式正则
 	 */
 	protected static final String DATE_TIMESTAMP_PATTERN = "^\\d{2,4}\\-\\d{1,2}\\-\\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2}\\.\\d{1,3}$";
-	/**
+	/*
 	 * yyyy-MM-dd HH:mm:ss格式正则
 	 */
 	protected static final String DATE_LONGFORMAT_PATTERN = "^\\d{2,4}\\-\\d{1,2}\\-\\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2}$";
-	/**
+	/*
 	 * yyyy/MM/dd HH:mm:ss格式正则
 	 */
 	protected static final String DATE_LONGFORMAT_PATTERN_TWO = "^\\d{2,4}\\/\\d{1,2}\\/\\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2}$";
-	/**
+	/*
 	 * yyyy-MM-dd HH:mm格式正则
 	 */
 	protected static final String DATE_TIME_PATTERN = "^\\d{2,4}\\-\\d{1,2}\\-\\d{1,2} \\d{1,2}:\\d{1,2}$";
-	/**
+	/*
 	 * yyyy-MM-dd格式正则
 	 */
 	protected static final String DATE_DAY_PATTERN = "^\\d{2,4}\\-\\d{1,2}\\-\\d{1,2}$";
-	/**
+	/*
 	 * yyyy/MM/dd格式正则
 	 */
 	protected static final String DATE_DAY_PATTERN_TWO = "^\\d{2,4}\\/\\d{1,2}\\/\\d{1,2}$";
 
-	/**
+	/*
 	 * 根据给出的字符串格式，获取相应的日期格式化对象
 	 * 
 	 * @param format
@@ -172,14 +172,14 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return new SimpleDateFormat(format, locale);
 	}
 
-	/**
+	/*
 	 * 获取长日期格式：yyyy-MM-dd HH:mm:ss 格式对象
 	 */
 	public static SimpleDateFormat getLongDateFormat() {
 		return getDateFormat(DATE_LONGFORMAT);
 	}
 
-	/**
+	/*
 	 * 将日期格式化成字符串：yyyy-MM-dd HH:mm:ss
 	 * 
 	 * @param date
@@ -190,7 +190,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return getDateFormat(DATE_LONGFORMAT).format(date);
 	}
 
-	/**
+	/*
 	 * 根据传入的日期格式将日期化成相应格式的字符串，如：
 	 * <ul>
 	 * <li>yyyy-MM-dd HH:mm:ss
@@ -211,7 +211,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return getDateFormat(pattern).format(date);
 	}
 
-	/**
+	/*
 	 * 将long类型的日期格式化成yyyy-MM-dd HH:mm:ss格式的日期字符串形式
 	 * 
 	 * @param date
@@ -222,7 +222,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return getDateFormat(DATE_LONGFORMAT).format(date);
 	}
 
-	/**
+	/*
 	 * 根据传入的日期格式将系统当前日期对象进行格式后返回
 	 * 
 	 * @param format
@@ -234,7 +234,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return getDateFormat(pattern).format(new Date());
 	}
 
-	/**
+	/*
 	 * 将日期格式化成字符串
 	 * 
 	 * @param date
@@ -251,12 +251,12 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return getDateFormat(DATE_LONGFORMAT).format(date);
 	}
 
-	/**
+	/*
 	 * 得到日期时间字符串，转换格式（yyyy-MM-dd HH:mm:ss） public static String formatDateTime(Date
 	 * date) { return formatDate(date, DATE_LONGFORMAT); }
 	 */
 
-	/**
+	/*
 	 * 将一个long型的数值转换为指定格式的日期字符串
 	 * 
 	 * @param time
@@ -267,7 +267,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return getDateFormat(format).format(time);
 	}
 
-	/**
+	/*
 	 * 得到格式化后的日期，格式为:yyyy年MM月dd日，如2016年07月31日
 	 * 
 	 * @param currDate
@@ -298,7 +298,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 将日期类型转换成指定格式的日期字符串
 	 * 
 	 * @param date
@@ -311,7 +311,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return getDateFormat(format).format(date);
 	}
 
-	/**
+	/*
 	 * 按照给定的格式style将指定的日期值转换成字符串。
 	 * 
 	 * @param date
@@ -339,7 +339,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return newDate;
 	}
 
-	/**
+	/*
 	 * 按照给定的格式模板将指定的日期值转换成字符串。
 	 * 
 	 * @param date
@@ -361,7 +361,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return new SimpleDateFormat(format, locale).format(date);
 	}
 
-	/**
+	/*
 	 * 将日期字符串解析成日期对象，支持一下格式<br/>
 	 * <p>
 	 * <ul>
@@ -451,7 +451,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return parseDate(datestr, DATE_FORMAT_CN);
 	}
 
-	/**
+	/*
 	 * 根据指定的格式strFormat,将给定的字符串形式的日期转换成date类型
 	 * 
 	 * @param datestr
@@ -472,7 +472,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return newDate;
 	}
 
-	/**
+	/*
 	 * 两个时间之间的天数
 	 */
 	public static long getDiffDays(String date1, String date2) {
@@ -494,7 +494,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return day;
 	}
 
-	/**
+	/*
 	 * 将2007-12-1变成2007-12-01。将2007-9-1变为2007-09-01。
 	 * 
 	 * @param date
@@ -521,7 +521,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
 	}
 
-	/**
+	/*
 	 * 从时间串中获取小时数。
 	 * 
 	 * @param datestr
@@ -545,7 +545,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return datestr + " 00:00:00";
 	}
 
-	/**
+	/*
 	 * 时间查询时,结束时间的 23:59:59
 	 * 
 	 * @throws ParseException
@@ -557,7 +557,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return datestr + " 23:59:59";
 	}
 
-	/**
+	/*
 	 * 得到格式化后的当前系统日期，格式为yyyy-MM-dd，如2006-02-15
 	 * 
 	 * @see #getFormatDate(Date)
@@ -567,7 +567,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return formatDate(new Date(), DATE_FORMAT);
 	}
 
-	/**
+	/*
 	 * 取得当前日期，并将其转换成格式为"dateFormat"的字符串 例子：假如当前日期是 2003-09-24 9:19:10，则：
 	 * 
 	 * <pre>
@@ -584,7 +584,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return formatDate(new Date(), format);
 	}
 
-	/**
+	/*
 	 * 得到格式化后的当前系统时间，格式为yyyy-MM-dd HH:mm:ss，如2006-02-15 15:23:45
 	 * 
 	 * @see #getFormatDateTime(Date)
@@ -594,7 +594,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return formatDate(new Date(), DATE_LONGFORMAT);
 	}
 
-	/**
+	/*
 	 * 得到格式化后的当前系统日期，格式为yyyy年MM月dd日，如2006年02月15日
 	 * 
 	 * @see #getFormatDate(Date, String)
@@ -604,7 +604,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return formatDate(new Date(), DATE_FORMAT_CN);
 	}
 
-	/**
+	/*
 	 * 得到格式化后的当前系统时间，格式为yyyy年MM月dd日 HH:mm:ss，如2006年02月15日 15:23:45
 	 * 
 	 * @see #getFormatDateTime(Date, String)
@@ -614,7 +614,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return formatDate(new Date(), DATE_LONGFORMAT_DATE_CN);
 	}
 
-	/**
+	/*
 	 * 进行时段格式转换，对于输入的48位的01串，将进行如下操作：
 	 * <li>1.先将输入中每个0变成两个0，每个1变成2个1，形成一个96位的二进制串。</li>
 	 * <li>2.将上述的96位的二进制串分成3组，每组32位。</li>
@@ -657,7 +657,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return ret;
 	}
 
-	/**
+	/*
 	 * 进行时段格式转换，将输入的26位的2进制串转换成48位的二进制串。
 	 * 
 	 * @param timespan
@@ -690,7 +690,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return ret;
 	}
 
-	/**
+	/*
 	 * 进行时段格式转换，将输入的32位的10进制串转换成48位的二进制串。
 	 * 
 	 * @param timespan
@@ -723,7 +723,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return ret;
 	}
 
-	/**
+	/*
 	 * 进行时段格式转换，对于输入的48位的01串，将进行如下操作：
 	 * <li>1.先将输入中每个0变成两个0，每个1变成2个1，形成一个96位的二进制串。</li>
 	 * <li>2.将上述的96位的二进制串分成3组，每组32位。</li>
@@ -766,7 +766,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return ret;
 	}
 
-	/**
+	/*
 	 * 使用正则表达式判定日期
 	 */
 	public static boolean isDate(String date, String expression) {
@@ -813,21 +813,21 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 			"yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM", "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss",
 			"yyyy.MM.dd HH:mm", "yyyy.MM" };
 
-	/**
+	/*
 	 * 得到当前日期字符串 格式（yyyy-MM-dd）
 	 */
 	public static String getDate() {
 		return getDate("yyyy-MM-dd");
 	}
 
-	/**
+	/*
 	 * 得到当前日期字符串 格式（yyyy-MM-dd） pattern可以为："yyyy-MM-dd" "HH:mm:ss" "E"
 	 */
 	public static String getDate(String pattern) {
 		return DateFormatUtils.format(new Date(), pattern);
 	}
 
-	/**
+	/*
 	 * 得到日期字符串 默认格式（yyyy-MM-dd） pattern可以为："yyyy-MM-dd" "HH:mm:ss" "E"
 	 */
 	public static String formatDate(Date date, Object... pattern) {
@@ -840,49 +840,49 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return formatDate;
 	}
 
-	/**
+	/*
 	 * 得到当前时间字符串 格式（HH:mm:ss）
 	 */
 	public static String getTime() {
 		return formatDate(new Date(), "HH:mm:ss");
 	}
 
-	/**
+	/*
 	 * 得到当前日期和时间字符串 格式（yyyy-MM-dd HH:mm:ss）
 	 */
 	public static String getDateTime() {
 		return formatDate(new Date(), "yyyy-MM-dd HH:mm:ss");
 	}
 
-	/**
+	/*
 	 * 得到当前年份字符串 格式（yyyy）
 	 */
 	public static String getYear() {
 		return formatDate(new Date(), "yyyy");
 	}
 
-	/**
+	/*
 	 * 得到当前月份字符串 格式（MM）
 	 */
 	public static String getMonth() {
 		return formatDate(new Date(), "MM");
 	}
 
-	/**
+	/*
 	 * 得到当天字符串 格式（dd）
 	 */
 	public static String getDay() {
 		return formatDate(new Date(), "dd");
 	}
 
-	/**
+	/*
 	 * 得到当前星期字符串 格式（E）星期几
 	 */
 	public static String getWeek() {
 		return formatDate(new Date(), "E");
 	}
 
-	/**
+	/*
 	 * 日期型字符串转化为日期 格式 { "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm",
 	 * "yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy.MM.dd",
 	 * "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm" }
@@ -898,7 +898,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 获取过去的天数
 	 * 
 	 * @param date
@@ -909,7 +909,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return t / (24 * 60 * 60 * 1000);
 	}
 
-	/**
+	/*
 	 * 获取过去的小时
 	 * 
 	 * @param date
@@ -920,7 +920,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return t / (60 * 60 * 1000);
 	}
 
-	/**
+	/*
 	 * 获取过去的分钟
 	 * 
 	 * @param date
@@ -931,7 +931,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return t / (60 * 1000);
 	}
 
-	/**
+	/*
 	 * 转换为时间（天,时:分:秒.毫秒）
 	 * 
 	 * @param timeMillis
@@ -946,7 +946,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		return (day > 0 ? day + "," : "") + hour + ":" + min + ":" + s + "." + sss;
 	}
 
-	/**
+	/*
 	 * 获取两个日期之间的天数
 	 * 
 	 * @param before

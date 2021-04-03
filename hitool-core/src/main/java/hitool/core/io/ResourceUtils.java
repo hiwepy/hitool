@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 import hitool.core.lang3.iterator.EnumerationIterator;
 import hitool.core.lang3.wraper.ClassLoaderWrapper;
 
-/**
+/*
  * 用来加载类，classpath下的资源文件，属性文件等。
  *              getExtendResource(StringrelativePath)方法，可以使用../符号来加载
  *              classpath外部的资源。
@@ -42,51 +42,51 @@ public abstract class ResourceUtils {
 
 	protected static Logger LOG = LoggerFactory.getLogger(ResourceUtils.class);
 
-	/** URL protocol for a file in the file system: "file" */
+	/* URL protocol for a file in the file system: "file" */
 	public static final String URL_PROTOCOL_FILE = "file";
 
-	/** URL protocol for an entry from a jar file: "jar" */
+	/* URL protocol for an entry from a jar file: "jar" */
 	public static final String URL_PROTOCOL_JAR = "jar";
 
-	/** URL protocol for an entry from a zip file: "zip" */
+	/* URL protocol for an entry from a zip file: "zip" */
 	public static final String URL_PROTOCOL_ZIP = "zip";
 
-	/** URL protocol for an entry from a WebSphere jar file: "wsjar" */
+	/* URL protocol for an entry from a WebSphere jar file: "wsjar" */
 	public static final String URL_PROTOCOL_WSJAR = "wsjar";
 
-	/** URL protocol for an entry from a JBoss jar file: "vfszip" */
+	/* URL protocol for an entry from a JBoss jar file: "vfszip" */
 	public static final String URL_PROTOCOL_VFSZIP = "vfszip";
 
-	/** URL protocol for a JBoss file system resource: "vfsfile" */
+	/* URL protocol for a JBoss file system resource: "vfsfile" */
 	public static final String URL_PROTOCOL_VFSFILE = "vfsfile";
 
-	/** URL protocol for a general JBoss VFS resource: "vfs" */
+	/* URL protocol for a general JBoss VFS resource: "vfs" */
 	public static final String URL_PROTOCOL_VFS = "vfs";
 
-	/**
+	/*
 	 * URL prefix for loading from a classpath location, value is <b>
 	 * {@code classpath:}</b>
 	 */
 	public static final String CLASSPATH_URL_PREFIX = "classpath:";
-	/**
+	/*
 	 * URL prefix for loading from a url location, value is <b>{@code url:}</b>
 	 */
 	public static final String URL_PREFIX = "url:";
-	/**
+	/*
 	 * URL prefix for loading from a file system, value is <b>{@code file:}</b>
 	 */
 	public static final String FILE_URL_PREFIX = "file:";
-	/**
+	/*
 	 * URL prefix for loading from a file system, value is <b>{@code "jar:"}
 	 */
 	public static final String JAR_URL_PREFIX = "jar:";
 
-	/** File extension for a regular jar file: ".jar" */
+	/* File extension for a regular jar file: ".jar" */
 	public static final String JAR_FILE_EXTENSION = ".jar";
 
-	/** Separator between JAR URL and file path within the JAR: "!/" */
+	/* Separator between JAR URL and file path within the JAR: "!/" */
 	public static final String JAR_URL_SEPARATOR = "!/";
-	/**
+	/*
 	 * Charset to use when calling getResourceAsReader. null means use the
 	 * system default.
 	 */
@@ -96,13 +96,13 @@ public abstract class ResourceUtils {
 
 	protected static ClassLoaderWrapper classLoaderWrapper = new ClassLoaderWrapper();
 	
-	/**
+	/*
 	 * Prevent instantiation.
 	 */
 	public ResourceUtils() {
 	}
 
-	/**
+	/*
 	 * Returns the default classloader (may be null).
 	 * 
 	 * @return The default classloader
@@ -111,7 +111,7 @@ public abstract class ResourceUtils {
 		return classLoaderWrapper.getDefaultClassLoader();
 	}
 
-	/**
+	/*
 	 * Sets the default classloader
 	 * 
 	 * @param defaultClassLoader
@@ -139,14 +139,14 @@ public abstract class ResourceUtils {
 		return location;
 	}
 
-	/**
+	/*
 	 * 得到指定Class所在的ClassLoader的ClassPath的绝对路径
 	 */
 	protected static String getAbsoluteClassPath(Class<?> clazz) {
 		return clazz.getClassLoader().getResource(".").toString();
 	}
 
-	/**
+	/*
 	 * 
 	 * 必须传递资源的相对路径。是相对于classpath的路径。如果需要查找classpath外部的资源，需要使用../来查找
 	 * @param relativePath
@@ -179,7 +179,7 @@ public abstract class ResourceUtils {
 		return resourceAbsoluteURL;
 	}
 
-	/**
+	/*
 	 * Extract the URL for the actual jar file from the given URL (which may
 	 * point to a resource in a jar file or to a jar file itself).
 	 * 
@@ -221,7 +221,7 @@ public abstract class ResourceUtils {
 		return url;
 	}
 
-	/**
+	/*
 	 * Resolve the given resource location to a {@code java.net.URL}.
 	 * <p>
 	 * Does not check whether the URL actually exists; simply returns the URL
@@ -263,7 +263,7 @@ public abstract class ResourceUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Load a given resource.
 	 * <p/>
 	 * This method will try to load the resource using the following methods (in
@@ -285,7 +285,7 @@ public abstract class ResourceUtils {
 				callingClass.getClassLoader());
 	}
 
-	/**
+	/*
 	 * Load all resources with a given name, potentially aggregating all results
 	 * from the searched classloaders. If no results are found, the resource
 	 * name is prepended by '/' and tried again.
@@ -320,7 +320,7 @@ public abstract class ResourceUtils {
 		return ite;
 	}
 
-	/**
+	/*
 	 * 
 	 * <pre>
 	 * URLClassLoader ll = new URLClassLoader(urls);
@@ -352,7 +352,7 @@ public abstract class ResourceUtils {
 		return getResourceAsStream(self.getClass().getClassLoader(), resource);
 	}
 
-	/**
+	/*
 	 * Returns a resource on the classpath as a Stream object
 	 *
 	 * @param loader
@@ -373,7 +373,7 @@ public abstract class ResourceUtils {
 		return in;
 	}
 
-	/**
+	/*
 	 * Returns a resource on the classpath as a Stream object
 	 * 必须传递资源的相对路径。是相对于classpath的路径。如果需要查找 classpath外部的资源，需要使用../来查找
 	 * 
@@ -410,7 +410,7 @@ public abstract class ResourceUtils {
 		return stream;
 	}
 
-	/**
+	/*
 	 * This is a convenience method to load a resource as a stream. The
 	 * algorithm used to find the resource is given in getResource()
 	 * 
@@ -430,7 +430,7 @@ public abstract class ResourceUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Gets a URL as an input stream
 	 *
 	 * @param urlString
@@ -444,7 +444,7 @@ public abstract class ResourceUtils {
 		return getURLAsStream(new URL(urlString));
 	}
 	
-	/**
+	/*
 	 * 加载URL指定的对象到InputStream
 	 * @param url
 	 * @return
@@ -507,7 +507,7 @@ public abstract class ResourceUtils {
 		return getResourceAsStr(self.getClass().getClassLoader(), filename);
 	}
 
-	/**
+	/*
 	 * for use during constructors, when 'this' is not available // // makes a
 	 * guess that a dummy object is in the same classloader as the caller //
 	 * this assumprion may be somewhat dodgy, use with care ...
@@ -516,7 +516,7 @@ public abstract class ResourceUtils {
 		return getResourceAsStr(getDefaultClassLoader(), filename);
 	}
 
-	/**
+	/*
 	 * Returns a resource on the classpath as a Properties object
 	 *
 	 * @param resource
@@ -534,7 +534,7 @@ public abstract class ResourceUtils {
 		return props;
 	}
 
-	/**
+	/*
 	 * Returns a resource on the classpath as a Properties object
 	 *
 	 * @param loader
@@ -554,7 +554,7 @@ public abstract class ResourceUtils {
 		return props;
 	}
 
-	/**
+	/*
 	 * Returns a resource on the classpath as a Reader object
 	 *
 	 * @param resource
@@ -575,7 +575,7 @@ public abstract class ResourceUtils {
 		return reader;
 	}
 
-	/**
+	/*
 	 * Returns a resource on the classpath as a Reader object
 	 *
 	 * @param loader
@@ -599,7 +599,7 @@ public abstract class ResourceUtils {
 		return reader;
 	}
 
-	/**
+	/*
 	 * Returns a resource on the classpath as a File object
 	 *
 	 * @param loader
@@ -616,7 +616,7 @@ public abstract class ResourceUtils {
 		return url == null ? null : new File(url.getFile());
 	}
 
-	/**
+	/*
 	 * Resolve the given resource location to a {@code java.io.File}, i.e. to a
 	 * file in the file system.
 	 * <p>
@@ -656,7 +656,7 @@ public abstract class ResourceUtils {
 
 	
 
-	/**
+	/*
 	 * Resolve the given resource URI to a {@code java.io.File}, i.e. to a file
 	 * in the file system.
 	 * 
@@ -671,7 +671,7 @@ public abstract class ResourceUtils {
 		return getResourceAsFile(resourceUri, "URI");
 	}
 
-	/**
+	/*
 	 * Resolve the given resource URI to a {@code java.io.File}, i.e. to a file
 	 * in the file system.
 	 * 
@@ -696,7 +696,7 @@ public abstract class ResourceUtils {
 		return new File(resourceUri.getSchemeSpecificPart());
 	}
 
-	/**
+	/*
 	 * Resolve the given resource URL to a {@code java.io.File}, i.e. to a file
 	 * in the file system.
 	 * 
@@ -711,7 +711,7 @@ public abstract class ResourceUtils {
 		return getResourceAsFile(resourceUrl, "URL");
 	}
 
-	/**
+	/*
 	 * Resolve the given resource URL to a {@code java.io.File}, i.e. to a file
 	 * in the file system.
 	 * 
@@ -743,7 +743,7 @@ public abstract class ResourceUtils {
 	}
 
 
-	/**
+	/*
 	 * Gets a URL as a Reader
 	 *
 	 * @param urlString
@@ -762,7 +762,7 @@ public abstract class ResourceUtils {
 		return reader;
 	}
 
-	/**
+	/*
 	 * Gets a URL as a Properties object
 	 *
 	 * @param urlString
@@ -802,7 +802,7 @@ public abstract class ResourceUtils {
 		ResourceUtils.charset = charset;
 	}
 
-	/**
+	/*
 	 * Return whether the given resource location is a URL: either a special
 	 * "classpath" pseudo URL or a standard URL.
 	 * 
@@ -827,7 +827,7 @@ public abstract class ResourceUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Determine whether the given URL points to a resource in the file system,
 	 * that is, has protocol "file", "vfsfile" or "vfs".
 	 * 
@@ -842,7 +842,7 @@ public abstract class ResourceUtils {
 					.equals(protocol));
 	}
 
-	/**
+	/*
 	 * Determine whether the given URL points to a resource in a jar file, that
 	 * is, has protocol "jar", "zip", "vfszip" or "wsjar".
 	 * 
@@ -858,7 +858,7 @@ public abstract class ResourceUtils {
 					.equals(protocol));
 	}
 
-	/**
+	/*
 	 * Determine whether the given URL points to a jar file itself, that is, has
 	 * protocol "file" and ends with the ".jar" extension.
 	 * 
@@ -872,7 +872,7 @@ public abstract class ResourceUtils {
 				.toLowerCase().endsWith(JAR_FILE_EXTENSION));
 	}
 
-	/**
+	/*
 	 * Returns {@code true} if the resource path is not null and starts with one
 	 * of the recognized resource prefixes ({@link #CLASSPATH_URL_PREFIX
 	 * CLASSPATH_PREFIX}, {@link #URL_PREFIX URL_PREFIX}, or
@@ -891,7 +891,7 @@ public abstract class ResourceUtils {
 							.startsWith(FILE_URL_PREFIX));
 	}
 
-	/**
+	/*
 	 * Returns {@code true} if the resource at the specified path exists,
 	 * {@code false} otherwise. This method supports scheme prefixes on the path
 	 * as defined in {@link #getInputStreamForPath(String)}.
@@ -923,7 +923,7 @@ public abstract class ResourceUtils {
 		return exists;
 	}
 
-	/**
+	/*
 	 * Returns the InputStream for the resource represented by the specified
 	 * path, supporting scheme prefixes that direct how to acquire the input
 	 * stream ({@link #CLASSPATH_URL_PREFIX CLASSPATH_PREFIX},
@@ -986,7 +986,7 @@ public abstract class ResourceUtils {
 		return resourcePath.substring(resourcePath.indexOf(":") + 1);
 	}
 
-	/**
+	/*
 	 * Convenience method that closes the specified {@link InputStream
 	 * InputStream}, logging any {@link IOException IOException} that might
 	 * occur. If the {@code InputStream} argument is {@code null}, this method
@@ -1006,7 +1006,7 @@ public abstract class ResourceUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Create a URI instance for the given URL, replacing spaces with "%20" URI
 	 * encoding first.
 	 * <p>
@@ -1024,7 +1024,7 @@ public abstract class ResourceUtils {
 		return toURI(url.toString());
 	}
 
-	/**
+	/*
 	 * Create a URI instance for the given location String, replacing spaces
 	 * with "%20" URI encoding first.
 	 * 
@@ -1038,7 +1038,7 @@ public abstract class ResourceUtils {
 		return new URI(StringUtils.replace(location, " ", "%20"));
 	}
 
-	/**
+	/*
 	 * Set the {@link URLConnection#setUseCaches "useCaches"} flag on the given
 	 * connection, preferring {@code false} but leaving the flag at {@code true}
 	 * for JNLP based resources.

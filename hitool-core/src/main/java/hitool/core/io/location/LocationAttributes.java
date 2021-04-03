@@ -27,7 +27,7 @@ import org.xml.sax.helpers.AttributesImpl;
 
 import hitool.core.io.LocationUtils;
 
-/**
+/*
  * A class to handle location information stored in attributes.
  * These attributes are typically setup using {@link hitool.core.io.location.opensymphony.xwork2.util.location.LocationAttributes.Pipe}
  * which augments the SAX stream with additional attributes, e.g.:
@@ -39,28 +39,25 @@ import hitool.core.io.LocationUtils;
  * &lt;/root&gt;
  * </pre>
  * 
- * @see hitool.core.io.location.opensymphony.xwork2.util.location.LocationAttributes.Pipe
- * @since 2.1.8
- * @version $Id$
  */
 public class LocationAttributes {
-    /** Prefix for the location namespace */
+    /* Prefix for the location namespace */
     public static final String PREFIX = "loc";
-    /** Namespace URI for location attributes */
+    /* Namespace URI for location attributes */
     public static final String URI = "http://struts.apache.org/xwork/location";
 
-    /** Attribute name for the location URI */
+    /* Attribute name for the location URI */
     public static final String SRC_ATTR  = "src";
-    /** Attribute name for the line number */
+    /* Attribute name for the line number */
     public static final String LINE_ATTR = "line";
-    /** Attribute name for the column number */
+    /* Attribute name for the column number */
     public static final String COL_ATTR  = "column";
 
-    /** Attribute qualified name for the location URI */
+    /* Attribute qualified name for the location URI */
     public static final String Q_SRC_ATTR  = "loc:src";
-    /** Attribute qualified name for the line number */
+    /* Attribute qualified name for the line number */
     public static final String Q_LINE_ATTR = "loc:line";
-    /** Attribute qualified name for the column number */
+    /* Attribute qualified name for the column number */
     public static final String Q_COL_ATTR  = "loc:column";
     
     // Private constructor, we only have static methods
@@ -68,7 +65,7 @@ public class LocationAttributes {
         // Nothing
     }
     
-    /**
+    /*
      * Add location attributes to a set of SAX attributes.
      * 
      * @param locator the <code>Locator</code> (can be null)
@@ -92,7 +89,7 @@ public class LocationAttributes {
         return newAttrs;
     }
     
-    /**
+    /*
      * Returns the {@link Location} of an element (SAX flavor).
      * 
      * @param attrs the element's attributes that hold the location information
@@ -108,7 +105,7 @@ public class LocationAttributes {
         return new LocationImpl(description, src, getLine(attrs), getColumn(attrs));
     }
 
-    /**
+    /*
      * Returns the location of an element (SAX flavor). If the location is to be kept
      * into an object built from this element, consider using {@link #getLocation(Attributes, String)}
      * and the {@link Locatable} interface.
@@ -125,7 +122,7 @@ public class LocationAttributes {
         return src + ":" + attrs.getValue(URI, LINE_ATTR) + ":" + attrs.getValue(URI, COL_ATTR);
     }
     
-    /**
+    /*
      * Returns the URI of an element (SAX flavor)
      * 
      * @param attrs the element's attributes that hold the location information
@@ -137,7 +134,7 @@ public class LocationAttributes {
         return src != null ? src : LocationUtils.UNKNOWN_STRING;
     }
     
-    /**
+    /*
      * Returns the line number of an element (SAX flavor)
      * 
      * @param attrs the element's attributes that hold the location information
@@ -149,7 +146,7 @@ public class LocationAttributes {
         return line != null ? Integer.parseInt(line) : -1;
     }
     
-    /**
+    /*
      * Returns the column number of an element (SAX flavor)
      * 
      * @param attrs the element's attributes that hold the location information
@@ -161,7 +158,7 @@ public class LocationAttributes {
         return col != null ? Integer.parseInt(col) : -1;
     }
     
-    /**
+    /*
      * Returns the {@link Location} of an element (DOM flavor).
      * 
      * @param elem the element that holds the location information
@@ -178,7 +175,7 @@ public class LocationAttributes {
                 srcAttr.getValue(), getLine(elem), getColumn(elem));
     }
     
-    /**
+    /*
      * Same as <code>getLocation(elem, null)</code>.
      */
     public static Location getLocation(Element elem) {
@@ -186,7 +183,7 @@ public class LocationAttributes {
     }
    
 
-    /**
+    /*
      * Returns the location of an element that has been processed by this pipe (DOM flavor).
      * If the location is to be kept into an object built from this element, consider using
      * {@link #getLocation(Element)} and the {@link Locatable} interface.
@@ -203,7 +200,7 @@ public class LocationAttributes {
         return srcAttr.getValue() + ":" + elem.getAttributeNS(URI, LINE_ATTR) + ":" + elem.getAttributeNS(URI, COL_ATTR);
     }
     
-    /**
+    /*
      * Returns the URI of an element (DOM flavor)
      * 
      * @param elem the element that holds the location information
@@ -215,7 +212,7 @@ public class LocationAttributes {
         return attr != null ? attr.getValue() : LocationUtils.UNKNOWN_STRING;
     }
 
-    /**
+    /*
      * Returns the line number of an element (DOM flavor)
      * 
      * @param elem the element that holds the location information
@@ -227,7 +224,7 @@ public class LocationAttributes {
         return attr != null ? Integer.parseInt(attr.getValue()) : -1;
     }
 
-    /**
+    /*
      * Returns the column number of an element (DOM flavor)
      * 
      * @param elem the element that holds the location information
@@ -239,7 +236,7 @@ public class LocationAttributes {
         return attr != null ? Integer.parseInt(attr.getValue()) : -1;
     }
     
-    /**
+    /*
      * Remove the location attributes from a DOM element.
      * 
      * @param elem the element to remove the location attributes from.
@@ -260,7 +257,7 @@ public class LocationAttributes {
         }
     }
 
-    /**
+    /*
      * A SAX filter that adds the information available from the <code>Locator</code> as attributes.
      * The purpose of having location as attributes is to allow this information to survive transformations
      * of the document (an XSL could copy these attributes over) or conversion of SAX events to a DOM.
@@ -285,13 +282,13 @@ public class LocationAttributes {
         
         private ContentHandler nextHandler;
         
-        /**
+        /*
          * Create a filter. It has to be chained to another handler to be really useful.
          */
         public Pipe() {
         }
 
-        /**
+        /*
          * Create a filter that is chained to another handler.
          * @param next the next handler in the chain.
          */

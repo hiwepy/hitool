@@ -30,13 +30,13 @@ import org.apache.commons.codec.binary.Hex;
 
 import hitool.crypto.enums.Algorithm;
 
-/**
+/*
  * 
  * 秘钥工具类
  */
 public class SecretKeyUtils {
 
-	/** 密钥大小 */
+	/* 密钥大小 */
 	public static final int KEY_SIZE = 128;
 	public static final int CACHE_SIZE = 1024;
 
@@ -63,7 +63,7 @@ public class SecretKeyUtils {
 		return keyPairGen.generateKeyPair();
 	}
 
-	/**
+	/*
 	 * 
 	 * 生成公有key
 	 * 
@@ -81,7 +81,7 @@ public class SecretKeyUtils {
 		return keyFactory.generatePublic(x509KeySpec);
 	}
 
-	/**
+	/*
 	 * 
 	 * 生成私有key
 	 * 
@@ -103,7 +103,7 @@ public class SecretKeyUtils {
 		return SecretKeyUtils.genSecretKey(key.getBytes(), algorithm);
 	}
 
-	/**
+	/*
 	 * 
 	 * 秘密（对称）密钥(SecretKey继承(key))
 	 * 
@@ -116,7 +116,7 @@ public class SecretKeyUtils {
 		return new SecretKeySpec(key, algorithm);
 	}
 
-	/**
+	/*
 	 * 
 	 * <p>
 	 * 根据秘钥种子生成随机密钥
@@ -152,7 +152,7 @@ public class SecretKeyUtils {
 		return keygen.generateKey();
 	}
 
-	/**
+	/*
 	 * 
 	 * 生成相应算法密钥
 	 * 
@@ -215,7 +215,7 @@ public class SecretKeyUtils {
 		return Base64.encodeBase64String(SecretKeyUtils.genBinarySecretKey(algorithm, keySize));
 	}
 
-	/**
+	/*
 	 * 
 	 * 加密解密第一步：从一组固定的原始数据（也许是由口令或者随机击键产生的）来生成一个密钥
 	 * 
@@ -257,7 +257,7 @@ public class SecretKeyUtils {
 		return SecretKeyUtils.genDESedeKey(key.getBytes());
 	}
 
-	/**
+	/*
 	 * 转换密钥
 	 * 
 	 * @param key
@@ -296,7 +296,7 @@ public class SecretKeyUtils {
 		return SecretKeyUtils.genSecureRandom(seed).generateSeed(keysize);
 	}
 
-	/**
+	/*
 	 * 
 	 * 从 *.key 文件中读取 SecretKey 对象
 	 * 
@@ -317,7 +317,7 @@ public class SecretKeyUtils {
 		return key;
 	}
 
-	/**
+	/*
 	 * 
 	 * 将SecretKey 对象 写到 *.key 文件中
 	 * 

@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
+/*
  * 
  * <b>时间工具</b>
  * <p>格式字符串"EEEE-MMMM-dd-yyyy"中 EEEE是星期, MMMM是月, dd是日, yyyy是年.</p>  
@@ -30,53 +30,53 @@ import java.util.regex.Pattern;
  */
 public class TimeUtils {
 
-    /** 时间格式：hh24 */
+    /* 时间格式：hh24 */
     public static final String TIME_FORMAT_24HOUR = "hh24";
-    /** 时间格式：hh12 */
+    /* 时间格式：hh12 */
     public static final String TIME_FORMAT_12HOUR = "hh12";
-	/** 时间格式：dd*/
+	/* 时间格式：dd*/
  	public static final String TIME_FORMAT_DD = "dd";
- 	/** 时间格式：EE */
+ 	/* 时间格式：EE */
     public static final String TIME_FORMAT_EE = "EE";
-    /** 时间格式：EEEE */
+    /* 时间格式：EEEE */
     public static final String TIME_FORMAT_EEEE = "EEEE";
-    /** 时间格式：MM*/
+    /* 时间格式：MM*/
     public static final String TIME_FORMAT_MM = "MM";
- 	/** 时间格式：MMMM*/
+ 	/* 时间格式：MMMM*/
     public static final String TIME_FORMAT_MMMM = "MMMM";
-    /** 时间格式：yy*/
+    /* 时间格式：yy*/
  	public static final String TIME_FORMAT_YY = "yyyy";
- 	 /** 时间格式：yyyy*/
+ 	 /* 时间格式：yyyy*/
  	public static final String TIME_FORMAT_YYYY = "yyyy";
-	/** 短时间格式：HH:mm*/
+	/* 短时间格式：HH:mm*/
  	public static final String SHORT_TIME_FORMAT = "HH:mm";
- 	/** 短时间格式：HH时mm分*/
+ 	/* 短时间格式：HH时mm分*/
  	public static final String SHORT_TIME_FORMAT_CN = "HH时mm分";
- 	/** 时间格式：HH:mm:ss */
+ 	/* 时间格式：HH:mm:ss */
  	public static final String TIME_FORMAT = "HH:mm:ss"; 
-	/** 时间格式：HH时mm分ss秒 */
+	/* 时间格式：HH时mm分ss秒 */
  	public static final String TIME_FORMAT_CN = "HH时mm分ss秒"; 
- 	/** 时间格式,主要是针对timestamp：HH:mm:ss:SS */
+ 	/* 时间格式,主要是针对timestamp：HH:mm:ss:SS */
 	public static final String TIME_LONGFORMAT = "HH:mm:ss:SS"; 
- 	/** 时间格式,主要是针对timestamp：HH时mm分ss秒SS毫秒 */
+ 	/* 时间格式,主要是针对timestamp：HH时mm分ss秒SS毫秒 */
 	public static final String TIME_LONGFORMAT_CN = "HH时mm分ss秒SS毫秒";
-    /** 时间格式：h:m:s a */
+    /* 时间格式：h:m:s a */
     public static final String TIME_FORMAT_SECOND = "h:m:s a";
-    /** 时间格式：a h时m分s秒 */
+    /* 时间格式：a h时m分s秒 */
     public static final String TIME_FORMAT_SECOND_CN = "a h时m分s秒";
-    /** 时间格式：h:m a */
+    /* 时间格式：h:m a */
     public static final String TIME_FORMAT_MINUTE = "h:m a";
-    /** 时间格式：a h时m分 */
+    /* 时间格式：a h时m分 */
     public static final String TIME_FORMAT_MINUTE_CN = "a h时m分";
-    /** 时间格式：HHmmss*/
+    /* 时间格式：HHmmss*/
  	public static final String TIMESTAMP_SECOND = "HHmmss";
- 	/** 时间格式：HHmmssSSS*/
+ 	/* 时间格式：HHmmssSSS*/
  	public static final String TIMESTAMP_MICROSECOND = "HHmmssSSS";
- 	/** 时间格式：yyyyMMdd*/
+ 	/* 时间格式：yyyyMMdd*/
  	public static final String TIMESTAMP_DAY = "yyyyMMdd";
- 	/** 时间格式：yyyyMMddHHmmss*/
+ 	/* 时间格式：yyyyMMddHHmmss*/
  	public static final String TIMESTAMP_FORMAT = "yyyyMMddHHmmss";
- 	/** 时间格式：yyyyMMddHHmmssSSS*/
+ 	/* 时间格式：yyyyMMddHHmmssSSS*/
  	public static final String TIMESTAMP_LONGFORMAT = "yyyyMMddHHmmssSSS";
     
 	protected static Map<String,Integer> TIME_POWERS = new HashMap<String, Integer>();
@@ -101,14 +101,14 @@ public class TimeUtils {
 		TIME_POWERS.put("d", 24 * 60 * 60 * 1000);//一天
 	}
 	
-	/**
+	/*
 	 * 根据给出的字符串格式，获取相应的时间格式化对象
 	 */
 	public static SimpleDateFormat getTimeFormat(String format) {
 		return new SimpleDateFormat(format);
 	}
 	
-	/**
+	/*
 	 * 得到字符时间对应的时间Ingeter值：如 5s 对应值为 50000
 	 */
 	public static Integer getTimeMillis(String value) {
@@ -135,14 +135,14 @@ public class TimeUtils {
 		return c;
 	}
 
-	/**
+	/*
 	 *  取得当前天零晨时间
 	 */
 	public static long getBeginTimeOfDay() {
 		return getBeginCalendar().getTimeInMillis();
 	}
 	
-	/**
+	/*
 	 *  <b>取得当前天偏移指定天数后的零晨时间 </b>
 	 *  <p>offset > 0 ,往后延迟offset天， </p>
 	 *  offset < 0 向前推进 offset天 <br/>
@@ -157,76 +157,76 @@ public class TimeUtils {
 		return TimeUtils.getTimeFormat(format).format(new Timestamp(time));
 	}
 
-    /**
+    /*
 	 * 取得当前时间
 	 */
 	public static long getNow() {
 		return System.currentTimeMillis();
 	}
 	
-	/**
+	/*
 	 * 指定格式的当前时间 
 	 */
 	public static String getNow(String format) {
 		return getTimeFormat(format).format(new Date());
 	}
 	
-	/** 当前年份：yyyy */
+	/* 当前年份：yyyy */
 	public static String getYear() {
 		return getYear(new Date());
 	}
 	
-	/** 指定日期所在年的年份：yyyy */
+	/* 指定日期所在年的年份：yyyy */
 	public static String getYear(Date date) {
 		return getTimeFormat(TIME_FORMAT_YYYY).format(date);
 	}
 	
-	/** 当前月份：MM */
+	/* 当前月份：MM */
 	public static String getMonth() {
 		return getMonth(new Date());
 	}
 	
-	/** 指定日期所在月的月份：MM */
+	/* 指定日期所在月的月份：MM */
 	public static String getMonth(Date date) {
 		return getTimeFormat(TIME_FORMAT_MM).format(date);
 	}
 	
-	/** 当前周几：EEEE  */
+	/* 当前周几：EEEE  */
 	public static String getWeek() {
 		return getWeek(new Date());
 	}
 	
-	/** 指定日期周几：EEEE  */
+	/* 指定日期周几：EEEE  */
 	public static String getWeek(Date date) {
 		return getTimeFormat(TIME_FORMAT_EEEE).format(date);
 	}
 	
-	/** 当月第n天：dd */
+	/* 当月第n天：dd */
 	public static String getDay() {
 		return getDay(new Date());
 	}
 	
-	/** 指定日期所在月的第n天：dd */
+	/* 指定日期所在月的第n天：dd */
 	public static String getDay(Date date) {
 		return getTimeFormat(TIME_FORMAT_DD).format(date);
 	}
 
-	/** 当前小时：hh24 */
+	/* 当前小时：hh24 */
 	public static String getHour24() {
 		return getHour24(new Date());
 	}
 	
-	/** 指定日期小时：hh24 */
+	/* 指定日期小时：hh24 */
 	public static String getHour24(Date date) {
 		return getTimeFormat(TIME_FORMAT_24HOUR).format(date);
 	}
 	
-	/** 当前小时：hh12 */
+	/* 当前小时：hh12 */
 	public static String getHour12() {
 		return getHour12(new Date());
 	}
 	
-	/** 指定日期当前小时：hh12 */
+	/* 指定日期当前小时：hh12 */
 	public static String getHour12(Date date) {
 		return getTimeFormat(TIME_FORMAT_12HOUR).format(date);
 	}
