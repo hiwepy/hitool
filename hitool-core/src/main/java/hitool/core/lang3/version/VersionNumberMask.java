@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -31,7 +31,7 @@ public class VersionNumberMask extends VersionNumber {
 		}
 	}
 
-	/**
+	/*
 	 * Doesn't compare modifier
 	 */
 	@Override

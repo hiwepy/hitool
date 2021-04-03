@@ -4,11 +4,11 @@ import java.math.BigInteger;
 
 import org.apache.commons.codec.binary.Base64;
 
+import hitool.crypto.algorithm.SM3Digest;
 import hitool.crypto.binary.PrintUtil;
-import hitool.crypto.binary.SM3Digest;
 
 
-/**
+/*
  * @author 陈明 E-mail:chenming@sansec.com.cn
  * @version 创建时间：2011-5-25 上午08:43:26
  * 

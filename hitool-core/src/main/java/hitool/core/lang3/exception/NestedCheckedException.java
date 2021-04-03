@@ -18,7 +18,7 @@ package hitool.core.lang3.exception;
 
 import java.text.MessageFormat;
 
-/**
+/*
  * Helper class for implementing exception classes which are capable of
  * holding nested exceptions. Necessary because we can't share a base
  * class among different exception types.
@@ -35,7 +35,7 @@ import java.text.MessageFormat;
  */
 public abstract class NestedCheckedException extends Exception {
 	
-	/** Use serialVersionUID from Spring 1.2 for interoperability */
+	/*
 	private static final long serialVersionUID = 7100714597678207546L;
 
 	static {
@@ -49,7 +49,7 @@ public abstract class NestedCheckedException extends Exception {
 		fillInStackTrace();
 	}
 
-	/**
+	/*
 	 * Construct a {@code NestedCheckedException} with the specified detail message.
 	 * @param msg the detail message
 	 */
@@ -61,7 +61,7 @@ public abstract class NestedCheckedException extends Exception {
 		super(cause);
 	}
 	
-	/**
+	/*
 	 * Construct a {@code NestedCheckedException} with the specified detail message
 	 * and nested exception.
 	 * @param msg the detail message
@@ -79,7 +79,7 @@ public abstract class NestedCheckedException extends Exception {
 		super(getText(message, arguments), cause);
 	}
 
-	/**
+	/*
 	 * Return the detail message, including the message from the nested exception
 	 * if there is one.
 	 */
@@ -88,7 +88,7 @@ public abstract class NestedCheckedException extends Exception {
 		return NestedExceptionUtils.buildMessage(super.getMessage(), getCause());
 	}
 
-	/**
+	/*
 	 * Retrieve the innermost cause of this exception, if any.
 	 * @return the innermost exception, or {@code null} if none
 	 */
@@ -102,7 +102,7 @@ public abstract class NestedCheckedException extends Exception {
 		return rootCause;
 	}
 
-	/**
+	/*
 	 * Retrieve the most specific cause of this exception, that is,
 	 * either the innermost cause (root cause) or this exception itself.
 	 * <p>Differs from {@link #getRootCause()} in that it falls back
@@ -115,7 +115,7 @@ public abstract class NestedCheckedException extends Exception {
 		return (rootCause != null ? rootCause : this);
 	}
 
-	/**
+	/*
 	 * Check whether this exception contains an exception of the given type:
 	 * either it is of the given class itself or it contains a nested cause
 	 * of the given type.

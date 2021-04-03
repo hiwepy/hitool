@@ -1,19 +1,19 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
 package hitool.core.lang3;
 
-/**
+/*
  * Java Native和Ascii转换代码
  */
 public class Native2AsciiUtils {
-	/**
+	/*
 	 * prefix of ascii string of native character
 	 */
 	private static String PREFIX = "\\u";
 
-	/**
+	/*
 	 * Native to ascii string. It's same as execut native2ascii.exe.
 	 * 
 	 * @param str native string
@@ -28,7 +28,7 @@ public class Native2AsciiUtils {
 		return sb.toString();
 	}
 
-	/**
+	/*
 	 * Native character to ascii string.
 	 * 
 	 * @param c
@@ -57,7 +57,7 @@ public class Native2AsciiUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Ascii to native string. It's same as execut native2ascii.exe -reverse.
 	 * 
 	 * @param str
@@ -78,7 +78,7 @@ public class Native2AsciiUtils {
 		return sb.toString();
 	}
 
-	/**
+	/*
 	 * Ascii to native character.
 	 * 
 	 * @param str
@@ -101,7 +101,7 @@ public class Native2AsciiUtils {
 	
 	public static void main(String[] args) {
 		
-		//\u4e2d\u592e\u8d22\u7ecf\u5927\u5b66
+		//*
 		System.out.println(Native2AsciiUtils.native2Ascii("中央财经大学"));
 		
 	}

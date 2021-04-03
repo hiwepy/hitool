@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
+/*
  *  线程Executor工具类
  */
 public abstract class ExecutorUtils {
@@ -52,7 +52,7 @@ public abstract class ExecutorUtils {
 		return thread_num;
 	}
 	
-	/**
+	/*
 	 * <p>1、调用shutdown()停止接受任何新的任务且等待已经提交的任务执行完成</p>
 	 * <p>2、调用awaitTermination(awaitTime, TimeUnit) 每隔10秒钟检测ExecutorService的关闭情况</p>
 	 */
@@ -60,14 +60,14 @@ public abstract class ExecutorUtils {
 		return awaitShutdown(cachedThreadPool, 10, TimeUnit.SECONDS);
 	}
 	
-	/**
+	/*
 	 * <p>1、调用shutdown()停止接受任何新的任务且等待已经提交的任务执行完成</p>
 	 * <p>2、调用awaitTermination(awaitTime, TimeUnit) 每隔指定时间监测一次ExecutorService的关闭情况</p>
 	 */
 	public static int awaitShutdown(ExecutorService cachedThreadPool, int awaitTime, TimeUnit unit ){
 		long time =	System.currentTimeMillis();
 		try {
-			/**
+			/*
 			 * 这个方法会平滑地关闭ExecutorService，当我们调用这个方法时，
 			 * ExecutorService停止接受任何新的任务且等待已经提交的任务执行完成
 			 * (已经提交的任务会分两类：一类是已经在执行的，另一类是还没有开始执行的)，
@@ -75,7 +75,7 @@ public abstract class ExecutorUtils {
 			 */
 			cachedThreadPool.shutdown(); 
 			//=====================等待所有任务完成 =========================
-			/**
+			/*
 			 * 这个方法有两个参数，一个是timeout即超时时间，另一个是unit即时间单位。
 			 * 这个方法会使线程等待timeout时长，当超过timeout时间后，会监测ExecutorService是否已经关闭，
 			 * 若关闭则返回true，否则返回false。
@@ -99,7 +99,7 @@ public abstract class ExecutorUtils {
 	}
 	
 	public static int shutdown(ExecutorService cachedThreadPool){
-		/**
+		/*
 		 * 这个方法会平滑地关闭ExecutorService，当我们调用这个方法时，
 		 * ExecutorService停止接受任何新的任务且等待已经提交的任务执行完成
 		 * (已经提交的任务会分两类：一类是已经在执行的，另一类是还没有开始执行的)，
@@ -107,7 +107,7 @@ public abstract class ExecutorUtils {
 		 */
 		cachedThreadPool.shutdown(); 
 		//=====================等待所有任务完成 =========================
-		/**
+		/*
 		 * 这个方法会校验ExecutorService当前的状态是否为“TERMINATED”即关闭状态，当为“TERMINATED”时返回true否则返回false
 		 * 注意：该方法执行循环较快，可做完成时间统计
 		 */

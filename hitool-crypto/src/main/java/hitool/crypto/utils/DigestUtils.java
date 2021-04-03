@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 
 import hitool.crypto.enums.Algorithm;
 
-/**
+/*
  * 
  * @package hitool.crypto.digest
  * @className: DigestUtils TODO

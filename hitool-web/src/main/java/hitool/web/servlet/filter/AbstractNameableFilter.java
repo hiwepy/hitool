@@ -18,7 +18,7 @@ package hitool.web.servlet.filter;
 
 public abstract class AbstractNameableFilter extends AbstractFilter implements Nameable{
 
-	/**
+	/*
 	 * 过滤器名称
 	 */
 	protected String name;

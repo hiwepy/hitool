@@ -57,7 +57,7 @@ public abstract class AbstractFilter implements Filter {
 		this.filterConfig = null;
 	}
 
-	/**
+	/*
 	 * Make the name of this filter available to subclasses.
 	 * Analogous to GenericServlet's <code>getServletName()</code>.
 	 * <p>Takes the FilterConfig's filter name by default.

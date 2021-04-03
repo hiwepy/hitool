@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 import java.util.Locale;
 
 import hitool.core.format.Format;
-/** 
+/*
  * 使用舍入模式的格式化操作
  */
 public class IntegerFormat implements Format {

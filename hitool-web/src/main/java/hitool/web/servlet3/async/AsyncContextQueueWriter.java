@@ -10,21 +10,21 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.servlet.AsyncContext;
 
-/**
+/*
  * 向一个Queue<AsyncContext>中每个Context的Writer进行输出
  */
 public class AsyncContextQueueWriter extends Writer {
-	/**
+	/*
 	 * AsyncContext队列
 	 */
 	private Queue<AsyncContext> queue;
 
-	/**
+	/*
 	 * 消息队列
 	 */
 	private static final BlockingQueue<String> MESSAGE_QUEUE = new LinkedBlockingQueue<String>();
 
-	/**
+	/*
 	 * 构造AsyncContextQueueWriter
 	 * 
 	 * @param queue
@@ -35,7 +35,7 @@ public class AsyncContextQueueWriter extends Writer {
 		notifierThread.start();
 	}
 	
-	/**
+	/*
 	 * 发送消息到异步线程，最终输出到http response流
 	 * @param cbuf
 	 * @param off
@@ -46,7 +46,7 @@ public class AsyncContextQueueWriter extends Writer {
 		sendMessage(new String(cbuf, off, len));
 	}
 
-	/**
+	/*
 	 * 发送消息到异步线程，最终输出到http response流
 	 * 
 	 * @param str
@@ -62,7 +62,7 @@ public class AsyncContextQueueWriter extends Writer {
 		}
 	}
 
-	/**
+	/*
 	 * 异步线程，当消息队列中被放入数据，将释放take方法的阻塞，将数据发送到http response流上
 	 */
 	private Runnable notifierRunnable = new Runnable() {
@@ -90,7 +90,7 @@ public class AsyncContextQueueWriter extends Writer {
 		}
 	};
 
-	/**
+	/*
 	 * 保持一个默认的writer，输出至控制台，这个writer是同步输出，其他输出到response流的writer是异步输出
 	 */
 	private static final Writer DEFAULT_WRITER = new OutputStreamWriter(System.out);

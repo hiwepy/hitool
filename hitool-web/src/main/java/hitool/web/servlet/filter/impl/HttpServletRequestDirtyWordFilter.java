@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import hitool.web.servlet.filter.OncePerRequestFilter;
 import hitool.web.servlet.http.HttpServletDirtyWordFilterRequestWrapper;
 
-/**
+/*
  * 敏感词过滤器
  */
 public class HttpServletRequestDirtyWordFilter extends OncePerRequestFilter {

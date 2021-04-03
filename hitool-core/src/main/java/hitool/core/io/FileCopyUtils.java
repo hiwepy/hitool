@@ -10,7 +10,7 @@ import java.io.OutputStream;
 
 import hitool.core.lang3.Assert;
 
-/**
+/*
  *  文件拷贝操作工具
  */
 public class FileCopyUtils extends FileUtils {
@@ -30,7 +30,7 @@ public class FileCopyUtils extends FileUtils {
 		return copy(srcFile, distFile);
 	}
 
-	/**
+	/*
 	 * Copy the contents of the given input File to the given output File. <br/>
 	 * 将给定的文件内容拷贝到给定的输出文件里
 	 * 
@@ -53,7 +53,7 @@ public class FileCopyUtils extends FileUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Copy the contents of the given byte array to the given output File. <br/>
 	 * 将给定的字节数据内容拷贝到给定的文件里
 	 * 
@@ -75,7 +75,7 @@ public class FileCopyUtils extends FileUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Recursively copy the contents of the <code>src</code> file/directory to
 	 * the <code>dest</code> file/directory. <br/>
 	 * 递归的拷贝给定的src文件或文件夹到目标文件夹或文件内
@@ -97,7 +97,7 @@ public class FileCopyUtils extends FileUtils {
 		doCopyRecursively(src, dest);
 	}
 
-	/**
+	/*
 	 * Actually copy the contents of the <code>src</code> file/directory to the
 	 * <code>dest</code> file/directory. <br/>
 	 * 实际拷贝文件或文件夹的内容到目标文件或文件夹里

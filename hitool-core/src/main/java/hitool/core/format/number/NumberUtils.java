@@ -5,12 +5,12 @@ import java.text.Format;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
+/*
  *  数值的常用函数
  */
 public abstract class NumberUtils {
 
-	/**
+	/*
 	 * 精度,并且“四舍五入”。如（11，2）--->11;(11.123,2)-->11.12;(11.156,2)-->11.16
 	 */
 	public static Object numberFormat(Number num, int precision) {
@@ -29,7 +29,7 @@ public abstract class NumberUtils {
 		return nf.format(num);
 	}
 
-	/**
+	/*
 	 * 判断是否为数字[0-9]。包括 负数或科学记数  
 	 */
 	public static boolean isNumeric(Object num) {
@@ -40,7 +40,7 @@ public abstract class NumberUtils {
 		return isMatch(num, regex);
 	}
 
-	/**
+	/*
 	 *  判断是否为正数
 	 */
 	public static boolean isPositive(Object num) {

@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.oreilly.servlet.MultipartRequest;
 
-/**
+/*
  * Multipart form data request adapter for oreilly package.
  */
 @SuppressWarnings({"unchecked","rawtypes"})

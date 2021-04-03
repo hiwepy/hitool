@@ -29,7 +29,7 @@ package hitool.core.net.ssl;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
-/**
+/*
  * A strategy to establish trustworthiness of certificates without consulting the trust manager
  * configured in the actual SSL context. This interface can be used to override the standard
  * JSSE certificate verification process.
@@ -38,7 +38,7 @@ import java.security.cert.X509Certificate;
  */
 public interface TrustStrategy {
 
-    /**
+    /*
      * Determines whether the certificate chain can be trusted without consulting the trust manager
      * configured in the actual SSL context. This method can be used to override the standard JSSE
      * certificate verification process.

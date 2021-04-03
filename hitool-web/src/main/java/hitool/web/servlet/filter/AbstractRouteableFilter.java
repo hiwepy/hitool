@@ -16,7 +16,7 @@ public abstract class AbstractRouteableFilter extends OncePerRequestFilter {
 
 	private static final Logger LOG = LoggerFactory.getLogger(AbstractRouteableFilter.class);
 	
-	/**
+	/*
 	 * 用来判定使用那个FilterChian
 	 */
 	protected FilterChainResolver filterChainResolver;

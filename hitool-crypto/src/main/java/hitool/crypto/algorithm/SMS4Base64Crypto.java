@@ -11,7 +11,7 @@ import hitool.crypto.BinaryVerifier;
 import hitool.crypto.StringVerifier;
 import hitool.crypto.utils.StringUtils;
 
-/**
+/*
  * 
  * 基于国密SMS4算法的加密解密类
  */
@@ -115,7 +115,7 @@ public class SMS4Base64Crypto implements StringEncoder,StringDecoder,BinaryEncod
 		return null;
 	}
 	
-	/**
+	/*
 	 * 密码验证方法
 	 * @throws EncoderException 
 	 */
@@ -123,7 +123,7 @@ public class SMS4Base64Crypto implements StringEncoder,StringDecoder,BinaryEncod
 		return encode(source).equals(encrypt);
 	}
 
-	/**
+	/*
 	 * 重载一个多次加密时的密码验证方法
 	 * @throws EncoderException 
 	 */

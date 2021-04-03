@@ -3,7 +3,7 @@ package hitool.core.format.number;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-/**
+/*
  *使用舍入模式的格式化操作
  **/
 public class DoubleFormat {

@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -6,7 +6,7 @@ package hitool.core.lang3.exception;
 
 import java.text.MessageFormat;
 
-/**
+/*
  *  系统错误(Error),重写部分方法提高异常处理效率
  */
 @SuppressWarnings("serial")
@@ -36,7 +36,7 @@ public abstract class OverrideStackErrorException extends Error {
 		super(getText(message, arguments), cause);
 	}
 	
-	/**
+	/*
 	 * <pre>
 	 * 自定义改进的Exception对象 覆写了 fillInStackTrace方法
 	 * 1. 不填充stack

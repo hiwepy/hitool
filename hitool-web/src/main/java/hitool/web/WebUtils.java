@@ -41,7 +41,7 @@ import hitool.core.lang3.StringUtils;
 
 public abstract class WebUtils {
 
-	/**
+	/*
 	 * Standard Servlet 2.3+ spec request attributes for include URI and paths.
 	 * <p>If included via a RequestDispatcher, the current resource will see the
 	 * originating request. Its own URI and paths are exposed as request attributes.
@@ -52,7 +52,7 @@ public abstract class WebUtils {
 	public static final String INCLUDE_PATH_INFO_ATTRIBUTE = "javax.servlet.include.path_info";
 	public static final String INCLUDE_QUERY_STRING_ATTRIBUTE = "javax.servlet.include.query_string";
 
-	/**
+	/*
 	 * Standard Servlet 2.4+ spec request attributes for forward URI and paths.
 	 * <p>If forwarded to via a RequestDispatcher, the current resource will see its
 	 * own URI and paths. The originating URI and paths are exposed as request attributes.
@@ -63,7 +63,7 @@ public abstract class WebUtils {
 	public static final String FORWARD_PATH_INFO_ATTRIBUTE = "javax.servlet.forward.path_info";
 	public static final String FORWARD_QUERY_STRING_ATTRIBUTE = "javax.servlet.forward.query_string";
 
-	/**
+	/*
 	 * Standard Servlet 2.3+ spec request attributes for error pages.
 	 * <p>To be exposed to JSPs that are marked as error pages, when forwarding
 	 * to them directly rather than through the servlet container's error page
@@ -77,53 +77,50 @@ public abstract class WebUtils {
 	public static final String ERROR_SERVLET_NAME_ATTRIBUTE = "javax.servlet.error.servlet_name";
 
 
-	/**
+	/*
 	 * Prefix of the charset clause in a content type String: ";charset="
 	 */
 	public static final String CONTENT_TYPE_CHARSET_PREFIX = ";charset=";
 
-	/**
+	/*
 	 * Default character encoding to use when {@code request.getCharacterEncoding}
 	 * returns {@code null}, according to the Servlet spec.
 	 * @see ServletRequest#getCharacterEncoding
 	 */
 	public static final String DEFAULT_CHARACTER_ENCODING = "ISO-8859-1";
 
-	/**
+	/*
 	 * Standard Servlet spec context attribute that specifies a temporary
 	 * directory for the current web application, of type {@code java.io.File}.
 	 */
 	public static final String TEMP_DIR_CONTEXT_ATTRIBUTE = "javax.servlet.context.tempdir";
 
-	/**
+	/*
 	 * HTML escape parameter at the servlet context level
 	 * (i.e. a context-param in {@code web.xml}): "defaultHtmlEscape".
 	 */
 	public static final String HTML_ESCAPE_CONTEXT_PARAM = "defaultHtmlEscape";
 
-	/**
+	/*
 	 * Use of response encoding for HTML escaping parameter at the servlet context level
 	 * (i.e. a context-param in {@code web.xml}): "responseEncodedHtmlEscape".
 	 * @since 4.1.2
 	 */
 	public static final String RESPONSE_ENCODED_HTML_ESCAPE_CONTEXT_PARAM = "responseEncodedHtmlEscape";
 
-	/**
+	/*
 	 * Web app root key parameter at the servlet context level
 	 * (i.e. a context-param in {@code web.xml}): "webAppRootKey".
 	 */
 	public static final String WEB_APP_ROOT_KEY_PARAM = "webAppRootKey";
 
-	/** Default web app root key: "webapp.root" */
 	public static final String DEFAULT_WEB_APP_ROOT_KEY = "webapp.root";
 
-	/** Name suffixes in case of image buttons */
 	public static final String[] SUBMIT_IMAGE_SUFFIXES = {".x", ".y"};
 
-	/** Key for the mutex session attribute */
 	public static final String SESSION_MUTEX_ATTRIBUTE = WebUtils.class.getName() + ".MUTEX";
 
-	/**
+	/*
 	 * Set a system property to the web application root directory.
 	 * The key of the system property can be defined with the "webAppRootKey"
 	 * context-param in {@code web.xml}. Default is "webapp.root".
@@ -157,7 +154,7 @@ public abstract class WebUtils {
 		servletContext.log("Set web app root system property: '" + key + "' = [" + root + "]");
 	}
 
-	/**
+	/*
 	 * Remove the system property that points to the web app root directory.
 	 * To be called on shutdown of the web application.
 	 * @param servletContext the servlet context of the web application
@@ -170,7 +167,7 @@ public abstract class WebUtils {
 		System.getProperties().remove(key);
 	}
 
-	/**
+	/*
 	 * Return whether default HTML escaping is enabled for the web application,
 	 * i.e. the value of the "defaultHtmlEscape" context-param in {@code web.xml}
 	 * (if any). Falls back to {@code false} in case of no explicit default given.
@@ -187,7 +184,7 @@ public abstract class WebUtils {
 		return Boolean.valueOf(param);
 	}
 
-	/**
+	/*
 	 * Return whether default HTML escaping is enabled for the web application,
 	 * i.e. the value of the "defaultHtmlEscape" context-param in {@code web.xml}
 	 * (if any).
@@ -205,7 +202,7 @@ public abstract class WebUtils {
 		return (StringUtils.hasText(param) ? Boolean.valueOf(param) : null);
 	}
 
-	/**
+	/*
 	 * Return whether response encoding should be used when HTML escaping characters,
 	 * thus only escaping XML markup significant characters with UTF-* encodings.
 	 * This option is enabled for the web application with a ServletContext param,
@@ -226,7 +223,7 @@ public abstract class WebUtils {
 		return (StringUtils.hasText(param) ? Boolean.valueOf(param) : null);
 	}
 
-	/**
+	/*
 	 * Return the temporary directory for the current web application,
 	 * as provided by the servlet container.
 	 * @param servletContext the servlet context of the web application
@@ -237,7 +234,7 @@ public abstract class WebUtils {
 		return (File) servletContext.getAttribute(TEMP_DIR_CONTEXT_ATTRIBUTE);
 	}
 
-	/**
+	/*
 	 * Return the real path of the given path within the web application,
 	 * as provided by the servlet container.
 	 * <p>Prepends a slash if the path does not already start with a slash,
@@ -266,7 +263,7 @@ public abstract class WebUtils {
 	}
 
 
-	/**
+	/*
 	 * Determine the session id of the given request, if any.
 	 * @param request current HTTP request
 	 * @return the session id, or {@code null} if none
@@ -277,7 +274,7 @@ public abstract class WebUtils {
 		return (session != null ? session.getId() : null);
 	}
 
-	/**
+	/*
 	 * Check the given request for a session attribute of the given name.
 	 * Returns null if there is no session or if the session has no such attribute.
 	 * Does not create a new session if none has existed before!
@@ -291,7 +288,7 @@ public abstract class WebUtils {
 		return (session != null ? session.getAttribute(name) : null);
 	}
 
-	/**
+	/*
 	 * Check the given request for a session attribute of the given name.
 	 * Throws an exception if there is no session or if the session has no such
 	 * attribute. Does not create a new session if none has existed before!
@@ -310,7 +307,7 @@ public abstract class WebUtils {
 		return attr;
 	}
 
-	/**
+	/*
 	 * Set the session attribute with the given name to the given value.
 	 * Removes the session attribute if value is null, if a session existed at all.
 	 * Does not create a new session if not necessary!
@@ -331,7 +328,7 @@ public abstract class WebUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Get the specified session attribute, creating and setting a new attribute if
 	 * no existing found. The given class needs to have a public no-arg constructor.
 	 * Useful for on-demand state objects in a web tier, like shopping carts.
@@ -365,7 +362,7 @@ public abstract class WebUtils {
 		return sessionObject;
 	}
 
-	/**
+	/*
 	 * Return the best available mutex for the given session:
 	 * that is, an object to synchronize on for the given session.
 	 * <p>Returns the session mutex attribute if available; usually,
@@ -395,7 +392,7 @@ public abstract class WebUtils {
 	}
 
 
-	/**
+	/*
 	 * Return an appropriate request object of the specified type, if available,
 	 * unwrapping the given request as far as necessary.
 	 * @param request the servlet request to introspect
@@ -416,7 +413,7 @@ public abstract class WebUtils {
 		return null;
 	}
 
-	/**
+	/*
 	 * Return an appropriate response object of the specified type, if available,
 	 * unwrapping the given response as far as necessary.
 	 * @param response the servlet response to introspect
@@ -437,7 +434,7 @@ public abstract class WebUtils {
 		return null;
 	}
 
-	/**
+	/*
 	 * Determine whether the given request is an include request,
 	 * that is, not a top-level HTTP request coming in from the outside.
 	 * <p>Checks the presence of the "javax.servlet.include.request_uri"
@@ -450,7 +447,7 @@ public abstract class WebUtils {
 		return (request.getAttribute(INCLUDE_REQUEST_URI_ATTRIBUTE) != null);
 	}
 
-	/**
+	/*
 	 * Expose the Servlet spec's error attributes as {@link javax.servlet.http.HttpServletRequest}
 	 * attributes under the keys defined in the Servlet 2.3 specification, for error pages that
 	 * are rendered directly rather than through the Servlet container's error page resolution:
@@ -477,7 +474,7 @@ public abstract class WebUtils {
 		exposeRequestAttributeIfNotPresent(request, ERROR_SERVLET_NAME_ATTRIBUTE, servletName);
 	}
 
-	/**
+	/*
 	 * Expose the specified request attribute if not already present.
 	 * @param request current servlet request
 	 * @param name the name of the attribute
@@ -489,7 +486,7 @@ public abstract class WebUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Clear the Servlet spec's error attributes as {@link javax.servlet.http.HttpServletRequest}
 	 * attributes under the keys defined in the Servlet 2.3 specification:
 	 * {@code javax.servlet.error.status_code},
@@ -509,7 +506,7 @@ public abstract class WebUtils {
 		request.removeAttribute(ERROR_SERVLET_NAME_ATTRIBUTE);
 	}
 
-	/**
+	/*
 	 * Expose the given Map as request attributes, using the keys as attribute names
 	 * and the values as corresponding attribute values. Keys need to be Strings.
 	 * @param request current HTTP request
@@ -523,7 +520,7 @@ public abstract class WebUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Check if a specific input type="submit" parameter was sent in the request,
 	 * either via a button (directly with name) or via an image (name + ".x" or
 	 * name + ".y").
@@ -545,7 +542,7 @@ public abstract class WebUtils {
 		return false;
 	}
 
-	/**
+	/*
 	 * Obtain a named parameter from the given request parameters.
 	 * <p>See {@link #findParameterValue(java.util.Map, String)}
 	 * for a description of the lookup algorithm.
@@ -558,7 +555,7 @@ public abstract class WebUtils {
 		return findParameterValue(request.getParameterMap(), name);
 	}
 
-	/**
+	/*
 	 * Obtain a named parameter from the given request parameters.
 	 * <p>This method will try to obtain a parameter value using the
 	 * following algorithm:
@@ -608,7 +605,7 @@ public abstract class WebUtils {
 		return null;
 	}
 
-	/**
+	/*
 	 * Return a map containing all parameters with the given prefix.
 	 * Maps single values to String and multiple values to String array.
 	 * <p>For example, with a prefix of "spring_", "spring_param1" and
@@ -648,7 +645,7 @@ public abstract class WebUtils {
 		return params;
 	}
 
-	/**
+	/*
 	 * Return the target page specified in the request.
 	 * @param request current servlet request
 	 * @param paramPrefix the parameter prefix to check for
@@ -675,7 +672,7 @@ public abstract class WebUtils {
 	}
 
 
-	/**
+	/*
 	 * Extract the URL filename from the given request URL path.
 	 * Correctly resolves nested paths such as "/products/view.html" as well.
 	 * @param urlPath the request URL path (e.g. "/index.html")
@@ -690,7 +687,7 @@ public abstract class WebUtils {
 		return filename;
 	}
 
-	/**
+	/*
 	 * Extract the full URL filename (including file extension) from the given request URL path.
 	 * Correctly resolves nested paths such as "/products/view.html" as well.
 	 * @param urlPath the request URL path (e.g. "/products/index.html")
@@ -769,7 +766,7 @@ public abstract class WebUtils {
 		return null;
 	}*/
 	
-	 /**
+	 /*
      * 
      * <p>方法说明：获取参数<p>
      * <p>作者：a href="#">Zhangxiaobin[1036]<a><p>
@@ -799,7 +796,7 @@ public abstract class WebUtils {
                         value.equalsIgnoreCase("on"));
     }
     
-    /**
+    /*
      * A convenience method that merely casts the incoming <code>ServletRequest</code> to an
      * <code>HttpServletRequest</code>:
      * <p/>
@@ -815,7 +812,7 @@ public abstract class WebUtils {
         return (HttpServletRequest) request;
     }
 
-    /**
+    /*
      * A convenience method that merely casts the incoming <code>ServletResponse</code> to an
      * <code>HttpServletResponse</code>:
      * <p/>
@@ -831,7 +828,7 @@ public abstract class WebUtils {
         return (HttpServletResponse) response;
     }
     
-	/**
+	/*
      * Return the path within the web application for the given request.
      * Detects include request URL if called within a RequestDispatcher include.
      * <p/>
@@ -859,7 +856,7 @@ public abstract class WebUtils {
         }
     }
 
-    /**
+    /*
      * Return the request URI for the given request, detecting an include request
      * URL if called within a RequestDispatcher include.
      * <p>As the value returned by <code>request.getRequestURI()</code> is <i>not</i>
@@ -879,7 +876,7 @@ public abstract class WebUtils {
         return normalize(decodeAndCleanUriString(request, uri));
     }
 
-    /**
+    /*
      * Normalize a relative URI path that may have relative values ("/./",
      * "/../", and so on ) it it.  <strong>WARNING</strong> - This method is
      * useful only for normalizing application-generated paths.  It does not
@@ -894,7 +891,7 @@ public abstract class WebUtils {
         return normalize(path, true);
     }
 
-    /**
+    /*
      * Normalize a relative URI path that may have relative values ("/./",
      * "/../", and so on ) it it.  <strong>WARNING</strong> - This method is
      * useful only for normalizing application-generated paths.  It does not
@@ -960,7 +957,7 @@ public abstract class WebUtils {
     }
 
 
-    /**
+    /*
      * Decode the supplied URI string and strips any extraneous portion after a ';'.
      *
      * @param request the incoming HttpServletRequest
@@ -973,7 +970,7 @@ public abstract class WebUtils {
         return (semicolonIndex != -1 ? uri.substring(0, semicolonIndex) : uri);
     }
 
-    /**
+    /*
      * Return the context path for the given request, detecting an include request
      * URL if called within a RequestDispatcher include.
      * <p>As the value returned by <code>request.getContextPath()</code> is <i>not</i>
@@ -994,7 +991,7 @@ public abstract class WebUtils {
         return decodeRequestString(request, contextPath);
     }
 	
-    /**
+    /*
      * Decode the given source string with a URLDecoder. The encoding will be taken
      * from the request, falling back to the default "ISO-8859-1".
      * <p>The default implementation uses <code>URLDecoder.decode(input, enc)</code>.
@@ -1017,7 +1014,7 @@ public abstract class WebUtils {
         }
     }
     
-    /**
+    /*
      * 
      * <p>方法说明：获取请求主机信息<p>
      * <p>作者：a href="#">Zhangxiaobin[1036]<a><p>
@@ -1042,7 +1039,7 @@ public abstract class WebUtils {
 		return domain.toString();
     }
     
-    /**
+    /*
      * 
      * <p>方法说明：获取请求主机信息<p>
      * <p>作者：a href="#">Zhangxiaobin[1036]<a><p>
@@ -1072,7 +1069,7 @@ public abstract class WebUtils {
  		return (request.getHeader("X-Requested-With") != null  && "XMLHttpRequest".equals( request.getHeader("X-Requested-With").toString())) ;
  	}
     
-    /**
+    /*
      * Determine the encoding for the given request.
      * Can be overridden in subclasses.
      * <p>The default implementation checks the request's
@@ -1091,7 +1088,7 @@ public abstract class WebUtils {
         return enc;
     }
     
-    /**
+    /*
      * Redirects the current request to a new URL based on the given parameters.
      *
      * @param request          the servlet request.
@@ -1108,7 +1105,7 @@ public abstract class WebUtils {
         view.renderMergedOutputModel(queryParams, toHttp(request), toHttp(response));
     }
 
-    /**
+    /*
      * Redirects the current request to a new URL based on the given parameters and default values
      * for unspecified parameters.
      *
@@ -1121,7 +1118,7 @@ public abstract class WebUtils {
         issueRedirect(request, response, url, null, true, true);
     }
 
-    /**
+    /*
      * Redirects the current request to a new URL based on the given parameters and default values
      * for unspecified parameters.
      *
@@ -1136,7 +1133,7 @@ public abstract class WebUtils {
         issueRedirect(request, response, url, queryParams, true, true);
     }
 
-    /**
+    /*
      * Redirects the current request to a new URL based on the given parameters and default values
      * for unspecified parameters.
      *
@@ -1152,7 +1149,7 @@ public abstract class WebUtils {
         issueRedirect(request, response, url, queryParams, contextRelative, true);
     }
     
-    /**
+    /*
      * 
      * <p>方法说明：判断是否是ajax请求<p>
      * <p>作者：a href="#">Zhangxiaobin[1036]<a><p>
@@ -1173,7 +1170,7 @@ public abstract class WebUtils {
     //
     private static class RedirectView {
 
-        /**
+        /*
          * The default encoding scheme: UTF-8
          */
         public static final String DEFAULT_ENCODING_SCHEME = "UTF-8";
@@ -1186,7 +1183,7 @@ public abstract class WebUtils {
 
         private String encodingScheme = DEFAULT_ENCODING_SCHEME;
 
-        /**
+        /*
          * Constructor for use as a bean.
          */
         
@@ -1194,7 +1191,7 @@ public abstract class WebUtils {
 		public RedirectView() {
         }
 
-        /**
+        /*
          * Create a new RedirectView with the given URL.
          * <p>The given URL will be considered as relative to the web server,
          * not as relative to the current ServletContext.
@@ -1206,7 +1203,7 @@ public abstract class WebUtils {
             setUrl(url);
         }
 
-        /**
+        /*
          * Create a new RedirectView with the given URL.
          *
          * @param url             the URL to redirect to
@@ -1219,7 +1216,7 @@ public abstract class WebUtils {
             this.contextRelative = contextRelative;
         }
 
-        /**
+        /*
          * Create a new RedirectView with the given URL.
          *
          * @param url              the URL to redirect to
@@ -1242,7 +1239,7 @@ public abstract class WebUtils {
             this.url = url;
         }
 
-        /**
+        /*
          * Set whether to interpret a given URL that starts with a slash ("/")
          * as relative to the current ServletContext, i.e. as relative to the
          * web application root.
@@ -1261,7 +1258,7 @@ public abstract class WebUtils {
             this.contextRelative = contextRelative;
         }
 
-        /**
+        /*
          * Set whether to stay compatible with HTTP 1.0 clients.
          * <p>In the default implementation, this will enforce HTTP status code 302
          * in any case, i.e. delegate to <code>HttpServletResponse.sendRedirect</code>.
@@ -1279,7 +1276,7 @@ public abstract class WebUtils {
             this.http10Compatible = http10Compatible;
         }
 
-        /**
+        /*
          * Set the encoding scheme for this view. Default is UTF-8.
          *
          * @param encodingScheme the encoding scheme for this view. Default is UTF-8.
@@ -1290,7 +1287,7 @@ public abstract class WebUtils {
         }
 
 
-        /**
+        /*
          * Convert model to request parameters and redirect to the given URL.
          *
          * @param model    the model to convert
@@ -1317,7 +1314,7 @@ public abstract class WebUtils {
             sendRedirect(request, response, targetUrl.toString(), this.http10Compatible);
         }
 
-        /**
+        /*
          * Append query properties to the redirect URL.
          * Stringifies, URL-encodes and formats model attributes as query properties.
          *
@@ -1369,7 +1366,7 @@ public abstract class WebUtils {
             }
         }
 
-        /**
+        /*
          * URL-encode the given input String with the given encoding scheme, using
          * {@link URLEncoder#encode(String, String) URLEncoder.encode(input, enc)}.
          *
@@ -1384,7 +1381,7 @@ public abstract class WebUtils {
             return URLEncoder.encode(input, encodingScheme);
         }
 
-        /**
+        /*
          * Determine name-value pairs for query strings, which will be stringified,
          * URL-encoded and formatted by appendQueryProperties.
          * <p/>
@@ -1399,7 +1396,7 @@ public abstract class WebUtils {
             return model;
         }
 
-        /**
+        /*
          * Send a redirect back to the HTTP client
          *
          * @param request          current HTTP request (allows for reacting to request method)

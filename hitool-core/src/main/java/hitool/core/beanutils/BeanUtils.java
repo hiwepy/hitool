@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -35,7 +35,7 @@ import hitool.core.beanutils.reflection.ReflectionUtils;
 import hitool.core.lang3.Assert;
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  * Java Bean 应用类 扩展 Apache Commons BeanUtils, 提供一些反射方面缺失功能的封装.
  */
 public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
@@ -49,7 +49,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 
 	private static final ConcurrentMap<Class<?> , BeanInfo> COMPLIED_BEANINFO = new ConcurrentHashMap<Class<?> , BeanInfo>();
 	
-	/**
+	/*
 	 * Convenience method to instantiate a class using its no-arg constructor.
 	 * As this method doesn't try to load classes by name, it should avoid
 	 * class-loading issues.
@@ -73,7 +73,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Instantiate a class using its no-arg constructor.
 	 * As this method doesn't try to load classes by name, it should avoid
 	 * class-loading issues.
@@ -96,7 +96,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Instantiate a class using its no-arg constructor and return the new instance
 	 * as the the specified assignable type.
 	 * <p>Useful in cases where
@@ -117,7 +117,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		return (T) instantiateClass(clazz);
 	}
 
-	/**
+	/*
 	 * Convenience method to instantiate a class using the given constructor.
 	 * As this method doesn't try to load classes by name, it should avoid
 	 * class-loading issues.
@@ -152,7 +152,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Find a method with the given method name and the given parameter types,
 	 * declared on the given class or one of its superclasses. Prefers public methods,
 	 * but will return a protected, package access, or private method too.
@@ -175,7 +175,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Find a method with the given method name and the given parameter types,
 	 * declared on the given class or one of its superclasses. Will return a public,
 	 * protected, package access, or private method.
@@ -198,7 +198,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Find a method with the given method name and minimal parameters (best case: none),
 	 * declared on the given class or one of its superclasses. Prefers public methods,
 	 * but will return a protected, package access, or private method too.
@@ -223,7 +223,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		return targetMethod;
 	}
 
-	/**
+	/*
 	 * Find a method with the given method name and minimal parameters (best case: none),
 	 * declared on the given class or one of its superclasses. Will return a public,
 	 * protected, package access, or private method.
@@ -245,7 +245,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		return targetMethod;
 	}
 
-	/**
+	/*
 	 * Find a method with the given method name and minimal parameters (best case: none)
 	 * in the given list of methods.
 	 * @param methods the methods to check
@@ -283,7 +283,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		return targetMethod;
 	}
 
-	/**
+	/*
 	 * Parse a method signature in the form {@code methodName[([arg_list])]},
 	 * where {@code arg_list} is an optional, comma-separated list of fully-qualified
 	 * type names, and attempts to resolve that signature against the supplied {@code Class}.
@@ -336,7 +336,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Find a JavaBeans {@code PropertyDescriptor} for the given method,
 	 * with the method either being the read method or the write method for
 	 * that bean property.
@@ -357,7 +357,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		return null;
 	}
 
-	/**
+	/*
 	 * Find a JavaBeans PropertyEditor following the 'Editor' suffix convention
 	 * (e.g. "mypackage.MyDomainClass" -> "mypackage.MyDomainClassEditor").
 	 * <p>Compatible to the standard JavaBeans convention as implemented by
@@ -409,7 +409,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Check if the given type represents a "simple" property:
 	 * a primitive, a String or other CharSequence, a Number, a Date,
 	 * a URI, a URL, a Locale, a Class, or a corresponding array.
@@ -424,7 +424,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		return isSimpleValueType(clazz) || (clazz.isArray() && isSimpleValueType(clazz.getComponentType()));
 	}
 
-	/**
+	/*
 	 * Check if the given type represents a "simple" value type:
 	 * a primitive, a String or other CharSequence, a Number, a Date,
 	 * a URI, a URL, a Locale or a Class.
@@ -440,7 +440,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 				clazz.equals(Locale.class) || clazz.equals(Class.class);
 	}
 
-	/**
+	/*
 	 *  获取声明属性
 	 * @param clazz
 	 * @return
@@ -463,7 +463,7 @@ public abstract class BeanUtils extends org.apache.commons.beanutils.BeanUtils {
 		return props;
 	}
 
-	/**
+	/*
 	 * 检测类是否包含属性
 	 * @param clazz
 	 * @param propertyName

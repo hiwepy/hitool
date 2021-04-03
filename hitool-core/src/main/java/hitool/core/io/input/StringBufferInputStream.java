@@ -8,7 +8,7 @@ import java.io.Reader;
 
 public class StringBufferInputStream extends InputStream {
 
-	/**
+	/*
 	 * The input stream to be filtered.
 	 */
 	protected Reader reader;

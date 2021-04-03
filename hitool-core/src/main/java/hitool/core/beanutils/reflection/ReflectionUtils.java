@@ -38,7 +38,7 @@ import hitool.core.lang3.Assert;
 import hitool.core.lang3.StringUtils;
 
 
-/**
+/*
  * Simple utility class for working with the reflection API and handling
  * reflection exceptions.
  *
@@ -56,7 +56,7 @@ public abstract class ReflectionUtils {
 	
 	protected static Logger LOG = LoggerFactory.getLogger(ReflectionUtils.class);
 
-	/**
+	/*
 	 * Naming prefix for CGLIB-renamed methods.
 	 * @see #isCglibRenamedMethod
 	 */
@@ -68,13 +68,13 @@ public abstract class ReflectionUtils {
 
 	private static final String CGLIB_CLASS_SEPARATOR = "$$";
 
-	/**
+	/*
 	 * Cache for {@link Class#getDeclaredMethods()}, allowing for fast iteration.
 	 */
 	private static final Map<Class<?>, Method[]> declaredMethodsCache = new ConcurrentReferenceHashMap<Class<?>, Method[]>(256);
 
 
-	/**
+	/*
 	 * 循环向上转型, 获取对象的DeclaredField,	 并强制设置为可访问
 	 */
 	public static Field getAccessibleField(Object target, String name) {
@@ -83,7 +83,7 @@ public abstract class ReflectionUtils {
 		return field;
 	}
 	
-	/**
+	/*
 	 * Attempt to get a {@link Field field} on the supplied {@link Class} with the
 	 * supplied {@code name}. Searches all superclasses up to {@link Object}.
 	 * @param clazz the class to introspect
@@ -96,7 +96,7 @@ public abstract class ReflectionUtils {
 	
 
 
-	/**
+	/*
 	 * Attempt to get a {@link Field field} on the supplied {@link Class} with the
 	 * supplied {@code name} and/or {@link Class type}. Searches all superclasses
 	 * up to {@link Object}.
@@ -121,7 +121,7 @@ public abstract class ReflectionUtils {
 		return null;
 	}
 	
-	/**
+	/*
 	 * 获取target对象名称为name的Field
 	 */
 	public static Field getField(Object target, String name) {
@@ -136,7 +136,7 @@ public abstract class ReflectionUtils {
 		return null;
 	}
 	
-	/**
+	/*
 	 * Set the field represented by the supplied {@link Field field object} on the
 	 * specified {@link Object target object} to the specified {@code value}.
 	 * In accordance with {@link Field#set(Object, Object)} semantics, the new value
@@ -157,7 +157,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 直接设置对象属性值, 无视private/protected修饰符, 不经过setter函数.
 	 */
 	public static void setField(String fieldName,Object target,Object value) {
@@ -178,7 +178,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * Get the field represented by the supplied {@link Field field object} on the
 	 * specified {@link Object target object}. In accordance with {@link Field#get(Object)}
 	 * semantics, the returned value is automatically wrapped if the underlying field
@@ -207,7 +207,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * 直接读取对象属性值, 无视private/protected修饰符, 不经过getter函数
 	 */
 	public static Object getField(String fieldName,Object target) {
@@ -230,7 +230,7 @@ public abstract class ReflectionUtils {
 		return result;
 	}
 	
-	/**
+	/*
 	 * Attempt to get a {@link Method} on the supplied class with the supplied name
 	 * and no parameters. Searches all superclasses up to {@code Object}.
 	 * <p>Returns {@code null} if no {@link Method} can be found.
@@ -242,7 +242,7 @@ public abstract class ReflectionUtils {
 		return getMethod(clazz, name, new Class<?>[0]);
 	}
 
-	/**
+	/*
 	 * Attempt to get a {@link Method} on the supplied class with the supplied name
 	 * and parameter types. Searches all superclasses up to {@code Object}.
 	 * <p>Returns {@code null} if no {@link Method} can be found.
@@ -268,7 +268,7 @@ public abstract class ReflectionUtils {
 		return null;
 	}
 	
-	/**
+	/*
 	 * 循环向上转型, 获取对象的DeclaredMethod,并强制设置为可访问.如向上转型到Object仍无法找到, 返回null.
 	 */
 	public static Method getMethod(Object target,String name,Class<?>... paramTypes) {
@@ -283,7 +283,7 @@ public abstract class ReflectionUtils {
 		return method;
 	}
 	
-	/**
+	/*
 	 * 循环向上转型, 获取对象的DeclaredMethod,并强制设置为可访问.
 	 */
 	public static Method getAccessibleMethod(Object target,String name,Class<?>... paramTypes ) {
@@ -293,7 +293,7 @@ public abstract class ReflectionUtils {
 		return method;
 	}
 	
-	/**
+	/*
 	 * Invoke the specified {@link Method} against the supplied target object with no arguments.
 	 * The target object can be {@code null} when invoking a static {@link Method}.
 	 * <p>Thrown exceptions are handled via a call to {@link #handleReflectionException}.
@@ -306,7 +306,7 @@ public abstract class ReflectionUtils {
 		return invokeMethod(method, target, new Object[0]);
 	}
 
-	/**
+	/*
 	 * Invoke the specified {@link Method} against the supplied target object with the
 	 * supplied arguments. The target object can be {@code null} when invoking a
 	 * static {@link Method}.
@@ -326,7 +326,7 @@ public abstract class ReflectionUtils {
 		throw new IllegalStateException("Should never get here");
 	}
 	
-	/**
+	/*
 	 * 直接调用对象方法, 无视private/protected修饰符. 用于一次性调用的情况.
 	 */
 	public static Object invokeMethod(String methodName, Object target, Class<?>[] parameterTypes, Object[] args) {
@@ -340,7 +340,7 @@ public abstract class ReflectionUtils {
 		throw new IllegalStateException("Should never get here");
 	}
 	
-	/**
+	/*
 	 * 调用Getter方法.
 	 */
 	public static Object invokeGetterMethod(String propertyName, Object target) {
@@ -352,14 +352,14 @@ public abstract class ReflectionUtils {
 		return invokeGetterMethod(propertyName,target);
 	}
 
-	/**
+	/*
 	 * 调用Setter方法.使用value的Class来查找Setter方法.
 	 */
 	public static void invokeSetterMethod(String propertyName, Object target, Object value) {
 		invokeSetterMethod( propertyName, target, value, null);
 	}
 	
-	/**
+	/*
 	 * 调用Getter方法.
 	 * 支持多级，如：对象名.对象名.方法
 	 */
@@ -372,7 +372,7 @@ public abstract class ReflectionUtils {
 		return object;
 	}
 
-	/**
+	/*
 	 * 调用Setter方法, 仅匹配方法名。
 	 * 支持多级，如：对象名.对象名.方法
 	 */
@@ -390,7 +390,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 调用Setter方法.
 	 * 
 	 * @param propertyType 用于查找Setter方法,为空时使用value的Class替代.
@@ -403,7 +403,7 @@ public abstract class ReflectionUtils {
 
 	
 
-	/**
+	/*
 	 * Invoke the specified JDBC API {@link Method} against the supplied target
 	 * object with no arguments.
 	 * @param method the method to invoke
@@ -416,7 +416,7 @@ public abstract class ReflectionUtils {
 		return invokeJdbcMethod(method, target, new Object[0]);
 	}
 
-	/**
+	/*
 	 * Invoke the specified JDBC API {@link Method} against the supplied target
 	 * object with the supplied arguments.
 	 * @param method the method to invoke
@@ -442,7 +442,7 @@ public abstract class ReflectionUtils {
 		throw new IllegalStateException("Should never get here");
 	}
 
-	/**
+	/*
 	 * Handle the given reflection exception. Should only be called if no
 	 * checked exception is expected to be thrown by the target method.
 	 * <p>Throws the underlying RuntimeException or Error in case of an
@@ -466,7 +466,7 @@ public abstract class ReflectionUtils {
 		throw new UndeclaredThrowableException(ex);
 	}
 
-	/**
+	/*
 	 * Handle the given invocation target exception. Should only be called if no
 	 * checked exception is expected to be thrown by the target method.
 	 * <p>Throws the underlying RuntimeException or Error in case of such a root
@@ -477,7 +477,7 @@ public abstract class ReflectionUtils {
 		rethrowRuntimeException(ex.getTargetException());
 	}
 
-	/**
+	/*
 	 * Rethrow the given {@link Throwable exception}, which is presumably the
 	 * <em>target exception</em> of an {@link InvocationTargetException}. Should
 	 * only be called if no checked exception is expected to be thrown by the
@@ -498,7 +498,7 @@ public abstract class ReflectionUtils {
 		throw new UndeclaredThrowableException(ex);
 	}
 
-	/**
+	/*
 	 * Rethrow the given {@link Throwable exception}, which is presumably the
 	 * <em>target exception</em> of an {@link InvocationTargetException}. Should
 	 * only be called if no checked exception is expected to be thrown by the
@@ -519,7 +519,7 @@ public abstract class ReflectionUtils {
 		throw new UndeclaredThrowableException(ex);
 	}
 
-	/**
+	/*
 	 * Determine whether the given method explicitly declares the given
 	 * exception or one of its superclasses, which means that an exception of
 	 * that type can be propagated as-is within a reflective invocation.
@@ -539,7 +539,7 @@ public abstract class ReflectionUtils {
 		return false;
 	}
 
-	/**
+	/*
 	 * Determine whether the given field is a "public static final" constant.
 	 * @param field the field to check
 	 */
@@ -548,7 +548,7 @@ public abstract class ReflectionUtils {
 		return (Modifier.isPublic(modifiers) && Modifier.isStatic(modifiers) && Modifier.isFinal(modifiers));
 	}
 
-	/**
+	/*
 	 * Determine whether the given method is an "equals" method.
 	 * @see java.lang.Object#equals(Object)
 	 */
@@ -560,7 +560,7 @@ public abstract class ReflectionUtils {
 		return (paramTypes.length == 1 && paramTypes[0] == Object.class);
 	}
 
-	/**
+	/*
 	 * Determine whether the given method is a "hashCode" method.
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -568,7 +568,7 @@ public abstract class ReflectionUtils {
 		return (method != null && method.getName().equals("hashCode") && method.getParameterTypes().length == 0);
 	}
 
-	/**
+	/*
 	 * Determine whether the given method is a "toString" method.
 	 * @see java.lang.Object#toString()
 	 */
@@ -576,7 +576,7 @@ public abstract class ReflectionUtils {
 		return (method != null && method.getName().equals("toString") && method.getParameterTypes().length == 0);
 	}
 	
-	/**
+	/*
 	 * 判断clazz类是否实现了某个接口
 	 */
 	public static boolean isInterface(Class<?> clazz, Class<?> targetInterface) {
@@ -601,7 +601,7 @@ public abstract class ReflectionUtils {
 		return false;
 	}
 	
-	/**
+	/*
 	 * Determine whether the given method is originally declared by {@link java.lang.Object}.
 	 */
 	public static boolean isObjectMethod(Method method) {
@@ -617,7 +617,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Determine whether the given method is a CGLIB 'renamed' method,
 	 * following the pattern "CGLIB$methodName$0".
 	 * @param renamedMethod the method to check
@@ -637,7 +637,7 @@ public abstract class ReflectionUtils {
 		return false;
 	}
 
-	/**
+	/*
 	 * Make the given field accessible, explicitly setting it accessible if
 	 * necessary. The {@code setAccessible(true)} method is only called
 	 * when actually necessary, to avoid unnecessary conflicts with a JVM
@@ -652,7 +652,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Make the given method accessible, explicitly setting it accessible if
 	 * necessary. The {@code setAccessible(true)} method is only called
 	 * when actually necessary, to avoid unnecessary conflicts with a JVM
@@ -667,7 +667,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Make the given constructor accessible, explicitly setting it accessible
 	 * if necessary. The {@code setAccessible(true)} method is only called
 	 * when actually necessary, to avoid unnecessary conflicts with a JVM
@@ -682,7 +682,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Perform the given callback operation on all matching methods of the given
 	 * class and superclasses.
 	 * <p>The same named method occurring on subclass and superclass will appear
@@ -695,7 +695,7 @@ public abstract class ReflectionUtils {
 		doWithMethods(clazz, mc, null);
 	}
 
-	/**
+	/*
 	 * Perform the given callback operation on all matching methods of the given
 	 * class and superclasses (or given interface and super-interfaces).
 	 * <p>The same named method occurring on subclass and superclass will appear
@@ -728,7 +728,7 @@ public abstract class ReflectionUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * Get all declared fields on the leaf class and all superclasses.
 	 * Leaf class fields are included first.
 	 * @param leafClass the class to introspect
@@ -744,7 +744,7 @@ public abstract class ReflectionUtils {
 		return fields.toArray(new Field[fields.size()]);
 	}
 
-	/**
+	/*
 	 * Get all declared methods on the leaf class and all superclasses.
 	 * Leaf class methods are included first.
 	 * @param leafClass the class to introspect
@@ -760,7 +760,7 @@ public abstract class ReflectionUtils {
 		return methods.toArray(new Method[methods.size()]);
 	}
 
-	/**
+	/*
 	 * Get the unique set of declared methods on the leaf class and all superclasses.
 	 * Leaf class methods are included first and while traversing the superclass hierarchy
 	 * any methods found with signatures matching a method already included are filtered out.
@@ -798,7 +798,7 @@ public abstract class ReflectionUtils {
 		return methods.toArray(new Method[methods.size()]);
 	}
 
-	/**
+	/*
 	 * This variant retrieves {@link Class#getDeclaredMethods()} from a local cache
 	 * in order to avoid the JVM's SecurityManager check and defensive array copying.
 	 */
@@ -811,7 +811,7 @@ public abstract class ReflectionUtils {
 		return result;
 	}
 
-	/**
+	/*
 	 * Invoke the given callback on all fields in the target class, going up the
 	 * class hierarchy to get all declared fields.
 	 * @param clazz the target class to analyze
@@ -821,7 +821,7 @@ public abstract class ReflectionUtils {
 		doWithFields(clazz, fc, null);
 	}
 
-	/**
+	/*
 	 * Invoke the given callback on all fields in the target class, going up the
 	 * class hierarchy to get all declared fields.
 	 * @param clazz the target class to analyze
@@ -849,7 +849,7 @@ public abstract class ReflectionUtils {
 		while (targetClass != null && targetClass != Object.class);
 	}
 
-	/**
+	/*
 	 * Given the source object and the destination, which must be the same class
 	 * or a subclass, copy all fields, including inherited fields. Designed to
 	 * work on objects with public no-arg constructors.
@@ -876,12 +876,12 @@ public abstract class ReflectionUtils {
 	}
 
 
-	/**
+	/*
 	 * Action to take on each method.
 	 */
 	public interface MethodCallback {
 
-		/**
+		/*
 		 * Perform an operation using the given method.
 		 * @param method the method to operate on
 		 */
@@ -889,12 +889,12 @@ public abstract class ReflectionUtils {
 	}
 
 
-	/**
+	/*
 	 * Callback optionally used to filter methods to be operated on by a method callback.
 	 */
 	public interface MethodFilter {
 
-		/**
+		/*
 		 * Determine whether the given method matches.
 		 * @param method the method to check
 		 */
@@ -902,12 +902,12 @@ public abstract class ReflectionUtils {
 	}
 
 
-	/**
+	/*
 	 * Callback interface invoked on each field in the hierarchy.
 	 */
 	public interface FieldCallback {
 
-		/**
+		/*
 		 * Perform an operation using the given field.
 		 * @param field the field to operate on
 		 */
@@ -915,12 +915,12 @@ public abstract class ReflectionUtils {
 	}
 
 
-	/**
+	/*
 	 * Callback optionally used to filter fields to be operated on by a field callback.
 	 */
 	public interface FieldFilter {
 
-		/**
+		/*
 		 * Determine whether the given field matches.
 		 * @param field the field to check
 		 */
@@ -928,7 +928,7 @@ public abstract class ReflectionUtils {
 	}
 
 
-	/**
+	/*
 	 * Pre-built FieldFilter that matches all non-static, non-final fields.
 	 */
 	public static FieldFilter COPYABLE_FIELDS = new FieldFilter() {
@@ -940,7 +940,7 @@ public abstract class ReflectionUtils {
 	};
 
 
-	/**
+	/*
 	 * Pre-built MethodFilter that matches all non-bridge methods.
 	 */
 	public static MethodFilter NON_BRIDGED_METHODS = new MethodFilter() {
@@ -952,7 +952,7 @@ public abstract class ReflectionUtils {
 	};
 
 
-	/**
+	/*
 	 * Pre-built MethodFilter that matches all non-bridge methods
 	 * which are not declared on {@code java.lang.Object}.
 	 */
@@ -964,7 +964,7 @@ public abstract class ReflectionUtils {
 		}
 	};
 	
-	/**
+	/*
 	 * 提取集合中的对象的属性(通过getter函数), 组合成List.
 	 * @param collection 来源集合.
 	 * @param propertyName 要提取的属性名.
@@ -983,7 +983,7 @@ public abstract class ReflectionUtils {
 		return list;
 	}
 
-	/**
+	/*
 	 * 提取集合中的对象的属性(通过getter函数), 组合成由分割符分隔的字符串.
 	 * @param collection 来源集合.
 	 * @param propertyName 要提取的属性名.

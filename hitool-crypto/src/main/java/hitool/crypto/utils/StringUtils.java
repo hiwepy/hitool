@@ -2,7 +2,7 @@ package hitool.crypto.utils;
 
 import java.util.Random;
 
- /**
+ /*
  * @package com.jeekit.encrypt.utils
  * @className: StringUtils
  *  TODO
@@ -77,7 +77,7 @@ public class StringUtils extends org.apache.commons.codec.binary.StringUtils{
 
     
 	
-	/**
+	/*
 	 * 字节标准移位转十六进制方法
 	 */
 	public static String getHexString(byte[] bs) {
@@ -88,7 +88,7 @@ public class StringUtils extends org.apache.commons.codec.binary.StringUtils{
 		return sb.toString();
 	}
 	
-	/**
+	/*
 	 * 字节标准移位转十六进制方法
 	 */
 	public static String getHexString(byte b) {
@@ -115,7 +115,7 @@ public class StringUtils extends org.apache.commons.codec.binary.StringUtils{
         return b2;
     }
     
-	/**
+	/*
 	  * 生成随即密码
 	  * @author 来自网上
 	  * @param pwd_len 生成的密码的总长度

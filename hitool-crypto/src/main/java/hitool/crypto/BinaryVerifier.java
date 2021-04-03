@@ -2,7 +2,7 @@ package hitool.crypto;
 
 import org.apache.commons.codec.EncoderException;
 
-/**
+/*
  * 
  * 二级制验证
  */

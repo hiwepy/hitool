@@ -15,14 +15,14 @@
  */
 package hitool.core.io.location;
 
-/**
+/*
  * Base class for location aware objects
  */
 public abstract class Located implements Locatable {
     
     protected Location location;
     
-    /**
+    /*
      * Get the location of this object
      * 
      * @return the location
@@ -31,7 +31,7 @@ public abstract class Located implements Locatable {
         return location;
     }
     
-    /**
+    /*
      * Set the location of this object
      * 
      * @param loc the location

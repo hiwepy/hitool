@@ -21,7 +21,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-/**
+/*
  * Freemarker框架html格式工具
  */
 public abstract class FormatUtils{
@@ -35,7 +35,7 @@ public abstract class FormatUtils{
 	
 	// ====================基于String文本的FreeMarker模板处理==========================================================
 	
-	/**
+	/*
 	 * 格式化freemarker模板文本内容
 	 * @param rootMap
 	 * @param templateName
@@ -74,7 +74,7 @@ public abstract class FormatUtils{
 	
 	// ====================基于文件系统的FreeMarker模板处理==========================================================
 	
-	/**
+	/*
 	 * 
 	 * 将模板生成静态html文件
 	 * @param rootMap			: 用于处理模板的属性Object映射
@@ -96,7 +96,7 @@ public abstract class FormatUtils{
 		return FormatUtils.toStatic(template , rootMap);
 	}
 	
-	/**
+	/*
 	 * 
 	 * 基于文件系统。 比如加载/home/user/template下的模板文件。
 	 *				cfg.setDirectoryForTemplateLoading(new File("/home/user/template"));cfg.getTemplate("Base.ftl");
@@ -134,7 +134,7 @@ public abstract class FormatUtils{
 		}
 	}
 	
-	/**
+	/*
 	 * 
 	 * 将基于文件系统的模板生成静态html文件
 	 * @param rootMap			: 用于处理模板的属性Object映射
@@ -181,7 +181,7 @@ public abstract class FormatUtils{
 		}
 	}
 	
-	/**
+	/*
 	 * 将基于文件系统的模板生成静态html文件：比如： setServletContextForTemplateLoading(context, "/ftl") 就是 /WebRoot/ftl目录。
 	 * @param rootMap			: 用于处理模板的属性Object映射
 	 * @param templateDir		: 模板的存放目录

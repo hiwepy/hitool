@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-/**
+/*
  * <b>高并发场景下System.currentTimeMillis()的性能问题的优化</b>
  * <pre>
  * System.currentTimeMillis()的调用比new一个普通对象要耗时的多（具体耗时高出多少我还没测试过，有人说是100倍左右）

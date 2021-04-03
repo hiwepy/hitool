@@ -20,7 +20,7 @@ import hitool.crypto.utils.DecryptUtils;
 import hitool.crypto.utils.EncryptUtils;
 import hitool.crypto.utils.SecretKeyUtils;
 import hitool.crypto.utils.StringUtils;
-/**
+/*
  *  DESede+ Base64 加密算法
  */
 public class DESedeBase64Crypto implements Crypto,SecretKeyEncryptor,SecretKeyDecryptor,FileEncryptor,FileDecryptor{

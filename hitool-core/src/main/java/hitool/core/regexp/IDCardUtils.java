@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Hashtable;
 
-/**
+/*
  * <pre>
  * 身份证验证的工具（支持5位或18位省份证）
  * 身份证号码结构：
@@ -87,7 +87,7 @@ public abstract class IDCardUtils {
 	
 	private static String _codeError;
 
-	/** 验证身份证位数,15位和18位身份证  */
+	
 	public static boolean verifyLength(String certNo) {
 		int length = certNo.length();
 		if (length == 15 || length == 18) {
@@ -98,7 +98,7 @@ public abstract class IDCardUtils {
 		}
 	}
 
-	/** 验证身份证 地区码  */
+	
 	public static boolean verifyAreaCode(String certNo) {
 		String areaCode = certNo.substring(0, 2);
 		if (areaCodeMap.containsKey(areaCode)) {
@@ -109,7 +109,7 @@ public abstract class IDCardUtils {
 		}
 	}
 	
-	/** 判断年份、月份、日期 */
+	
 	public static boolean verifyBirthdayCode(String certNo) {
 
 		boolean isEighteenCode = (18 == certNo.length());
@@ -159,7 +159,7 @@ public abstract class IDCardUtils {
 		return true;
 	}
 
-	/** 验证身份除了最后位其他的是否包含字母 */
+	
 	public static boolean verifyNumber(String certNo) {
 		String str = "";
 		if (certNo.length() == 15) {
@@ -177,7 +177,7 @@ public abstract class IDCardUtils {
 		return true;
 	}
 	
-	/**  验证18位校验码,校验码采用ISO 7064：1983，MOD 11-2 校验码系统 */
+	
 	public static boolean verifyMOD(String certNo) {
 		String verify = certNo.substring(17, 18);
 		if ("x".equals(verify)) {
@@ -198,7 +198,7 @@ public abstract class IDCardUtils {
 		return false;
 	}
 	
-	/**
+	/*
 	 * 
 	 * 计算身份证校验码
 	 * <pre>
@@ -232,7 +232,7 @@ public abstract class IDCardUtils {
 		return remaining == 2 ? "X" : vi[remaining];
 	}
 
-	/** 15位转18位身份证 */
+	
 	public static String upToEighteen(String certNo) {
 		if (certNo.length() == 15) {
 			String 	newNo = certNo.substring(0, 6);
@@ -244,7 +244,7 @@ public abstract class IDCardUtils {
 		return certNo;
 	}
 	
-	/**
+	/*
 	 * 身份证号码验证 1、号码的结构 公民身份号码是特征组合码，由十七位数字本体码和一位校验码组成。排列顺序从左至右依次为：六位数字地址码，
 	 * 八位数字出生日期码，三位数字顺序码和一位数字校验码。 2、地址码(前六位数）
 	 * 表示编码对象常住户口所在县(市、旗、区)的行政区划代码，按GB/T2260的规定执行。
@@ -290,7 +290,7 @@ public abstract class IDCardUtils {
 		return _codeError;
 	}
 
-	/**
+	/*
 	 * @param args
 	 * @throws ParseException
 	 */

@@ -22,7 +22,7 @@ import hitool.lrc4j.tar.id.Offset;
 import hitool.lrc4j.tar.id.Ti;
 import hitool.lrc4j.tar.time.TimeTar;
 
-/**
+/*
  * @className ： LRCReadUtils
  * @description ： 从文件中读取lrc
  * @author ： <a href="mailto:hnxyhcwdl1003@163.com">wandalong</a>
@@ -126,7 +126,7 @@ public class LRCReadUtils {
 		return null;
 	}
 
-	/**
+	/*
 	 * Load a given resource.
 	 * <p/>
 	 * This method will try to load the resource using the following methods (in

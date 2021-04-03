@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -14,19 +14,19 @@ import java.util.concurrent.ConcurrentMap;
 @SuppressWarnings("unchecked")
 public abstract class FastConcurrentHashMap<K, V> extends AbstractMap<K, V> implements ConcurrentMap<K, V> {
 
-    /**
+    /*
      * The default initial capacity for this table,
      * used when not otherwise specified in a constructor.
      */
 	protected static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-    /**
+    /*
      * The default load factor for this table, used when not
      * otherwise specified in a constructor.
      */
     protected static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
-    /**
+    /*
      * The default concurrency level for this table, used when not
      * otherwise specified in a constructor.
      */

@@ -10,7 +10,7 @@ import hitool.core.collections.map.LinkedMultiValueMap;
 import hitool.core.collections.map.MultiValueMap;
 import hitool.core.lang3.ObjectUtils;
 
-/**
+/*
  * Extension of {@link URIComponents} for opaque URIs.
  *
  * @author Arjen Poutsma

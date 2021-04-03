@@ -3,7 +3,7 @@ package hitool.web.multipart.filepart.comparator;
 import java.util.Comparator;
 import java.util.Hashtable;
 
-/**
+/*
  * 类型比对
  */
 public class TypeComparator implements Comparator<Hashtable<String, Object>> {

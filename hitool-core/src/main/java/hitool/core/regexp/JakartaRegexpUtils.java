@@ -11,7 +11,7 @@ public class JakartaRegexpUtils {
 
 	protected static ConcurrentMap<String, Pattern> COMPLIED_PATTERN = new ConcurrentHashMap<String, Pattern>();
 	
-	/**
+	/*
 	 * 正则表达式验证方法:匹配表达式则返回true,不匹配则返回false
 	 */
 	public static boolean matches(String regexp, String str) { 

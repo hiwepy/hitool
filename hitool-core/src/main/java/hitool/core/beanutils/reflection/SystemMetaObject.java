@@ -1,4 +1,4 @@
-/**
+/*
  *    Copyright 2009-2015 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +20,7 @@ import hitool.core.beanutils.reflection.factory.ObjectFactory;
 import hitool.core.beanutils.reflection.wrapper.DefaultObjectWrapperFactory;
 import hitool.core.beanutils.reflection.wrapper.ObjectWrapperFactory;
 
-/**
+/*
  * @author Clinton Begin
  */
 public final class SystemMetaObject {

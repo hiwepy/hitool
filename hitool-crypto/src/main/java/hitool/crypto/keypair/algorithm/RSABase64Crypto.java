@@ -14,7 +14,7 @@ import hitool.crypto.utils.DecryptUtils;
 import hitool.crypto.utils.SignatureUtils;
 
 
- /**
+ /*
   * RSA安全编码组件
   */ 
  public class RSABase64Crypto extends RSACrypto {

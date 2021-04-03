@@ -11,7 +11,7 @@ import freemarker.core.Environment;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
 
-/**
+/*
  * freemarker页面上的异常控制 在webmvc-config.xml里面的freemarkerSettings里头配置
  */
 public class FreemarkerExceptionHandler implements TemplateExceptionHandler {

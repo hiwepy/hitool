@@ -25,7 +25,7 @@ import java.util.List;
 
 import hitool.core.io.LocationUtils;
 
-/**
+/*
  * A simple immutable and serializable implementation of {@link Location}.
  */
 @SuppressWarnings("serial")
@@ -39,7 +39,7 @@ public class LocationImpl implements Location, Serializable {
     // Package private: outside this package, use Location.UNKNOWN.
     public static final LocationImpl UNKNOWN = new LocationImpl(null, null, -1, -1);
 
-    /**
+    /*
      * Build a location for a given URI, with unknown line and column numbers.
      * 
      * @param uri the resource URI
@@ -48,7 +48,7 @@ public class LocationImpl implements Location, Serializable {
         this(description, uri, -1, -1);
     }
 
-    /**
+    /*
      * Build a location for a given URI and line and column numbers.
      * 
      * @param uri the resource URI
@@ -72,7 +72,7 @@ public class LocationImpl implements Location, Serializable {
         this.description = description;
     }
     
-    /**
+    /*
      * Copy constructor.
      * 
      * @param location the location to be copied
@@ -81,14 +81,14 @@ public class LocationImpl implements Location, Serializable {
         this(location.getDescription(), location.getURI(), location.getLineNumber(), location.getColumnNumber());
     }
     
-    /**
+    /*
      * Create a location from an existing one, but with a different description
      */
     public LocationImpl(String description, Location location) {
         this(description, location.getURI(), location.getLineNumber(), location.getColumnNumber());
     }
     
-    /**
+    /*
      * Obtain a <code>LocationImpl</code> from a {@link Location}. If <code>location</code> is
      * already a <code>LocationImpl</code>, it is returned, otherwise it is copied.
      * <p>
@@ -108,7 +108,7 @@ public class LocationImpl implements Location, Serializable {
         }
     }
     
-    /**
+    /*
      * Get the description of this location
      * 
      * @return the description (can be <code>null</code>)
@@ -117,7 +117,7 @@ public class LocationImpl implements Location, Serializable {
         return this.description;
     }
     
-    /**
+    /*
      * Get the URI of this location
      * 
      * @return the URI (<code>null</code> if unknown).
@@ -126,7 +126,7 @@ public class LocationImpl implements Location, Serializable {
         return this.uri;
     }
 
-    /**
+    /*
      * Get the line number of this location
      * 
      * @return the line number (<code>-1</code> if unknown)
@@ -135,7 +135,7 @@ public class LocationImpl implements Location, Serializable {
         return this.line;
     }
     
-    /**
+    /*
      * Get the column number of this location
      * 
      * @return the column number (<code>-1</code> if unknown)
@@ -144,7 +144,7 @@ public class LocationImpl implements Location, Serializable {
         return this.column;
     }
     
-    /**
+    /*
      * Gets a source code snippet with the default padding
      *
      * @param padding The amount of lines before and after the error to include
@@ -202,7 +202,7 @@ public class LocationImpl implements Location, Serializable {
         return LocationUtils.toString(this);
     }
     
-    /**
+    /*
      * Ensure serialized unknown location resolve to {@link Location#UNKNOWN}.
      */
     private Object readResolve() {

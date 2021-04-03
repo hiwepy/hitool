@@ -19,7 +19,7 @@ public abstract class ConfigurationUtils {
 	// 创建 Configuration 实例
 	private static Configuration DEFAULT_CONFIGURATION = new Configuration(Configuration.VERSION_2_3_23);
 	
-	/**
+	/*
 	 * 配置默认配置实例Cofiguration
 	 */
 	public static Configuration getDefaultConfiguration() {
@@ -91,7 +91,7 @@ public abstract class ConfigurationUtils {
 		return (Configuration) DEFAULT_CONFIGURATION.clone();
 	}
 	
-	/**
+	/*
 	 * 创建基于【classpath根目录】 的配置实例Cofiguration
 	 * @param clazz
 	 * @return
@@ -100,7 +100,7 @@ public abstract class ConfigurationUtils {
 		return ConfigurationUtils.getConfiguration( clazz, "/");
 	}
 	
-	/**
+	/*
 	 * 创建基于【指定class所在目录】 的配置实例Cofiguration
 	 * @param clazz
 	 * @return
@@ -110,7 +110,7 @@ public abstract class ConfigurationUtils {
 		return ConfigurationUtils.getConfiguration( clazz, "/" + clazzPath.substring(0, clazzPath.lastIndexOf("/")));
 	}
 	
-	/**
+	/*
 	 * 创建基于【指定classpath目录】 的配置实例Cofiguration
 	 * @param clazz
 	 * @param pathPrefix
@@ -127,7 +127,7 @@ public abstract class ConfigurationUtils {
 		return configuration;
 	}
 	
-	/**
+	/*
 	 * 创建基于Servlet上下文的配置实例Cofiguration
 	 * @param sctxt
 	 * @return
@@ -136,7 +136,7 @@ public abstract class ConfigurationUtils {
 		return ConfigurationUtils.getConfiguration( sctxt, sctxt.getRealPath(""));
 	}
 	
-	/**
+	/*
 	 * 创建基于Servlet上下文的配置实例Cofiguration
 	 * @param sctxt
 	 * @param pathPrefix
@@ -153,7 +153,7 @@ public abstract class ConfigurationUtils {
 		return configuration;
 	}
 
-	 /**
+	 /*
 	  * 
 	  * 创建基于文件系统的配置实例Cofiguration
 	  * <pre>

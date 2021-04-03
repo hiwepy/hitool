@@ -14,21 +14,21 @@ import javax.crypto.Cipher;
 
 import org.apache.commons.codec.binary.Base64;
 
-/**
+/*
  * 
  * 证书组件
  */
 public abstract class CertificateCrypto  {
 
 
-	/**
+	/*
 	 * Java密钥库(Java Key Store，JKS)KEY_STORE
 	 */
 	public static final String KEY_STORE = "JKS";
 
 	public static final String X509 = "X.509";
 
-	/**
+	/*
 	 * 由KeyStore获得私钥
 	 * 
 	 * @param keyStorePath
@@ -43,7 +43,7 @@ public abstract class CertificateCrypto  {
 		return key;
 	}
 
-	/**
+	/*
 	 * 由Certificate获得公钥
 	 * 
 	 * @param certificatePath
@@ -56,7 +56,7 @@ public abstract class CertificateCrypto  {
 		return key;
 	}
 
-	/**
+	/*
 	 * 获得Certificate
 	 * @param certificatePath
 	 * @return
@@ -70,7 +70,7 @@ public abstract class CertificateCrypto  {
 		return certificate;
 	}
 
-	/**
+	/*
 	 * 获得Certificate
 	 * 
 	 * @param keyStorePath
@@ -86,7 +86,7 @@ public abstract class CertificateCrypto  {
 		return certificate;
 	}
 
-	/**
+	/*
 	 * 获得KeyStore
 	 * 
 	 * @param keyStorePath
@@ -102,7 +102,7 @@ public abstract class CertificateCrypto  {
 		return ks;
 	}
 
-	/**
+	/*
 	 * 私钥加密
 	 * 
 	 * @param data
@@ -124,7 +124,7 @@ public abstract class CertificateCrypto  {
 
 	}
 
-	/**
+	/*
 	 * 私钥解密
 	 * 
 	 * @param data
@@ -147,7 +147,7 @@ public abstract class CertificateCrypto  {
 
 	}
 
-	/**
+	/*
 	 * 公钥加密
 	 * 
 	 * @param data
@@ -168,7 +168,7 @@ public abstract class CertificateCrypto  {
 
 	}
 
-	/**
+	/*
 	 * 公钥解密
 	 * 
 	 * @param data
@@ -188,7 +188,7 @@ public abstract class CertificateCrypto  {
 
 	}
 
-	/**
+	/*
 	 * 验证 Certificate
 	 * 
 	 * @param certificatePath
@@ -198,7 +198,7 @@ public abstract class CertificateCrypto  {
 		return verifyCertificate(new Date(), certificatePath);
 	}
 
-	/**
+	/*
 	 * 验证Certificate是否过期或无效
 	 * 
 	 * @param date
@@ -218,7 +218,7 @@ public abstract class CertificateCrypto  {
 		return status;
 	}
 
-	/**
+	/*
 	 * 验证证书是否过期或无效
 	 * 
 	 * @param date
@@ -236,7 +236,7 @@ public abstract class CertificateCrypto  {
 		return status;
 	}
 
-	/**
+	/*
 	 * 签名
 	 * 
 	 * @param keyStorePath
@@ -264,7 +264,7 @@ public abstract class CertificateCrypto  {
 		return Base64.encodeBase64String(signature.sign());
 	}
 
-	/**
+	/*
 	 * 验证签名
 	 * 
 	 * @param data
@@ -287,7 +287,7 @@ public abstract class CertificateCrypto  {
 
 	}
 
-	/**
+	/*
 	 * 验证Certificate
 	 * 
 	 * @param keyStorePath
@@ -307,7 +307,7 @@ public abstract class CertificateCrypto  {
 		return status;
 	}
 
-	/**
+	/*
 	 * 验证Certificate
 	 * 
 	 * @param keyStorePath

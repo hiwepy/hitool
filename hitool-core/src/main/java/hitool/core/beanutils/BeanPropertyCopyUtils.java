@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -81,7 +81,7 @@ public class BeanPropertyCopyUtils extends org.apache.commons.beanutils.Property
 
 	}
 
-	/**
+	/*
 	 * 对象拷贝 数据对象空值不拷贝到目标对象
 	 * 
 	 * @param dataObject
@@ -113,7 +113,7 @@ public class BeanPropertyCopyUtils extends org.apache.commons.beanutils.Property
 		}
 	}
 
-	/**
+	/*
 	 * 把orig和dest相同属性的value复制到dest中
 	 * 
 	 * @param dest
@@ -143,7 +143,7 @@ public class BeanPropertyCopyUtils extends org.apache.commons.beanutils.Property
 		}
 	}
 
-	/**
+	/*
 	 * 将Map内的key与Bean中属性相同的内容复制到BEAN中
 	 * 
 	 * @param bean
@@ -186,7 +186,7 @@ public class BeanPropertyCopyUtils extends org.apache.commons.beanutils.Property
 		}
 	}
 
-	/**
+	/*
 	 * 自动转Map key值大写 将Map内的key与Bean中属性相同的内容复制到BEAN中
 	 * 
 	 * @param bean
@@ -238,7 +238,7 @@ public class BeanPropertyCopyUtils extends org.apache.commons.beanutils.Property
 		}
 	}
 
-	/**
+	/*
 	 * Map内的key与Bean中属性相同的内容复制到BEAN中 对于存在空值的取默认值
 	 * 
 	 * @param bean

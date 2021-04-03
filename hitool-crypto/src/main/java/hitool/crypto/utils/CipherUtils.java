@@ -10,13 +10,13 @@ import javax.crypto.Cipher;
 
 import hitool.crypto.enums.Algorithm;
 
-/**
+/*
  * 
  * 加密工具
  */
 public final class CipherUtils {
 
-	/**
+	/*
 	 * 
 	 * 生成一个实现RSA转换的 Cipher 对象。Cipher对象实际完成加解密操作
 	 * 
@@ -27,7 +27,7 @@ public final class CipherUtils {
 		return Cipher.getInstance(Algorithm.KEY_CIPHER_RSA_ECB_PKCS1PADDING);
 	}
 
-	/**
+	/*
 	 * 
 	 * 生成一个实现AES转换的 Cipher 对象。Cipher对象实际完成加解密操作
 	 * 
@@ -39,7 +39,7 @@ public final class CipherUtils {
 		return Cipher.getInstance(Algorithm.KEY_CIPHER_AES);
 	}
 
-	/**
+	/*
 	 * 
 	 * 生成一个实现DES转换的 Cipher 对象。Cipher对象实际完成加解密操作
 	 * 
@@ -51,7 +51,7 @@ public final class CipherUtils {
 		return Cipher.getInstance(Algorithm.KEY_CIPHER_DES);
 	}
 
-	/**
+	/*
 	 * 
 	 * 加密解密第2步：生成一个实现指定转换的 Cipher 对象。Cipher对象实际完成加解密操作
 	 * 
@@ -133,7 +133,7 @@ public final class CipherUtils {
 		return cipher;
 	}
 
-	/**
+	/*
 	 * 
 	 * 数据分段加密/解密
 	 * 

@@ -2,7 +2,7 @@ package hitool.lrc4j.tar.id;
 
 import hitool.lrc4j.tar.AbstractTar;
 
-/**
+/*
  * 
  * @className	： Al
  * @description	： 专辑名

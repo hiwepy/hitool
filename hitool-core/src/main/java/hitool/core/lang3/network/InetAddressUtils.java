@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
+/*
  * 
  * IP地址分为普通地址和特殊地址。在前面的文章中所使用的大多数都是普通的IP地址，
  * 在本文中将介绍如何利用InetAddress类提供的十个方法来确定一个IP地址是否是一个特殊的IP地址。
@@ -124,7 +124,7 @@ public abstract class InetAddressUtils {
 		return sb.toString();
 	}
 
-	/**
+	/*
 	 * 从ip的字符串形式得到字节数组形式
 	 */
 	public static byte[] getIPBytes(String ipStr) {
@@ -145,7 +145,7 @@ public abstract class InetAddressUtils {
 		return ret;
 	}
 
-	/**
+	/*
 	 * 获取主机名
 	 */
 	public static String getCanonicalHostName() {
@@ -171,7 +171,7 @@ public abstract class InetAddressUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * 获取主机别名
 	 */
 	public static String getHostName() {
@@ -212,7 +212,7 @@ public abstract class InetAddressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 获取主机网络地址
 	 */
 	public static String getHostAddress() {
@@ -259,7 +259,7 @@ public abstract class InetAddressUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * 获取网卡信息 Map<网卡名称,网卡信息>
 	 */
 	public static Map<String, InetAddress> getNetworkAdapter() {
@@ -284,7 +284,7 @@ public abstract class InetAddressUtils {
 		return map;
 	}
 
-	/**
+	/*
 	 * 获取网卡信息List<网卡信息>
 	 */
 	public static List<InetAddress> getAddressList() {
@@ -310,7 +310,7 @@ public abstract class InetAddressUtils {
 		return null;
 	}
 
-	/**
+	/*
 	 * Split a string in the form of
 	 * "host1:port1,host2:port2 host3:port3,host4:port4" into a Map of
 	 * InetSocketAddress instances suitable for instantiating a
@@ -362,7 +362,7 @@ public abstract class InetAddressUtils {
 		return mainAddress;
 	}
 
-	/**
+	/*
 	 * Split a string in the form of "host:port host2:port" into a List of
 	 * InetSocketAddress instances suitable for instantiating a MemcachedClient.
 	 * 

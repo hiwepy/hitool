@@ -23,12 +23,12 @@ import javax.servlet.FilterChain;
 
 public interface NamedFilterList extends List<Filter> {
 	 
-  /**
+  /*
     * Returns the configuration-unique name assigned to this {@code Filter} list.
     */
    String getName();
 
-   /**
+   /*
     * Returns a new {@code FilterChain} instance that will first execute this list's {@code Filter}s (in list order)
     * and end with the execution of the given {@code filterChain} instance.
     */

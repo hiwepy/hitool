@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -9,14 +9,14 @@ import java.lang.reflect.Array;
 import java.util.Map;
 
 
-/**
+/*
  * <code>ContainUtils</code> will check if object 1 contains object 2.
  * Object 1 may be an Object, array, Collection, or a Map
  * @version $Date$ $Id$
  */
 public class ContainUtils {
 
-    /**
+    /*
      * Determine if <code>obj2</code> exists in <code>obj1</code>.
      *
      * <table borer="1">

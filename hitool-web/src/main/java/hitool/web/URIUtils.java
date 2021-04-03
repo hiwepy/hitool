@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import hitool.core.lang3.Assert;
 
 
-/**
+/*
  * Utility class for URI encoding and decoding based on RFC 3986.
  * Offers encoding methods for the various URI components.
  *
@@ -24,7 +24,7 @@ import hitool.core.lang3.Assert;
  */
 public abstract class URIUtils {
 
-	/**
+	/*
 	 * Encodes the given URI scheme with the given encoding.
 	 * @param scheme the scheme to be encoded
 	 * @param encoding the character encoding to encode to
@@ -35,7 +35,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(scheme, encoding, HierarchicalUriComponents.Type.SCHEME);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI authority with the given encoding.
 	 * @param authority the authority to be encoded
 	 * @param encoding the character encoding to encode to
@@ -46,7 +46,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(authority, encoding, HierarchicalUriComponents.Type.AUTHORITY);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI user info with the given encoding.
 	 * @param userInfo the user info to be encoded
 	 * @param encoding the character encoding to encode to
@@ -57,7 +57,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(userInfo, encoding, HierarchicalUriComponents.Type.USER_INFO);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI host with the given encoding.
 	 * @param host the host to be encoded
 	 * @param encoding the character encoding to encode to
@@ -68,7 +68,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(host, encoding, HierarchicalUriComponents.Type.HOST_IPV4);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI port with the given encoding.
 	 * @param port the port to be encoded
 	 * @param encoding the character encoding to encode to
@@ -79,7 +79,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(port, encoding, HierarchicalUriComponents.Type.PORT);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI path with the given encoding.
 	 * @param path the path to be encoded
 	 * @param encoding the character encoding to encode to
@@ -90,7 +90,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(path, encoding, HierarchicalUriComponents.Type.PATH);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI path segment with the given encoding.
 	 * @param segment the segment to be encoded
 	 * @param encoding the character encoding to encode to
@@ -101,7 +101,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(segment, encoding, HierarchicalUriComponents.Type.PATH_SEGMENT);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI query with the given encoding.
 	 * @param query the query to be encoded
 	 * @param encoding the character encoding to encode to
@@ -112,7 +112,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(query, encoding, HierarchicalUriComponents.Type.QUERY);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI query parameter with the given encoding.
 	 * @param queryParam the query parameter to be encoded
 	 * @param encoding the character encoding to encode to
@@ -123,7 +123,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(queryParam, encoding, HierarchicalUriComponents.Type.QUERY_PARAM);
 	}
 
-	/**
+	/*
 	 * Encodes the given URI fragment with the given encoding.
 	 * @param fragment the fragment to be encoded
 	 * @param encoding the character encoding to encode to
@@ -134,7 +134,7 @@ public abstract class URIUtils {
 		return HierarchicalUriComponents.encodeUriComponent(fragment, encoding, HierarchicalUriComponents.Type.FRAGMENT);
 	}
 
-	/**
+	/*
 	 * Encode characters outside the unreserved character set as defined in
 	 * <a href="https://tools.ietf.org/html/rfc3986#section-2">RFC 3986 Section 2</a>.
 	 * <p>This can be used to ensure the given String will not contain any
@@ -151,7 +151,7 @@ public abstract class URIUtils {
 
 	// decoding
 
-	/**
+	/*
 	 * Decodes the given encoded source String into an URI. Based on the following rules:
 	 * <ul>
 	 * <li>Alphanumeric characters {@code "a"} through {@code "z"}, {@code "A"} through {@code "Z"}, and

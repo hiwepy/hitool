@@ -8,12 +8,12 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-/**
+/*
  *  增加过滤标记，实现一次请求仅会过滤一次
  */
 public abstract class OncePerRequestFilter extends AbstractNameableFilter {
 	
-	/**
+	/*
 	 * Suffix that gets appended to the filter name for the "already filtered" request attribute.
 	 * @see #getAlreadyFilteredAttributeName
 	 */
@@ -26,7 +26,7 @@ public abstract class OncePerRequestFilter extends AbstractNameableFilter {
 		
 	}
 	
-	/**
+	/*
 	 * This <code>doFilter</code> implementation stores a request attribute for
 	 * "already filtered", proceeding without filtering again if the attribute
 	 * is already there.
@@ -63,7 +63,7 @@ public abstract class OncePerRequestFilter extends AbstractNameableFilter {
 		this.filterConfig = null;
 	}
 	
-	/**
+	/*
 	 * Return the name of the request attribute that identifies that a request
 	 * is already filtered.
 	 * <p>
@@ -94,7 +94,7 @@ public abstract class OncePerRequestFilter extends AbstractNameableFilter {
 		this.enabled = enabled;
 	}
 	
-	/**
+	/*
      * Same contract as for
      * {@link #doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)},
      * but guaranteed to be invoked only once per request.

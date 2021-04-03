@@ -2,7 +2,7 @@ package hitool.web.multipart.filepart.comparator;
 
 import java.util.Comparator;
 import java.util.Hashtable;
-/**
+/*
  * 按名称排序
  * *******************************************************************
  */

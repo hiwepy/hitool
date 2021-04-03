@@ -4,7 +4,7 @@ import hitool.crypto.algorithm.SMS4;
 
 public class testMain {
 
-	/**
+	/*
 	 * @param args
 	 */
 	public static void main(String[] args) {

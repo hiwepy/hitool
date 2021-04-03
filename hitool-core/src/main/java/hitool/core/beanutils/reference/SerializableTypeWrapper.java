@@ -33,7 +33,7 @@ import java.lang.reflect.WildcardType;
 import hitool.core.beanutils.reflection.ReflectionUtils;
 import hitool.core.lang3.Assert;
 
-/**
+/*
  * Internal utility class that can be used to obtain wrapped {@link Serializable} variants
  * of {@link java.lang.reflect.Type}s.
  *
@@ -62,7 +62,7 @@ public abstract class SerializableTypeWrapper {
 			new ConcurrentReferenceHashMap<Type, Type>(256);
 
 
-	/**
+	/*
 	 * Return a {@link Serializable} variant of {@link Field#getGenericType()}.
 	 */
 	public static Type forField(Field field) {
@@ -70,7 +70,7 @@ public abstract class SerializableTypeWrapper {
 		return forTypeProvider(new FieldTypeProvider(field));
 	}
 
-	/**
+	/*
 	 * Return a {@link Serializable} variant of
 	 * {@link MethodParameter#getGenericParameterType()}.
 	 */
@@ -78,7 +78,7 @@ public abstract class SerializableTypeWrapper {
 		return forTypeProvider(new MethodParameterTypeProvider(methodParameter));
 	}
 
-	/**
+	/*
 	 * Return a {@link Serializable} variant of {@link Class#getGenericSuperclass()}.
 	 */
 	@SuppressWarnings("serial")
@@ -91,7 +91,7 @@ public abstract class SerializableTypeWrapper {
 		});
 	}
 
-	/**
+	/*
 	 * Return a {@link Serializable} variant of {@link Class#getGenericInterfaces()}.
 	 */
 	@SuppressWarnings("serial")
@@ -109,7 +109,7 @@ public abstract class SerializableTypeWrapper {
 		return result;
 	}
 
-	/**
+	/*
 	 * Return a {@link Serializable} variant of {@link Class#getTypeParameters()}.
 	 */
 	@SuppressWarnings("serial")
@@ -127,7 +127,7 @@ public abstract class SerializableTypeWrapper {
 		return result;
 	}
 
-	/**
+	/*
 	 * Unwrap the given type, effectively returning the original non-serializable type.
 	 * @param type the type to unwrap
 	 * @return the original non-serializable type
@@ -141,7 +141,7 @@ public abstract class SerializableTypeWrapper {
 		return (T) unwrapped;
 	}
 
-	/**
+	/*
 	 * Return a {@link Serializable} {@link Type} backed by a {@link TypeProvider} .
 	 */
 	static Type forTypeProvider(final TypeProvider provider) {
@@ -167,36 +167,36 @@ public abstract class SerializableTypeWrapper {
 	}
 
 
-	/**
+	/*
 	 * Additional interface implemented by the type proxy.
 	 */
 	interface SerializableTypeProxy {
 
-		/**
+		/*
 		 * Return the underlying type provider.
 		 */
 		TypeProvider getTypeProvider();
 	}
 
 
-	/**
+	/*
 	 * A {@link Serializable} interface providing access to a {@link Type}.
 	 */
 	interface TypeProvider extends Serializable {
 
-		/**
+		/*
 		 * Return the (possibly non {@link Serializable}) {@link Type}.
 		 */
 		Type getType();
 
-		/**
+		/*
 		 * Return the source of the type or {@code null}.
 		 */
 		Object getSource();
 	}
 
 
-	/**
+	/*
 	 * Default implementation of {@link TypeProvider} with a {@code null} source.
 	 */
 	@SuppressWarnings("serial")
@@ -209,7 +209,7 @@ public abstract class SerializableTypeWrapper {
 	}
 
 
-	/**
+	/*
 	 * {@link Serializable} {@link InvocationHandler} used by the proxied {@link Type}.
 	 * Provides serialization support and enhances any methods that return {@code Type}
 	 * or {@code Type[]}.
@@ -261,7 +261,7 @@ public abstract class SerializableTypeWrapper {
 	}
 
 
-	/**
+	/*
 	 * {@link TypeProvider} for {@link Type}s obtained from a {@link Field}.
 	 */
 	@SuppressWarnings("serial")
@@ -301,7 +301,7 @@ public abstract class SerializableTypeWrapper {
 	}
 
 
-	/**
+	/*
 	 * {@link TypeProvider} for {@link Type}s obtained from a {@link MethodParameter}.
 	 */
 	@SuppressWarnings("serial")
@@ -361,7 +361,7 @@ public abstract class SerializableTypeWrapper {
 	}
 
 
-	/**
+	/*
 	 * {@link TypeProvider} for {@link Type}s obtained by invoking a no-arg method.
 	 */
 	@SuppressWarnings("serial")

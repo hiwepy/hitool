@@ -19,7 +19,7 @@ import hitool.core.lang3.ObjectUtils;
 import hitool.core.lang3.StringUtils;
 import hitool.web.HierarchicalUriComponents.PathComponent;
 
-/**
+/*
  * Builder for {@link URIComponents}.
  *
  * <p>Typical usage involves:
@@ -97,7 +97,7 @@ public class URIComponentsBuilder implements Cloneable {
 	private String fragment;
 
 
-	/**
+	/*
 	 * Default constructor. Protected to prevent direct instantiation.
 	 * @see #newInstance()
 	 * @see #fromPath(String)
@@ -107,7 +107,7 @@ public class URIComponentsBuilder implements Cloneable {
 		this.pathBuilder = new CompositePathComponentBuilder();
 	}
 
-	/**
+	/*
 	 * Create a deep copy of the given UriComponentsBuilder.
 	 * @param other the other builder to copy from
 	 */
@@ -125,7 +125,7 @@ public class URIComponentsBuilder implements Cloneable {
 
 	// Factory methods
 
-	/**
+	/*
 	 * Create a new, empty builder.
 	 * @return the new {@code UriComponentsBuilder}
 	 */
@@ -133,7 +133,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return new URIComponentsBuilder();
 	}
 
-	/**
+	/*
 	 * Create a builder that is initialized with the given path.
 	 * @param path the path to initialize with
 	 * @return the new {@code UriComponentsBuilder}
@@ -144,7 +144,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return builder;
 	}
 
-	/**
+	/*
 	 * Create a builder that is initialized with the given {@code URI}.
 	 * @param uri the URI to initialize with
 	 * @return the new {@code UriComponentsBuilder}
@@ -155,7 +155,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return builder;
 	}
 
-	/**
+	/*
 	 * Create a builder that is initialized with the given URI string.
 	 * <p><strong>Note:</strong> The presence of reserved characters can prevent
 	 * correct parsing of the URI string. For example if a query parameter
@@ -215,7 +215,7 @@ public class URIComponentsBuilder implements Cloneable {
 		}
 	}
 
-	/**
+	/*
 	 * Create a URI components builder from the given HTTP URL String.
 	 * <p><strong>Note:</strong> The presence of reserved characters can prevent
 	 * correct parsing of the URI string. For example if a query parameter
@@ -255,7 +255,7 @@ public class URIComponentsBuilder implements Cloneable {
 		}
 	}
 
-	/**
+	/*
 	 * Create a new {@code UriComponents} object from the URI associated with
 	 * the given HttpRequest while also overlaying with values from the headers
 	 * "Forwarded" (<a href="http://tools.ietf.org/html/rfc7239">RFC 7239</a>, or
@@ -324,7 +324,7 @@ public class URIComponentsBuilder implements Cloneable {
 	}
 
 
-	/**
+	/*
 	 * Create an instance by parsing the "Origin" header of an HTTP request.
 	 * @see <a href="https://tools.ietf.org/html/rfc6454">RFC 6454</a>
 	 */
@@ -352,7 +352,7 @@ public class URIComponentsBuilder implements Cloneable {
 
 	// build methods
 
-	/**
+	/*
 	 * Build a {@code UriComponents} instance from the various components contained in this builder.
 	 * @return the URI components
 	 */
@@ -360,7 +360,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return build(false);
 	}
 
-	/**
+	/*
 	 * Build a {@code UriComponents} instance from the various components
 	 * contained in this builder.
 	 * @param encoded whether all the components set in this builder are
@@ -377,7 +377,7 @@ public class URIComponentsBuilder implements Cloneable {
 		}
 	}
 
-	/**
+	/*
 	 * Build a {@code UriComponents} instance and replaces URI template variables
 	 * with the values from a map. This is a shortcut method which combines
 	 * calls to {@link #build()} and then {@link URIComponents#expand(Map)}.
@@ -388,7 +388,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return build(false).expand(uriVariables);
 	}
 
-	/**
+	/*
 	 * Build a {@code UriComponents} instance and replaces URI template variables
 	 * with the values from an array. This is a shortcut method which combines
 	 * calls to {@link #build()} and then {@link URIComponents#expand(Object...)}.
@@ -399,7 +399,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return build(false).expand(uriVariableValues);
 	}
 
-	/**
+	/*
 	 * Build a URI String. This is a shortcut method which combines calls
 	 * to {@link #build()}, then {@link URIComponents#encode()} and finally
 	 * {@link URIComponents#toUriString()}.
@@ -413,7 +413,7 @@ public class URIComponentsBuilder implements Cloneable {
 
 	// URI components methods
 
-	/**
+	/*
 	 * Initialize all components of this URI builder with the components of the given URI.
 	 * @param uri the URI
 	 * @return this UriComponentsBuilder
@@ -462,7 +462,7 @@ public class URIComponentsBuilder implements Cloneable {
 		this.ssp = null;
 	}
 
-	/**
+	/*
 	 * Set the URI scheme. The given scheme may contain URI template variables,
 	 * and may also be {@code null} to clear the scheme of this builder.
 	 * @param scheme the URI scheme
@@ -473,7 +473,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set all components of this URI builder from the given {@link URIComponents}.
 	 * @param uriComponents the UriComponents instance
 	 * @return this UriComponentsBuilder
@@ -484,7 +484,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the URI scheme-specific-part. When invoked, this method overwrites
 	 * {@linkplain #userInfo(String) user-info}, {@linkplain #host(String) host},
 	 * {@linkplain #port(int) port}, {@linkplain #path(String) path}, and
@@ -498,7 +498,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the URI user info. The given user info may contain URI template variables,
 	 * and may also be {@code null} to clear the user info of this builder.
 	 * @param userInfo the URI user info
@@ -510,7 +510,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the URI host. The given host may contain URI template variables,
 	 * and may also be {@code null} to clear the host of this builder.
 	 * @param host the URI host
@@ -522,7 +522,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the URI port. Passing {@code -1} will clear the port of this builder.
 	 * @param port the URI port
 	 * @return this UriComponentsBuilder
@@ -534,7 +534,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the URI port. Use this method only when the port needs to be
 	 * parameterized with a URI variable. Otherwise use {@link #port(int)}.
 	 * Passing {@code null} will clear the port of this builder.
@@ -547,7 +547,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Append the given path to the existing path of this builder.
 	 * The given path may contain URI template variables.
 	 * @param path the URI path
@@ -559,7 +559,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the path of this builder overriding all existing path and path segment values.
 	 * @param path the URI path; a {@code null} value results in an empty path.
 	 * @return this UriComponentsBuilder
@@ -570,7 +570,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Append path segments to the existing path. Each path segment may contain
 	 * URI template variables and should not contain any slashes.
 	 * Use {@code path("/")} subsequently to ensure a trailing slash.
@@ -583,7 +583,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Append the given query to the existing query of this builder.
 	 * The given query may contain URI template variables.
 	 * <p><strong>Note:</strong> The presence of reserved characters can prevent
@@ -616,7 +616,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the query of this builder overriding all existing query parameters.
 	 * @param query the query string; a {@code null} value removes all query parameters.
 	 * @return this UriComponentsBuilder
@@ -628,7 +628,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Append the given query parameter to the existing query parameters. The
 	 * given name or any of the values may contain URI template variables. If no
 	 * values are given, the resulting URI will contain the query parameter name
@@ -652,7 +652,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Add the given query parameters.
 	 * @param params the params
 	 * @return this UriComponentsBuilder
@@ -664,7 +664,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the query parameter values overriding all existing query values for
 	 * the same parameter. If no values are given, the query parameter is removed.
 	 * @param name the query parameter name
@@ -681,7 +681,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the query parameter values overriding all existing query values.
 	 * @param params the query parameter name
 	 * @return this UriComponentsBuilder
@@ -694,7 +694,7 @@ public class URIComponentsBuilder implements Cloneable {
 		return this;
 	}
 
-	/**
+	/*
 	 * Set the URI fragment. The given fragment may contain URI template variables,
 	 * and may also be {@code null} to clear the fragment of this builder.
 	 * @param fragment the URI fragment

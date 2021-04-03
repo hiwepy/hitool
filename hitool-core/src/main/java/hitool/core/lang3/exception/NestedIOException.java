@@ -17,7 +17,7 @@ package hitool.core.lang3.exception;
 
 import java.io.IOException;
 
-/**
+/*
  * Subclass of {@link IOException} that properly handles a root cause,
  * exposing the root cause just like NestedChecked/RuntimeException does.
  *
@@ -44,7 +44,7 @@ public class NestedIOException extends IOException {
 	}
 
 
-	/**
+	/*
 	 * Construct a {@code NestedIOException} with the specified detail message.
 	 * @param msg the detail message
 	 */
@@ -52,7 +52,7 @@ public class NestedIOException extends IOException {
 		super(msg);
 	}
 
-	/**
+	/*
 	 * Construct a {@code NestedIOException} with the specified detail message
 	 * and nested exception.
 	 * @param msg the detail message
@@ -63,7 +63,7 @@ public class NestedIOException extends IOException {
 	}
 
 
-	/**
+	/*
 	 * Return the detail message, including the message from the nested exception
 	 * if there is one.
 	 */

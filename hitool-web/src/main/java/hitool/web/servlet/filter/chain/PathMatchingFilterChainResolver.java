@@ -32,12 +32,12 @@ public class PathMatchingFilterChainResolver implements FilterChainResolver {
 
 	private static final Logger LOG = LoggerFactory.getLogger(PathMatchingFilterChainResolver.class);
 	
-	/**
+	/*
 	 * filterChain管理器
 	 */
 	private FilterChainManager filterChainManager;
 	
-	/**
+	/*
 	 * 路径匹配器
 	 */
 	private PathMatcher pathMatcher;

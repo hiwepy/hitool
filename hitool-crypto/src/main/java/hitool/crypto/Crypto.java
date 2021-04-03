@@ -5,7 +5,7 @@ import java.security.Key;
 
 public interface Crypto {
 	
-	/**
+	/*
 	 * 
 	 *  初始化key
 	 * @return
@@ -13,7 +13,7 @@ public interface Crypto {
 	 */
 	 public byte[] initkey() throws GeneralSecurityException;
 	 
-	 /**
+	 /*
 	  * 
 	  *  还原key
 	  * @param key

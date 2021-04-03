@@ -22,14 +22,14 @@ import hitool.mail.JavaMailClientAdapter;
 import hitool.mail.JavaMailKey;
 import hitool.mail.conf.EmailBody;
 
-/**
+/*
  * Java邮件发送-commons-email实现
  */
 public class CommonsMailClientImpl extends JavaMailClientAdapter {
 
 	protected Logger LOG = LoggerFactory.getLogger(JavaMailClientImpl.class);
 	
-	/**
+	/*
 	 * 以文本格式发送邮件
 	 * @param email 待发送的邮件的信息
 	 */
@@ -44,7 +44,7 @@ public class CommonsMailClientImpl extends JavaMailClientAdapter {
 		return false;
 	}
 	
-	/**  
+	/*
 	  * 以HTML格式发送邮件  
 	  * @param email 待发送的邮件信息  
 	  */ 

@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -104,7 +104,7 @@ public abstract class ZipUtils extends CompressUtils {
 		return null;
 	}
 
-	/**
+	/*
 	 * 压缩字符串
 	 * 
 	 * @param text
@@ -118,7 +118,7 @@ public abstract class ZipUtils extends CompressUtils {
 		return CharsetUtils.newStringUtf8(ZipUtils.compress(text.getBytes()));
 	}
 
-	/**
+	/*
 	 * 字节压缩
 	 * 
 	 * @param databytes
@@ -138,7 +138,7 @@ public abstract class ZipUtils extends CompressUtils {
 		}
 	}
 
-	/** 用于单文件压缩 */
+	/*
 	public static void compress(File srcFile, File destFile) throws IOException {
 		if (srcFile != null && srcFile.isFile()) {
 			try (InputStream is = new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE);
@@ -151,14 +151,14 @@ public abstract class ZipUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 压缩指定文件夹根目录下指定后缀类型的文件
 	 */
 	public static void compressDir(File directory, String[] extensions, OutputStream outzip) throws IOException {
 		ZipUtils.compressDir(directory, extensions, true, outzip);
 	}
 
-	/**
+	/*
 	 * 压缩目录下指定文件后缀的文件
 	 * 
 	 * @param directory：目录
@@ -170,7 +170,7 @@ public abstract class ZipUtils extends CompressUtils {
 	public static void compressDir(File directory, String[] extensions, boolean recursive, OutputStream outzip)
 			throws IOException {
 		if (directory != null && directory.isDirectory()) {
-			/**
+			/*
 			 * 打包的方法我们会用到ZipOutputStream这样一个输出流, 所以这里我们把输出流转换一下
 			 */
 			try (ArchiveOutputStream ouput = FACTORY.createArchiveOutputStream(ArchiveStreamFactory.ZIP, outzip);) {
@@ -182,7 +182,7 @@ public abstract class ZipUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 处理多文档模式的xls文件打包
 	 * 
 	 * @param tmpDir
@@ -200,7 +200,7 @@ public abstract class ZipUtils extends CompressUtils {
 			throws IOException {
 		LOG.info("开始执行zip压缩...");
 		try {
-			/**
+			/*
 			 * 打包的方法我们会用到ZipOutputStream这样一个输出流, 所以这里我们把输出流转换一下
 			 */
 			ArchiveOutputStream archOuts = FACTORY.createArchiveOutputStream(ArchiveStreamFactory.ZIP, outzip);
@@ -218,7 +218,7 @@ public abstract class ZipUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 这个方法接受的就是一个所要打包文件的集合， 还有一个ArchiveOutputStream
 	 */
 	private static void compressFiles(Collection<File> inputFiles, ArchiveOutputStream ouputStream, String basePath)
@@ -230,7 +230,7 @@ public abstract class ZipUtils extends CompressUtils {
 		ouputStream.finish();
 	}
 
-	/**
+	/*
 	 * 根据输入的文件与输出流对文件进行ZIP打包
 	 * 
 	 * @param inputFile
@@ -242,7 +242,7 @@ public abstract class ZipUtils extends CompressUtils {
 			throws IOException {
 		try {
 			if (inputFile.exists()) {
-				/**
+				/*
 				 * 如果是目录的话这里是不采取操作的， 至于目录的打包正在研究中
 				 */
 				if (inputFile.isFile()) {
@@ -350,7 +350,7 @@ public abstract class ZipUtils extends CompressUtils {
 		zaos.close();
 	}
 
-	/**
+	/*
 	 * 解压缩字符串
 	 * 
 	 * @param text
@@ -364,7 +364,7 @@ public abstract class ZipUtils extends CompressUtils {
 		return CharsetUtils.newStringUtf8(ZipUtils.decompress(text.getBytes()));
 	}
 
-	/**
+	/*
 	 * 字节解压缩
 	 */
 	public static byte[] decompress(byte[] databytes) throws IOException {

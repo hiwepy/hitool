@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2018, vindell (https://github.com/vindell).
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -24,7 +24,7 @@ import hitool.crypto.algorithm.SHABase64Crypto;
 
 public class SHABase64CryptoTest {
 	
-	/**
+	/*
 	 * 提供一个测试的主函数
 	 * @throws EncoderException 
 	 */

@@ -1,7 +1,7 @@
 package hitool.lrc4j.tar.id;
 
 import hitool.lrc4j.tar.AbstractTar;
-/**
+/*
  * 
  * @className	： Ar
  * @description	： 艺人名

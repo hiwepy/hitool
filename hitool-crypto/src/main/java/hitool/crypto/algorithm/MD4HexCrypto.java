@@ -11,7 +11,7 @@ import hitool.crypto.InputStreamEncryptor;
 import hitool.crypto.StringVerifier;
 import hitool.crypto.digest.DigestUtils;
 import hitool.crypto.utils.StringUtils;
-/**
+/*
  * 
  * bouncy castle扩展支持的MD4的算法实现
  */
@@ -62,14 +62,14 @@ public class MD4HexCrypto implements StringEncoder,BinaryEncoder,InputStreamEncr
 		return Hex.encodeHexString(DigestUtils.md4(source));
 	}
 	
-	/**
+	/*
 	 * 密码验证方法
 	 */
 	public boolean verify(String source, String encrypt){
 		return encode(source).equals(encrypt);
 	}
 
-	/**
+	/*
 	 * 重载一个多次加密时的密码验证方法
 	 * @throws EncoderException 
 	 */

@@ -16,7 +16,7 @@ import org.apache.oro.text.regex.Util;
 
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  */
 public class JakartaOROUtils {
 
@@ -26,7 +26,7 @@ public class JakartaOROUtils {
 	// 正规表达式比较匹配对象
 	protected static PatternMatcher matcher = new Perl5Matcher();
 	
-	/**
+	/*
 	 * 正则表达式验证方法:匹配表达式则返回true,不匹配则返回false
 	 * @param regexp
 	 * @param mask

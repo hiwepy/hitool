@@ -17,16 +17,16 @@ import hitool.crypto.utils.SecretKeyUtils;
 import hitool.crypto.utils.SignatureUtils;
 import hitool.crypto.utils.StringUtils;
 
-/**
+/*
  * RSA加解密
  */
 public class RSACrypto extends KeyPairCrypto<RSAPublicKey, RSAPrivateKey> {
 
-	/**
+	/*
      * RSA最大加密明文大小 
      */  
     protected static final int MAX_ENCRYPT_BLOCK = 117;  
-    /**
+    /*
      * RSA最大解密密文大小 
      */  
     protected static final int MAX_DECRYPT_BLOCK = 128; 

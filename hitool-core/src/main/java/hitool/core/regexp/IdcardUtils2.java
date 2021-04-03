@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/*
  * 身份证工具类
  * 
  * @author June
@@ -16,31 +16,23 @@ import java.util.Map;
  */
 public class IdcardUtils2 {
 
-	/** 中国公民身份证号码最小长度。 */
 	public static final int CHINA_ID_MIN_LENGTH = 15;
 
-	/** 中国公民身份证号码最大长度。 */
 	public static final int CHINA_ID_MAX_LENGTH = 18;
 
-	/** 省、直辖市代码表 */
 	public static final String cityCode[] = { "11", "12", "13", "14", "15",
 			"21", "22", "23", "31", "32", "33", "34", "35", "36", "37", "41",
 			"42", "43", "44", "45", "46", "50", "51", "52", "53", "54", "61",
 			"62", "63", "64", "65", "71", "81", "82", "91" };
 
-	/** 每位加权因子 */
 	public static final int power[] = { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9,
 			10, 5, 8, 4, 2 };
 
-	/** 第18位校检码 */
 	public static final String verifyCode[] = { "1", "0", "X", "9", "8", "7",
 			"6", "5", "4", "3", "2" };
-	/** 最低年限 */
 	public static final int MIN = 1930;
 	public static Map<String, String> cityCodes = new HashMap<String, String>();
-	/** 台湾身份首字母对应数字 */
 	public static Map<String, Integer> twFirstCode = new HashMap<String, Integer>();
-	/** 香港身份首字母对应数字 */
 	public static Map<String, Integer> hkFirstCode = new HashMap<String, Integer>();
 	static {
 		cityCodes.put("11", "北京");
@@ -116,7 +108,7 @@ public class IdcardUtils2 {
 		hkFirstCode.put("N", 14);
 	}
 
-	/**
+	/*
 	 * 将15位身份证号码转换为18位
 	 * 
 	 * @param idCard
@@ -162,7 +154,7 @@ public class IdcardUtils2 {
 		return idCard18;
 	}
 
-	/**
+	/*
 	 * 验证身份证是否合法
 	 */
 	public static boolean validateCard(String idCard) {
@@ -182,7 +174,7 @@ public class IdcardUtils2 {
 		return false;
 	}
 
-	/**
+	/*
 	 * 验证18位身份编码是否合法
 	 * 
 	 * @param idCard
@@ -214,7 +206,7 @@ public class IdcardUtils2 {
 		return bTrue;
 	}
 
-	/**
+	/*
 	 * 验证15位身份编码是否合法
 	 * 
 	 * @param idCard
@@ -252,7 +244,7 @@ public class IdcardUtils2 {
 		return true;
 	}
 
-	/**
+	/*
 	 * 验证10位身份编码是否合法
 	 * 
 	 * @param idCard
@@ -299,7 +291,7 @@ public class IdcardUtils2 {
 		return info;
 	}
 
-	/**
+	/*
 	 * 验证台湾身份证号码
 	 * 
 	 * @param idCard
@@ -322,7 +314,7 @@ public class IdcardUtils2 {
 				: false;
 	}
 
-	/**
+	/*
 	 * 验证香港身份证号码(存在Bug，部份特殊身份证无法检查)
 	 * <p>
 	 * 身份证前2位为英文字符，如果只出现一个英文字符则表示第一位是空格，对应数字58 前2位英文字符A-Z分别对应数字10-35
@@ -366,7 +358,7 @@ public class IdcardUtils2 {
 		return (sum % 11 == 0) ? true : false;
 	}
 
-	/**
+	/*
 	 * 将字符数组转换成数字数组
 	 * 
 	 * @param ca
@@ -386,7 +378,7 @@ public class IdcardUtils2 {
 		return iArr;
 	}
 
-	/**
+	/*
 	 * 将身份证的每位和对应位的加权因子相乘之后，再得到和值
 	 * 
 	 * @param iArr
@@ -406,7 +398,7 @@ public class IdcardUtils2 {
 		return iSum;
 	}
 
-	/**
+	/*
 	 * 将power和值与11取模获得余数进行校验码判断
 	 * 
 	 * @param iSum
@@ -452,7 +444,7 @@ public class IdcardUtils2 {
 		return sCode;
 	}
 
-	/**
+	/*
 	 * 根据身份编号获取年龄
 	 * 
 	 * @param idCard
@@ -471,7 +463,7 @@ public class IdcardUtils2 {
 		return iAge;
 	}
 
-	/**
+	/*
 	 * 根据身份编号获取生日
 	 * 
 	 * @param idCard
@@ -488,7 +480,7 @@ public class IdcardUtils2 {
 		return idCard.substring(6, 14);
 	}
 
-	/**
+	/*
 	 * 根据身份编号获取生日年
 	 * 
 	 * @param idCard
@@ -505,7 +497,7 @@ public class IdcardUtils2 {
 		return Short.valueOf(idCard.substring(6, 10));
 	}
 
-	/**
+	/*
 	 * 根据身份编号获取生日月
 	 * 
 	 * @param idCard
@@ -522,7 +514,7 @@ public class IdcardUtils2 {
 		return Short.valueOf(idCard.substring(10, 12));
 	}
 
-	/**
+	/*
 	 * 根据身份编号获取生日天
 	 * 
 	 * @param idCard
@@ -539,7 +531,7 @@ public class IdcardUtils2 {
 		return Short.valueOf(idCard.substring(12, 14));
 	}
 
-	/**
+	/*
 	 * 根据身份编号获取性别
 	 * 
 	 * @param idCard
@@ -560,7 +552,7 @@ public class IdcardUtils2 {
 		return sGender;
 	}
 
-	/**
+	/*
 	 * 根据身份编号获取户籍省份
 	 * 
 	 * @param idCard
@@ -578,7 +570,7 @@ public class IdcardUtils2 {
 		return sProvince;
 	}
 
-	/**
+	/*
 	 * 数字验证
 	 * 
 	 * @param val
@@ -588,7 +580,7 @@ public class IdcardUtils2 {
 		return val == null || "".equals(val) ? false : val.matches("^[0-9]*$");
 	}
 
-	/**
+	/*
 	 * 验证小于当前日期 是否有效
 	 * 
 	 * @param iYear

@@ -1,6 +1,6 @@
 package hitool.crypto.binary;
 
-/**
+/*
  * @author 陈明 E-mail:chenming@sansec.com.cn
  * @version 创建时间：2011-2-23 上午09:28:50
  * 

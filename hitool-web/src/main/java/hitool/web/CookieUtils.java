@@ -28,14 +28,14 @@ import hitool.web.cookie.CookieModel;
 
 public abstract class CookieUtils {
 
-	/**
+	/*
 	 * Default path that cookies will be visible to: "/", i.e. the entire server.
 	 */
 	protected static final String DEFAULT_COOKIE_PATH = "/";
 
 	protected static Logger LOG = LoggerFactory.getLogger(CookieUtils.class);
 	
-	/**
+	/*
 	 * Retrieve the first cookie with the given name. Note that multiple
 	 * cookies can have the same name but different paths or domains.
 	 * @param request current servlet request
@@ -46,7 +46,7 @@ public abstract class CookieUtils {
 		return getCookie(request, null, cookieName, false);
 	}
 	
-	/**
+	/*
 	 * 获得指定Cookie的值，并删除。
 	 * @param name 名称
 	 * @return 值
@@ -54,7 +54,7 @@ public abstract class CookieUtils {
 	public static Cookie getCookie(HttpServletRequest request, HttpServletResponse response, String cookieName) {
 		return getCookie(request, response, cookieName, true);
 	}
-	/**
+	/*
 	 * 获得指定Cookie的值
 	 * @param request 请求对象
 	 * @param response 响应对象
@@ -80,7 +80,7 @@ public abstract class CookieUtils {
 		return null;
 	}
 	
-	/**
+	/*
 	 * 
 	 * Add a cookie with the given value to the response, using the cookie descriptor settings of this generator.
 	 * <p>Delegates to {@link #createCookie} for cookie creation.
@@ -135,7 +135,7 @@ public abstract class CookieUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * Remove the cookie that this generator describes from the response.
 	 * Will generate a cookie with empty value and max age 0.
 	 * <p>Delegates to {@link #createCookie} for cookie creation.
@@ -154,7 +154,7 @@ public abstract class CookieUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 
 	 *  Create a cookie with the given value, using the cookie descriptor settings of this generator (except for "cookieMaxAge").
 	 * @param cookieName
@@ -181,7 +181,7 @@ public abstract class CookieUtils {
 		return cookie;
 	}
 	
-	/**
+	/*
 	 * 设置 Cookie（生成时间为1天）
 	 * @param name 名称
 	 * @param value 值
@@ -190,7 +190,7 @@ public abstract class CookieUtils {
 		setCookie(response, name, value, 60*60*24);
 	}
 	
-	/**
+	/*
 	 * 设置 Cookie
 	 * @param name 名称
 	 * @param value 值
@@ -201,7 +201,7 @@ public abstract class CookieUtils {
 		setCookie(response, name, value, path, 60*60*24);
 	}
 	
-	/**
+	/*
 	 * 设置 Cookie
 	 * @param name 名称
 	 * @param value 值
@@ -212,7 +212,7 @@ public abstract class CookieUtils {
 		setCookie(response, name, value, "/", maxAge);
 	}
 	
-	/**
+	/*
 	 * 设置 Cookie
 	 * @param name 名称
 	 * @param value 值

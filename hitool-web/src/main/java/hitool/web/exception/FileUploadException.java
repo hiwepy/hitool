@@ -4,25 +4,25 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 
 public class FileUploadException extends Exception {
-    /**
+    /*
      * Serial version UID, being used, if the exception
      * is serialized.
      */
     private static final long serialVersionUID = 8881893724388807504L;
-    /**
+    /*
      * The exceptions cause. We overwrite the cause of
      * the super class, which isn't available in Java 1.3.
      */
     private final Throwable cause;
 
-    /**
+    /*
      * Constructs a new <code>FileUploadException</code> without message.
      */
     public FileUploadException() {
         this(null, null);
     }
 
-    /**
+    /*
      * Constructs a new <code>FileUploadException</code> with specified detail
      * message.
      *
@@ -32,7 +32,7 @@ public class FileUploadException extends Exception {
         this(msg, null);
     }
 
-    /**
+    /*
      * Creates a new <code>FileUploadException</code> with the given
      * detail message and cause.
      * @param msg The exceptions detail message.
@@ -43,7 +43,7 @@ public class FileUploadException extends Exception {
         this.cause = cause;
     }
 
-    /**
+    /*
      * Prints this throwable and its backtrace to the specified print stream.
      *
      * @param stream <code>PrintStream</code> to use for output
@@ -56,7 +56,7 @@ public class FileUploadException extends Exception {
         }
     }
 
-    /**
+    /*
      * Prints this throwable and its backtrace to the specified
      * print writer.
      *

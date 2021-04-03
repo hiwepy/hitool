@@ -5,13 +5,13 @@ import java.security.KeyStore;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 
-/**
+/*
  * 
  * 
  */
 public final class KeyStoreUtils {
 
-	/**
+	/*
 	 * 
 	 *  获得证书对象
 	 * @param certificatePath 证书路径
@@ -22,7 +22,7 @@ public final class KeyStoreUtils {
 		return KeyStoreUtils.getCertificate(new FileInputStream(certificatePath));
 	}
 
-	/**
+	/*
 	 * 
 	 *  获得证书对象
 	 * @param certificatePath 证书路径

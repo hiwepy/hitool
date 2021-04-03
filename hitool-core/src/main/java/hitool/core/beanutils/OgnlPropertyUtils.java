@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -23,7 +23,7 @@ import ognl.OgnlException;
 @SuppressWarnings({ "unchecked", "unused" })
 public abstract class OgnlPropertyUtils {
 
-	/**
+	/*
 	 * Logging for this instance
 	 */
 	protected static Logger LOG = LoggerFactory.getLogger(OgnlPropertyUtils.class);
@@ -108,7 +108,7 @@ public abstract class OgnlPropertyUtils {
 		}
 	}
 
-	/**
+	/*
 	 * <b>获取对象bean的name属性的数组的结果表示</b>
 	 * 	1.Array类型则转换成 Object[]
 	 * 	2.Collection类型则逐个取值后放到Object[]

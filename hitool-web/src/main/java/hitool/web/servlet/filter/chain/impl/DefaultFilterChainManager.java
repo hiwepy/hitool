@@ -21,7 +21,7 @@ import hitool.web.servlet.filter.NamedFilterList;
 import hitool.web.servlet.filter.PathProcessor;
 import hitool.web.servlet.filter.chain.FilterChainManager;
 
-/**
+/*
  * 
  */
 public class DefaultFilterChainManager implements FilterChainManager {
@@ -47,14 +47,14 @@ public class DefaultFilterChainManager implements FilterChainManager {
         setFilterConfig(filterConfig);
     }
 
-    /**
+    /*
      * @return the {@code FilterConfig} provided by the Servlet container at webapp startup.
      */
     public FilterConfig getFilterConfig() {
         return filterConfig;
     }
 
-    /**
+    /*
      * Sets the {@code FilterConfig} provided by the Servlet container at webapp startup.
      *
      * @param filterConfig the {@code FilterConfig} provided by the Servlet container at webapp startup.
@@ -107,7 +107,7 @@ public class DefaultFilterChainManager implements FilterChainManager {
         }
     }
 
-    /**
+    /*
      * Splits the comma-delimited filter chain definition line into individual filter definition tokens.
      */
     protected String[] splitChainDefinition(String chainDefinition) {
@@ -199,7 +199,7 @@ public class DefaultFilterChainManager implements FilterChainManager {
         return configured.proxy(original);
     }
 
-    /**
+    /*
      * Initializes the filter by calling <code>filter.init( {@link #getFilterConfig() getFilterConfig()} );</code>.
      *
      * @param filter the filter to initialize with the {@code FilterConfig}.

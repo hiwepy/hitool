@@ -1,6 +1,6 @@
 package hitool.core.beanutils.reflection;
 
-/**
+/*
  * This class is extremely useful for loading resources and classes in a fault tolerant manner
  * that works across different applications servers.
  * <p/>
@@ -10,7 +10,7 @@ package hitool.core.beanutils.reflection;
  */
 public class ClassLoaderUtils {
 
-    /**
+    /*
      * Load a class with a given name.
      * <p/>
      * It will try to load the class in the following order:
@@ -41,7 +41,7 @@ public class ClassLoaderUtils {
         }
     }
 
-    /**
+    /*
      * Prints the current classloader hierarchy - useful for debugging.
      */
     public static void printClassLoader() {
@@ -49,7 +49,7 @@ public class ClassLoaderUtils {
         printClassLoader(Thread.currentThread().getContextClassLoader());
     }
 
-    /**
+    /*
      * Prints the classloader hierarchy from a given classloader - useful for debugging.
      */
     public static void printClassLoader(ClassLoader cl) {
@@ -60,14 +60,14 @@ public class ClassLoaderUtils {
         }
     }
     
-    /**
+    /*
      *  得到当前线程的ClassLoader
      */
     public static ClassLoader getCurrentThreadClassLoader() {
 		return Thread.currentThread().getContextClassLoader();
 	}
     
-    /**
+    /*
      *  得到指定类的ClassLoader
      * @param clazz
      * @return
@@ -76,7 +76,7 @@ public class ClassLoaderUtils {
 		return clazz.getClassLoader();
 	}
     
-    /**
+    /*
      *  得到指定Class所在的ClassLoader的ClassPath的绝对路径
      * @param clazz
      * @return

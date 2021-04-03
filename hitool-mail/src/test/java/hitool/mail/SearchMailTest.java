@@ -26,7 +26,7 @@ import javax.mail.search.SentDateTerm;
 import javax.mail.search.SizeTerm;
 import javax.mail.search.SubjectTerm;
 
-/**
+/*
  * 搜索邮件
  */
 public class SearchMailTest {
@@ -94,7 +94,7 @@ public class SearchMailTest {
 		return folder.search(intComparisonTerm);
 	}
 
-	/**
+	/*
 	 * 根据用户输入的收件人地址（包括email地址和姓名）和主题作为搜索条件，并提示用户是否删除搜索到的邮件
 	 * 
 	 * @param from

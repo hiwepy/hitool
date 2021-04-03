@@ -5,7 +5,7 @@ import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
-/**
+/*
  * 公钥加密 私钥解密 私钥签名
  * @param <Pub>
  * @param <Pri>
@@ -22,7 +22,7 @@ public abstract class KeyPairCrypto<Pub extends PublicKey, Pri extends PrivateKe
 
 	}
 
-	/**
+	/*
 	 * 
 	 * 初始化 钥匙对 @throws GeneralSecurityException @return Map<String,Object>
 	 * 返回类型 @throws
@@ -35,7 +35,7 @@ public abstract class KeyPairCrypto<Pub extends PublicKey, Pri extends PrivateKe
 
 	public abstract KeyPairEntry<Pub, Pri> genKeyEntry(int keysize) throws GeneralSecurityException;
 
-	/**
+	/*
 	 * 
 	 * 还原公钥 @param key @return @throws GeneralSecurityException @return PublicKey
 	 * 返回类型 @throws
@@ -44,7 +44,7 @@ public abstract class KeyPairCrypto<Pub extends PublicKey, Pri extends PrivateKe
 
 	public abstract Pub toPublicKey(String keyText) throws GeneralSecurityException;
 
-	/**
+	/*
 	 * 
 	 * 还原私钥
 	 * 

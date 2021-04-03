@@ -60,7 +60,7 @@ import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509ExtendedKeyManager;
 import javax.net.ssl.X509TrustManager;
 
-/**
+/*
  * Builder for {@link javax.net.ssl.SSLContext} instances.
  * <p>
  * Please note: the default Oracle JSSE implementation of {@link SSLContext#init(KeyManager[], TrustManager[], SecureRandom)}
@@ -97,7 +97,7 @@ public class SSLContextBuilder {
         this.trustManagers = new LinkedHashSet<TrustManager>();
     }
 
-    /**
+    /*
      * Sets the SSLContext protocol algorithm name.
      *
      * @param protocol
@@ -118,7 +118,7 @@ public class SSLContextBuilder {
         return this;
     }
 
-    /**
+    /*
      * Sets the SSLContext protocol algorithm name.
      *
      * @param protocol
@@ -153,7 +153,7 @@ public class SSLContextBuilder {
         return this;
     }
 
-    /**
+    /*
      * Sets the key store type.
      *
      * @param keyStoreType
@@ -173,7 +173,7 @@ public class SSLContextBuilder {
         return this;
     }
 
-    /**
+    /*
      * Sets the key manager factory algorithm name.
      *
      * @param keyManagerFactoryAlgorithm
@@ -193,7 +193,7 @@ public class SSLContextBuilder {
         return this;
     }
 
-    /**
+    /*
      * Sets the trust manager factory algorithm name.
      *
      * @param trustManagerFactoryAlgorithm

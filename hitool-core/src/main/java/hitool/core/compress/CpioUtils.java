@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -17,7 +17,7 @@ import org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream;
 import org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream;
 import org.apache.commons.io.IOUtils;
 
-/**
+/*
  * Apache commons compress CPIO打包
  */
 public abstract class CpioUtils extends CompressUtils {

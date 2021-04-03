@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import hitool.core.lang3.Assert;
 
-/**
+/*
  */
 @SuppressWarnings("rawtypes")
 public abstract class FiletypeUtils {

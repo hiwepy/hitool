@@ -2,7 +2,7 @@ package hitool.lrc4j.tar.time;
 
 import hitool.lrc4j.tar.AbstractTar;
 
-/**
+/*
  * 
  * @className	： TimeTar
  * @description	：时间标签 <p>形式为"[mm:ss]"或"[mm:ss.ff]"（分钟数:秒数）。数字须为非负整数，
@@ -13,7 +13,7 @@ import hitool.lrc4j.tar.AbstractTar;
  */
 public class TimeTar extends AbstractTar {
 	private final String name = "time";
-	/**
+	/*
 	 * 标签后面的歌词，即当前时刻到下一时刻之前该显示的歌词
 	 */
 	private String text;

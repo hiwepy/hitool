@@ -2,7 +2,7 @@ package hitool.core.io;
 
 import java.nio.ByteBuffer;
 
-/**
+/*
  *  ByteBuffer和byte 数组相互转换
  */
 public class ByteBufferUtils {

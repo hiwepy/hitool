@@ -24,7 +24,7 @@ import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 
 import hitool.crypto.enums.Algorithm;
 
-/**
+/*
  * 
  * 解密工具类
  */
@@ -66,7 +66,7 @@ public class DecryptUtils {
 		return DecryptUtils.decrypt(algorithm, URLEncoder.encode(encryptedText, "UTF-8").getBytes(), secretKey);
 	}
 
-	/**
+	/*
 	 * @param algorithm
 	 *            解密算法
 	 * @param secretKey
@@ -82,7 +82,7 @@ public class DecryptUtils {
 		return DecryptUtils.decrypt(cipher, encryptedBytes, secretKey);
 	}
 
-	/**
+	/*
 	 * 
 	 * 解密数据
 	 * 
@@ -102,7 +102,7 @@ public class DecryptUtils {
 		return cipher.doFinal(encryptedBytes);
 	}
 
-	/**
+	/*
 	 * 
 	 * 解密数据
 	 * 
@@ -119,7 +119,7 @@ public class DecryptUtils {
 		return DecryptUtils.decrypt(cipher, encryptedText.getBytes(), secretKey);
 	}
 
-	/**
+	/*
 	 * 
 	 * 解密数据
 	 * 
@@ -137,7 +137,7 @@ public class DecryptUtils {
 		return StringUtils.newStringUtf8(DecryptUtils.decrypt(cipher, encryptedBytes, secretKey));
 	}
 
-	/**
+	/*
 	 * 
 	 * 解密数据
 	 * 
@@ -155,7 +155,7 @@ public class DecryptUtils {
 		return DecryptUtils.decryptString(cipher, encryptedText.getBytes(), secretKey);
 	}
 
-	/**
+	/*
 	 * 
 	 * 解密文件
 	 * 

@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-/**
+/*
  * Aggregates Enumeration instances into one iterator and filters out duplicates.  Always keeps one
  * ahead of the enumerator to protect against returning duplicates.
  */

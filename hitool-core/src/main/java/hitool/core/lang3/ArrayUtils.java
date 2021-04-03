@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -27,7 +27,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 				|| indexOf(array, stringToFind.toUpperCase()) != INDEX_NOT_FOUND;
 	}
 	
-	/**
+	/*
 	 * Adapts an enumeration to an iterator.
 	 * @param array the enumeration
 	 * @return the iterator
@@ -92,7 +92,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 	
 	//分布峰度Ku in array
 	// --------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Returns the Ku in an array. </p>
 	 * <p>分布峰度Ku </p>
 	 * @param array an array, must not be null or empty
@@ -144,7 +144,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 	
 	//分布偏态SK in array
 	// --------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Returns the SK in an array. </p>
 	 * <p>分布偏态SK=(M-Me) /σ</p>
 	 * @param array an array, must not be null or empty
@@ -198,7 +198,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 
 	//标准差σ in array
 	// --------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Returns the σ in an array. </p>
 	 * <p>标准差 σ =方差s^2的算术平方根</p>
 	 * @param array an array, must not be null or empty
@@ -250,7 +250,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 	
 	//方差s^2 in array
 	// --------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Returns the s^2 in an array. </p>
 	 * <p>s^2=[(x1-x)^2 +(x2-x)^2 +......(xn-x)^2]/n 　　(x为平均数) 　　
 	 * 例如：4,8,6,2，方差为5. 　</p>
@@ -336,7 +336,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 	//中位数 Me in array
 	// --------------------------------------------------------------------
 	
-	/**
+	/*
 	 * <p> Returns the Me in an array. </p>
 	 * <p>
 	 * 	 一般来说，一组数据中，出现次数最多的数就叫这组数据的众数。
@@ -626,7 +626,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 	//中位数 Me in array
 	// --------------------------------------------------------------------
 
-	/**
+	/*
 	 * <p> Returns the Me in an array. </p>
 	 * <p>当一组数字的个数是偶数的时候，是一组数字顺序排列后中间2位的数字的平均值</p>
 	 * <p>当一组数字的个数是奇数的时候，是一组数字顺序排列后中间1位的数字</p>
@@ -715,7 +715,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 	
 	// average in array
 	// --------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Returns the avg in an array. </p>
 	 * 
 	 * @param array an array, must not be null or empty
@@ -870,7 +870,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 
 	// 极差(D=Xmax - Xmin) in array
 	// --------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Returns the 极差D in an array. </p>
 	 * 
 	 * @param array an array, must not be null or empty
@@ -922,7 +922,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 
 	// Min in array
 	// --------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Returns the minimum value in an array. </p>
 	 * @param array an array, must not be null or empty
 	 * @return the minimum value in the array
@@ -1016,7 +1016,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 
 	// Max in array
 	// --------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Returns the maximum value in an array. </p>
 	 * 
 	 * @param array an array, must not be null or empty
@@ -1116,7 +1116,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 
 	// 3 param min
 	// -----------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Gets the minimum of three <code>long</code> values. </p>
 	 * @param a value 1
 	 * @param b value 2
@@ -1173,7 +1173,7 @@ public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
 
 	// 3 param max
 	// -----------------------------------------------------------------------
-	/**
+	/*
 	 * <p> Gets the maximum of three <code>long</code> values. </p>
 	 * @param a value 1
 	 * @param b value 2

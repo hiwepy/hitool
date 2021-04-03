@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-/**
+/*
  * Static utilities for serialization and deserialization.
  * 
  * @author Dave Syer
@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
  */
 public abstract class SerializationUtils {
 
-	/**
+	/*
 	 * Serialize the given object to a byte array.
 	 * 
 	 * @param object
@@ -38,7 +38,7 @@ public abstract class SerializationUtils {
 		return baos.toByteArray();
 	}
 
-	/**
+	/*
 	 * Deserialize the byte array into an object.
 	 * 
 	 * @param bytes

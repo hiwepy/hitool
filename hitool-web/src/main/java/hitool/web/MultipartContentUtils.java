@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 public class MultipartContentUtils {
 	
-	/**
+	/*
 	 * 方法用途和描述: 获取内容描述
 	 * @param name
 	 * @return

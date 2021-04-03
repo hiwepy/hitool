@@ -1,6 +1,6 @@
 package hitool.crypto;
 
-/**
+/*
  * @title: InputStreamEncoder.java
  * @package hitool.crypto
  * @fescription: TODO(添加描述)

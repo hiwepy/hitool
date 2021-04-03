@@ -13,7 +13,7 @@ import javax.mail.internet.MimeUtility;
 
 import com.sun.mail.imap.IMAPMessage;
 
- /**
+ /*
   * <b>使用IMAP协议接收邮件</b><br/>
   * <p>POP3和IMAP协议的区别:</p>
   * <b>POP3</b>协议允许电子邮件客户端下载服务器上的邮件,但是在客户端的操作(如移动邮件、标记已读等)，不会反馈到服务器上，<br/>

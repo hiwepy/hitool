@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -13,14 +13,14 @@ import java.io.ObjectOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
+/*
  * 序列化工具类，负责byte[]和Object之间的相互转换.
  */
 public class SerializationUtils extends org.apache.commons.lang3.SerializationUtils {
 
 	protected static Logger LOG = LoggerFactory.getLogger(SerializationUtils.class);
 
-	/**
+	/*
 	 * 对实体Bean进行序列化操作.
 	 * @param source 待转换的实体
 	 * @return 转换之后的字节数组
@@ -47,7 +47,7 @@ public class SerializationUtils extends org.apache.commons.lang3.SerializationUt
 		return byteOut.toByteArray();
 	}
 
-	/**
+	/*
 	 * 将字节数组反序列化为实体Bean.
 	 * @param source 需要进行反序列化的字节数组
 	 * @return 反序列化后的实体Bean

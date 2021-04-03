@@ -17,15 +17,15 @@ package hitool.mail.conf;
 
 public class EmailFrom {
 
-	/**
+	/*
 	 * 名称
 	 */
 	protected String name;
-	/**
+	/*
 	 * 邮箱
 	 */
 	protected String email;
-	/**
+	/*
 	 * 是否要求阅读回执(收件人阅读邮件时会提示回复发件人,表明邮件已收到,并已阅读)
 	 */
 	protected boolean notification = false;

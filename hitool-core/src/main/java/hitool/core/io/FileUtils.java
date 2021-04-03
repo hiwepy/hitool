@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
 
 import hitool.core.lang3.Assert;
 
-/**
+/*
  *   文件操作工具
  */
 public class FileUtils extends org.apache.commons.io.FileUtils {
@@ -73,7 +73,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 	// Delete methods for java.io.File
 	// ---------------------------------------------------------------------
 
-	/**
+	/*
 	 * Delete the supplied {@link java.io.File} - for directories, recursively
 	 * delete any nested directories or files as well. <br/>
 	 * 删除给定的file文件,如果是文件夹,递归的删除内部的文件夹或文件
@@ -146,7 +146,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		cleanDirectory(file);
 	}
 
-	/**
+	/*
 	 *   删除指定路径的文件
 	 * @param path
 	 */
@@ -160,7 +160,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		}
 	}
 
-	/**
+	/*
 	 *  删除指定的文件
 	 * @param file
 	 */
@@ -183,7 +183,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		}
 	}
 
-	/**
+	/*
 	 * extract the local path information from a URL in a form suitable for
 	 * contructing a File
 	 * 
@@ -278,7 +278,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 
-	/**
+	/*
 	 *  文件探针 ；当父目录不存在时，创建目录！
 	 * @param dirFile
 	 * @throws IOException

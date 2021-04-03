@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -33,7 +33,7 @@ public abstract class OverrideStackRuntimeException extends RuntimeException {
 		super(getText(message, arguments), cause);
 	}
 
-	/**
+	/*
 	 * <pre>
 	 * 自定义改进的Exception对象 覆写了 fillInStackTrace方法
 	 * 1. 不填充stack

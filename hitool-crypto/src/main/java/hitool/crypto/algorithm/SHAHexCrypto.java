@@ -48,7 +48,7 @@ public class SHAHexCrypto  implements StringEncoder,BinaryEncoder,StringVerifier
 		return Hex.encodeHexString(buffer(DigestUtils.sha(source)) );
 	}
 	
-	/**
+	/*
 	 * 提供一个MD5多次加密方法
 	 */
 	public String encode(String source, int times){
@@ -61,7 +61,7 @@ public class SHAHexCrypto  implements StringEncoder,BinaryEncoder,StringVerifier
 		return Hex.encodeHexString(binaryData);
 	}
 	
-	/**
+	/*
 	 * 
 	 *  SHA-256消息摘要
 	 * @param source
@@ -123,14 +123,14 @@ public class SHAHexCrypto  implements StringEncoder,BinaryEncoder,StringVerifier
 		return Hex.encodeHexString(buffer(DigestUtils.sha512(source)) );
 	}
 	
-	/**
+	/*
 	 * 密码验证方法
 	 */
 	public boolean verify(String source, String encrypt){
 		return encode(source).equals(encrypt);
 	}
 
-	/**
+	/*
 	 * 重载一个多次加密时的密码验证方法
 	 * @throws EncoderException 
 	 */

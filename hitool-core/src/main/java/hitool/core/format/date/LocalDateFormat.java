@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -12,7 +12,7 @@ import java.util.Locale;
 
 import hitool.core.format.Format;
 
-/**
+/*
  *  时间格式化成字符串
  */
 public class LocalDateFormat implements Format{
@@ -61,7 +61,7 @@ public class LocalDateFormat implements Format{
 		return format(date, pattern, null);
 	}
 	
-	/**
+	/*
 	 * 按照给定的格式模板将指定的日期值转换成字符串
 	 * @param date: 待转换的日期
 	 * @param pattern: 指定转化格式字符串,例如：yyyy-MM-dd
@@ -74,7 +74,7 @@ public class LocalDateFormat implements Format{
 		return format(date);
 	}
 
-	/**
+	/*
 	 * 按照给定的格式style将指定的日期值转换成字符串
 	 * @param date: 待转换的日期
 	 * @param style: 指定转化类型,style参数取静态常量LONG、MEDIUM和SHORT的值
@@ -90,7 +90,7 @@ public class LocalDateFormat implements Format{
 			return null;
 		}
 	}
-	/**
+	/*
 	 * 将一个long型的数值转换为指定格式的日期字符串
 	 * 
 	 * @param time

@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2018, vindell (https://github.com/vindell).
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -21,7 +21,7 @@ import hitool.crypto.algorithm.PBECrypto;
 
 public class PBECryptoTest {
 
-	/**
+	/*
 	 * 使用PBE算法对数据进行加解密
 	 * @throws Exception 
 	 * 

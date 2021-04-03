@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -51,7 +51,7 @@ public class VersionNumber /* implements Serializable */implements Comparable<Ve
 		return str.toString();
 	}
 
-	/**
+	/*
 	 * Not a commutative compareTo !! Can return 0 for any VersionNumber o that match this version (same defined major,
 	 * minor, bugfix) undefined part are ignored.
 	 */

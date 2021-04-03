@@ -12,7 +12,7 @@ import hitool.crypto.enums.Algorithm;
 import hitool.crypto.utils.HmacUtils;
 import hitool.crypto.utils.SecretKeyUtils;
 import hitool.crypto.utils.StringUtils;
-/**
+/*
  *  MAC消息摘要组件
  */
 public class HmacHexCrypto implements StringEncoder,BinaryEncoder,StringVerifier {
@@ -177,7 +177,7 @@ public class HmacHexCrypto implements StringEncoder,BinaryEncoder,StringVerifier
 		return DESBase64Crypto.getInstance().decode(encryptedText, base64Key);
 	}
 	
-	/**
+	/*
 	 * 密码验证方法
 	 * @throws EncoderException 
 	 */
@@ -185,7 +185,7 @@ public class HmacHexCrypto implements StringEncoder,BinaryEncoder,StringVerifier
 		return encode(plainText).equals(encrypt);
 	}
 
-	/**
+	/*
 	 * 重载一个多次加密时的密码验证方法
 	 * @throws EncoderException 
 	 */

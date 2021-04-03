@@ -5,7 +5,7 @@ import java.io.OutputStream;
 
 public class StringBufferedOutputStream extends OutputStream {
 
-	/**
+	/*
 	 * The output stream to be filtered.
 	 */
 	protected OutputStream output;

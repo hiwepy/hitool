@@ -1,17 +1,17 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
 package hitool.core.beanutils.exception;
 
 import java.text.MessageFormat;
-/**
+/*
  * 
  * 属性设置异常
  */
 @SuppressWarnings("serial")
 public class PropertySettingException extends RuntimeException {
-	/**
+	/*
 	 * 国际化信息key
 	 */
 	protected String msgKey = null;
@@ -32,7 +32,7 @@ public class PropertySettingException extends RuntimeException {
 		super(constructErrMsg(message, replaceParas));
 	}
 
-	/**
+	/*
 	 * 构造异常信息字符串
 	 */
 	private static String constructErrMsg(String msg, String... replaceParas){
@@ -42,7 +42,7 @@ public class PropertySettingException extends RuntimeException {
 		return msg;
 	}
 	
-	/**
+	/*
 	 * 格式化带有占位符的信息
 	 */
 	private static String msgFormat(String msg, String... replaceParas){

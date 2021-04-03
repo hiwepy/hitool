@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import hitool.core.lang3.Assert;
 
-/**
+/*
  * Web请求处理工具类
  */
 public abstract class WebRequestUtils {
@@ -30,7 +30,7 @@ public abstract class WebRequestUtils {
 	protected static SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	protected static Logger LOG = LoggerFactory.getLogger(WebRequestUtils.class);
 	
-	/**
+	/*
 	 * 得到ServletContext中的变量,相当于request.getSession().getServletContext().getAttribute()
 	 * @param servletContext
 	 * @param prefix
@@ -57,7 +57,7 @@ public abstract class WebRequestUtils {
 		return attributeMap;
 	}
 	
-	/**
+	/*
 	 * 得到ServletContext中的变量,相当于request.getSession().getServletContext().getAttribute()
 	 * @param servletContext
 	 * @param filters
@@ -67,7 +67,7 @@ public abstract class WebRequestUtils {
 		return getApplicationMap(servletContext, null, filters);
 	}
 	
-	/**
+	/*
 	 * 得到ServletRequest中的变量,相当于request.getAttribute()
 	 * @param request
 	 * @param prefix
@@ -92,7 +92,7 @@ public abstract class WebRequestUtils {
 		return attributeMap;
 	}
 	
-	/**
+	/*
 	 * 得到ServletRequest中的变量,相当于request.getAttribute()
 	 * @param request
 	 * @param filters
@@ -102,7 +102,7 @@ public abstract class WebRequestUtils {
 		return getContextMap(request, null, filters);
 	}
 	
-	/**
+	/*
 	 * 得到主机 应用 http请求路径： 如：http://127.0.0.1:8080/webapp_name
 	 * @return
 	 */
@@ -115,7 +115,7 @@ public abstract class WebRequestUtils {
 		}
 	} 
 	
-	/**
+	/*
 	 * 获得本地主机信息【本机IP,端口,本机名称】
 	 * @return
 	 * @throws UnknownHostException
@@ -188,7 +188,7 @@ public abstract class WebRequestUtils {
 	
 	
 	
-	/**
+	/*
      * Retrieves the current request servlet path.
      * Deals with differences between servlet specs (2.2 vs 2.3+)
      * @param request the request
@@ -219,7 +219,7 @@ public abstract class WebRequestUtils {
         return requestUri.substring(startIndex, endIndex);
     }
     
-    /**
+    /*
      *  得到Session中的变量Map,相当于request.getSession().getAttribute()
      * @param session
      * @param filters
@@ -229,7 +229,7 @@ public abstract class WebRequestUtils {
 		return getSessionMap(session, null, filters);
 	}
 	
-	/**
+	/*
 	 * 得到Session中的变量Map,相当于request.getSession().getAttribute()
 	 * @param session
 	 * @param prefix
@@ -254,7 +254,7 @@ public abstract class WebRequestUtils {
 		return attributeMap;
 	}
 	
-	/**
+	/*
 	 *  获得请求的客户端信息【ip,port,name】
 	 * @param request
 	 * @return
@@ -276,7 +276,7 @@ public abstract class WebRequestUtils {
         return uri.substring(request.getContextPath().length());
     }
 
-	/**
+	/*
 	 * 判断请求是否是Ajax 请求
 	 * @param request
 	 * @return
@@ -299,7 +299,7 @@ public abstract class WebRequestUtils {
          return false;
 	}
 	
-	/**
+	/*
 	 * 在request中获取异常类
 	 * @param request
 	 * @return 

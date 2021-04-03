@@ -12,14 +12,14 @@ public class LookupModel {
 	public List<File> baseDirList;
 	public ServletContext servletContext;
 	
-	/**
+	/*
 	 * @return the clazz
 	 */
 	public Class<?> getClazz() {
 		return clazz;
 	}
 
-	/**
+	/*
 	 * @param clazz
 	 *            the clazz to set
 	 */
@@ -27,28 +27,28 @@ public class LookupModel {
 		this.clazz = clazz;
 	}
 	
-	/**
+	/*
 	 * @return the classLoader
 	 */
 	public ClassLoader getClassLoader() {
 		return classLoader;
 	}
 
-	/**
+	/*
 	 * @param classLoader the classLoader to set
 	 */
 	public void setClassLoader(ClassLoader classLoader) {
 		this.classLoader = classLoader;
 	}
 
-	/**
+	/*
 	 * @return the baseDirList
 	 */
 	public List<File> getBaseDirList() {
 		return baseDirList;
 	}
 
-	/**
+	/*
 	 * @param baseDirList
 	 *            the baseDirList to set
 	 */
@@ -56,14 +56,14 @@ public class LookupModel {
 		this.baseDirList = baseDirList;
 	}
 
-	/**
+	/*
 	 * @return the servletContext
 	 */
 	public ServletContext getServletContext() {
 		return servletContext;
 	}
 
-	/**
+	/*
 	 * @param servletContext the servletContext to set
 	 */
 	public void setServletContext(ServletContext servletContext) {

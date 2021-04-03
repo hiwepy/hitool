@@ -49,7 +49,7 @@ public class SHABase64Crypto  implements StringEncoder,BinaryEncoder,InputStream
         return Base64.encodeBase64String(buffer(DigestUtils.sha(plainText)) );
 	}
 	
-	/**
+	/*
 	 * 提供一个MD5多次加密方法
 	 */
 	public String encode(String plainText, int times) throws EncoderException {
@@ -62,7 +62,7 @@ public class SHABase64Crypto  implements StringEncoder,BinaryEncoder,InputStream
 		return Base64.encodeBase64String(binaryData);
 	}
 	
-	/**
+	/*
 	 * 
 	 *  SHA-256消息摘要
 	 * @param plainText
@@ -123,14 +123,14 @@ public class SHABase64Crypto  implements StringEncoder,BinaryEncoder,InputStream
 		return Base64.encodeBase64String(buffer(DigestUtils.sha512(plainStream)));
 	}
 	
-	/**
+	/*
 	 * 密码验证方法
 	 */
 	public boolean verify(String plainText, String encrypt) throws EncoderException {
 		return encode(plainText).equals(encrypt);
 	}
 
-	/**
+	/*
 	 * 重载一个多次加密时的密码验证方法
 	 * @throws EncoderException 
 	 */

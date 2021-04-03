@@ -1,11 +1,11 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
 package hitool.core.lang3.exception;
 
 
-/**
+/*
  * 服务层运行异常
  */
 @SuppressWarnings("serial")

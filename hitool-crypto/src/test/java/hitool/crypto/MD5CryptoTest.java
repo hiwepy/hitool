@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2018, vindell (https://github.com/vindell).
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -21,7 +21,7 @@ import hitool.crypto.algorithm.MD5Crypto;
 
 public class MD5CryptoTest {
 	
-	/**
+	/*
 	 * 提供一个测试的主函数
 	 * @throws EncoderException 
 	 */

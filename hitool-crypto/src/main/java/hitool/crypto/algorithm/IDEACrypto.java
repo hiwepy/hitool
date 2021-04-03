@@ -9,7 +9,7 @@ import hitool.crypto.enums.Algorithm;
 import hitool.crypto.utils.CipherUtils;
 import hitool.crypto.utils.SecretKeyUtils;
 
-/**
+/*
  * IDEA对称加密算法，java6不支持这个算法的实现，bouncycastle支持IDEA对称加密算法
  * 这是一款对称分组密码。是目前比较常用的电子邮件加密算法之一
  * 我们可以参照这个算法的实现来完成其他算法的实现：Rijndael,Serpent,Twofish等
@@ -17,7 +17,7 @@ import hitool.crypto.utils.SecretKeyUtils;
  * */
 public class IDEACrypto {
 	
-	/**
+	/*
 	 * 
 	 * 生成密钥，只有bouncycastle支持
 	 * @return byte[] 二进制密钥
@@ -28,7 +28,7 @@ public class IDEACrypto {
 		//获取二进制密钥编码形式
 		return secretKey.getEncoded();
 	}
-	/**
+	/*
 	 * 转换密钥
 	 * @param key 二进制密钥
 	 * @return Key 密钥
@@ -38,7 +38,7 @@ public class IDEACrypto {
 		return SecretKeyUtils.genSecretKey(key,Algorithm.KEY_IDEA);
 	}
 	
-	/**
+	/*
 	 * 加密数据
 	 * @param data 待加密数据
 	 * @param key 密钥
@@ -52,7 +52,7 @@ public class IDEACrypto {
 		//执行操作
 		return cipher.doFinal(data);
 	}
-	/**
+	/*
 	 * 解密数据
 	 * @param data 待解密数据
 	 * @param key 密钥

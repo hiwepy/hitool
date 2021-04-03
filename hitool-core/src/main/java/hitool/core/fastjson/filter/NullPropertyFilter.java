@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -8,7 +8,7 @@ import com.alibaba.fastjson.serializer.PropertyFilter;
 
 public class NullPropertyFilter implements PropertyFilter {
 
-	/**
+	/*
 	 * 过滤不需要被序列化的属性
 	 * @param source 属性所在的对象
 	 * @param name 属性名

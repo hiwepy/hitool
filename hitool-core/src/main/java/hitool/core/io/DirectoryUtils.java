@@ -10,12 +10,12 @@ import org.apache.commons.lang3.SystemUtils;
 
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  * 文件目录工具
  */
 public class DirectoryUtils {
 
-	/**
+	/*
 	 * 清空某个目录
 	 * @param file
 	 */
@@ -31,7 +31,7 @@ public class DirectoryUtils {
 		}
 	}
 
-	/**
+	/*
 	 *  得到处理后的路径
 	 * @param path
 	 * @return
@@ -51,7 +51,7 @@ public class DirectoryUtils {
 		return SystemUtils.getUserDir();
 	}
 
-	/**
+	/*
 	 *  获得用户目录
 	 * @param session
 	 *            当前http会话
@@ -142,7 +142,7 @@ public class DirectoryUtils {
 		return directory;
 	}
 
-	/**
+	/*
 	 *  获取根目录
 	 * @param session
 	 * @return
@@ -204,7 +204,7 @@ public class DirectoryUtils {
 				DirectoryUtils.getResolvePath(dirPath)));
 	}
 
-	/**
+	/*
 	 *  根据业务模块得到附件目录
 	 * @param module
 	 * @return

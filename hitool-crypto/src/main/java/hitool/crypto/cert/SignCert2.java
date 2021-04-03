@@ -16,7 +16,7 @@ import sun.security.x509.X500Name;
 import sun.security.x509.X509CertImpl;
 import sun.security.x509.X509CertInfo;
 
-/**
+/*
  * ＜p＞Description: 该程序根据签发者（CA）的证书信息（即CA的私钥）来对被签发者
  * 的证书进行签名，过程即是使用CA的证书和被签证书来重构形成一个新的证书＜/p＞
  * 

@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.Security;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-/**
+/*
  * 
  * 数组工具类
  */
@@ -16,7 +16,7 @@ public class BinaryUtils {
 			Security.addProvider(new BouncyCastleProvider());
 		}
 	}
-	/**
+	/*
 	 * 
 	 *  获取16进制字节数组的二级制数组
 	 * @param bytes
@@ -34,7 +34,7 @@ public class BinaryUtils {
         return result;
     }
 	
-	/**
+	/*
 	 * 
 	 *  获取字符串的ASCII数组
 	 * @param data

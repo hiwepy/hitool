@@ -2,7 +2,7 @@ package hitool.lrc4j.tar.id;
 
 import hitool.lrc4j.tar.AbstractTar;
 
-/**
+/*
  * 
  * @className	： Ti
  * @description	： 曲名

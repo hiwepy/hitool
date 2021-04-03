@@ -5,7 +5,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Signature;
 
-/**
+/*
  * 
  * 签名工具类
  */

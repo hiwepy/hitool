@@ -45,7 +45,7 @@ public abstract class OverrideStackCheckedException extends Exception {
 		super(getText(message, arguments), cause);
 	}
 
-	/**
+	/*
 	 * <pre>
 	 * 自定义改进的Exception对象 覆写了 fillInStackTrace方法
 	 * 1. 不填充stack

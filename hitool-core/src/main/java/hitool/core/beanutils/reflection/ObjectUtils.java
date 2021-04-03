@@ -3,7 +3,7 @@
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
- /**
+ /*
   * Miscellaneous object utility methods.
   * Mainly for internal use within the framework.
   *
@@ -29,7 +29,7 @@ import java.util.Arrays;
  	private static final String ARRAY_ELEMENT_SEPARATOR = ", ";
 
 
- 	/**
+ 	/*
  	 * Return whether the given throwable is a checked exception:
  	 * that is, neither a RuntimeException nor an Error.
  	 * @param ex the throwable to check
@@ -42,7 +42,7 @@ import java.util.Arrays;
  		return !(ex instanceof RuntimeException || ex instanceof Error);
  	}
 
- 	/**
+ 	/*
  	 * Check whether the given exception is compatible with the specified
  	 * exception types, as declared in a throws clause.
  	 * @param ex the exception to check
@@ -63,7 +63,7 @@ import java.util.Arrays;
  		return false;
  	}
 
- 	/**
+ 	/*
  	 * Determine whether the given object is an array:
  	 * either an Object array or a primitive array.
  	 * @param obj the object to check
@@ -72,7 +72,7 @@ import java.util.Arrays;
  		return (obj != null && obj.getClass().isArray());
  	}
 
- 	/**
+ 	/*
  	 * Determine whether the given array is empty:
  	 * i.e. {@code null} or of zero length.
  	 * @param array the array to check
@@ -81,7 +81,7 @@ import java.util.Arrays;
  		return (array == null || array.length == 0);
  	}
 
- 	/**
+ 	/*
  	 * Check whether the given array contains the given element.
  	 * @param array the array to check (may be {@code null},
  	 * in which case the return value will always be {@code false})
@@ -100,7 +100,7 @@ import java.util.Arrays;
  		return false;
  	}
 
- 	/**
+ 	/*
  	 * Check whether the given array of enum constants contains a constant with the given name,
  	 * ignoring case when determining a match.
  	 * @param enumValues the enum values to check, typically the product of a call to MyEnum.values()
@@ -111,7 +111,7 @@ import java.util.Arrays;
  		return containsConstant(enumValues, constant, false);
  	}
 
- 	/**
+ 	/*
  	 * Check whether the given array of enum constants contains a constant with the given name.
  	 * @param enumValues the enum values to check, typically the product of a call to MyEnum.values()
  	 * @param constant the constant name to find (must not be null or empty string)
@@ -129,7 +129,7 @@ import java.util.Arrays;
  		return false;
  	}
 
- 	/**
+ 	/*
  	 * Case insensitive alternative to {@link Enum#valueOf(Class, String)}.
  	 * @param <E> the concrete Enum type
  	 * @param enumValues the array of all Enum constants in question, usually per Enum.values()
@@ -148,7 +148,7 @@ import java.util.Arrays;
  						constant, enumValues.getClass().getComponentType().getName()));
  	}
 
- 	/**
+ 	/*
  	 * Append the given object to the given array, returning a new array
  	 * consisting of the input array contents plus the given object.
  	 * @param array the array to append to (can be {@code null})
@@ -173,7 +173,7 @@ import java.util.Arrays;
  		return newArr;
  	}
 
- 	/**
+ 	/*
  	 * Convert the given array (which may be a primitive array) to an
  	 * object array (if necessary of primitive wrapper objects).
  	 * <p>A {@code null} source value will be converted to an
@@ -209,7 +209,7 @@ import java.util.Arrays;
  	// Convenience methods for content-based equality/hash-code handling
  	//---------------------------------------------------------------------
 
- 	/**
+ 	/*
  	 * Determine if the given objects are equal, returning {@code true}
  	 * if both are {@code null} or {@code false} if only one is
  	 * {@code null}.
@@ -262,7 +262,7 @@ import java.util.Arrays;
  		return false;
  	}
 
- 	/**
+ 	/*
  	 * Return as hash code for the given object; typically the value of
  	 * {@code Object#hashCode()}}. If the object is an array,
  	 * this method will delegate to any of the {@code nullSafeHashCode}
@@ -314,7 +314,7 @@ import java.util.Arrays;
  		return obj.hashCode();
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -329,7 +329,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -344,7 +344,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -359,7 +359,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -374,7 +374,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -389,7 +389,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -404,7 +404,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -419,7 +419,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -434,7 +434,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return a hash code based on the contents of the specified array.
  	 * If {@code array} is {@code null}, this method returns 0.
  	 */
@@ -449,7 +449,7 @@ import java.util.Arrays;
  		return hash;
  	}
 
- 	/**
+ 	/*
  	 * Return the same value as {@link Boolean#hashCode()}}.
  	 * @see Boolean#hashCode()
  	 */
@@ -457,7 +457,7 @@ import java.util.Arrays;
  		return (bool ? 1231 : 1237);
  	}
 
- 	/**
+ 	/*
  	 * Return the same value as {@link Double#hashCode()}}.
  	 * @see Double#hashCode()
  	 */
@@ -465,7 +465,7 @@ import java.util.Arrays;
  		return hashCode(Double.doubleToLongBits(dbl));
  	}
 
- 	/**
+ 	/*
  	 * Return the same value as {@link Float#hashCode()}}.
  	 * @see Float#hashCode()
  	 */
@@ -473,7 +473,7 @@ import java.util.Arrays;
  		return Float.floatToIntBits(flt);
  	}
 
- 	/**
+ 	/*
  	 * Return the same value as {@link Long#hashCode()}}.
  	 * @see Long#hashCode()
  	 */
@@ -486,7 +486,7 @@ import java.util.Arrays;
  	// Convenience methods for toString output
  	//---------------------------------------------------------------------
 
- 	/**
+ 	/*
  	 * Return a String representation of an object's overall identity.
  	 * @param obj the object (may be {@code null})
  	 * @return the object's identity as String representation,
@@ -499,7 +499,7 @@ import java.util.Arrays;
  		return obj.getClass().getName() + "@" + getIdentityHexString(obj);
  	}
 
- 	/**
+ 	/*
  	 * Return a hex String form of an object's identity hash code.
  	 * @param obj the object
  	 * @return the object's identity code in hex notation
@@ -508,7 +508,7 @@ import java.util.Arrays;
  		return Integer.toHexString(System.identityHashCode(obj));
  	}
 
- 	/**
+ 	/*
  	 * Return a content-based String representation if {@code obj} is
  	 * not {@code null}; otherwise returns an empty String.
  	 * <p>Differs from {@link #nullSafeToString(Object)} in that it returns
@@ -524,7 +524,7 @@ import java.util.Arrays;
  		return nullSafeToString(obj);
  	}
 
- 	/**
+ 	/*
  	 * Determine the class name for the given object.
  	 * <p>Returns {@code "null"} if {@code obj} is {@code null}.
  	 * @param obj the object to introspect (may be {@code null})
@@ -534,7 +534,7 @@ import java.util.Arrays;
  		return (obj != null ? obj.getClass().getName() : NULL_STRING);
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the specified Object.
  	 * <p>Builds a String representation of the contents in case of an array.
  	 * Returns {@code "null"} if {@code obj} is {@code null}.
@@ -579,7 +579,7 @@ import java.util.Arrays;
  		return (str != null ? str : EMPTY_STRING);
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated
@@ -610,7 +610,7 @@ import java.util.Arrays;
  		return sb.toString();
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated
@@ -642,7 +642,7 @@ import java.util.Arrays;
  		return sb.toString();
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated
@@ -673,7 +673,7 @@ import java.util.Arrays;
  		return sb.toString();
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated
@@ -704,7 +704,7 @@ import java.util.Arrays;
  		return sb.toString();
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated
@@ -736,7 +736,7 @@ import java.util.Arrays;
  		return sb.toString();
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated
@@ -768,7 +768,7 @@ import java.util.Arrays;
  		return sb.toString();
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated
@@ -799,7 +799,7 @@ import java.util.Arrays;
  		return sb.toString();
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated
@@ -830,7 +830,7 @@ import java.util.Arrays;
  		return sb.toString();
  	}
 
- 	/**
+ 	/*
  	 * Return a String representation of the contents of the specified array.
  	 * <p>The String representation consists of a list of the array's elements,
  	 * enclosed in curly braces ({@code "{}"}). Adjacent elements are separated

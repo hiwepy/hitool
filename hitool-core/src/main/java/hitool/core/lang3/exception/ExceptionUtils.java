@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -9,7 +9,7 @@ import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.UndeclaredThrowableException;
 
-/**
+/*
  * 异常信息格式化工具
  */
 public class ExceptionUtils extends org.apache.commons.lang3.exception.ExceptionUtils {
@@ -49,7 +49,7 @@ public class ExceptionUtils extends org.apache.commons.lang3.exception.Exception
 		}
 	}
 	
-	/**
+	/*
 	 * 将反射时的checked exception转换为unchecked exception.
 	 */
 	public static RuntimeException convertReflectionExceptionToUnchecked(Exception e) {
@@ -64,7 +64,7 @@ public class ExceptionUtils extends org.apache.commons.lang3.exception.Exception
 		return new RuntimeException("Unexpected Checked Exception.", e);
 	}
 	
-	/**
+	/*
 	 * 将CheckedException转换为UncheckedException.
 	 */
 	public static RuntimeException unchecked(Exception e) {
@@ -75,7 +75,7 @@ public class ExceptionUtils extends org.apache.commons.lang3.exception.Exception
 		}
 	}
 
-	/**
+	/*
 	 * 将ErrorStack转化为String.
 	 */
 	public static String getStackTraceAsString(Throwable e) {
@@ -87,7 +87,7 @@ public class ExceptionUtils extends org.apache.commons.lang3.exception.Exception
 		return stringWriter.toString();
 	}
 
-	/**
+	/*
 	 * 判断异常是否由某些底层的异常引起.
 	 */
 	public static boolean isCausedBy(Exception ex, Class<? extends Exception>... causeExceptionClasses) {

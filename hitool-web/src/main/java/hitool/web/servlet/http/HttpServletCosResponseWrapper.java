@@ -50,7 +50,7 @@ public class HttpServletCosResponseWrapper extends HttpServletResponseWrapper im
 		ServletUtils.returnURL(url, header.getOutputStream());
 	}
 
-	/**
+	/*
 	 *  向浏览器响应，输出下载的URL
 	 * @param filePath
 	 * @param title

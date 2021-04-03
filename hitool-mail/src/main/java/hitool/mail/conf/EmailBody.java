@@ -9,52 +9,52 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class EmailBody implements Serializable {
 
-	/**
+	/*
 	 * 邮件优先级(1:紧急 3:普通 5:低)
 	 */
 	protected String priority;
-	/**
+	/*
 	 * 邮件主题
 	 */
 	protected String subject;
-	/**
+	/*
 	 * 邮件内容,普通文本或者html
 	 */
 	protected String content;
-	/**
+	/*
 	 * 邮件输入流,支持外部邮件内容
 	 */
 	protected InputStream eml;
-	/**
+	/*
 	 * 发件人名称和邮箱
 	 */
 	protected EmailFrom from;
-	/**
+	/*
 	 * 收件人名称和邮箱
 	 */
 	protected Map<String, String> mailto;
-	/**
+	/*
 	 * 抄送人名称和邮箱
 	 */
 	protected Map<String, String> mailcc;
-	/**
+	/*
 	 * 密送人名称和邮箱
 	 */
 	protected Map<String, String> mailBcc;
-	/**
+	/*
 	 * 嵌入图片
 	 */
 	protected Map<String, File> inlineMap;
-	/**
+	/*
 	 * 附件
 	 */
 	protected Map<String, File> attached;
-	/**
+	/*
 	 * 邮件发生成功后响应的唯一ID
 	 */
 	protected String messageID;
 	
-	/**
+	/*
 	 * 
 	 */
 	public EmailBody() {
@@ -63,7 +63,7 @@ public class EmailBody implements Serializable {
 		this.mailBcc = new HashMap<String, String>();
 	}
 
-	/**
+	/*
 	 * @param priority	: 邮件优先级(1:紧急 3:普通 5:低)
 	 * @param subject 	: 邮件主题
 	 * @param content	: 邮件内容,普通文本或者html
@@ -78,7 +78,7 @@ public class EmailBody implements Serializable {
 		this.mailto 	= mailto;
 	}
 
-	/**
+	/*
 	 * @param priority	: 邮件优先级(1:紧急 3:普通 5:低)
 	 * @param subject 	: 邮件主题
 	 * @param content	: 邮件内容,普通文本或者html
@@ -96,7 +96,7 @@ public class EmailBody implements Serializable {
 		this.mailcc = mailcc;
 	}
 	
-	/**
+	/*
 	 * @param priority	: 邮件优先级(1:紧急 3:普通 5:低)
 	 * @param from		: 发件人名称和邮箱
 	 * @param mailto	: 收件人名称和邮箱

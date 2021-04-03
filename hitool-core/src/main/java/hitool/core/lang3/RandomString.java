@@ -6,22 +6,22 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
+/*
  * A provider of randomized {@link String} values.
  */
 public class RandomString {
 
-    /**
+    /*
      * The default length of a randomized {@link String}.
      */
     public static final int DEFAULT_LENGTH = 8;
 
-    /**
+    /*
      * The symbols which are used to create a random {@link String}.
      */
     private static final char[] SYMBOL;
 
-    /**
+    /*
      * The amount of bits to extract out of an integer for each key generated.
      */
     private static final int KEY_BITS;
@@ -45,17 +45,17 @@ public class RandomString {
         KEY_BITS = bits - (Integer.bitCount(SYMBOL.length) == bits ? 0 : 1);
     }
 
-    /**
+    /*
      * A provider of random values.
      */
     private final Random random;
 
-    /**
+    /*
      * The length of the random strings that are created by this instance.
      */
     private final int length;
 
-    /**
+    /*
      * Creates a random {@link String} provider where each {@link String} is of
      * {@link net.bytebuddy.utility.RandomString#DEFAULT_LENGTH} length.
      */
@@ -63,7 +63,7 @@ public class RandomString {
         this(DEFAULT_LENGTH);
     }
 
-    /**
+    /*
      * Creates a random {@link String} provider where each value is of the given length.
      *
      * @param length The length of the random {@link String}.
@@ -76,7 +76,7 @@ public class RandomString {
         random = new Random();
     }
 
-    /**
+    /*
      * Creates a random {@link String} of {@link net.bytebuddy.utility.RandomString#DEFAULT_LENGTH} length.
      *
      * @return A random {@link String}.
@@ -85,7 +85,7 @@ public class RandomString {
         return make(DEFAULT_LENGTH);
     }
 
-    /**
+    /*
      * Creates a random {@link String} of the given {@code length}.
      *
      * @param length The length of the random {@link String}.
@@ -95,7 +95,7 @@ public class RandomString {
         return new RandomString(length).nextString();
     }
 
-    /**
+    /*
      * Represents an integer value as a string hash. This string is not technically random but generates a fixed character
      * sequence based on the hash provided.
      *
@@ -110,7 +110,7 @@ public class RandomString {
         return new String(buffer);
     }
 
-    /**
+    /*
      * Creates a new random {@link String}.
      *
      * @return A random {@link String} of the given length for this instance.
@@ -123,7 +123,7 @@ public class RandomString {
         return new String(buffer);
     }
     
-    /**
+    /*
 	 * 得到八位数随机唯一Id
 	 *
 	 * @return

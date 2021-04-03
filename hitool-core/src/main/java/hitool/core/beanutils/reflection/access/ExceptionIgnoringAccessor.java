@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -13,7 +13,7 @@ import hitool.core.lang3.wraper.ClassLoaderWrapper;
 
 public abstract class ExceptionIgnoringAccessor implements ClassLoaderAccessor {
 
-	/**
+	/*
      * Private internal log instance.
      */
 	protected static final Logger LOG = LoggerFactory.getLogger(ExceptionIgnoringAccessor.class);

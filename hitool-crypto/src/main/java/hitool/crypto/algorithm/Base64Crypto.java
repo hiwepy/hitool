@@ -10,7 +10,7 @@ import hitool.crypto.StringDecryptor;
 import hitool.crypto.StringEncryptor;
 import hitool.crypto.StringVerifier;
 import hitool.crypto.utils.StringUtils;
-/**
+/*
  * 
  * 基于apache codec 的base64加密解密实现的扩展
  */
@@ -93,14 +93,14 @@ public class Base64Crypto implements StringEncryptor,StringDecryptor,BinaryEncry
 		return encoded;
 	}
 	
-	/**
+	/*
 	 * 密码验证方法
 	 */
 	public boolean verify(String source, String encrypt){
 		return encode(source).equals(encrypt);
 	}
 
-	/**
+	/*
 	 * 重载一个多次加密时的密码验证方法
 	 * @throws EncoderException 
 	 */

@@ -65,7 +65,7 @@ public class FileReadUtils {
 		return readFile(new File(filename));
 	}
 
-	/**
+	/*
 	 * A fixed size buffer, eww, that's like all those old C programs. Buffer
 	 * overrun city, here we come :(
 	 */

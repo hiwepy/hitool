@@ -2,7 +2,7 @@ package hitool.core.regexp;
 
 import org.apache.oro.text.regex.MatchResult;
 import org.apache.oro.text.regex.PatternMatcherInput;
-/**
+/*
  * 
  *正则匹配封装接口
  *<pre>
@@ -12,7 +12,7 @@ import org.apache.oro.text.regex.PatternMatcherInput;
  */
 public interface PatternMatcher {
 	
-	/** 
+	/*
 	 * 正规表达式匹配
 	 * @param source 匹配的源字符串
 	 * @param regexName 匹配的正规表达式在配置文件中的键
@@ -27,7 +27,7 @@ public interface PatternMatcher {
 	public boolean matchesPrefix(String source, String regexName);
 	public boolean matchesPrefix(PatternMatcherInput input, String regexName);
 	
-	/**
+	/*
 	 * 
 	 *返回需要的匹配结果集
 	 */

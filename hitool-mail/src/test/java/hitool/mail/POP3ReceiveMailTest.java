@@ -27,7 +27,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 
-/**
+/*
  * 使用POP3协议接收邮件
  */
 public class POP3ReceiveMailTest {
@@ -36,7 +36,7 @@ public class POP3ReceiveMailTest {
 		receive();
 	}
 
-	/**
+	/*
 	 * 接收邮件
 	 */
 	public static void receive() throws Exception {
@@ -77,7 +77,7 @@ public class POP3ReceiveMailTest {
 		store.close();
 	}
 
-	/**
+	/*
 	 * 解析邮件
 	 * 
 	 * @param messages
@@ -117,7 +117,7 @@ public class POP3ReceiveMailTest {
 		}
 	}
 
-	/**
+	/*
 	 * 获得邮件主题
 	 * 
 	 * @param msg
@@ -129,7 +129,7 @@ public class POP3ReceiveMailTest {
 		return MimeUtility.decodeText(msg.getSubject());
 	}
 
-	/**
+	/*
 	 * 获得邮件发件人
 	 * 
 	 * @param msg
@@ -157,7 +157,7 @@ public class POP3ReceiveMailTest {
 		return from;
 	}
 
-	/**
+	/*
 	 * 根据收件人类型，获取邮件收件人、抄送和密送地址。如果收件人类型为空，则获得所有的收件人
 	 * <p>
 	 * Message.RecipientType.TO 收件人
@@ -199,7 +199,7 @@ public class POP3ReceiveMailTest {
 		return receiveAddress.toString();
 	}
 
-	/**
+	/*
 	 * 获得邮件发送时间
 	 * 
 	 * @param msg
@@ -219,7 +219,7 @@ public class POP3ReceiveMailTest {
 		return new SimpleDateFormat(pattern).format(receivedDate);
 	}
 
-	/**
+	/*
 	 * 判断邮件中是否包含附件
 	 * 
 	 * @param msg
@@ -263,7 +263,7 @@ public class POP3ReceiveMailTest {
 		return flag;
 	}
 
-	/**
+	/*
 	 * 判断邮件是否已读
 	 * 
 	 * @param msg
@@ -275,7 +275,7 @@ public class POP3ReceiveMailTest {
 		return msg.getFlags().contains(Flags.Flag.SEEN);
 	}
 
-	/**
+	/*
 	 * 判断邮件是否需要阅读回执
 	 * 
 	 * @param msg
@@ -292,7 +292,7 @@ public class POP3ReceiveMailTest {
 		return replySign;
 	}
 
-	/**
+	/*
 	 * 获得邮件的优先级
 	 * 
 	 * @param msg
@@ -317,7 +317,7 @@ public class POP3ReceiveMailTest {
 		return priority;
 	}
 
-	/**
+	/*
 	 * 获得邮件文本内容
 	 * 
 	 * @param part
@@ -345,7 +345,7 @@ public class POP3ReceiveMailTest {
 		}
 	}
 
-	/**
+	/*
 	 * 保存附件
 	 * 
 	 * @param part
@@ -390,7 +390,7 @@ public class POP3ReceiveMailTest {
 		}
 	}
 
-	/**
+	/*
 	 * 读取输入流中的数据保存至指定目录
 	 * 
 	 * @param is
@@ -416,7 +416,7 @@ public class POP3ReceiveMailTest {
 		bis.close();
 	}
 
-	/**
+	/*
 	 * 文本解码
 	 * 
 	 * @param encodeText

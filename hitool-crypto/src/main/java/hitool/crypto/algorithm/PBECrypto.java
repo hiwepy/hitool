@@ -13,7 +13,7 @@ import hitool.crypto.enums.Algorithm;
 import hitool.crypto.utils.CipherUtils;
 import hitool.crypto.utils.SecretKeyUtils;
 import hitool.crypto.utils.StringUtils;
-/**
+/*
  * 
  * PBE——Password-based encryption（基于密码加密）。其特点在于口令由用户自己掌管，不借助任何物理媒体；采用随机数（这里我们叫做盐）杂凑多重加密等方法保证数据的安全性。是一种简便的加密方式。 
  * 使用java6提供的PBEWITHMD5andDES算法进行展示
@@ -33,12 +33,12 @@ public class PBECrypto implements Crypto {
 		return  instance;
 	}
 	
-	/**
+	/*
 	 * 迭代次数
 	 * */
 	public static final int ITERATION_COUNT=100;
 	
-	/**
+	/*
 	 * 
 	 *  盐初始化:盐长度必须为8字节
 	 * @return byte[] 盐
@@ -55,7 +55,7 @@ public class PBECrypto implements Crypto {
 		return toKey(StringUtils.newStringUtf8(password));
 	}
 	
-	/**
+	/*
 	 * 
 	 *  转换密钥
 	 * @param password 密码
@@ -66,7 +66,7 @@ public class PBECrypto implements Crypto {
 		return SecretKeyUtils.genPBEKey(password, Algorithm.KEY_PBE_MD5_DES);
 	}
 	
-	/**
+	/*
 	 * 加密
 	 * @param data 待加密数据
 	 * @param password 密码
@@ -87,7 +87,7 @@ public class PBECrypto implements Crypto {
 		return cipher.doFinal(plainBytes);
 	}
 	
-	/**
+	/*
 	 * 解密
 	 * @param encryptedBytes 待解密数据
 	 * @param password 密码

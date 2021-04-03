@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import hitool.core.lang3.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 
-/**
+/*
  * http://blog.csdn.net/caoshuming_500/article/details/20952329
  * https://www.cnblogs.com/wang1001/p/9605761.html
  * @author <a href="https://github.com/hiwepy">hiwepy</a>
@@ -35,7 +35,7 @@ public class RemoteAddrUtils {
 	private static String LOCAL_IP = "127.0.0.1";
 	private static String UNKNOWN = "unknown";
 
-	/**
+	/*
 	 * 获取请求客户端IP地址，支持代理服务器
 	 * @param request {@link HttpServletRequest} 对象
 	 * @return IP地址
@@ -78,7 +78,7 @@ public class RemoteAddrUtils {
 		return remoteAddr;
 	}
 
-	/**
+	/*
 	 *  获得请求的客户端信息【ip,port,name】
 	 *  @param request {@link HttpServletRequest} 对象
 	 *  @return 客户端信息[ip,port,name]

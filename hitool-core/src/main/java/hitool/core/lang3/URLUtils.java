@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -18,7 +18,7 @@ public class URLUtils {
     //编译正则表达式
     protected static Pattern pattern = Pattern.compile(regEx);
     
-	/**
+	/*
 	 * 判断字串是否经过URLEncoder编码(正则判断字串是否匹配"%xy"，其中xy是两位16进制的数值)
 	 */
 	public static boolean isURLEncoder(String str){

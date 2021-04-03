@@ -14,14 +14,14 @@ import hitool.core.io.FileUtils;
 import hitool.core.io.FilenameUtils;
 import hitool.web.exception.InvalidFileNameException;
 
-/**
+/*
  */
 public class FilePart {
 
 	
 	// ----------------------------------------------------- Manifest constants
 
-    /**
+    /*
      * Default content charset to be used when no explicit charset
      * parameter is provided by the sender. Media subtypes of the
      * "text" type are defined to have a default charset value of
@@ -29,40 +29,40 @@ public class FilePart {
      */
     public static final String DEFAULT_CHARSET = "UTF-8";
 
-    /**
+    /*
      * The name of the form field as provided by the browser.
      */
     private String fieldName;
 
 
-    /**
+    /*
      * The content type passed by the browser, or <code>null</code> if
      * not defined.
      */
     private String contentType;
 
 
-    /**
+    /*
      * Whether or not this item is a simple form field.
      */
     private boolean isFormField;
 
 
-    /**
+    /*
      * The original filename in the user's filesystem.
      */
     private String fileName;
 
     private String filetype = null;
 
-    /**
+    /*
      * The size of the item, in bytes. This is used to cache the size when a
      * file item is moved from its original location.
      */
     private long size = -1;
 
 
-    /**
+    /*
      * The directory in which uploaded files will be stored, if stored on disk.
      */
     private File repository;
@@ -76,7 +76,7 @@ public class FilePart {
     // ----------------------------------------------------------- Constructors
 
 
-    /**
+    /*
      * Constructs a new <code>DiskFileItem</code> instance.
      *
      * @param fieldName     The name of the form field.
@@ -111,7 +111,7 @@ public class FilePart {
     // ------------------------------- Methods from javax.activation.DataSource
 
 
-    /**
+    /*
      * @throws IOException if an error occurs.
      */
     public InputStream getInputStream() throws IOException {
@@ -119,7 +119,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Returns the content type passed by the agent or <code>null</code> if
      * not defined.
      *
@@ -131,7 +131,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Returns the original filename in the client's filesystem.
      *
      * @return The original filename in the client's filesystem.
@@ -147,7 +147,7 @@ public class FilePart {
 
     // ------------------------------------------------------- FileItem methods
 
-    /**
+    /*
      * Returns the size of the file.
      *
      * @return The size of the file, in bytes.
@@ -157,7 +157,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Returns the contents of the file as an array of bytes.  If the
      * contents of the file were not yet cached in memory, they will be
      * loaded from the disk storage and cached.
@@ -185,7 +185,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Returns the contents of the file as a String, using the specified
      * encoding.  This method uses {@link #get()} to retrieve the
      * contents of the file.
@@ -202,7 +202,7 @@ public class FilePart {
         return new String(bytes(), charset);
     }
 
-    /**
+    /*
      * Deletes the underlying storage for a file item, including deleting any
      * associated temporary disk file. Although this storage will be deleted
      * automatically when the <code>FileItem</code> instance is garbage
@@ -217,7 +217,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Returns the name of the field in the multipart form corresponding to
      * this file item.
      *
@@ -231,7 +231,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Sets the field name used to reference this file item.
      *
      * @param fieldName The name of the form field.
@@ -244,7 +244,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Determines whether or not a <code>FileItem</code> instance represents
      * a simple form field.
      *
@@ -259,7 +259,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Specifies whether or not a <code>FileItem</code> instance represents
      * a simple form field.
      *
@@ -274,7 +274,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      */
     public File getStoreLocation() {
         return this.repository;
@@ -284,7 +284,7 @@ public class FilePart {
     // ------------------------------------------------------ Protected methods
 
 
-    /**
+    /*
      * Removes the file contents from the temporary storage.
      */
     protected void finalize() {
@@ -294,7 +294,7 @@ public class FilePart {
     }
 
 
-    /**
+    /*
      * Returns a string representation of this object.
      *
      * @return a string representation of this object.

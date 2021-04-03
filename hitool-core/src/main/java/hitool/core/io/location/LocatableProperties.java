@@ -12,7 +12,7 @@ import java.util.Properties;
 import hitool.core.io.LocationUtils;
 import hitool.core.io.input.PropertiesReader;
 
-/**
+/*
  * Properties implementation that remembers the location of each property.  When
  * loaded, a custom properties file parser is used to remember both the line number
  * and preceeding comments for each property entry.

@@ -9,7 +9,7 @@ import hitool.mail.authc.PropsAuthenticator;
 
 public abstract class JavaMailUtils {
 
-	/**
+	/*
 	 * 获取邮件发送期间上下文环境信息，如服务器的主机名、端口号、协议名称等
 	 */
 	public static Session getSession(Properties props) {

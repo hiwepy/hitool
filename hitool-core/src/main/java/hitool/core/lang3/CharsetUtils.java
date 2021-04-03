@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -19,7 +19,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * 将字符串转换成ISO-8859-1编码 
 	 */
 	public static final String toISO_8859_1(String input) {
@@ -36,7 +36,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
     }
 	
 	
-    /**
+    /*
      * Fetches a UTF8-encoded String from the specified byte array.
      */
 	public static final String getUTF8String(byte[] bytes) {
@@ -101,7 +101,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
 		return new String(cs, 0, count);
     }
 	
-	/**
+	/*
 	 * 字节标准移位转十六进制方法
 	 */
 	public static final String getHexString(byte[] bytes) {
@@ -123,7 +123,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
 		return hexStr.toUpperCase();
 	}
 	
-	/**
+	/*
 	 * 把字节数组转换成16进制字符串
 	 */
 	public static final String getHexString2(byte[] bytes) {
@@ -151,7 +151,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return b2;
     }
 	
-	/**
+	/*
 	 * 把16进制字符串转换成字节数组
 	 */
 	public static final byte[] getBytesUsHexString(String hex) {
@@ -170,7 +170,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
 		return b;
 	}
 	
-    /**
+    /*
      * Encodes the given string into a sequence of bytes using the ISO-8859-1 charset, storing the result into a new
      * byte array.
      * 
@@ -186,7 +186,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.getBytesUnchecked(string, CharEncoding.ISO_8859_1);
     }
 
-    /**
+    /*
      * Encodes the given string into a sequence of bytes using the US-ASCII charset, storing the result into a new byte
      * array.
      * 
@@ -202,7 +202,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.getBytesUnchecked(string, CharEncoding.US_ASCII);
     }
 
-    /**
+    /*
      * Encodes the given string into a sequence of bytes using the UTF-16 charset, storing the result into a new byte
      * array.
      * 
@@ -218,7 +218,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.getBytesUnchecked(string, CharEncoding.UTF_16);
     }
 
-    /**
+    /*
      * Encodes the given string into a sequence of bytes using the UTF-16BE charset, storing the result into a new byte
      * array.
      * 
@@ -234,7 +234,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.getBytesUnchecked(string, CharEncoding.UTF_16BE);
     }
 
-    /**
+    /*
      * Encodes the given string into a sequence of bytes using the UTF-16LE charset, storing the result into a new byte
      * array.
      * 
@@ -250,7 +250,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.getBytesUnchecked(string, CharEncoding.UTF_16LE);
     }
 
-    /**
+    /*
      * Encodes the given string into a sequence of bytes using the UTF-8 charset, storing the result into a new byte
      * array.
      * 
@@ -266,7 +266,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.getBytesUnchecked(string, CharEncoding.UTF_8);
     }
 
-    /**
+    /*
      * Encodes the given string into a sequence of bytes using the named charset, storing the result into a new byte
      * array.
      * <p>
@@ -300,7 +300,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return new IllegalStateException(charsetName + ": " + e);
     }
 
-    /**
+    /*
      * Constructs a new <code>String</code> by decoding the specified array of bytes using the given charset.
      * <p>
      * This method catches {@link UnsupportedEncodingException} and re-throws it as {@link IllegalStateException}, which
@@ -329,7 +329,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         }
     }
 
-    /**
+    /*
      * Constructs a new <code>String</code> by decoding the specified array of bytes using the ISO-8859-1 charset.
      * 
      * @param bytes
@@ -343,7 +343,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.newString(bytes, CharEncoding.ISO_8859_1);
     }
 
-    /**
+    /*
      * Constructs a new <code>String</code> by decoding the specified array of bytes using the US-ASCII charset.
      * 
      * @param bytes
@@ -357,7 +357,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.newString(bytes, CharEncoding.US_ASCII);
     }
 
-    /**
+    /*
      * Constructs a new <code>String</code> by decoding the specified array of bytes using the UTF-16 charset.
      * 
      * @param bytes
@@ -371,7 +371,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.newString(bytes, CharEncoding.UTF_16);
     }
 
-    /**
+    /*
      * Constructs a new <code>String</code> by decoding the specified array of bytes using the UTF-16BE charset.
      * 
      * @param bytes
@@ -385,7 +385,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.newString(bytes, CharEncoding.UTF_16BE);
     }
 
-    /**
+    /*
      * Constructs a new <code>String</code> by decoding the specified array of bytes using the UTF-16LE charset.
      * 
      * @param bytes
@@ -399,7 +399,7 @@ public class CharsetUtils extends org.apache.commons.lang3.CharSetUtils {
         return CharsetUtils.newString(bytes, CharEncoding.UTF_16LE);
     }
 
-    /**
+    /*
      * Constructs a new <code>String</code> by decoding the specified array of bytes using the UTF-8 charset.
      * 
      * @param bytes The bytes to be decoded into characters

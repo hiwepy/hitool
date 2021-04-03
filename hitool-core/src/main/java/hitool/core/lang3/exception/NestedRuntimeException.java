@@ -18,7 +18,7 @@ package hitool.core.lang3.exception;
 
 import java.text.MessageFormat;
 
-/**
+/*
  * Handy class for wrapping runtime {@code Exceptions} with a root cause.
  *
  * <p>This class is {@code abstract} to force the programmer to extend
@@ -39,7 +39,6 @@ import java.text.MessageFormat;
  */
 public abstract class NestedRuntimeException extends RuntimeException {
 
-	/** Use serialVersionUID from Spring 1.2 for interoperability */
 	private static final long serialVersionUID = 5439915454935047936L;
 
 	static {
@@ -52,7 +51,7 @@ public abstract class NestedRuntimeException extends RuntimeException {
 		fillInStackTrace();
 	}
 
-	/**
+	/*
 	 * Construct a {@code NestedRuntimeException} with the specified detail message.
 	 * @param msg the detail message
 	 */
@@ -64,7 +63,7 @@ public abstract class NestedRuntimeException extends RuntimeException {
 		super(cause);
 	}
 	
-	/**
+	/*
 	 * Construct a {@code NestedRuntimeException} with the specified detail message
 	 * and nested exception.
 	 * @param msg the detail message
@@ -82,7 +81,7 @@ public abstract class NestedRuntimeException extends RuntimeException {
 		super(getText(message, arguments), cause);
 	}
 
-	/**
+	/*
 	 * Return the detail message, including the message from the nested exception
 	 * if there is one.
 	 */
@@ -92,7 +91,7 @@ public abstract class NestedRuntimeException extends RuntimeException {
 	}
 
 
-	/**
+	/*
 	 * Retrieve the innermost cause of this exception, if any.
 	 * @return the innermost exception, or {@code null} if none
 	 * @since 2.0
@@ -107,7 +106,7 @@ public abstract class NestedRuntimeException extends RuntimeException {
 		return rootCause;
 	}
 
-	/**
+	/*
 	 * Retrieve the most specific cause of this exception, that is,
 	 * either the innermost cause (root cause) or this exception itself.
 	 * <p>Differs from {@link #getRootCause()} in that it falls back
@@ -120,7 +119,7 @@ public abstract class NestedRuntimeException extends RuntimeException {
 		return (rootCause != null ? rootCause : this);
 	}
 
-	/**
+	/*
 	 * Check whether this exception contains an exception of the given type:
 	 * either it is of the given class itself or it contains a nested cause
 	 * of the given type.

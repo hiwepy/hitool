@@ -5,7 +5,7 @@ import java.util.Properties;
 
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  *  文件后缀处理工具以及对于相应头获取
  */
 public abstract class FilemimeUtils {

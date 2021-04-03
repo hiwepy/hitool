@@ -39,14 +39,14 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 
-/**
+/*
  * {@link javax.net.ssl.SSLContext} factory methods.
  *
  * @since 4.4
  */
 public class SSLContexts {
 
-    /**
+    /*
      * Creates default factory based on the standard JSSE trust material
      * ({@code cacerts} file in the security properties directory). System properties
      * are not taken into consideration.
@@ -65,7 +65,7 @@ public class SSLContexts {
         }
     }
 
-    /**
+    /*
      * Creates default SSL context based on system properties. This method obtains
      * default SSL context by calling {@code SSLContext.getInstance("Default")}.
      * Please note that {@code Default} algorithm is supported as of Java 6.
@@ -82,7 +82,7 @@ public class SSLContexts {
         }
     }
 
-	/**
+	/*
 	 * Create and initialise an SSLContext.
 	 * 
 	 * @param protocol 		the protocol used to instatiate the context
@@ -109,7 +109,7 @@ public class SSLContexts {
         }
     }
  
-	/**
+	/*
 	 * Create and initialise an SSLContext.
 	 * 
 	 * @param protocol 	the protocol used to instatiate the context
@@ -123,7 +123,7 @@ public class SSLContexts {
 			throws IOException {
 		SSLContext ctx;
 		try {
-			/**
+			/*
 			 * HttpClient使用SSLSocketFactory来创建SSL连接。SSLSocketFactory允许高度定制。
 			 * 它可以使用javax.net.ssl.SSLContext的实例作为参数，并使用它来创建定制SSL连接。
 			 */
@@ -166,7 +166,7 @@ public class SSLContexts {
 		return ctx;
 	}
 	
-    /**
+    /*
      * Creates custom SSL context.
      *
      * @return default system SSL context

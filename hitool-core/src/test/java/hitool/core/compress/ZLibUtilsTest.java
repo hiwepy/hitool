@@ -18,7 +18,7 @@ import org.junit.Test;
 
 import hitool.core.compress.ZLibUtils;
 
-/**
+/*
  * ZLib压缩测试用例
  */
 public class ZLibUtilsTest {

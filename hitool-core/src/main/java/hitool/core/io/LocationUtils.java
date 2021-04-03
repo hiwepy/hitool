@@ -32,23 +32,23 @@ import hitool.core.io.location.Location;
 import hitool.core.io.location.LocationAttributes;
 import hitool.core.io.location.LocationImpl;
 
-/**
+/*
  * Location-related utility methods.
  */
 public class LocationUtils {
     
-    /**
+    /*
      * The string representation of an unknown location: "<code>[unknown location]</code>".
      */
     public static final String UNKNOWN_STRING = "[unknown location]";
     
     private static List<WeakReference<LocationFinder>> finders = new ArrayList<WeakReference<LocationFinder>>();
     
-    /**
+    /*
      * An finder or object locations
      */
     public interface LocationFinder {
-        /**
+        /*
          * Get the location of an object
          * @param obj the object for which to find a location
          * @param description and optional description to be added to the object's location
@@ -62,7 +62,7 @@ public class LocationUtils {
         // Forbid instanciation
     }
     
-    /**
+    /*
      * Builds a string representation of a location, in the
      * "<code><em>descripton</em> - <em>uri</em>:<em>line</em>:<em>column</em></code>"
      * format (e.g. "<code>foo - file://path/to/file.xml:3:40</code>"). For {@link Location#UNKNOWN an unknown location}, returns
@@ -88,7 +88,7 @@ public class LocationUtils {
         return result.toString();
     }
 
-    /**
+    /*
      * Parse a location string of the form "<code><em>uri</em>:<em>line</em>:<em>column</em></code>" (e.g.
      * "<code>path/to/file.xml:3:40</code>") to a Location object. Additionally, a description may
      * also optionally be present, separated with an hyphen (e.g. "<code>foo - path/to/file.xml:3.40</code>").
@@ -135,7 +135,7 @@ public class LocationUtils {
         return LocationImpl.UNKNOWN;
     }
 
-    /**
+    /*
      * Checks if a location is known, i.e. it is not null nor equal to {@link Location#UNKNOWN}.
      * 
      * @param location the location to check
@@ -145,7 +145,7 @@ public class LocationUtils {
         return location != null && !Location.UNKNOWN.equals(location);
     }
 
-    /**
+    /*
      * Checks if a location is unknown, i.e. it is either null or equal to {@link Location#UNKNOWN}.
      * 
      * @param location the location to check
@@ -155,7 +155,7 @@ public class LocationUtils {
         return location == null || Location.UNKNOWN.equals(location);
     }
 
-    /**
+    /*
      * Add a {@link LocationFinder} to the list of finders that will be queried for an object's
      * location by {@link #getLocation(Object, String)}.
      * <p>
@@ -193,7 +193,7 @@ public class LocationUtils {
         }
     }
     
-    /**
+    /*
      * Get the location of an object. Some well-known located classes built in the JDK are handled
      * by this method. Handling of other located classes can be handled by adding new location finders.
      * 
@@ -204,7 +204,7 @@ public class LocationUtils {
         return getLocation(obj, null);
     }
     
-    /**
+    /*
      * Get the location of an object. Some well-known located classes built in the JDK are handled
      * by this method. Handling of other located classes can be handled by adding new location finders.
      * 

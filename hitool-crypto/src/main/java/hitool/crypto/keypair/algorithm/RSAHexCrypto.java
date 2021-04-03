@@ -11,7 +11,7 @@ import hitool.crypto.enums.Algorithm;
 import hitool.crypto.utils.SignatureUtils;
 
 
- /**
+ /*
   * RSA安全编码组件
   */
  public class RSAHexCrypto extends RSACrypto {

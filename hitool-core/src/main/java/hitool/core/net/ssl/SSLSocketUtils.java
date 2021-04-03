@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 import javax.net.ssl.SSLSocket;
 
-/**
+/*
  * General utilities for SSLSocket.
  * @since 3.4
  */
@@ -14,7 +14,7 @@ public class SSLSocketUtils {
         // Not instantiable
     }
 
-    /**
+    /*
      * Enable the HTTPS endpoint identification algorithm on an SSLSocket.
      * @param socket the SSL socket
      * @return {@code true} on success (this is only supported on Java 1.7+)

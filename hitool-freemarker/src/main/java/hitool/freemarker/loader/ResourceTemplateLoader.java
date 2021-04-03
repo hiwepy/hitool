@@ -15,7 +15,7 @@ public class ResourceTemplateLoader extends URLTemplateLoader {
     private final ClassLoader classLoader;
     private final String basePackagePath;
 
-    /**
+    /*
      * Creates a template loader that will use the {@link Class#getResource(String)} method of the specified class to
      * load the resources, and the specified base package path (absolute or relative).
      *
@@ -45,7 +45,7 @@ public class ResourceTemplateLoader extends URLTemplateLoader {
         this(resourceLoaderClass, false, null, basePackagePath);
     }
 
-    /**
+    /*
      * Similar to {@link #ClassTemplateLoader(Class, String)}, but instead of {@link Class#getResource(String)} it uses
      * {@link ClassLoader#getResource(String)}. Because a {@link ClassLoader} isn't bound to any Java package, it
      * doesn't mater if the {@code basePackagePath} starts with {@code /} or not, it will be always relative to the root
@@ -84,7 +84,7 @@ public class ResourceTemplateLoader extends URLTemplateLoader {
         return url;
     }
 
-    /**
+    /*
      * Show class name and some details that are useful in template-not-found errors.
      * 
      * @since 2.3.21
@@ -104,7 +104,7 @@ public class ResourceTemplateLoader extends URLTemplateLoader {
                 + ")";
     }
 
-    /**
+    /*
      * See the similar parameter of {@link #ClassTemplateLoader(Class, String)}; {@code null} when other mechanism is
      * used to load the resources.
      * 
@@ -114,7 +114,7 @@ public class ResourceTemplateLoader extends URLTemplateLoader {
         return resourceLoaderClass;
     }
 
-    /**
+    /*
      * See the similar parameter of {@link #ClassTemplateLoader(ClassLoader, String)}; {@code null} when other mechanism
      * is used to load the resources.
      * 
@@ -124,7 +124,7 @@ public class ResourceTemplateLoader extends URLTemplateLoader {
         return classLoader;
     }
 
-    /**
+    /*
      * See the similar parameter of {@link #ClassTemplateLoader(ClassLoader, String)}; note that this is a normalized
      * version of what was actually passed to the constructor.
      * 

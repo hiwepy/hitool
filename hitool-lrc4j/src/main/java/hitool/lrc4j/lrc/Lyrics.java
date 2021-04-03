@@ -4,7 +4,7 @@ import java.util.List;
 
 import hitool.lrc4j.tar.time.Lyric;
 
-/**
+/*
  * 
  * @className	： Lyrics
  * @description	： 基于播放，面相播放的【对LRC做进一步处理，便于播放显示】

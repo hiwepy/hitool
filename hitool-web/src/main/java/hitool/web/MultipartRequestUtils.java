@@ -11,12 +11,12 @@ public final class MultipartRequestUtils {
 	
 	protected static Logger LOG = LoggerFactory.getLogger(MultipartRequestUtils.class);
 
-	/** 
+	/*
      * Part of HTTP content type header.
      */
     public static final String MULTIPART = "multipart/";
     
-	/**
+	/*
      * Test if current HttpServletRequest is a multipart request.
      */
     public static boolean isMultipartRequest(HttpServletRequest request) {

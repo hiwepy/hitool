@@ -2,7 +2,7 @@ package hitool.web.exception;
 
 import java.io.IOException;
 
-/**
+/*
  * This exception is thrown when multipart post data exceeds the value
  * given by the Content-Length header
  *

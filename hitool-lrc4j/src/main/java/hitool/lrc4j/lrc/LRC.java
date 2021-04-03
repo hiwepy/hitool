@@ -9,7 +9,7 @@ import hitool.lrc4j.tar.id.Offset;
 import hitool.lrc4j.tar.id.Ti;
 import hitool.lrc4j.tar.time.TimeTar;
 
-/**
+/*
  * 
  * @className	： LRC
  * @description	： 歌词对象，基于标签，面相底层的

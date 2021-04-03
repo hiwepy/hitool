@@ -19,12 +19,12 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-/**
+/*
  * 定义如何获取对应请求的过滤器链
  */
 public interface FilterChainResolver {
 
-	/**
+	/*
 	 * 获取FilterChian
 	 * @param request
 	 * @param response

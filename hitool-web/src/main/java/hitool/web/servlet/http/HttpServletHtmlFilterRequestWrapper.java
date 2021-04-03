@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 
-/**
+/*
  *  使用Decorator模式包装request对象，实现html标签转义功能
  */
 public class HttpServletHtmlFilterRequestWrapper extends HttpServletRequestWrapper {
@@ -16,7 +16,7 @@ public class HttpServletHtmlFilterRequestWrapper extends HttpServletRequestWrapp
 		this.request = request;
 	}
 
-	/**
+	/*
 	 * 覆盖需要增强的getParameter方法
 	 * 
 	 * @see javax.servlet.ServletRequestWrapper#getParameter(java.lang.String)
@@ -31,7 +31,7 @@ public class HttpServletHtmlFilterRequestWrapper extends HttpServletRequestWrapp
 		return filter(value);
 	}
 
-	/**
+	/*
 	 * @Method: filter
 	 * @Description: 过滤内容中的html标签
 	 * @Anthor:孤傲苍狼

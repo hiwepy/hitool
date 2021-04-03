@@ -7,7 +7,7 @@ public class JVMNetProxy {
 	public static final String JVM_NET_PROXY_USER = "proxyUser";
 	public static final String JVM_NET_PROXY_PASSWORD = "proxyPassword";
 	
-	/**  
+	/*
 	 * 一般代理
      * 
      * proxySet 是个boolean类型的，可以设置为true或者false，true代表使用代理服务器。
@@ -32,7 +32,7 @@ public class JVMNetProxy {
      public static final String JVM_PROXY_PORT = "proxyPort";
  	
      
-	/**  
+	/*
 	 * 
 	 * Http代理
      * 
@@ -64,7 +64,7 @@ public class JVMNetProxy {
 	public static final String JVM_HTTP_PROXY_PASSWORD = "http.proxyPassword";
 	public static final String JVM_HTTP_PROXY_NON_HOSTS = "http.nonProxyHosts";
 	
-	/**  
+	/*
 	 * 
 	 * Https设置安全访问使用的代理服务器地址与端口（它没有https.nonProxyHosts属性，它按照http.nonProxyHosts 中设置的规则访问）
      * 
@@ -87,7 +87,7 @@ public class JVMNetProxy {
 	public static final String JVM_HTTPS_PROXY_PROXYHOST = "https.proxyHost";
 	public static final String JVM_HTTPS_PROXY_PROXYPORT = "https.proxyPort";
 	
-	/**  
+	/*
 	 * 
 	 * FTP代理服务器的主机、端口以及不需要使用FTP代理服务器的主机
      * 
@@ -113,7 +113,7 @@ public class JVMNetProxy {
 	public static final String JVM_FTP_PROXY_PROXYPORT = "ftp.proxyPort";
 	public static final String JVM_FTP_PROXY_NON_HOSTS = "ftp.nonProxyHosts";
 	
-   /**
+   /*
     * 
     * Socks代理服务器的地址与端口
 	* 

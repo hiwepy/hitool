@@ -40,7 +40,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
+/*
  * Multipart form data request adapter for Jakarta Commons Fileupload package.
  */
 public class JakartaMultiPartRequest implements MultiPartRequest {
@@ -56,7 +56,7 @@ public class JakartaMultiPartRequest implements MultiPartRequest {
     // any errors while processing this request
     protected List<String> errors = new ArrayList<String>();
 
-	/**
+	/*
 	 * 编码格式 ，默认： UTF-8
 	 */
     protected String encoding = " UTF-8";
@@ -75,7 +75,7 @@ public class JakartaMultiPartRequest implements MultiPartRequest {
 		this.maxFileSize = Long.parseLong(maxFileSize);
 	}
 
-	/**
+	/*
      * Creates a new request wrapper to handle multi-part data using methods adapted from Jason Pell's
      * multipart classes (see class description).
      *
@@ -314,7 +314,7 @@ public class JakartaMultiPartRequest implements MultiPartRequest {
         return errors;
     }
 
-    /**
+    /*
      * Returns the canonical name of the given file.
      *
      * @param filename the given file
@@ -332,7 +332,7 @@ public class JakartaMultiPartRequest implements MultiPartRequest {
         return filename;
     }
 
-    /**
+    /*
      * Creates a RequestContext needed by Jakarta Commons Upload.
      *
      * @param req the request.

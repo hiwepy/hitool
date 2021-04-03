@@ -1,6 +1,6 @@
 package hitool.web.exception;
 
-/**
+/*
  * This exception is thrown in case of an invalid file name.
  * A file name is invalid, if it contains a NUL character.
  * Attackers might use this to circumvent security checks:
@@ -15,7 +15,7 @@ public class InvalidFileNameException extends RuntimeException {
     private static final long serialVersionUID = 7922042602454350470L;
     private final String name;
 
-    /**
+    /*
      * Creates a new instance.
      * @param pName The file name causing the exception.
      * @param pMessage A human readable error message.
@@ -25,7 +25,7 @@ public class InvalidFileNameException extends RuntimeException {
         name = pName;
     }
 
-    /**
+    /*
      * Returns the invalid file name.
      */
     public String getName() {

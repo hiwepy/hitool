@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-/**
+/*
  * 使用Decorator模式包装request对象，实现敏感字符过滤功能
  */
 public class HttpServletDirtyWordFilterRequestWrapper extends HttpServletRequestWrapper {

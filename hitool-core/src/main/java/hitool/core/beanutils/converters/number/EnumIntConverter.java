@@ -1,7 +1,7 @@
 package hitool.core.beanutils.converters.number;
 
 import org.apache.commons.beanutils.Converter;
-/**
+/*
  *  枚举类型与Integer的相互转换
  */
 @SuppressWarnings("rawtypes")

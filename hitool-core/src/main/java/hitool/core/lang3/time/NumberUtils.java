@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -6,7 +6,7 @@ package hitool.core.lang3.time;
 
 public abstract class NumberUtils {
 	
-	  /***
+	  /*
      * <b>function:</b> 将数字转化为大写
      * @createDate 2010-5-27 上午10:28:12
      * @param num 数字
@@ -24,7 +24,7 @@ public abstract class NumberUtils {
         return rstr;
     }
     
-    /***
+    /*
 	 * <b>function:</b> 日转化为大写
 	 * 
 	 * @createDate 2010-5-27 上午10:43:32
@@ -45,7 +45,7 @@ public abstract class NumberUtils {
 		}
 	}
 	
-	/***
+	/*
 	 * <b>function:</b> 月转化为大写
 	 * 
 	 * @createDate 2010-5-27 上午10:41:42

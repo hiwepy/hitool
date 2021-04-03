@@ -28,7 +28,7 @@ import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 
-/**
+/*
  * Simple Hash model that also searches other scopes.
  * <p/>
  * If the key doesn't exist in this hash, this template model tries to
@@ -60,7 +60,7 @@ public class ScopesHashModel extends SimpleHash implements TemplateModel {
          this.request = request;
     }
 
-    /**
+    /*
      * Stores a model in the hash so that it doesn't show up in <tt>keys()</tt>
      * and <tt>values()</tt> methods. Used to put the Application, Session,
      * Request, RequestParameters and JspTaglibs objects.

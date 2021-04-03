@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 import hitool.core.beanutils.BeanPropertyUtils;
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  * 
  */
 public abstract class PatternFormatUtils  {

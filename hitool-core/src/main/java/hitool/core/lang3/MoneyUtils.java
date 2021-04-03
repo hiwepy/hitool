@@ -6,29 +6,22 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Locale;
 
-/**
+/*
  * 货币计算的工具类。
- * @author zhangqy
- * @version v1.0.0
  */
 public abstract class MoneyUtils {
 	
-	/** 货币保留位数，如123.45元 */
 	public final static int MONEY_POS = 2;
 
-	/** 默认的货币值,0.00 */
 	public final static BigDecimal DEFAULT_MONEY = fixMoney(new BigDecimal(0));
 
-	/** 大写数字 */
 	private static final String[] NUMBERS = { "零", "壹", "贰", "叁", "肆", "伍",
 			"陆", "柒", "捌", "玖" };
-	/** 整数部分的单位 */
 	private static final String[] IUNIT = { "元", "拾", "佰", "仟", "万", "拾", "佰",
 			"仟", "亿", "拾", "佰", "仟", "万", "拾", "佰", "仟" };
-	/** 小数部分的单位 */
 	private static final String[] DUNIT = { "角", "分", "厘" };
 
-	/**
+	/*
 	 * 得到大写金额。
 	 */
 	public static String toChinese(String str) {
@@ -67,7 +60,7 @@ public abstract class MoneyUtils {
 				+ getChineseDecimal(decimals);
 	}
 
-	/**
+	/*
 	 * 整数部分和小数部分转换为数组，从高位至低位
 	 */
 	private static int[] toArray(String number) {
@@ -78,7 +71,7 @@ public abstract class MoneyUtils {
 		return array;
 	}
 
-	/**
+	/*
 	 * 得到中文金额的整数部分。
 	 */
 	private static String getChineseInteger(int[] integers, boolean isMust5) {
@@ -107,7 +100,7 @@ public abstract class MoneyUtils {
 		return chineseInteger.toString();
 	}
 
-	/**
+	/*
 	 * 得到中文金额的小数部分。
 	 */
 	private static String getChineseDecimal(int[] decimals) {
@@ -122,7 +115,7 @@ public abstract class MoneyUtils {
 		return chineseDecimal.toString();
 	}
 
-	/**
+	/*
 	 * 判断第5位数字的单位"万"是否应加。
 	 */
 	private static boolean isMust5(String integerStr) {
@@ -141,7 +134,7 @@ public abstract class MoneyUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * 如果<code>money</code>为null,返回默认的货币值,0.00； 否则调整货币，使之保留小数点后两位，并符合四舍五入。
 	 * 
 	 * @param money
@@ -154,7 +147,7 @@ public abstract class MoneyUtils {
 		return fixMoney(money);
 	}
 
-	/**
+	/*
 	 * 调整货币，使之保留小数点后两位，并符合四舍五入
 	 * 
 	 * @param money 要格式化的数字
@@ -165,7 +158,7 @@ public abstract class MoneyUtils {
 		return fixMoney(money, MONEY_POS);
 	}
 
-	/**
+	/*
 	 * 调整货币，根据参数设置保留小数点位数，并符合四舍五入
 	 * 
 	 * @param money 要格式化的数字
@@ -177,7 +170,7 @@ public abstract class MoneyUtils {
 		return fixMoney(money, pos, BigDecimal.ROUND_HALF_EVEN);
 	}
 
-	/**
+	/*
 	 * 调整货币，根据参数设置要保留的位数和取舍
 	 * 
 	 * @param money 要格式化的数字
@@ -198,7 +191,7 @@ public abstract class MoneyUtils {
 		return result;
 	}
 
-	/**
+	/*
 	 * 根据设置的保留小数点位数获得货币金额，默认为保留两位小数和四舍五入
 	 * 
 	 * @param money 要格式化的数字，类行为String
@@ -209,7 +202,7 @@ public abstract class MoneyUtils {
 		return getMoney(money, MONEY_POS);
 	}
 
-	/**
+	/*
 	 * 根据设置的保留小数点位数获得货币金额，默认为四舍五入
 	 * 
 	 * @param money 要格式化的数字，类型为String
@@ -221,7 +214,7 @@ public abstract class MoneyUtils {
 		return getMoney(money, pos, BigDecimal.ROUND_HALF_EVEN);
 	}
 
-	/**
+	/*
 	 * 根据设置的保留小数点位数和取舍规则获得货币金额
 	 * 
 	 * @param money 要格式化的数字，类行为String
@@ -245,7 +238,7 @@ public abstract class MoneyUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 根据设置的保留小数点位数获得货币金额，默认为四舍五入
 	 * 
 	 * @param money 要格式化的数字
@@ -256,7 +249,7 @@ public abstract class MoneyUtils {
 		return getMoneyStr(money, MONEY_POS);
 	}
 
-	/**
+	/*
 	 * 根据设置的保留小数点位数获得货币金额，默认为四舍五入
 	 * 
 	 * @param money 要格式化的数字
@@ -268,7 +261,7 @@ public abstract class MoneyUtils {
 		return getMoneyStr(money, pos, BigDecimal.ROUND_HALF_EVEN);
 	}
 
-	/**
+	/*
 	 * 根据设置的保留小数点位数和取舍规则获得货币金额
 	 * 
 	 * @param money 要格式化的数字
@@ -288,7 +281,7 @@ public abstract class MoneyUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 货币加运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1 第一个加参数
@@ -300,7 +293,7 @@ public abstract class MoneyUtils {
 		return add(money1, money2, MONEY_POS);
 	}
 
-	/**
+	/*
 	 * 货币加运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1  第一个加参数
@@ -314,7 +307,7 @@ public abstract class MoneyUtils {
 		return add(money1, money2, pos, BigDecimal.ROUND_HALF_EVEN);
 	}
 
-	/**
+	/*
 	 * 货币加运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1 第一个加参数
@@ -340,7 +333,7 @@ public abstract class MoneyUtils {
 		return money1.add(money2).setScale(pos, round);
 	}
 
-	/**
+	/*
 	 * 货币减运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1 第一个被减参数
@@ -352,7 +345,7 @@ public abstract class MoneyUtils {
 		return subtract(money1, money2, MONEY_POS);
 	}
 
-	/**
+	/*
 	 * 货币减运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1  第一个被减参数
@@ -365,7 +358,7 @@ public abstract class MoneyUtils {
 		return subtract(money1, money2, pos, BigDecimal.ROUND_HALF_EVEN);
 	}
 
-	/**
+	/*
 	 * 货币减运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1 第一个被减参数
@@ -390,7 +383,7 @@ public abstract class MoneyUtils {
 		return money1.subtract(money2).setScale(pos, round);
 	}
 
-	/**
+	/*
 	 * 货币乘运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1
@@ -404,7 +397,7 @@ public abstract class MoneyUtils {
 		return multiply(money1, money2, MONEY_POS);
 	}
 
-	/**
+	/*
 	 * 货币乘运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1
@@ -420,7 +413,7 @@ public abstract class MoneyUtils {
 		return multiply(money1, money2, pos, BigDecimal.ROUND_HALF_EVEN);
 	}
 
-	/**
+	/*
 	 * 货币乘运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1
@@ -445,7 +438,7 @@ public abstract class MoneyUtils {
 		return money1.multiply(money2).setScale(pos, round);
 	}
 
-	/**
+	/*
 	 * 货币除运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1
@@ -458,7 +451,7 @@ public abstract class MoneyUtils {
 		return divide(money1, money2, MONEY_POS);
 	}
 
-	/**
+	/*
 	 * 货币除运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1
@@ -473,7 +466,7 @@ public abstract class MoneyUtils {
 		return divide(money1, money2, pos, BigDecimal.ROUND_HALF_EVEN);
 	}
 
-	/**
+	/*
 	 * 货币除运算，默认返回结果为保留小数点两位和四舍五入
 	 * 
 	 * @param money1
@@ -497,7 +490,7 @@ public abstract class MoneyUtils {
 		return money1.divide(money2, pos, round).setScale(pos, round);
 	}
 
-	/**
+	/*
 	 * 得到格式化的数字，当前默认为中国区域
 	 * 
 	 * @param data
@@ -510,7 +503,7 @@ public abstract class MoneyUtils {
 		return nFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 得到格式化的数字，当前默认为中国区域
 	 * 
 	 * @param data
@@ -523,7 +516,7 @@ public abstract class MoneyUtils {
 		return nFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 得到格式化的数字，当前默认为中国区域
 	 * 
 	 * @param data
@@ -536,7 +529,7 @@ public abstract class MoneyUtils {
 		return nFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 从一个百分数得到格式化后的数字，如从10%变为0.1
 	 * 
 	 * @param per
@@ -555,7 +548,7 @@ public abstract class MoneyUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 根据格式得到格式化的浮点型数字
 	 * 
 	 * @param data
@@ -570,7 +563,7 @@ public abstract class MoneyUtils {
 		return dFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 根据格式得到格式化的浮点型数字
 	 * 
 	 * @param data
@@ -585,7 +578,7 @@ public abstract class MoneyUtils {
 		return dFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 根据格式得到格式化的浮点型数字
 	 * 
 	 * @param data
@@ -600,7 +593,7 @@ public abstract class MoneyUtils {
 		return dFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 得到格式化的中国区域货币，如￥100,000.00
 	 * 
 	 * @param data
@@ -613,7 +606,7 @@ public abstract class MoneyUtils {
 		return nFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 得到格式化的中国区域货币，如￥100,000.00
 	 * 
 	 * @param data
@@ -626,7 +619,7 @@ public abstract class MoneyUtils {
 		return nFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 得到格式化的中国区域货币，如￥100,000.00
 	 * 
 	 * @param data
@@ -639,7 +632,7 @@ public abstract class MoneyUtils {
 		return nFormat.format(data);
 	}
 
-	/**
+	/*
 	 * 
 	 * @param per
 	 * @return

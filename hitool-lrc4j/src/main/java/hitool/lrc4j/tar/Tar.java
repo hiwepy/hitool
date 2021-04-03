@@ -1,6 +1,6 @@
 package hitool.lrc4j.tar;
 
-/**
+/*
  * 
  * @className ： Tar
  * @description ：标签
@@ -8,7 +8,7 @@ package hitool.lrc4j.tar;
  * @date ： Jan 25, 2016 2:35:28 PM
  */
 public interface Tar {
-	/**
+	/*
 	 * 
 	 * @description ： 得标签值
 	 * @author ： <a href="mailto:hnxyhcwdl1003@163.com">wandalong</a>
@@ -17,7 +17,7 @@ public interface Tar {
 	 */
 	public String getValue();
 
-	/**
+	/*
 	 * 
 	 * @description ： 设置标签值
 	 * @author ： <a href="mailto:hnxyhcwdl1003@163.com">wandalong</a>
@@ -26,7 +26,7 @@ public interface Tar {
 	 */
 	public void setValue(String value);
 
-	/**
+	/*
 	 * 
 	 * @description ： 得标签名
 	 * @author ： <a href="mailto:hnxyhcwdl1003@163.com">wandalong</a>

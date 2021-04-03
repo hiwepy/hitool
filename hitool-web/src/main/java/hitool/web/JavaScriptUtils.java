@@ -1,6 +1,6 @@
 package hitool.web;
 
-/**
+/*
  * Utility class for JavaScript escaping.
  * Escapes based on the JavaScript 1.5 recommendation.
  *
@@ -15,7 +15,7 @@ package hitool.web;
  */
 public class JavaScriptUtils {
 
-	/**
+	/*
 	 * Turn JavaScript special characters into escaped characters.
 	 *
 	 * @param input the input string

@@ -1,4 +1,4 @@
-/**
+/*
  *    Copyright 2009-2016 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,7 +39,7 @@ import hitool.core.beanutils.reflection.invoker.Invoker;
 import hitool.core.beanutils.reflection.invoker.MethodInvoker;
 import hitool.core.beanutils.reflection.invoker.SetFieldInvoker;
 
-/**
+/*
  * This class represents a cached set of class definition information that
  * allows for easy mapping between property names and getter/setter methods.
  *

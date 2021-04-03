@@ -1,7 +1,7 @@
 package hitool.crypto;
 
 import java.security.GeneralSecurityException;
-/**
+/*
  * 
  * 密钥解密算法接口
  */

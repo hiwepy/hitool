@@ -34,7 +34,7 @@ public class SignCert {
 	   
 	 public void  Sign() throws Exception{
 			try {
-				/**
+				/*
 				 * 证书签名
 				 */
 				getSignCertInfo(); // 获取签名证书信息
@@ -45,7 +45,7 @@ public class SignCert {
 			}
 	 }
 	 
-	 /**
+	 /*
 	 * 取得签名证书信息
 	 * @throws Exception
 	 */
@@ -73,7 +73,7 @@ public class SignCert {
 
 
 
- 	/**
+ 	/*
  	 * 取得待签证书信息，并签名待签证书
  	 * 
  	 * @throws Exception
@@ -106,7 +106,7 @@ public class SignCert {
 
  	}
 
- 	/**
+ 	/*
  	 * 待签签证书被签名后，保存新证书
  	 * 
  	 * @throws Exception
@@ -127,7 +127,7 @@ public class SignCert {
 
  	// 辅助方法===========================================================================
 
- 	/**
+ 	/*
  	 * 得到新证书有效日期
  	 * 
  	 * @throws Exception
@@ -144,7 +144,7 @@ public class SignCert {
  		return new CertificateValidity(vBeginDate, vEndDate);
  	}
 
- 	/**
+ 	/*
  	 * 得到新证书的序列号
  	 * 
  	 * @return CertificateSerialNumber
@@ -157,7 +157,7 @@ public class SignCert {
  		return new CertificateSerialNumber(vSerialNum);
  	}
 
- 	/**
+ 	/*
  	 * 得到新证书的签名算法
  	 * 
  	 * @return AlgorithmId

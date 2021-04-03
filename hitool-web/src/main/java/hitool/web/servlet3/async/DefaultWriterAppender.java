@@ -2,7 +2,7 @@
   
  import java.io.IOException;
   
- /**
+ /*
  * @author Gao Youbo
  * @since 2013-4-23
  * @description

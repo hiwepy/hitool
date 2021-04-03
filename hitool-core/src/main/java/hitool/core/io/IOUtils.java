@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -42,7 +42,7 @@ import hitool.core.io.input.NonClosingInputStream;
 import hitool.core.io.output.NonClosingOutputStream;
 import hitool.core.lang3.Assert;
 
-/**
+/*
  * 扩展org.apache.commons.io.IOUtils工具对象
  */
 public abstract class IOUtils extends org.apache.commons.io.IOUtils {
@@ -54,7 +54,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 	// Copy methods for java.io.InputStream / java.io.OutputStream
 	// ---------------------------------------------------------------------
 
-	/**
+	/*
 	 * Copy the contents of the given InputStream to the given OutputStream. Leaves
 	 * both streams open when done.
 	 * 
@@ -81,7 +81,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		return count;
 	}
 
-	/**
+	/*
 	 * Copy the contents of the given byte array to the given OutputStream. Closes
 	 * the stream when done.
 	 * 
@@ -100,7 +100,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		}
 	} 
 
-	/**
+	/*
 	 * Copy the contents of the given String to the given output OutputStream.
 	 * Leaves the stream open when done.
 	 * 
@@ -126,7 +126,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 	// Reader methods for System.in
 	// ---------------------------------------------------------------------
 
-	/**
+	/*
 	 * 接收键盘的输入
 	 */
 	public static String systemIn() throws IOException {
@@ -139,7 +139,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 	// Copy methods for java.io.Reader / java.io.Writer
 	// ---------------------------------------------------------------------
 
-	/**
+	/*
 	 * Copy the contents of the given Reader to the given Writer. Closes both when
 	 * done.
 	 * 
@@ -174,7 +174,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Copy the contents of the given String to the given output Writer. Closes the
 	 * write when done.
 	 * 
@@ -198,7 +198,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Copy the contents of the given Reader into a String. Closes the reader when
 	 * done.
 	 * 
@@ -351,7 +351,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		return new FileInputStream(file);
 	}
 
-	/**
+	/*
 	 * 获得一个FileOutputStream对象
 	 * 
 	 * @param file
@@ -364,7 +364,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		return new FileOutputStream(file, append);
 	}
 
-	/**
+	/*
 	 * Returns a variant of the given {@link InputStream} where calling
 	 * {@link InputStream#close() close()} has no effect.
 	 * 
@@ -377,7 +377,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		return new NonClosingInputStream(input);
 	}
 
-	/**
+	/*
 	 * Returns a variant of the given {@link OutputStream} where calling
 	 * {@link OutputStream#close() close()} has no effect.
 	 * 
@@ -404,7 +404,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		return isPrint(output) ? (PrintStream) output : new PrintStream(output);
 	}
 
-	/**
+	/*
 	 * 跳过指定的长度,实现断点续传
 	 * 
 	 * @param input
@@ -424,7 +424,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		return at;
 	}
 
-	/**
+	/*
 	 * 跳过指定的长度,实现断点续传
 	 */
 	public static void skip(FileChannel channel, long offset) throws IOException {

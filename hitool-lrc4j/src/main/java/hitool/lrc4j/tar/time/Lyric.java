@@ -1,6 +1,6 @@
 package hitool.lrc4j.tar.time;
 
-/**
+/*
  * 
  * @className	： Lyric
  * @description	： 单句歌词，包含该句歌词显示的时间点，距下一句歌词的时间
@@ -8,15 +8,15 @@ package hitool.lrc4j.tar.time;
  * @date		： Jan 25, 2016 2:37:20 PM
  */
 public class Lyric implements Comparable<Lyric> {
-	/**
+	/*
 	 * 歌词文本
 	 */
 	private String txt;
-	/**
+	/*
 	 * 当前歌词的时间
 	 */
 	private long current;
-	/**
+	/*
 	 * 距下一句歌词的时间
 	 */
 	private long timeSize;

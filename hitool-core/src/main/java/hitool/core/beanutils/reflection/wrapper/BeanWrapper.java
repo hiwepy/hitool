@@ -1,4 +1,4 @@
-/**
+/*
  *    Copyright 2009-2015 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,7 +26,7 @@ import hitool.core.beanutils.reflection.factory.ObjectFactory;
 import hitool.core.beanutils.reflection.invoker.Invoker;
 import hitool.core.lang3.exception.ExceptionUtils;
 
-/**
+/*
  * @author Clinton Begin
  */
 public class BeanWrapper extends BaseWrapper {

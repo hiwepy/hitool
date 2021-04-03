@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -6,7 +6,7 @@ package hitool.core.lang3.math.logic;
 
 import java.math.BigDecimal;
 
-/**
+/*
  * 由于Java的简单类型不能够精确的对浮点数进行运算，这个工具类提供精确的浮点数运算，包括加减乘除和四舍五入。
  */
 public class DoubleArith {
@@ -16,7 +16,7 @@ public class DoubleArith {
 	// 这个类不能实例化
 	private DoubleArith() {}
 
-	/**
+	/*
 	 * 功能介绍：提供精确的加法运算。
 	 * @param v1被加数
 	 * @param v2加数
@@ -28,7 +28,7 @@ public class DoubleArith {
 		return b1.add(b2).doubleValue();
 	}
 
-	/**
+	/*
 	 * 功能介绍：提供精确的减法运算。
 	 * @param v1被减数
 	 * @param v2减数
@@ -40,7 +40,7 @@ public class DoubleArith {
 		return b1.subtract(b2).doubleValue();
 	}
 
-	/**
+	/*
 	 * 功能介绍：提供精确的乘法运算。
 	 * @param v1 被乘数
 	 * @param v2 乘数
@@ -52,7 +52,7 @@ public class DoubleArith {
 		return b1.multiply(b2).doubleValue();
 	}
 
-	/**
+	/*
 	 * 功能介绍：提供（相对）精确的除法运算，当发生除不尽的情况时，精确到小数点以后2位，以后的数字四舍五入。
 	 * @param v1被除数
 	 * @param v2 除数
@@ -62,7 +62,7 @@ public class DoubleArith {
 		return div(v1, v2, DEF_DIV_SCALE);
 	}
 
-	/**
+	/*
 	 * 功能介绍：提供（相对）精确的除法运算。当发生除不尽的情况时，由scale参数指定精度，以后的数字四舍五入。
 	 * @param v1被除数
 	 * @param v2除数
@@ -78,7 +78,7 @@ public class DoubleArith {
 		return b1.divide(b2, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
 	}
 
-	/**
+	/*
 	 * 功能介绍：提供精确的小数位四舍五入处理。
 	 * @param v需要四舍五入的数字
 	 * @param scale小数点后保留几位
@@ -93,7 +93,7 @@ public class DoubleArith {
 		return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
 	}
 
-	/**
+	/*
 	 * 方法用途和描述: 向上取整
 	 * @param value
 	 * @return 如 ceil(11.1)=12,ceil(11.0)=11,ceil(11.5)=12, ceil(-11.1)=11,ceil(-11.5)=11
@@ -102,7 +102,7 @@ public class DoubleArith {
 		return (int) Math.ceil(value);
 	}
 
-	/**
+	/*
 	 * 方法用途和描述: 向下取整数
 	 * @param value
 	 * @return 如 floor(11.1)=11,floor(11.5)=11,floor(-11.1)=-12,floor(-11.5)=-12
@@ -111,7 +111,7 @@ public class DoubleArith {
 		return (int) Math.floor(value);
 	}
 
-	/**
+	/*
 	 * 方法用途和描述: 四舍五入取整
 	 * @param value
 	 * @return 如 round(11.1)=11,round(11.5)=12,round(-11.1)=-11,round(-11.5)=-12

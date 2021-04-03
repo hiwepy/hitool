@@ -22,7 +22,7 @@ public class MultipartConfig {
 	public FileRenamePolicy policy;
 	public String dirs;
 	public String targetDir;
-	/**
+	/*
 	 * 编码格式 ，默认： UTF-8
 	 */
 	public String encoding = " UTF-8";

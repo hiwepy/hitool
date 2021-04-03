@@ -45,7 +45,7 @@ import hitool.core.beanutils.exception.UnknownClassException;
 import hitool.core.lang3.Assert;
 import hitool.core.lang3.wraper.ClassLoaderWrapper;
 
-/**
+/*
  * Miscellaneous class utility methods.
  * Mainly for internal use within the framework.
  *
@@ -84,25 +84,25 @@ public abstract class ClassUtils {
 	public static final String CLASS_FILE_SUFFIX = ".class";
 
 
-	/**
+	/*
 	 * Map with primitive wrapper type as key and corresponding primitive
 	 * type as value, for example: Integer.class -> int.class.
 	 */
 	protected static final Map<Class<?>, Class<?>> primitiveWrapperTypeMap = new IdentityHashMap<Class<?>, Class<?>>(8);
 
-	/**
+	/*
 	 * Map with primitive type as key and corresponding wrapper
 	 * type as value, for example: int.class -> Integer.class.
 	 */
 	protected static final Map<Class<?>, Class<?>> primitiveTypeToWrapperMap = new IdentityHashMap<Class<?>, Class<?>>(8);
 
-	/**
+	/*
 	 * Map with primitive type name as key and corresponding primitive
 	 * type as value, for example: "int" -> "int.class".
 	 */
 	protected static final Map<String, Class<?>> primitiveTypeNameMap = new HashMap<String, Class<?>>(32);
 
-	/**
+	/*
 	 * Map with common "java.lang" class name as key and corresponding Class as value.
 	 * Primarily for efficient deserialization of remote invocations.
 	 */
@@ -145,7 +145,7 @@ public abstract class ClassUtils {
 	}
 
 
-	/**
+	/*
 	 * Register the given common classes with the ClassUtils cache.
 	 */
 	private static void registerCommonClasses(Class<?>... commonClasses) {
@@ -154,7 +154,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Return the default ClassLoader to use: typically the thread context
 	 * ClassLoader, if available; the ClassLoader that loaded the ClassUtils
 	 * class will be used as fallback.
@@ -192,7 +192,7 @@ public abstract class ClassUtils {
 		return cl;
 	}
 
-	/**
+	/*
 	 * Override the thread context ClassLoader with the environment's bean ClassLoader
 	 * if necessary, i.e. if the bean ClassLoader is not equivalent to the thread
 	 * context ClassLoader already.
@@ -211,7 +211,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Replacement for {@code Class.forName()} that also returns Class instances
 	 * for primitives (e.g. "int") and array class names (e.g. "String[]").
 	 * Furthermore, it is also capable of resolving inner class names in Java source
@@ -279,7 +279,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Resolve the given class name into a Class instance. Supports
 	 * primitives (like "int") and array class names (like "String[]").
 	 * <p>This is effectively equivalent to the {@code forName}
@@ -306,7 +306,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Resolve the given class name as primitive class, if appropriate,
 	 * according to the JVM's naming rules for primitive classes.
 	 * <p>Also supports the JVM's internal class names for primitive arrays.
@@ -327,7 +327,7 @@ public abstract class ClassUtils {
 		return result;
 	}
 
-	/**
+	/*
 	 * Determine whether the {@link Class} identified by the supplied name is present
 	 * and can be loaded. Will return {@code false} if either the class or
 	 * one of its dependencies is not present or cannot be loaded.
@@ -347,7 +347,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Return the user-defined class for the given instance: usually simply
 	 * the class of the given instance, but the original class in case of a
 	 * CGLIB-generated subclass.
@@ -359,7 +359,7 @@ public abstract class ClassUtils {
 		return getUserClass(instance.getClass());
 	}
 
-	/**
+	/*
 	 * Return the user-defined class for the given class: usually simply the given
 	 * class, but the original class in case of a CGLIB-generated subclass.
 	 * @param clazz the class to check
@@ -375,7 +375,7 @@ public abstract class ClassUtils {
 		return clazz;
 	}
 
-	/**
+	/*
 	 * Check whether the given class is cache-safe in the given context,
 	 * i.e. whether it is loaded by the given ClassLoader or a parent of it.
 	 * @param clazz the class to analyze
@@ -407,7 +407,7 @@ public abstract class ClassUtils {
 	}
 
 
-	/**
+	/*
 	 * Get the class name without the qualified package name.
 	 * @param className the className to get the short name for
 	 * @return the class name of the class without the package name
@@ -425,7 +425,7 @@ public abstract class ClassUtils {
 		return shortName;
 	}
 
-	/**
+	/*
 	 * Get the class name without the qualified package name.
 	 * @param clazz the class to get the short name for
 	 * @return the class name of the class without the package name
@@ -434,7 +434,7 @@ public abstract class ClassUtils {
 		return getShortName(getQualifiedName(clazz));
 	}
 
-	/**
+	/*
 	 * Return the short string name of a Java class in uncapitalized JavaBeans
 	 * property format. Strips the outer class name in case of an inner class.
 	 * @param clazz the class
@@ -448,7 +448,7 @@ public abstract class ClassUtils {
 		return Introspector.decapitalize(shortName);
 	}
 
-	/**
+	/*
 	 * Determine the name of the class file, relative to the containing
 	 * package: e.g. "String.class"
 	 * @param clazz the class
@@ -461,7 +461,7 @@ public abstract class ClassUtils {
 		return className.substring(lastDotIndex + 1) + CLASS_FILE_SUFFIX;
 	}
 
-	/**
+	/*
 	 * Determine the name of the package of the given class,
 	 * e.g. "java.lang" for the {@code java.lang.String} class.
 	 * @param clazz the class
@@ -473,7 +473,7 @@ public abstract class ClassUtils {
 		return getPackageName(clazz.getName());
 	}
 
-	/**
+	/*
 	 * Determine the name of the package of the given fully-qualified class name,
 	 * e.g. "java.lang" for the {@code java.lang.String} class name.
 	 * @param fqClassName the fully-qualified class name
@@ -486,7 +486,7 @@ public abstract class ClassUtils {
 		return (lastDotIndex != -1 ? fqClassName.substring(0, lastDotIndex) : "");
 	}
 
-	/**
+	/*
 	 * Return the qualified name of the given class: usually simply
 	 * the class name, but component type class name + "[]" for arrays.
 	 * @param clazz the class
@@ -502,7 +502,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Build a nice qualified name for an array:
 	 * component type class name + "[]".
 	 * @param clazz the array class
@@ -518,7 +518,7 @@ public abstract class ClassUtils {
 		return result.toString();
 	}
 
-	/**
+	/*
 	 * Return the qualified name of the given method, consisting of
 	 * fully qualified interface/class name + "." + method name.
 	 * @param method the method
@@ -529,7 +529,7 @@ public abstract class ClassUtils {
 		return method.getDeclaringClass().getName() + "." + method.getName();
 	}
 
-	/**
+	/*
 	 * Return a descriptive name for the given object's type: usually simply
 	 * the class name, but component type class name + "[]" for arrays,
 	 * and an appended list of implemented interfaces for JDK proxies.
@@ -561,7 +561,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Check whether the given class matches the user-specified type name.
 	 * @param clazz the class to check
 	 * @param typeName the type name to match
@@ -573,7 +573,7 @@ public abstract class ClassUtils {
 	}
 
 
-	/**
+	/*
 	 * Determine whether the given class has a public constructor with the given signature.
 	 * <p>Essentially translates {@code NoSuchMethodException} to "false".
 	 * @param clazz the clazz to analyze
@@ -585,7 +585,7 @@ public abstract class ClassUtils {
 		return (getConstructorIfAvailable(clazz, paramTypes) != null);
 	}
 
-	/**
+	/*
 	 * Determine whether the given class has a public constructor with the given signature,
 	 * and return it if available (else return {@code null}).
 	 * <p>Essentially translates {@code NoSuchMethodException} to {@code null}.
@@ -604,7 +604,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Determine whether the given class has a public method with the given signature.
 	 * <p>Essentially translates {@code NoSuchMethodException} to "false".
 	 * @param clazz the clazz to analyze
@@ -617,7 +617,7 @@ public abstract class ClassUtils {
 		return (getMethodIfAvailable(clazz, methodName, paramTypes) != null);
 	}
 
-	/**
+	/*
 	 * Determine whether the given class has a public method with the given signature,
 	 * and return it if available (else throws an {@code IllegalStateException}).
 	 * <p>In case of any signature specified, only returns the method if there is a
@@ -662,7 +662,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Determine whether the given class has a public method with the given signature,
 	 * and return it if available (else return {@code null}).
 	 * <p>In case of any signature specified, only returns the method if there is a
@@ -701,7 +701,7 @@ public abstract class ClassUtils {
 		}
 	}
 
-	/**
+	/*
 	 * Return the number of methods with a given name (with any argument types),
 	 * for the given class and/or its superclasses. Includes non-public methods.
 	 * @param clazz	the clazz to check
@@ -728,7 +728,7 @@ public abstract class ClassUtils {
 		return count;
 	}
 
-	/**
+	/*
 	 * Does the given class or one of its superclasses at least have one or more
 	 * methods with the supplied name (with any argument types)?
 	 * Includes non-public methods.
@@ -754,7 +754,7 @@ public abstract class ClassUtils {
 		return (clazz.getSuperclass() != null && hasAtLeastOneMethodWithName(clazz.getSuperclass(), methodName));
 	}
 
-	/**
+	/*
 	 * Given a method, which may come from an interface, and a target class used
 	 * in the current reflective invocation, find the corresponding target method
 	 * if there is one. E.g. the method may be {@code IFoo.bar()} and the
@@ -799,7 +799,7 @@ public abstract class ClassUtils {
 		return method;
 	}
 
-	/**
+	/*
 	 * Determine whether the given method is declared by the user or at least pointing to
 	 * a user-declared method.
 	 * <p>Checks {@link Method#isSynthetic()} (for implementation methods) as well as the
@@ -819,7 +819,7 @@ public abstract class ClassUtils {
 		return method.getDeclaringClass().getName().equals("groovy.lang.GroovyObject");
 	}
 
-	/**
+	/*
 	 * Determine whether the given method is overridable in the given target class.
 	 * @param method the method to check
 	 * @param targetClass the target class to check against
@@ -834,7 +834,7 @@ public abstract class ClassUtils {
 		return getPackageName(method.getDeclaringClass()).equals(getPackageName(targetClass));
 	}
 
-	/**
+	/*
 	 * Return a public static method of a class.
 	 * @param clazz the class which defines the method
 	 * @param methodName the static method name
@@ -855,7 +855,7 @@ public abstract class ClassUtils {
 	}
 
 
-	/**
+	/*
 	 * Check if the given class represents a primitive wrapper,
 	 * i.e. Boolean, Byte, Character, Short, Integer, Long, Float, or Double.
 	 * @param clazz the class to check
@@ -866,7 +866,7 @@ public abstract class ClassUtils {
 		return primitiveWrapperTypeMap.containsKey(clazz);
 	}
 
-	/**
+	/*
 	 * Check if the given class represents a primitive (i.e. boolean, byte,
 	 * char, short, int, long, float, or double) or a primitive wrapper
 	 * (i.e. Boolean, Byte, Character, Short, Integer, Long, Float, or Double).
@@ -878,7 +878,7 @@ public abstract class ClassUtils {
 		return (clazz.isPrimitive() || isPrimitiveWrapper(clazz));
 	}
 
-	/**
+	/*
 	 * Check if the given class represents an array of primitives,
 	 * i.e. boolean, byte, char, short, int, long, float, or double.
 	 * @param clazz the class to check
@@ -889,7 +889,7 @@ public abstract class ClassUtils {
 		return (clazz.isArray() && clazz.getComponentType().isPrimitive());
 	}
 
-	/**
+	/*
 	 * Check if the given class represents an array of primitive wrappers,
 	 * i.e. Boolean, Byte, Character, Short, Integer, Long, Float, or Double.
 	 * @param clazz the class to check
@@ -900,7 +900,7 @@ public abstract class ClassUtils {
 		return (clazz.isArray() && isPrimitiveWrapper(clazz.getComponentType()));
 	}
 
-	/**
+	/*
 	 * Resolve the given class if it is a primitive class,
 	 * returning the corresponding primitive wrapper type instead.
 	 * @param clazz the class to check
@@ -911,7 +911,7 @@ public abstract class ClassUtils {
 		return (clazz.isPrimitive() && clazz != void.class ? primitiveTypeToWrapperMap.get(clazz) : clazz);
 	}
 
-	/**
+	/*
 	 * Check if the right-hand side type may be assigned to the left-hand side
 	 * type, assuming setting by reflection. Considers primitive wrapper
 	 * classes as assignable to the corresponding primitive types.
@@ -941,7 +941,7 @@ public abstract class ClassUtils {
 		return false;
 	}
 
-	/**
+	/*
 	 * Determine if the given type is assignable from the given value,
 	 * assuming setting by reflection. Considers primitive wrapper classes
 	 * as assignable to the corresponding primitive types.
@@ -955,7 +955,7 @@ public abstract class ClassUtils {
 	}
 
 
-	/**
+	/*
 	 * Convert a "/"-based resource path to a "."-based fully qualified class name.
 	 * @param resourcePath the resource path pointing to a class
 	 * @return the corresponding fully qualified class name
@@ -965,7 +965,7 @@ public abstract class ClassUtils {
 		return resourcePath.replace(PATH_SEPARATOR, PACKAGE_SEPARATOR);
 	}
 
-	/**
+	/*
 	 * Convert a "."-based fully qualified class name to a "/"-based resource path.
 	 * @param className the fully qualified class name
 	 * @return the corresponding resource path, pointing to the class
@@ -975,7 +975,7 @@ public abstract class ClassUtils {
 		return className.replace(PACKAGE_SEPARATOR, PATH_SEPARATOR);
 	}
 
-	/**
+	/*
 	 * Return a path suitable for use with {@code ClassLoader.getResource}
 	 * (also suitable for use with {@code Class.getResource} by prepending a
 	 * slash ('/') to the return value). Built by taking the package of the specified
@@ -999,7 +999,7 @@ public abstract class ClassUtils {
 		return classPackageAsResourcePath(clazz) + resourceName;
 	}
 
-	/**
+	/*
 	 * Given an input class object, return a string which consists of the
 	 * class's package name as a pathname, i.e., all dots ('.') are replaced by
 	 * slashes ('/'). Neither a leading nor trailing slash is added. The result
@@ -1026,7 +1026,7 @@ public abstract class ClassUtils {
 		return packageName.replace(PACKAGE_SEPARATOR, PATH_SEPARATOR);
 	}
 
-	/**
+	/*
 	 * Build a String that consists of the names of the classes/interfaces
 	 * in the given array.
 	 * <p>Basically like {@code AbstractCollection.toString()}, but stripping
@@ -1039,7 +1039,7 @@ public abstract class ClassUtils {
 		return classNamesToString(Arrays.asList(classes));
 	}
 
-	/**
+	/*
 	 * Build a String that consists of the names of the classes/interfaces
 	 * in the given collection.
 	 * <p>Basically like {@code AbstractCollection.toString()}, but stripping
@@ -1064,7 +1064,7 @@ public abstract class ClassUtils {
 		return sb.toString();
 	}
 
-	/**
+	/*
 	 * Copy the given Collection into a Class array.
 	 * The Collection must contain Class elements only.
 	 * @param collection the Collection to copy
@@ -1078,7 +1078,7 @@ public abstract class ClassUtils {
 		return collection.toArray(new Class<?>[collection.size()]);
 	}
 
-	/**
+	/*
 	 * Return all interfaces that the given instance implements as array,
 	 * including ones implemented by superclasses.
 	 * @param instance the instance to analyze for interfaces
@@ -1089,7 +1089,7 @@ public abstract class ClassUtils {
 		return getAllInterfacesForClass(instance.getClass());
 	}
 
-	/**
+	/*
 	 * Return all interfaces that the given class implements as array,
 	 * including ones implemented by superclasses.
 	 * <p>If the class itself is an interface, it gets returned as sole interface.
@@ -1100,7 +1100,7 @@ public abstract class ClassUtils {
 		return getAllInterfacesForClass(clazz, null);
 	}
 
-	/**
+	/*
 	 * Return all interfaces that the given class implements as array,
 	 * including ones implemented by superclasses.
 	 * <p>If the class itself is an interface, it gets returned as sole interface.
@@ -1114,7 +1114,7 @@ public abstract class ClassUtils {
 		return ifcs.toArray(new Class<?>[ifcs.size()]);
 	}
 
-	/**
+	/*
 	 * Return all interfaces that the given instance implements as Set,
 	 * including ones implemented by superclasses.
 	 * @param instance the instance to analyze for interfaces
@@ -1125,7 +1125,7 @@ public abstract class ClassUtils {
 		return getAllInterfacesForClassAsSet(instance.getClass());
 	}
 
-	/**
+	/*
 	 * Return all interfaces that the given class implements as Set,
 	 * including ones implemented by superclasses.
 	 * <p>If the class itself is an interface, it gets returned as sole interface.
@@ -1136,7 +1136,7 @@ public abstract class ClassUtils {
 		return getAllInterfacesForClassAsSet(clazz, null);
 	}
 
-	/**
+	/*
 	 * Return all interfaces that the given class implements as Set,
 	 * including ones implemented by superclasses.
 	 * <p>If the class itself is an interface, it gets returned as sole interface.
@@ -1161,7 +1161,7 @@ public abstract class ClassUtils {
 		return interfaces;
 	}
 
-	/**
+	/*
 	 * Create a composite interface Class for the given interfaces,
 	 * implementing the given interfaces in one single Class.
 	 * <p>This implementation builds a JDK proxy class for the given interfaces.
@@ -1175,7 +1175,7 @@ public abstract class ClassUtils {
 		return Proxy.getProxyClass(classLoader, interfaces);
 	}
 
-	/**
+	/*
 	 * Determine the common ancestor of the given classes, if any.
 	 * @param clazz1 the class to introspect
 	 * @param clazz2 the other class to introspect
@@ -1208,7 +1208,7 @@ public abstract class ClassUtils {
 		return ancestor;
 	}
 
-	/**
+	/*
 	 * Check whether the given class is visible in the given ClassLoader.
 	 * @param clazz the class to check (typically an interface)
 	 * @param classLoader the ClassLoader to check against (may be {@code null},
@@ -1238,7 +1238,7 @@ public abstract class ClassUtils {
         }
     }
     
-	/**
+	/*
 	 * Check whether the given object is a CGLIB proxy.
 	 * @param object the object to check
 	 * @see org.springframework.aop.support.AopUtils#isCglibProxy(Object)
@@ -1247,7 +1247,7 @@ public abstract class ClassUtils {
 		return isCglibProxyClass(object.getClass());
 	}
 
-	/**
+	/*
 	 * Check whether the specified class is a CGLIB-generated class.
 	 * @param clazz the class to check
 	 */
@@ -1255,7 +1255,7 @@ public abstract class ClassUtils {
 		return (clazz != null && isCglibProxyClassName(clazz.getName()));
 	}
 
-	/**
+	/*
 	 * Check whether the specified class name is a CGLIB-generated class.
 	 * @param className the class name to check
 	 */
@@ -1263,7 +1263,7 @@ public abstract class ClassUtils {
 		return (className != null && className.contains(CGLIB_CLASS_SEPARATOR));
 	}
 	
-	/**
+	/*
      * Attempts to load the specified class name from the current thread's
      * {@link Thread#getContextClassLoader() context class loader}, then the
      * current ClassLoader (<code>ClassUtils.class.getClassLoader()</code>), then the system/application
@@ -1332,7 +1332,7 @@ public abstract class ClassUtils {
         }
     }
 
-    /**
+    /*
      *
      * @param type
      * @param annotation
@@ -1404,7 +1404,7 @@ public abstract class ClassUtils {
 		return null;
 	}
 	
-	/**
+	/*
 	 * 判断类型是否是封装类：包括java的基本类库的类，用户自定义的类型
 	 */
 	public static boolean isWrapClass(Class clazz){
@@ -1416,7 +1416,7 @@ public abstract class ClassUtils {
 	    }
 	}
 	
-	/**
+	/*
 	 *  判断一个class 是否是java类库的类
 	 * 				如果是lang包或者util包下面的类，可以跳过
 	 *				这里不严谨，不过对于实体而言可以接受，			
@@ -1432,7 +1432,7 @@ public abstract class ClassUtils {
 	    return clazz != null && clazz.getClassLoader() == null;  
 	}  
 	
-	/**
+	/*
 	 * 判断一个类型是否是用户自定义的类型，需要满足条件：
 	 * 				1.不是java类库的类
 	 * 				2.非基本类型的封装类

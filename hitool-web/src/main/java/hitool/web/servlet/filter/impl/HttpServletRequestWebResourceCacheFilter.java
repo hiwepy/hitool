@@ -19,7 +19,7 @@ import hitool.web.servlet.http.HttpServletResourceCachedResponseWrapper;
 public class HttpServletRequestWebResourceCacheFilter  extends OncePerRequestFilter {
 	
 	protected transient Logger LOG = LoggerFactory.getLogger(HttpServletRequestWebResourceCacheFilter.class);
-	/**
+	/*
 	 * @Field: map 缓存Web资源的Map容器
 	 */
 	protected Map<String,byte[]> map = new HashMap<String,byte[]>();

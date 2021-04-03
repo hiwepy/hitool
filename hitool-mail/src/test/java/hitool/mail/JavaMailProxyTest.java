@@ -11,12 +11,12 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-/**
+/*
  * http://dennis-zane.iteye.com/blog/57493
  */
 public class JavaMailProxyTest {
 
-	/**
+	/*
 	 * 通过代理发送邮件
 	 */
 	public static void main(String[] args) throws Exception {

@@ -16,7 +16,7 @@ import java.security.PrivilegedAction;
 
 import org.apache.commons.lang3.time.StopWatch;
 
-/**
+/*
  * NIO写大文件比较
  * 
  * @author Will
@@ -29,7 +29,7 @@ public class WriteBigFileComparison {
 
 	// total data size is 2G
 	private static final long LEN = 2L * 1024 * 1024 * 1024L;
-	/**
+	/*
 	public static void writeWithFileChannel() throws IOException {
 		File file = new File("e:/test/fc.dat");
 		if (file.exists()) {
@@ -80,7 +80,7 @@ public class WriteBigFileComparison {
 		raf.close();
 	}*/
 
-	/**
+	/*
 	 * write big file with MappedByteBuffer
 	 * 
 	 * @throws IOException
@@ -169,7 +169,7 @@ public class WriteBigFileComparison {
 		fromByteChannel.close();
 	}*/
 
-	/**
+	/*
 	 * 在MappedByteBuffer释放后再对它进行读操作的话就会引发jvm crash，在并发情况下很容易发生
 	 * 正在释放时另一个线程正开始读取，于是crash就发生了。所以为了系统稳定性释放前一般需要检 查是否还有线程在读或写
 	 * 

@@ -46,7 +46,7 @@ public class BeanConvertUtils extends ConvertUtilsBean {
 	}
 	
 	
-	/**
+	/*
 	 * 
 	 * 使用指定类型的转换器将对象转换成目标类型对象并返回
 	 * @param <R>			转换器泛型
@@ -73,7 +73,7 @@ public class BeanConvertUtils extends ConvertUtilsBean {
 		return BeanConvertUtils.convert(bean, name, false,targetClass);
 	}
 	
-	/**
+	/*
 	 * 从对象bean中取得字段名为name的字段值，并转换成指定类型targetClass
 	 * @param bean 取值对象
 	 * @param name 取值字段名称

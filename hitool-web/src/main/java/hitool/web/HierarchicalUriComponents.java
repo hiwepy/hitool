@@ -20,7 +20,7 @@ import hitool.core.lang3.Assert;
 import hitool.core.lang3.ObjectUtils;
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  * Extension of {@link URIComponents} for hierarchical URIs.
  *
  * @author Arjen Poutsma
@@ -46,7 +46,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 
 	private final boolean encoded;
 
-	/**
+	/*
 	 * Package-private constructor. All arguments are optional, and can be {@code null}.
 	 * @param scheme the scheme
 	 * @param userInfo the user info
@@ -148,7 +148,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 		}
 	}
 
-	/**
+	/*
 	 * Returns the map of query parameters. Empty if no query has been set.
 	 */
 	@Override
@@ -159,7 +159,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 
 	// encoding
 
-	/**
+	/*
 	 * Encode all URI components using their specific encoding rules and return
 	 * the result as a new {@code UriComponents} instance.
 	 * @param encoding the encoding of the values contained in this map
@@ -196,7 +196,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 		return result;
 	}
 
-	/**
+	/*
 	 * Encode the given source into an encoded String using the rules specified
 	 * by the given component and with the given options.
 	 * @param source the source string
@@ -245,7 +245,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 
 	// verifying
 
-	/**
+	/*
 	 * Verifies all URI components to determine whether they contain any illegal
 	 * characters, throwing an {@code IllegalArgumentException} if so.
 	 * @throws IllegalArgumentException if any component has illegal characters
@@ -331,7 +331,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 		return result;
 	}
 
-	/**
+	/*
 	 * Normalize the path removing sequences like "path/..".
 	 * @see StringUtils#cleanPath(String)
 	 */
@@ -346,7 +346,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 
 	// other functionality
 
-	/**
+	/*
 	 * Returns a URI string from this {@code UriComponents} instance.
 	 */
 	@Override
@@ -389,7 +389,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 		return uriBuilder.toString();
 	}
 
-	/**
+	/*
 	 * Returns a {@code URI} from this {@code UriComponents} instance.
 	 */
 	@Override
@@ -461,7 +461,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 
 	// inner types
 
-	/**
+	/*
 	 * Enumeration used to identify the allowed characters per URI component.
 	 * <p>Contains methods to indicate whether a given character is valid in a specific URI component.
 	 * @see <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a>
@@ -546,13 +546,13 @@ public final class HierarchicalUriComponents extends URIComponents {
 			}
 		};
 
-		/**
+		/*
 		 * Indicates whether the given character is allowed in this URI component.
 		 * @return {@code true} if the character is allowed; {@code false} otherwise
 		 */
 		public abstract boolean isAllowed(int c);
 
-		/**
+		/*
 		 * Indicates whether the given character is in the {@code ALPHA} set.
 		 * @see <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986, appendix A</a>
 		 */
@@ -560,7 +560,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 			return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
 		}
 
-		/**
+		/*
 		 * Indicates whether the given character is in the {@code DIGIT} set.
 		 * @see <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986, appendix A</a>
 		 */
@@ -568,7 +568,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 			return c >= '0' && c <= '9';
 		}
 
-		/**
+		/*
 		 * Indicates whether the given character is in the {@code gen-delims} set.
 		 * @see <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986, appendix A</a>
 		 */
@@ -576,7 +576,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 			return ':' == c || '/' == c || '?' == c || '#' == c || '[' == c || ']' == c || '@' == c;
 		}
 
-		/**
+		/*
 		 * Indicates whether the given character is in the {@code sub-delims} set.
 		 * @see <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986, appendix A</a>
 		 */
@@ -585,7 +585,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 					',' == c || ';' == c || '=' == c;
 		}
 
-		/**
+		/*
 		 * Indicates whether the given character is in the {@code reserved} set.
 		 * @see <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986, appendix A</a>
 		 */
@@ -593,7 +593,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 			return isGenericDelimiter(c) || isSubDelimiter(c);
 		}
 
-		/**
+		/*
 		 * Indicates whether the given character is in the {@code unreserved} set.
 		 * @see <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986, appendix A</a>
 		 */
@@ -601,7 +601,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 			return isAlpha(c) || isDigit(c) || '-' == c || '.' == c || '_' == c || '~' == c;
 		}
 
-		/**
+		/*
 		 * Indicates whether the given character is in the {@code pchar} set.
 		 * @see <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986, appendix A</a>
 		 */
@@ -611,7 +611,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 	}
 
 
-	/**
+	/*
 	 * Defines the contract for path (segments).
 	 */
 	interface PathComponent extends Serializable {
@@ -630,7 +630,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 	}
 
 
-	/**
+	/*
 	 * Represents a path backed by a string.
 	 */
 	static final class FullPathComponent implements PathComponent {
@@ -688,7 +688,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 
 	}
 
-	/**
+	/*
 	 * Represents a path backed by a string list (i.e. path segments).
 	 */
 	static final class PathSegmentComponent implements PathComponent {
@@ -766,7 +766,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 	}
 
 
-	/**
+	/*
 	 * Represents a collection of PathComponents.
 	 */
 	static final class PathComponentComposite implements PathComponent {
@@ -830,7 +830,7 @@ public final class HierarchicalUriComponents extends URIComponents {
 	}
 
 
-	/**
+	/*
 	 * Represents an empty path.
 	 */
 	static final PathComponent NULL_PATH_COMPONENT = new PathComponent() {

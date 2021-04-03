@@ -1,4 +1,4 @@
-/**
+/*
  *    Copyright 2009-2015 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@ package hitool.core.beanutils.reflection.wrapper;
 import hitool.core.beanutils.exception.ReflectionException;
 import hitool.core.beanutils.reflection.MetaObject;
 
-/**
+/*
  * @author Clinton Begin
  */
 public class DefaultObjectWrapperFactory implements ObjectWrapperFactory {

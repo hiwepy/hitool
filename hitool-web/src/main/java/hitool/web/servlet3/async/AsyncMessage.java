@@ -1,7 +1,7 @@
  package hitool.web.servlet3.async;
  import java.io.IOException;
   
- /**
+ /*
  * @author Gao Youbo
  * @since 2013-4-24
  * @description
@@ -11,7 +11,7 @@
 	 
      private static WriterAppender wa = null;
   
-     /**
+     /*
       * push message
       * 
       * @param message
@@ -28,7 +28,7 @@
          }
      }
   
-     /**
+     /*
       * 执行推送JS
       * 
       * @param script
@@ -45,7 +45,7 @@
          }
      }
   
-     /**
+     /*
       * @param message
       * @return
       */

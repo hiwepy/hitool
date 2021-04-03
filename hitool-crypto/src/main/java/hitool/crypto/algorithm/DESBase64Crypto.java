@@ -19,7 +19,7 @@ import hitool.crypto.utils.DecryptUtils;
 import hitool.crypto.utils.EncryptUtils;
 import hitool.crypto.utils.SecretKeyUtils;
 import hitool.crypto.utils.StringUtils;
-/**
+/*
  *  DES对称加密算法
  */
 public class DESBase64Crypto implements Crypto,SecretKeyEncryptor,SecretKeyDecryptor,FileEncryptor,FileDecryptor {

@@ -2,7 +2,7 @@ package hitool.crypto;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-/**
+/*
  * 
  * 
  */

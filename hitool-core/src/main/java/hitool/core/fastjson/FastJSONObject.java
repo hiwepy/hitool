@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -18,7 +18,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import hitool.core.fastjson.filter.NullPropertyFilter;
 
-/**
+/*
  <p>SerializerFeature属性</p>
  <table style="height:800px; width:744px" cellspacing="1" cellpadding="1" border="1"> 
 	 <tbody> 
@@ -191,7 +191,7 @@ public class FastJSONObject extends JSONObject {
 	    config.put(java.sql.Date.class, new JSONLibDataFormatSerializer()); // 使用和json-lib兼容的日期输出格式
 	}*/
 
-	/**
+	/*
 	 * 空字段过滤器
 	 */
 	public static PropertyFilter NULL_PROPERTY_FILTER = new NullPropertyFilter();
@@ -203,7 +203,7 @@ public class FastJSONObject extends JSONObject {
         
 	};
 	
-	/**
+	/*
 	 * 默认json格式化方式
 	 */
 	protected static  SerializerFeature[] GENERATE_FEATURES = { 

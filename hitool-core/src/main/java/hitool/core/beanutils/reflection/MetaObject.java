@@ -1,4 +1,4 @@
-/**
+/*
  *    Copyright 2009-2015 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +27,7 @@ import hitool.core.beanutils.reflection.wrapper.MapWrapper;
 import hitool.core.beanutils.reflection.wrapper.ObjectWrapper;
 import hitool.core.beanutils.reflection.wrapper.ObjectWrapperFactory;
 
-/**
+/*
  * @author Clinton Begin
  */
 public class MetaObject {

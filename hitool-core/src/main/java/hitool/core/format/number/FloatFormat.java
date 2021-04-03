@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 import hitool.core.format.Format;
-/**
+/*
  * 使用舍入模式的格式化操作
  */
 public class FloatFormat implements Format {

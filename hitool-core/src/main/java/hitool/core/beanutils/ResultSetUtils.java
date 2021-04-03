@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public final class ResultSetUtils {
 
-	/**
+	/*
 	 * 从ResultSet中的到查询结果的列
 	 * @param rs
 	 * @return

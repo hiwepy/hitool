@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
-/**
+/*
  */
 @SuppressWarnings("resource")
 public class FileChannelUtils {
@@ -31,7 +31,7 @@ public class FileChannelUtils {
 		return output.getChannel();
 	}
 
-	/**
+	/*
 	 * 
 	 * 功能描述：nio文件拷贝
 	 * 
@@ -53,7 +53,7 @@ public class FileChannelUtils {
 		copy(fin, fout);
 	}
 
-	/**
+	/*
 	 * 
 	 * 功能描述：nio文件拷贝
 	 * 

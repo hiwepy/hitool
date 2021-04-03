@@ -1,10 +1,10 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
 package hitool.core.lang3.exception;
 
-/**
+/*
  * 被检查的业务异常(Checked Exception)
  */
 @SuppressWarnings("serial")

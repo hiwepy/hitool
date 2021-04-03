@@ -29,7 +29,7 @@ import java.util.Map;
 import hitool.core.beanutils.reflection.ClassUtils;
 import hitool.core.lang3.Assert;
 
-/**
+/*
  * Helper class that encapsulates the specification of a method parameter, i.e. a {@link Method}
  * or {@link Constructor} plus a parameter index and a nested type index for a declared generic
  * type. Useful as a specification object to pass along.
@@ -71,7 +71,7 @@ public class MethodParameter {
 
 	private int nestingLevel = 1;
 
-	/** Map from Integer level to Integer type index */
+	
 	Map<Integer, Integer> typeIndexesPerLevel;
 
 	private volatile Class<?> containingClass;
@@ -89,7 +89,7 @@ public class MethodParameter {
 	private volatile MethodParameter nestedMethodParameter;
 
 
-	/**
+	/*
 	 * Create a new {@code MethodParameter} for the given method, with nesting level 1.
 	 * @param method the Method to specify a parameter for
 	 * @param parameterIndex the index of the parameter: -1 for the method
@@ -100,7 +100,7 @@ public class MethodParameter {
 		this(method, parameterIndex, 1);
 	}
 
-	/**
+	/*
 	 * Create a new {@code MethodParameter} for the given method.
 	 * @param method the Method to specify a parameter for
 	 * @param parameterIndex the index of the parameter: -1 for the method
@@ -118,7 +118,7 @@ public class MethodParameter {
 		this.constructor = null;
 	}
 
-	/**
+	/*
 	 * Create a new MethodParameter for the given constructor, with nesting level 1.
 	 * @param constructor the Constructor to specify a parameter for
 	 * @param parameterIndex the index of the parameter
@@ -127,7 +127,7 @@ public class MethodParameter {
 		this(constructor, parameterIndex, 1);
 	}
 
-	/**
+	/*
 	 * Create a new MethodParameter for the given constructor.
 	 * @param constructor the Constructor to specify a parameter for
 	 * @param parameterIndex the index of the parameter
@@ -143,7 +143,7 @@ public class MethodParameter {
 		this.method = null;
 	}
 
-	/**
+	/*
 	 * Copy constructor, resulting in an independent MethodParameter object
 	 * based on the same metadata and cache state that the original object was in.
 	 * @param original the original MethodParameter object to copy from
@@ -164,7 +164,7 @@ public class MethodParameter {
 	}
 
 
-	/**
+	/*
 	 * Return the wrapped Method, if any.
 	 * <p>Note: Either Method or Constructor is available.
 	 * @return the Method, or {@code null} if none
@@ -173,7 +173,7 @@ public class MethodParameter {
 		return this.method;
 	}
 
-	/**
+	/*
 	 * Return the wrapped Constructor, if any.
 	 * <p>Note: Either Method or Constructor is available.
 	 * @return the Constructor, or {@code null} if none
@@ -182,14 +182,14 @@ public class MethodParameter {
 		return this.constructor;
 	}
 
-	/**
+	/*
 	 * Return the class that declares the underlying Method or Constructor.
 	 */
 	public Class<?> getDeclaringClass() {
 		return getMember().getDeclaringClass();
 	}
 
-	/**
+	/*
 	 * Return the wrapped member.
 	 * @return the Method or Constructor as Member
 	 */
@@ -205,7 +205,7 @@ public class MethodParameter {
 		}
 	}
 
-	/**
+	/*
 	 * Return the wrapped annotated element.
 	 * <p>Note: This method exposes the annotations declared on the method/constructor
 	 * itself (i.e. at the method/constructor level, not at the parameter level).
@@ -223,7 +223,7 @@ public class MethodParameter {
 		}
 	}
 
-	/**
+	/*
 	 * Return the index of the method/constructor parameter.
 	 * @return the parameter index (-1 in case of the return type)
 	 */
@@ -231,7 +231,7 @@ public class MethodParameter {
 		return this.parameterIndex;
 	}
 
-	/**
+	/*
 	 * Increase this parameter's nesting level.
 	 * @see #getNestingLevel()
 	 */
@@ -239,7 +239,7 @@ public class MethodParameter {
 		this.nestingLevel++;
 	}
 
-	/**
+	/*
 	 * Decrease this parameter's nesting level.
 	 * @see #getNestingLevel()
 	 */
@@ -248,7 +248,7 @@ public class MethodParameter {
 		this.nestingLevel--;
 	}
 
-	/**
+	/*
 	 * Return the nesting level of the target type
 	 * (typically 1; e.g. in case of a List of Lists, 1 would indicate the
 	 * nested List, whereas 2 would indicate the element of the nested List).
@@ -257,7 +257,7 @@ public class MethodParameter {
 		return this.nestingLevel;
 	}
 
-	/**
+	/*
 	 * Set the type index for the current nesting level.
 	 * @param typeIndex the corresponding type index
 	 * (or {@code null} for the default type index)
@@ -267,7 +267,7 @@ public class MethodParameter {
 		getTypeIndexesPerLevel().put(this.nestingLevel, typeIndex);
 	}
 
-	/**
+	/*
 	 * Return the type index for the current nesting level.
 	 * @return the corresponding type index, or {@code null}
 	 * if none specified (indicating the default type index)
@@ -277,7 +277,7 @@ public class MethodParameter {
 		return getTypeIndexForLevel(this.nestingLevel);
 	}
 
-	/**
+	/*
 	 * Return the type index for the specified nesting level.
 	 * @param nestingLevel the nesting level to check
 	 * @return the corresponding type index, or {@code null}
@@ -287,7 +287,7 @@ public class MethodParameter {
 		return getTypeIndexesPerLevel().get(nestingLevel);
 	}
 
-	/**
+	/*
 	 * Obtain the (lazily constructed) type-indexes-per-level Map.
 	 */
 	private Map<Integer, Integer> getTypeIndexesPerLevel() {
@@ -297,7 +297,7 @@ public class MethodParameter {
 		return this.typeIndexesPerLevel;
 	}
 
-	/**
+	/*
 	 * Return a variant of this {@code MethodParameter} which points to the
 	 * same parameter but one nesting level deeper. This is effectively the
 	 * same as {@link #increaseNestingLevel()}, just with an independent
@@ -314,7 +314,7 @@ public class MethodParameter {
 		return nestedParam;
 	}
 
-	/**
+	/*
 	 * Return whether this method parameter is declared as optional
 	 * in the form of Java 8's {@link java.util.Optional}.
 	 * @since 4.3
@@ -323,7 +323,7 @@ public class MethodParameter {
 		return (getParameterType() == javaUtilOptionalClass);
 	}
 
-	/**
+	/*
 	 * Return a variant of this {@code MethodParameter} which points to
 	 * the same parameter but one nesting level deeper in case of a
 	 * {@link java.util.Optional} declaration.
@@ -336,7 +336,7 @@ public class MethodParameter {
 	}
 
 
-	/**
+	/*
 	 * Set a containing class to resolve the parameter type against.
 	 */
 	void setContainingClass(Class<?> containingClass) {
@@ -347,14 +347,14 @@ public class MethodParameter {
 		return (this.containingClass != null ? this.containingClass : getDeclaringClass());
 	}
 
-	/**
+	/*
 	 * Set a resolved (generic) parameter type.
 	 */
 	void setParameterType(Class<?> parameterType) {
 		this.parameterType = parameterType;
 	}
 
-	/**
+	/*
 	 * Return the type of the method/constructor parameter.
 	 * @return the parameter type (never {@code null})
 	 */
@@ -372,7 +372,7 @@ public class MethodParameter {
 		return this.parameterType;
 	}
 
-	/**
+	/*
 	 * Return the generic type of the method/constructor parameter.
 	 * @return the parameter type (never {@code null})
 	 * @since 3.0
@@ -391,7 +391,7 @@ public class MethodParameter {
 		return this.genericParameterType;
 	}
 
-	/**
+	/*
 	 * Return the nested type of the method/constructor parameter.
 	 * @return the parameter type (never {@code null})
 	 * @since 3.1
@@ -424,7 +424,7 @@ public class MethodParameter {
 		}
 	}
 
-	/**
+	/*
 	 * Return the nested generic type of the method/constructor parameter.
 	 * @return the parameter type (never {@code null})
 	 * @since 4.2
@@ -447,14 +447,14 @@ public class MethodParameter {
 		}
 	}
 
-	/**
+	/*
 	 * Return the annotations associated with the target method/constructor itself.
 	 */
 	public Annotation[] getMethodAnnotations() {
 		return adaptAnnotationArray(getAnnotatedElement().getAnnotations());
 	}
 
-	/**
+	/*
 	 * Return the method/constructor annotation of the given type, if available.
 	 * @param annotationType the annotation type to look for
 	 * @return the annotation object, or {@code null} if not found
@@ -463,7 +463,7 @@ public class MethodParameter {
 		return adaptAnnotation(getAnnotatedElement().getAnnotation(annotationType));
 	}
 
-	/**
+	/*
 	 * Return whether the method/constructor is annotated with the given type.
 	 * @param annotationType the annotation type to look for
 	 * @since 4.3
@@ -473,7 +473,7 @@ public class MethodParameter {
 		return getAnnotatedElement().isAnnotationPresent(annotationType);
 	}
 
-	/**
+	/*
 	 * Return the annotations associated with the specific method/constructor parameter.
 	 */
 	public Annotation[] getParameterAnnotations() {
@@ -490,7 +490,7 @@ public class MethodParameter {
 		return this.parameterAnnotations;
 	}
 
-	/**
+	/*
 	 * Return {@code true} if the parameter has at least one annotation,
 	 * {@code false} if it has none.
 	 * @see #getParameterAnnotations()
@@ -499,7 +499,7 @@ public class MethodParameter {
 		return (getParameterAnnotations().length != 0);
 	}
 
-	/**
+	/*
 	 * Return the parameter annotation of the given type, if available.
 	 * @param annotationType the annotation type to look for
 	 * @return the annotation object, or {@code null} if not found
@@ -515,7 +515,7 @@ public class MethodParameter {
 		return null;
 	}
 
-	/**
+	/*
 	 * Return whether the parameter is declared with the given annotation type.
 	 * @param annotationType the annotation type to look for
 	 * @see #getParameterAnnotation(Class)
@@ -524,7 +524,7 @@ public class MethodParameter {
 		return (getParameterAnnotation(annotationType) != null);
 	}
 
-	/**
+	/*
 	 * Initialize parameter name discovery for this method parameter.
 	 * <p>This method does not actually try to retrieve the parameter name at
 	 * this point; it just allows discovery to happen when the application calls
@@ -534,7 +534,7 @@ public class MethodParameter {
 		this.parameterNameDiscoverer = parameterNameDiscoverer;
 	}
 
-	/**
+	/*
 	 * Return the name of the method/constructor parameter.
 	 * @return the parameter name (may be {@code null} if no
 	 * parameter name metadata is contained in the class file or no
@@ -555,7 +555,7 @@ public class MethodParameter {
 	}
 
 
-	/**
+	/*
 	 * A template method to post-process a given annotation instance before
 	 * returning it to the caller.
 	 * <p>The default implementation simply returns the given annotation as-is.
@@ -567,7 +567,7 @@ public class MethodParameter {
 		return annotation;
 	}
 
-	/**
+	/*
 	 * A template method to post-process a given annotation array before
 	 * returning it to the caller.
 	 * <p>The default implementation simply returns the given annotation array as-is.
@@ -609,7 +609,7 @@ public class MethodParameter {
 	}
 
 
-	/**
+	/*
 	 * Create a new MethodParameter for the given method or constructor.
 	 * <p>This is a convenience constructor for scenarios where a
 	 * Method or Constructor reference is treated in a generic fashion.

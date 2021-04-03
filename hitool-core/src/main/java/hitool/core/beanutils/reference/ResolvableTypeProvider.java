@@ -16,7 +16,7 @@
 
 package hitool.core.beanutils.reference;
 
-/**
+/*
  * Any object can implement this interface to provide its actual {@link ResolvableType}.
  *
  * <p>Such information is very useful when figuring out if the instance matches a generic
@@ -31,7 +31,7 @@ package hitool.core.beanutils.reference;
  */
 public interface ResolvableTypeProvider {
 
-	/**
+	/*
 	 * Return the {@link ResolvableType} describing this instance
 	 * (or {@code null} if some sort of default should be applied instead).
 	 */

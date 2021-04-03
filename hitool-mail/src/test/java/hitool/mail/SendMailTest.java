@@ -26,7 +26,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 
-/**
+/*
  * 使用SMTP协议发送电子邮件
  */
 public class SendMailTest {
@@ -81,7 +81,7 @@ public class SendMailTest {
 		// sendMailForEml();
 	}
 
-	/**
+	/*
 	 * 发送简单的文本邮件
 	 */
 	public static void sendTextEmail() throws Exception {
@@ -113,7 +113,7 @@ public class SendMailTest {
 		transport.close();
 	}
 
-	/**
+	/*
 	 * 发送简单的html邮件
 	 */
 	public static void sendHtmlEmail() throws Exception {
@@ -137,7 +137,7 @@ public class SendMailTest {
 		Transport.send(message);
 	}
 
-	/**
+	/*
 	 * 发送带内嵌图片的HTML邮件
 	 */
 	public static void sendHtmlWithInnerImageEmail() throws MessagingException {
@@ -196,7 +196,7 @@ public class SendMailTest {
 		Transport.send(message);
 	}
 
-	/**
+	/*
 	 * 发送带内嵌图片、附件、多收件人(显示邮箱姓名)、邮件优先级、阅读回执的完整的HTML邮件
 	 */
 	public static void sendMultipleEmail() throws Exception {
@@ -290,7 +290,7 @@ public class SendMailTest {
 		Transport.send(message);
 	}
 
-	/**
+	/*
 	 * 将邮件内容生成eml文件
 	 * 
 	 * @param message
@@ -304,7 +304,7 @@ public class SendMailTest {
 		return file;
 	}
 
-	/**
+	/*
 	 * 发送本地已经生成好的email文件
 	 */
 	public static void sendMailForEml(File eml) throws Exception {
@@ -317,7 +317,7 @@ public class SendMailTest {
 		Transport.send(message);
 	}
 
-	/**
+	/*
 	 * 向邮件服务器提交认证信息
 	 */
 	static class MyAuthenticator extends Authenticator {

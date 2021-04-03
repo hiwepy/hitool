@@ -52,7 +52,7 @@ public abstract class JavaMailClientAdapter implements JavaMailClient {
 
 	}
 
-	/**
+	/*
 	 * 设置反垃圾邮件
 	 */
 	public void setAntispam(Message message,EmailBody email) throws MessagingException {

@@ -11,7 +11,7 @@ import javax.mail.internet.MimeUtility;
 
 public class MessageUtils {
 
-	/**
+	/*
 	 * 将邮件内容生成eml文件
 	 * @param message 邮件内容
 	 */

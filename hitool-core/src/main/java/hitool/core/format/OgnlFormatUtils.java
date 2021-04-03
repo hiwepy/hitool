@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 import hitool.core.beanutils.OgnlPropertyUtils;
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  * 字符串格式化：其中从bean中获得数据方式使用到了ognl
  * &lt;b&gt;Example:&lt;/b&gt;
  * &lt;pre&gt;

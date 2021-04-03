@@ -1,6 +1,6 @@
 package hitool.lrc4j.tar;
 
-/**
+/*
  * 
  * @className	： AbstractTar
  * @description	：标签 <p> 其格式为"[标识名:值]"。大小写等价 </p>

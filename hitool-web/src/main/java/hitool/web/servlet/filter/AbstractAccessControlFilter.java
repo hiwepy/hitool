@@ -29,12 +29,12 @@ public abstract class AbstractAccessControlFilter extends AbstractPathMatchFilte
 		return false;
 	}
 	
-	/**
+	/*
 	 * 判断是否允许访问
 	 */
 	protected abstract boolean isAccessAllowed(ServletRequest request,ServletResponse response);
 	
-	/**
+	/*
 	 * 当访问被禁止是，需要做的操作
 	 */
 	protected abstract void onAccessDeniad(ServletRequest request,ServletResponse response);

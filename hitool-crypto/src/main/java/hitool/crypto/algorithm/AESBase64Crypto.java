@@ -21,7 +21,7 @@ import hitool.crypto.utils.EncryptUtils;
 import hitool.crypto.utils.SecretKeyUtils;
 import hitool.crypto.utils.StringUtils;
 
-/**
+/*
  * AES加密解密工具包 AES对称加密算法 java6实现，bouncycastle也支持AES对称加密算法我们可以以AES算法实现为参考，完成RC2，RC4和Blowfish算法的实现
  */
 public class AESBase64Crypto implements Crypto, SecretKeyEncryptor,SecretKeyDecryptor,FileEncryptor,FileDecryptor {
@@ -53,7 +53,7 @@ public class AESBase64Crypto implements Crypto, SecretKeyEncryptor,SecretKeyDecr
 		return encode(plainBytes, base64Key.getBytes());
 	}
 	
-	/**
+	/*
 	 * 加密数据
 	 * @param plainBytes 待加密数据
 	 * @param base64Key  密钥
@@ -64,7 +64,7 @@ public class AESBase64Crypto implements Crypto, SecretKeyEncryptor,SecretKeyDecr
 		//还原密钥
 		Key secretKey = toKey(base64Key);
 		// 根据秘钥和算法获取加密执行对象；用密钥初始化此 cipher ，设置为加密模式  ;
-		/**
+		/*
 		 * 实例化 使用 PKCS7PADDING 填充方式，按如下方式实现,就是调用bouncycastle组件实现
 		 * Cipher.getInstance(CIPHER_Algorithm.KEY_AES,"BC")
 		 */
@@ -104,7 +104,7 @@ public class AESBase64Crypto implements Crypto, SecretKeyEncryptor,SecretKeyDecr
 		return decode(encryptedBytes, base64Key.getBytes());
 	}
 	
-	/**
+	/*
 	 * 解密数据
 	 * @param data 待解密数据
 	 * @param base64Key  密钥
@@ -115,7 +115,7 @@ public class AESBase64Crypto implements Crypto, SecretKeyEncryptor,SecretKeyDecr
 		//还原密钥
 		Key secretKey = toKey(base64Key);
 		// 根据秘钥和算法获取解密执行对象；用密钥初始化此 cipher ，设置为解密模式  ;
-		/**
+		/*
 		 * 实例化 使用 PKCS7PADDING 填充方式，按如下方式实现,就是调用bouncycastle组件实现
 		 * Cipher.getInstance(CIPHER_Algorithm.KEY_AES,"BC")
 		 */

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import hitool.web.servlet.http.HttpServletCharacterEncodingRequestWrapper;
 
-/**
+/*
  *  此过滤器用来解决解决get、post请求方式下的中文乱码问题
  */
 public class HttpServletRequestCharacterEncodingFilter implements Filter {

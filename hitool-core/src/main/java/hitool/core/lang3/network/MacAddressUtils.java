@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -21,7 +21,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
+/*
  * 
  * 1、获取本机mac 2、获取远程主机mac:
  * 主机A向主机B发送“UDP－NetBIOS－NS”询问包，即向主机B的137端口，发Query包来询问主机B的NetBIOS Names信息。
@@ -158,7 +158,7 @@ public class MacAddressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 获取远程主机的mac地址
 	 * 
 	 * @param remoteIPAddr
@@ -182,7 +182,7 @@ public class MacAddressUtils {
 
 	// -------------------------------------------------------
 
-	/**
+	/*
 	 * 获取当前操作系统名称. return 操作系统名称 例如:windows,Linux,Unix等
 	 * @return
 	 */
@@ -190,7 +190,7 @@ public class MacAddressUtils {
 		return System.getProperty("os.name").toLowerCase();
 	}
 
-	/**
+	/*
 	 * 获取widnowXp网卡的mac地址
 	 * 
 	 * @param execStr
@@ -239,7 +239,7 @@ public class MacAddressUtils {
 		return mac;
 	}
 
-	/**
+	/*
 	 * 获取widnow7网卡的mac地址
 	 * 
 	 * @return ：
@@ -323,7 +323,7 @@ public class MacAddressUtils {
 		return addresses;
 	}
 
-	/**
+	/*
 	 * 获取Linux网卡的mac地址
 	 * 
 	 * @return
@@ -363,7 +363,7 @@ public class MacAddressUtils {
 		return mac;
 	}
 
-	/**
+	/*
 	 * 获取Unix网卡的mac地址
 	 * 
 	 * @return
@@ -405,7 +405,7 @@ public class MacAddressUtils {
 		return mac;
 	}
 
-	/**
+	/*
 	 * 获取MAC地址
 	 * 
 	 * @return
@@ -430,7 +430,7 @@ public class MacAddressUtils {
 		return mac;
 	}
 
-	/**
+	/*
 	 * jdk1.4获取系统命令路径 ：SystemRoot=C:\WINDOWS @return @return String 返回类型 @throws
 	 */
 	public static String getSystemRoot() {

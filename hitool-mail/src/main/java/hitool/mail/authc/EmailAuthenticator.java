@@ -3,7 +3,7 @@ package hitool.mail.authc;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
-/**
+/*
  * 密码验证器
  */
 public class EmailAuthenticator extends Authenticator {

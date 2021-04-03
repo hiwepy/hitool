@@ -10,7 +10,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
-/**
+/*
  * TrustManager utilities for generating TrustManagers.
  * 
  * @since 3.0
@@ -28,7 +28,7 @@ public final class TrustManagerUtils {
 			this.checkServerValidity = checkServerValidity;
 		}
 
-		/**
+		/*
 		 * Never generates a CertificateException.
 		 */
 		public void checkClientTrusted(X509Certificate[] certificates, String authType) {
@@ -42,7 +42,7 @@ public final class TrustManagerUtils {
 			}
 		}
 
-		/**
+		/*
 		 * @return an empty array of certificates
 		 */
 		public X509Certificate[] getAcceptedIssuers() {
@@ -66,7 +66,7 @@ public final class TrustManagerUtils {
 
 	private static final HostnameVerifier ACCEPT_ALL_VERIFIER = new TrustHostnameVerifier();
 	
-	/**
+	/*
 	 * Generate a HostnameVerifier that performs no checks.
 	 *
 	 * @return the HostnameVerifier
@@ -75,7 +75,7 @@ public final class TrustManagerUtils {
 		return ACCEPT_ALL_VERIFIER;
 	}
 	
-	/**
+	/*
 	 * Generate a TrustManager that performs no checks.
 	 *
 	 * @return the TrustManager
@@ -84,7 +84,7 @@ public final class TrustManagerUtils {
 		return ACCEPT_ALL;
 	}
 
-	/**
+	/*
 	 * Generate a TrustManager that checks server certificates for validity, but
 	 * otherwise performs no checks.
 	 *
@@ -94,7 +94,7 @@ public final class TrustManagerUtils {
 		return CHECK_SERVER_VALIDITY;
 	}
 
-	/**
+	/*
 	 * Return the default TrustManager provided by the JVM.
 	 * <p>
 	 * This should be the same as the default used by

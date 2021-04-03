@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
+/*
  * Simple implementation of {@link MultiValueMap} that wraps a {@link LinkedHashMap},
  * storing multiple values in a {@link LinkedList}.
  *
@@ -26,14 +26,14 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V>, Serializa
 	private final Map<K, List<V>> targetMap;
 
 
-	/**
+	/*
 	 * Create a new LinkedMultiValueMap that wraps a {@link LinkedHashMap}.
 	 */
 	public LinkedMultiValueMap() {
 		this.targetMap = new LinkedHashMap<K, List<V>>();
 	}
 
-	/**
+	/*
 	 * Create a new LinkedMultiValueMap that wraps a {@link LinkedHashMap}
 	 * with the given initial capacity.
 	 * @param initialCapacity the initial capacity
@@ -42,7 +42,7 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V>, Serializa
 		this.targetMap = new LinkedHashMap<K, List<V>>(initialCapacity);
 	}
 
-	/**
+	/*
 	 * Copy constructor: Create a new LinkedMultiValueMap with the same mappings as
 	 * the specified Map. Note that this will be a shallow copy; its value-holding
 	 * List entries will get reused and therefore cannot get modified independently.
@@ -160,7 +160,7 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V>, Serializa
 	}
 
 
-	/**
+	/*
 	 * Create a regular copy of this Map.
 	 * @return a shallow copy of this Map, reusing this Map's value-holding List entries
 	 * @since 4.2
@@ -172,7 +172,7 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V>, Serializa
 		return new LinkedMultiValueMap<K, V>(this);
 	}
 
-	/**
+	/*
 	 * Create a deep copy of this Map.
 	 * @return a copy of this Map, including a copy of each value-holding List entry
 	 * @since 4.2

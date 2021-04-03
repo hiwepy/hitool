@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import hitool.crypto.algorithm.CertificateCrypto;
 import org.junit.Test;
 
-/**
+/*
  * 
  * @author 梁栋
  * @version 1.0
@@ -21,7 +21,7 @@ public class CertificateCryptoTest {
 
 
 	public static void main(String[] args) {
-		/**
+		/*
 		步骤一：生成keyStroe文件 
 		keytool -genkey -validity 36000 -alias www.zlex.org -keyalg RSA -keystore d:\zlex.keystore 
 		

@@ -29,7 +29,7 @@ package hitool.core.net.ssl;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
 
-/**
+/*
  * Private key details.
  *
  * @since 4.4

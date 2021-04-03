@@ -29,14 +29,14 @@ package hitool.core.net.ssl;
 import java.net.Socket;
 import java.util.Map;
 
-/**
+/*
  * A strategy allowing for a choice of an alias during SSL authentication.
  *
  * @since 4.4
  */
 public interface PrivateKeyStrategy {
 
-    /**
+    /*
      * Determines what key material to use for SSL authentication.
      *
      * @param aliases available private key material

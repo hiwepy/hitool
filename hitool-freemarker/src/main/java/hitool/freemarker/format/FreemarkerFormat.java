@@ -27,7 +27,7 @@ import freemarker.template.TemplateExceptionHandler;
 import freemarker.template.TemplateModelException;
 import freemarker.template.utility.XmlEscape;
 
-/**
+/*
  * Freemarker框架html格式工具
  */
 public abstract class FreemarkerFormat{
@@ -39,7 +39,7 @@ public abstract class FreemarkerFormat{
 	private static StringTemplateLoader sTmpLoader = new StringTemplateLoader();
 	private static Map<String, Object> freemarkerVariables;
 	
-	/**
+	/*
 	 *  创建配置实例Cofiguration.
 	 */
 	public static Configuration getConfiguration() {
@@ -70,7 +70,7 @@ public abstract class FreemarkerFormat{
 		return configuration;
 	}
 	
-	/**
+	/*
 	 *  创建基于基于类路径的配置实例Cofiguration.
 	 */
 	public static Configuration getConfiguration(Class<?> clazz) {
@@ -86,7 +86,7 @@ public abstract class FreemarkerFormat{
 		return configuration;
 	}
 	
-	/**
+	/*
 	 *  创建基于Servlet上下文的配置实例Cofiguration
 	 */
 	public static Configuration getConfiguration(ServletContext sctxt,String dir) {
@@ -102,7 +102,7 @@ public abstract class FreemarkerFormat{
 		return configuration;
 	}
 	
-	 /**
+	 /*
 	  * 
 	  * 创建基于文件系统的配置实例Cofiguration
 	  * <pre>
@@ -129,7 +129,7 @@ public abstract class FreemarkerFormat{
 	
 	//------------------------------------------------------------------------------------------------------
 	
-	/**
+	/*
 	 *  格式化freemarker模板文本内容
 	 */
 	public static String toTextStatic(Object rootMap,String templateID,String templateSource) throws TemplateException,IOException {
@@ -148,7 +148,7 @@ public abstract class FreemarkerFormat{
 	
 	//------------------------------------------------------------------------------------------------------
 	
-	/**
+	/*
 	 * 
 	 *  将模板生成静态html文件
 	 * @param rootMap			: 用于处理模板的属性Object映射
@@ -163,7 +163,7 @@ public abstract class FreemarkerFormat{
 		return FreemarkerFormat.toStatic(rootMap, templateDir, templateFileName, new File(dest));
 	}
 	
-	/**
+	/*
 	 * 基于文件系统。 比如加载/home/user/template下的模板文件。
 	 *		cfg.setDirectoryForTemplateLoading(new File("/home/user/template"));cfg.getTemplate("Base.ftl");
 	 *		这样就获得了/home/user/template/Base.ftl这个模板文件。
@@ -188,7 +188,7 @@ public abstract class FreemarkerFormat{
 		}
 	}
 	
-	/**
+	/*
 	 * 将基于文件系统的模板生成静态html文件
 	 * @param rootMap			: 用于处理模板的属性Object映射
 	 * @param templateDir		: 模板的存放目录
@@ -214,7 +214,7 @@ public abstract class FreemarkerFormat{
 	
 	//------------------------------------------------------------------------------------------------------
 	
-	/**
+	/*
 	 * 
 	 * 将模板生成静态html文件
 	 * @param rootMap			: 用于处理模板的属性Object映射
@@ -245,7 +245,7 @@ public abstract class FreemarkerFormat{
 	}
 	
 	//------------------------------------------------------------------------------------------------------
-	/**
+	/*
 	 * 将基于文件系统的模板生成静态html文件：比如： setServletContextForTemplateLoading(context, "/ftl") 就是 /WebRoot/ftl目录。
 	 * @param rootMap			: 用于处理模板的属性Object映射
 	 * @param templateDir		: 模板的存放目录

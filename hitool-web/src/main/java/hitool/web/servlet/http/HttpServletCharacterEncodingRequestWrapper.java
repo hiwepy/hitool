@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 
-/**
+/*
  * Servlet API中提供了一个request对象的Decorator设计模式的默认实现类HttpServletRequestWrapper,
  *              (HttpServletRequestWrapper类实现了request接口中的所有方法，
  *              但这些方法的内部实现都是仅仅调用了一下所包装的的 request对象的对应方法)

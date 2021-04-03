@@ -13,7 +13,7 @@ import freemarker.template.TemplateCollectionModel;
 import freemarker.template.TemplateHashModelEx;
 import freemarker.template.TemplateModel;
 
-/**
+/*
  * <!-- START SNIPPET: javadoc -->
  *
  * The StrutsBeanWrapper extends the default FreeMarker BeansWrapper and provides almost no change in functionality,
@@ -44,7 +44,7 @@ public class ModelWrapper extends BeansWrapper {
         return super.getModelFactory(clazz);
     }
 
-    /**
+    /*
      * Attempting to get the best of both worlds of FM's MapModel and SimpleMapModel, by reimplementing the isEmpty(),
      * keySet() and values() methods. ?keys and ?values built-ins are thus available, just as well as plain Map
      * methods.

@@ -1,6 +1,6 @@
 package hitool.core.regexp;
 
-/**
+/*
  * Utility methods for simple pattern matching, in particular for
  * Spring's typical "xxx*", "*xxx" and "*xxx*" pattern styles.
  *
@@ -9,7 +9,7 @@ package hitool.core.regexp;
  */
 public abstract class PatternMatchUtils {
 
-	/**
+	/*
 	 * Match a String against the given pattern, supporting the following simple
 	 * pattern styles: "xxx*", "*xxx", "*xxx*" and "xxx*yyy" matches (with an
 	 * arbitrary number of pattern parts), as well as direct equality.
@@ -54,7 +54,7 @@ public abstract class PatternMatchUtils {
 				simpleMatch(pattern.substring(firstIndex), str.substring(firstIndex)));
 	}
 
-	/**
+	/*
 	 * Match a String against the given patterns, supporting the following simple
 	 * pattern styles: "xxx*", "*xxx", "*xxx*" and "xxx*yyy" matches (with an
 	 * arbitrary number of pattern parts), as well as direct equality.

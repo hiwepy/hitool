@@ -78,7 +78,7 @@ public abstract class ReaderUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 从一个String对象中读取数据
 	 * 
 	 * @param str
@@ -97,7 +97,7 @@ public abstract class ReaderUtils {
 		return r;
 	}
 
-	/**
+	/*
 	 * 从内存取出格式化输入
 	 * 
 	 * @param str
@@ -130,7 +130,7 @@ public abstract class ReaderUtils {
 		return ret;
 	}
 
-	/**
+	/*
 	 * 接收键盘的输入
 	 * 
 	 * @return

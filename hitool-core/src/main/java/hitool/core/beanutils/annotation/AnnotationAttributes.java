@@ -24,7 +24,7 @@ import java.util.Map;
 import hitool.core.lang3.Assert;
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  * {@link LinkedHashMap} subclass representing annotation attribute key/value pairs
  * as read by Spring's reflection- or ASM-based {@link org.springframework.core.type.AnnotationMetadata}
  * implementations. Provides 'pseudo-reification' to avoid noisy Map generics in the calling code
@@ -36,13 +36,13 @@ import hitool.core.lang3.StringUtils;
 @SuppressWarnings("serial")
 public class AnnotationAttributes extends LinkedHashMap<String, Object> {
 
-	/**
+	/*
 	 * Create a new, empty {@link AnnotationAttributes} instance.
 	 */
 	public AnnotationAttributes() {
 	}
 
-	/**
+	/*
 	 * Create a new, empty {@link AnnotationAttributes} instance with the given initial
 	 * capacity to optimize performance.
 	 * @param initialCapacity initial size of the underlying map
@@ -51,7 +51,7 @@ public class AnnotationAttributes extends LinkedHashMap<String, Object> {
 		super(initialCapacity);
 	}
 
-	/**
+	/*
 	 * Create a new {@link AnnotationAttributes} instance, wrapping the provided map
 	 * and all its key/value pairs.
 	 * @param map original source of annotation attribute key/value pairs to wrap
@@ -147,7 +147,7 @@ public class AnnotationAttributes extends LinkedHashMap<String, Object> {
 	}
 
 
-	/**
+	/*
 	 * Return an {@link AnnotationAttributes} instance based on the given map; if the map
 	 * is already an {@code AnnotationAttributes} instance, it is casted and returned
 	 * immediately without creating any new instance; otherwise create a new instance by

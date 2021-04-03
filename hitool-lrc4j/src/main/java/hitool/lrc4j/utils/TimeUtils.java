@@ -6,7 +6,7 @@ import hitool.lrc4j.tar.time.Lyric;
 
 public class TimeUtils {
 
-	/**
+	/*
 	 * xx:xx xx:xx.xx格式的时间
 	 * 
 	 * @return

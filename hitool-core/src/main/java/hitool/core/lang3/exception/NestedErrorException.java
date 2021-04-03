@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -6,7 +6,7 @@ package hitool.core.lang3.exception;
 
 import java.text.MessageFormat;
 
-/**
+/*
  * 系统错误(Error),重写部分方法提高异常处理效率
  */
 @SuppressWarnings("serial")
@@ -42,7 +42,7 @@ public abstract class NestedErrorException extends Error {
 		super(getText(message, arguments), cause);
 	}
 	
-	/**
+	/*
 	 * Return the detail message, including the message from the nested exception
 	 * if there is one.
 	 */
@@ -51,7 +51,7 @@ public abstract class NestedErrorException extends Error {
 		return NestedExceptionUtils.buildMessage(super.getMessage(), getCause());
 	}
 
-	/**
+	/*
 	 * Retrieve the innermost cause of this exception, if any.
 	 * @return the innermost exception, or {@code null} if none
 	 */
@@ -65,7 +65,7 @@ public abstract class NestedErrorException extends Error {
 		return rootCause;
 	}
 
-	/**
+	/*
 	 * Retrieve the most specific cause of this exception, that is,
 	 * either the innermost cause (root cause) or this exception itself.
 	 * <p>Differs from {@link #getRootCause()} in that it falls back
@@ -78,7 +78,7 @@ public abstract class NestedErrorException extends Error {
 		return (rootCause != null ? rootCause : this);
 	}
 
-	/**
+	/*
 	 * Check whether this exception contains an exception of the given type:
 	 * either it is of the given class itself or it contains a nested cause
 	 * of the given type.

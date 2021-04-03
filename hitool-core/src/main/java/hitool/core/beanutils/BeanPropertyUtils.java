@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -29,12 +29,12 @@ import org.slf4j.LoggerFactory;
 
 import hitool.core.beanutils.reflection.ClassUtils;
 
-/**
+/*
  */
 @SuppressWarnings({  "unchecked", "unused" })
 public abstract class BeanPropertyUtils{
 
-	/**
+	/*
 	 * Logging for this instance
 	 */
 	protected static Logger LOG = LoggerFactory.getLogger(BeanPropertyUtils.class);
@@ -53,7 +53,7 @@ public abstract class BeanPropertyUtils{
 		return BeanPropertyUtils.getProperty(bean, name, false);
 	}
 	
-	/**
+	/*
 	 * 可取得 字符串表示为 bean.key.key ... / bean.key_4.list[1] 在
 	 *               bean的内部某个字段的值
 	 */
@@ -123,7 +123,7 @@ public abstract class BeanPropertyUtils{
 		return value;
 	}
 	
-	/**
+	/*
 	 * <b>获取对象bean的name属性的数组的结果表示</b>
 	 * 	1.Array类型则转换成 Object[]
 	 * 	2.Collection类型则逐个取值后放到Object[]
@@ -193,7 +193,7 @@ public abstract class BeanPropertyUtils{
 		BeanPropertyUtils.setProperty(bean, name, value, false);
 	}
 
-	/**
+	/*
 	 * 可设置如bean的内部类型的某个字段的值 bean.key.key ... / bean.key_4.list[1]
 	 */
 	public static void setProperty(Object bean, String name, Object value,
@@ -287,7 +287,7 @@ public abstract class BeanPropertyUtils{
 	}
 	
 
-	/**
+	/*
 	 * Gets the <code>ConvertUtilsBean</code> instance used to perform the
 	 * conversions.
 	 */
@@ -295,7 +295,7 @@ public abstract class BeanPropertyUtils{
 		return BeanUtilsBean.getInstance().getConvertUtils();
 	}
 
-	/**
+	/*
 	 * Gets the <code>PropertyUtilsBean</code> instance used to access
 	 * properties.
 	 */
@@ -303,7 +303,7 @@ public abstract class BeanPropertyUtils{
 		return BeanUtilsBean.getInstance().getPropertyUtils();
 	}
 	
-	/**
+	/*
 	 * 根据bean的类取得bean的信息
 	 */
     public static BeanInfo getBeanInfo(Class clazz){

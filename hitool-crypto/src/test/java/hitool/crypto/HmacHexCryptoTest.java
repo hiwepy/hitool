@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2018, vindell (https://github.com/vindell).
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -25,7 +25,7 @@ import hitool.crypto.utils.StringUtils;
 
 public class HmacHexCryptoTest {
 
-	/**
+	/*
 	 * 进行相关的摘要算法的处理展示
 	 * @throws Exception 
 	 * **/

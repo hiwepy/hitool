@@ -1,4 +1,4 @@
-/**
+/*
  *    Copyright 2009-2016 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,12 +24,12 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 
-/**
+/*
  * @author Iwao AVE!
  */
 public class TypeParameterResolver {
 
-  /**
+  /*
    * @return The field type as {@link Type}. If it has type parameters in the declaration,<br>
    *         they will be resolved to the actual runtime {@link Type}s.
    */
@@ -39,7 +39,7 @@ public class TypeParameterResolver {
     return resolveType(fieldType, srcType, declaringClass);
   }
 
-  /**
+  /*
    * @return The return type of the method as {@link Type}. If it has type parameters in the declaration,<br>
    *         they will be resolved to the actual runtime {@link Type}s.
    */
@@ -49,7 +49,7 @@ public class TypeParameterResolver {
     return resolveType(returnType, srcType, declaringClass);
   }
 
-  /**
+  /*
    * @return The parameter types of the method as an array of {@link Type}s. If they have type parameters in the declaration,<br>
    *         they will be resolved to the actual runtime {@link Type}s.
    */

@@ -6,7 +6,7 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-/**
+/*
  *  验证注解，用于bean的字段或者参数，对字段进行验证
  */
 @Target({FIELD,PARAMETER })

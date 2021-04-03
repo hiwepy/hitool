@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-/**
+/*
  * Create by IntelliJ IDEA
  * Formatting byte size to human readable format
  * https://github.com/clyoudu/clyoudu-util
@@ -64,7 +64,7 @@ public enum ByteUnitFormat {
         this.unit = unit;
     }
 
-    /**
+    /*
      * Formatting byte size to human readable format
      * @param value original value
      * @param rate advance rate
@@ -140,7 +140,7 @@ public enum ByteUnitFormat {
     	return Double.parseDouble(this.to(targetFormat, value, rate, 2, false));
     }
     
-    /**
+    /*
      * Converts the specified {@code long value} from this format to the specified {@code targetFormat}.
      * @param targetFormat target unit format
      * @param value specified value

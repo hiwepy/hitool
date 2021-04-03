@@ -6,7 +6,7 @@ import org.apache.commons.codec.StringEncoder;
 import org.apache.commons.codec.binary.Base64;
 import hitool.crypto.StringVerifier;
 import hitool.crypto.digest.DigestUtils;
-/**
+/*
  * 
  * bouncy castle扩展支持的MD4的算法实现
  */
@@ -52,14 +52,14 @@ public class MD4Base64Crypto implements StringEncoder,BinaryEncoder,StringVerifi
 		}
 		return encoded;
 	}
-	/**
+	/*
 	 * 密码验证方法
 	 */
 	public boolean verify(String plainText, String encrypt){
 		return encode(plainText).equals(encrypt);
 	}
 
-	/**
+	/*
 	 * 重载一个多次加密时的密码验证方法
 	 * @throws EncoderException 
 	 */

@@ -1,4 +1,4 @@
-/**
+/*
  *    Copyright 2009-2015 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +25,7 @@ import java.util.Iterator;
 
 import hitool.core.lang3.iterator.EnumerationIterator;
 
-/**
+/*
  * A class to wrap access to multiple class loaders making them work as one
  *
  * @author Clinton Begin

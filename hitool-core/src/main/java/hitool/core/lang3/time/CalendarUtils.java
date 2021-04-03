@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -16,7 +16,7 @@ import java.util.Map;
 
 import hitool.core.lang3.Assert;
 
-/**
+/*
  * 日历操作辅助类：提供常规日历相关操作方法
  */
 @SuppressWarnings("static-access")
@@ -35,7 +35,7 @@ public abstract class CalendarUtils {
 		YY, MM, DD
 	}
 
-	/**
+	/*
 	 * 比较两个日期(不包括时间)的大小 方法的实现逻辑描述（如果是接口方法可以不写）：
 	 * 
 	 * @param date1
@@ -75,7 +75,7 @@ public abstract class CalendarUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 比较时间(不包括日期) 方法的实现逻辑描述（如果是接口方法可以不写）：
 	 * 
 	 * @param date1
@@ -105,7 +105,7 @@ public abstract class CalendarUtils {
 		return 0;
 	}
 
-	/**
+	/*
 	 * 比较日期的年月 方法的实现逻辑描述（如果是接口方法可以不写）：
 	 * 
 	 * @param date1
@@ -130,7 +130,7 @@ public abstract class CalendarUtils {
 		return 0;
 	}
 
-	/**
+	/*
 	 * 计算两个日期之间的相隔的月。
 	 * 
 	 * @param startDate
@@ -158,7 +158,7 @@ public abstract class CalendarUtils {
 		return k;
 	}
 
-	/**
+	/*
 	 * 获得当前日期
 	 * 
 	 * @return Date实例
@@ -168,7 +168,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 获得当前系统的时间戳
 	 * 
 	 * @return 从1970-1-1到现在的毫秒数
@@ -177,7 +177,7 @@ public abstract class CalendarUtils {
 		return System.currentTimeMillis();
 	}
 
-	/**
+	/*
 	 * 将时间转成yyyy-MM-dd字符形式的Long类型
 	 */
 	public static long getTimeInMillis(Date date) {
@@ -190,7 +190,7 @@ public abstract class CalendarUtils {
 		return c.getTimeInMillis();
 	}
 
-	/**
+	/*
 	 * 在给定的日期点上加入指定的月
 	 * @param date 给定的日期点
 	 * @param days 天数，正数为向后；负数为向前
@@ -209,7 +209,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 把日期对象加减年、月、日后得到新的日期对象
 	 * 
 	 * @param date 需要加减年、月、日的日期对象
@@ -230,7 +230,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 在给定的日期点上加入指定的天数
 	 * 
 	 * @param date 给定的日期点
@@ -250,7 +250,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 在当前的日期点上加入指定的天数
 	 * 
 	 * @param days 天数，正数为向后；负数为向前
@@ -265,7 +265,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 在给定的日期点上加入指定的天数
 	 * 
 	 * @param date 给定的日期点
@@ -281,7 +281,7 @@ public abstract class CalendarUtils {
 		return DateUtils.formatDate(date, format);
 	}
 
-	/**
+	/*
 	 * 把参数日期的时,分,秒清零,返回下一天 如:参数为2006-08-22 12:33 那么该方法返回 2006-08-23 00:00 ×
 	 */
 	public static Date getNextDay(Date day) {
@@ -290,7 +290,7 @@ public abstract class CalendarUtils {
 		return nowC.getTime();
 	}
 
-	/**
+	/*
 	 * 获得下周星期一的日期
 	 */
 	public static String getNextMonday() {
@@ -304,7 +304,7 @@ public abstract class CalendarUtils {
 		return preMonday;
 	}
 
-	/**
+	/*
 	 * 获得下周星期日的日期
 	 */
 	public static String getNextSunday() {
@@ -318,7 +318,7 @@ public abstract class CalendarUtils {
 		return preMonday;
 	}
 
-	/**
+	/*
 	 * 获得下个月第一天的日期
 	 * 
 	 * @return
@@ -334,7 +334,7 @@ public abstract class CalendarUtils {
 		return str;
 	}
 
-	/**
+	/*
 	 * 获得下个月最后一天的日期
 	 * 
 	 * @return
@@ -351,7 +351,7 @@ public abstract class CalendarUtils {
 		return str;
 	}
 
-	/**
+	/*
 	 * 获得明年最后一天的日期
 	 * 
 	 * @return
@@ -368,7 +368,7 @@ public abstract class CalendarUtils {
 		return str;
 	}
 
-	/**
+	/*
 	 * 获得明年第一天的日期
 	 * 
 	 * @return
@@ -380,7 +380,7 @@ public abstract class CalendarUtils {
 		return lastDate.getTime();
 	}
 
-	/**
+	/*
 	 * 把参数日期的时,分,秒清零,返回前一天 如:参数为2006-08-22 12:33 那么该方法返回 2006-08-21 00:00
 	 */
 	public static Date getPreDay(Date day) {
@@ -389,7 +389,7 @@ public abstract class CalendarUtils {
 		return nowC.getTime();
 	}
 
-	/**
+	/*
 	 * 获得参数指定月份的前一个月，参数格式："200811",或"200801"，返回格式："200810",或"200712"
 	 */
 	public static String getPreMonth(String month) {
@@ -407,7 +407,7 @@ public abstract class CalendarUtils {
 		return sdf.format(cal.getTime());
 	}
 
-	/**
+	/*
 	 * 获得上月最后一天的日期
 	 */
 	public static Date getPreMonthEnd() {
@@ -418,7 +418,7 @@ public abstract class CalendarUtils {
 		return lastDate.getTime();
 	}
 
-	/**
+	/*
 	 * 获得上月第一天的日期
 	 */
 	public static Date getPreMonthBegin() {
@@ -429,7 +429,7 @@ public abstract class CalendarUtils {
 		return lastDate.getTime();
 	}
 
-	/**
+	/*
 	 * 获得上周星期日的日期
 	 * 
 	 * @return
@@ -446,7 +446,7 @@ public abstract class CalendarUtils {
 		return preMonday;
 	}
 
-	/**
+	/*
 	 * 获得上周星期一的日期
 	 * 
 	 * @return
@@ -497,7 +497,7 @@ public abstract class CalendarUtils {
 		return nowC.getTime();
 	}
 
-	/**
+	/*
 	 * 将时间转成yyyy-MM-dd的Date类型
 	 */
 	public static Date getDateBegin(Date date) {
@@ -510,7 +510,7 @@ public abstract class CalendarUtils {
 		return c.getTime();
 	}
 
-	/**
+	/*
 	 * 增加,减少天数
 	 */
 	public static Date updateDay(Date date, int changday) {
@@ -522,7 +522,7 @@ public abstract class CalendarUtils {
 		return c.getTime();
 	}
 
-	/**
+	/*
 	 * 取得时间对应的星期,从星期天开始
 	 */
 	public static int getWeekFromSunDay(Date date) {
@@ -531,7 +531,7 @@ public abstract class CalendarUtils {
 		return c.get(Calendar.DAY_OF_WEEK);
 	}
 
-	/**
+	/*
 	 * 取得时间对应的星期,从星期一开始
 	 */
 	public static int getWeekFromMonday(Date date) {
@@ -546,7 +546,7 @@ public abstract class CalendarUtils {
 		return week;
 	}
 
-	/**
+	/*
 	 * 获取本周的第一天的日期,从星期一开始，星期日结束
 	 */
 	public static Date getBeginDateOfWeek() {
@@ -560,7 +560,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 获取本周的最后天的日期,从星期一开始，星期日结束
 	 */
 	public static Date getEndDateOfWeek() {
@@ -572,7 +572,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 获取本月的第一天
 	 */
 	public static Date getBeginDayOfMonth() {
@@ -586,7 +586,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 取得Calendar实例
 	 */
 	public static Calendar getCalendar() {
@@ -619,7 +619,7 @@ public abstract class CalendarUtils {
 		return nowC;
 	}
 
-	/**
+	/*
 	 * 将给定日期的时分秒和毫秒清零
 	 * 
 	 * @param date
@@ -633,7 +633,7 @@ public abstract class CalendarUtils {
 		return getClearCalendar(date).getTime();
 	}
 
-	/**
+	/*
 	 * 获取本月的最后一天
 	 */
 	public static Date getEndDayOfMonth() {
@@ -644,7 +644,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 获取指定月份的最后一天
 	 */
 	public static Date getEndDayOfMonth(String specMonth) {
@@ -666,7 +666,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 获取本周的第一天的日期,从星期天开始，星期一结束 方法的实现逻辑描述:
 	 * 
 	 * @return
@@ -697,7 +697,7 @@ public abstract class CalendarUtils {
 		return x + "-" + strY + "-" + strZ;
 	}
 
-	/**
+	/*
 	 * 获取本周的最后一天的日期,从星期天开始，星期一结束 方法的实现逻辑描述:
 	 * 
 	 * @return
@@ -727,7 +727,7 @@ public abstract class CalendarUtils {
 		return x + "-" + strY + "-" + strZ;
 	}
 
-	/**
+	/*
 	 * 得到当前月份月初 格式为：xxxx-yy-zz (eg: 2008-08-19) 方法的实现逻辑描述:
 	 * 
 	 * @return
@@ -745,7 +745,7 @@ public abstract class CalendarUtils {
 		return x + "-" + strY + "-01";
 	}
 
-	/**
+	/*
 	 * 得到当前月份月底 格式为：xxxx-yy-zz (eg: 2008-08-31) 方法的实现逻辑描述:
 	 * 
 	 * @return
@@ -789,7 +789,7 @@ public abstract class CalendarUtils {
 		return today.getTime();
 	}
 
-	/**
+	/*
 	 * 
 	 * 
 	 * 功能描述：计算两个日期之间的月差数。
@@ -831,7 +831,7 @@ public abstract class CalendarUtils {
 		return k;
 	}
 
-	/**
+	/*
 	 * 得到当前小时的第多少分钟
 	 */
 	public static int getMinutes() {
@@ -839,7 +839,7 @@ public abstract class CalendarUtils {
 		return cal.get(Calendar.MINUTE);
 	}
 
-	/**
+	/*
 	 * 取得日期格式中的分钟。
 	 * 
 	 * @param date
@@ -855,7 +855,7 @@ public abstract class CalendarUtils {
 		return calendar.get(Calendar.MINUTE);
 	}
 
-	/**
+	/*
 	 * 得到当前分钟的第多少秒钟
 	 */
 	public static int getSeconds() {
@@ -863,7 +863,7 @@ public abstract class CalendarUtils {
 		return cal.get(Calendar.SECOND);
 	}
 
-	/**
+	/*
 	 * 获得当前日期与本周日相差的天数
 	 * 
 	 * @return
@@ -879,7 +879,7 @@ public abstract class CalendarUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 获得本周一的日期
 	 * 
 	 * @return
@@ -909,7 +909,7 @@ public abstract class CalendarUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 获得本年第一天的日期
 	 */
 	public static String getYearFirst() {
@@ -922,7 +922,7 @@ public abstract class CalendarUtils {
 		return preYearDay;
 	}
 
-	/**
+	/*
 	 * 获得本年有多少天
 	 */
 	public static int getYearDays() {
@@ -933,7 +933,7 @@ public abstract class CalendarUtils {
 		return MaxYear;
 	}
 
-	/**
+	/*
 	 * 获得本年最后一天的日期
 	 */
 	public static String getYearEnd() {
@@ -974,7 +974,7 @@ public abstract class CalendarUtils {
 		return season;
 	}
 
-	/**
+	/*
 	 * 获得本季度第一天
 	 */
 	public static String getBeginDateOfSeason() {
@@ -985,7 +985,7 @@ public abstract class CalendarUtils {
 		return TimeUtils.getYear() + "-" + seasons[getSeason(month) - 1][0] + "-01";
 	}
 
-	/**
+	/*
 	 * 获得本季度最后一天
 	 */
 	public static String getEndDayOfSeason(int month) {
@@ -1016,7 +1016,7 @@ public abstract class CalendarUtils {
 
 	}
 
-	/**
+	/*
 	 * 得到本日的上月时间 如果当日为2007-9-1,那么获得2007-8-1
 	 * 
 	 * 
@@ -1033,7 +1033,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 得到系统当前日期的前或者后几天
 	 * 
 	 * @param iDate
@@ -1047,7 +1047,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 得到日期的前或者后几天
 	 * 
 	 * @param iDate
@@ -1062,7 +1062,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 得到格式化后的当月第一天，格式为yyyy-MM-dd，如2006-02-01
 	 * 
 	 * @param currDate
@@ -1078,7 +1078,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 得到格式化后的下月第一天，格式为yyyy-MM-dd，如2006-02-01
 	 * 
 	 * @param currDate
@@ -1094,7 +1094,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 得到格式化后的当月第一天，格式为yyyy-MM-dd，如2006-02-01
 	 * 
 	 * @param currDate
@@ -1110,7 +1110,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 得到格式化后的当月最后一天，格式为yyyy-MM-dd，如2006-02-28
 	 * 
 	 * @param currDate
@@ -1127,7 +1127,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 得到当月最后一天日期对象
 	 * 
 	 * @see java.util.Calendar#getMinimum(int)
@@ -1147,7 +1147,7 @@ public abstract class CalendarUtils {
 		return lastDate.getTime();
 	}
 
-	/**
+	/*
 	 * 获取某年某月的最后一天
 	 * 
 	 * @param year
@@ -1173,7 +1173,7 @@ public abstract class CalendarUtils {
 		return 0;
 	}
 
-	/**
+	/*
 	 * 得到日期的前或者后几小时
 	 * 
 	 * @param iHour
@@ -1188,7 +1188,7 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 方法用途描述: 验证是否是前三天或当天的其中一天 实现逻辑描述: 如下
 	 * 
 	 * @param date
@@ -1210,7 +1210,7 @@ public abstract class CalendarUtils {
 			return false;
 	}
 
-	/**
+	/*
 	 * 是否闰年
 	 * 
 	 * @param year
@@ -1221,7 +1221,7 @@ public abstract class CalendarUtils {
 		return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 	}
 
-	/**
+	/*
 	 * 是否闰年
 	 * 
 	 * @param year
@@ -1231,7 +1231,7 @@ public abstract class CalendarUtils {
 		return new GregorianCalendar().isLeapYear(year);
 	}
 
-	/**
+	/*
 	 * 判断输入年份是否为闰年 方法的实现逻辑描述:
 	 * 
 	 * @param year
@@ -1254,7 +1254,7 @@ public abstract class CalendarUtils {
 		return leap;
 	}
 
-	/**
+	/*
 	 * 判断日期是否在当前周内
 	 * 
 	 * @param curDate
@@ -1298,7 +1298,7 @@ public abstract class CalendarUtils {
 		return calendar.get(Calendar.DATE);
 	}
 
-	/**
+	/*
 	 * 日期转化为大小写
 	 */
 	public static String getDate_CN(Date date) {
@@ -1311,7 +1311,7 @@ public abstract class CalendarUtils {
 				+ NumberUtils.dayToUppder(day) + "日";
 	}
 
-	/**
+	/*
 	 * 得到内置日期的格式<br/>
 	 * <b>得到的内容如下:<br/>
 	 * </b>
@@ -1340,7 +1340,7 @@ public abstract class CalendarUtils {
 		return dateFormatMap;
 	}
 
-	/**
+	/*
 	 * 将给定的日期按照传入的内置日期格式码对日期进行转化,转成字符串格式
 	 * 
 	 * @param date
@@ -1390,7 +1390,7 @@ public abstract class CalendarUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 取得日期格式中的小时。24小时制
 	 */
 	public static int getHour(Date date) {
@@ -1402,14 +1402,14 @@ public abstract class CalendarUtils {
 		return calendar.get(Calendar.HOUR_OF_DAY);
 	}
 
-	/**
+	/*
 	 * 取得字符串日期中的小时。
 	 */
 	public static int getHour(String datestr) {
 		return getHour(DateUtils.parseDateTime(datestr));
 	}
 
-	/**
+	/*
 	 * 得到当前小时的第多少分钟
 	 */
 	public static int getHours() {
@@ -1417,7 +1417,7 @@ public abstract class CalendarUtils {
 		return cal.get(Calendar.HOUR_OF_DAY);
 	}
 
-	/**
+	/*
 	 * 获得当前月份
 	 */
 	public static int getMonth() {
@@ -1425,7 +1425,7 @@ public abstract class CalendarUtils {
 		return cal.get(Calendar.MONTH) + 1;
 	}
 
-	/**
+	/*
 	 * 取得日期对象中的月
 	 * 
 	 * @param date
@@ -1446,14 +1446,14 @@ public abstract class CalendarUtils {
 		return getMonth(date);
 	}
 
-	/**
+	/*
 	 * 将日期的数字形式转成汉字 12转成一十二
 	 */
 	public static String getMonth_CN(String datestr) {
 		return getMonth_CN(getMonth(datestr));
 	}
 
-	/**
+	/*
 	 * 将日期的数字形式转成汉字 12转成一十二
 	 * 
 	 * @param month
@@ -1510,7 +1510,7 @@ public abstract class CalendarUtils {
 		return calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH);
 	}
 
-	/**
+	/*
 	 * 取得字符串日期中的月
 	 * 
 	 * @param date
@@ -1522,7 +1522,7 @@ public abstract class CalendarUtils {
 		return getMonthWeek(DateUtils.parseDateTime(datestr));
 	}
 
-	/**
+	/*
 	 * 取得日期对象中的月
 	 * 
 	 * @param date
@@ -1538,7 +1538,7 @@ public abstract class CalendarUtils {
 		return calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH);
 	}
 
-	/**
+	/*
 	 * 将日期的数字形式转成汉字 12转成一十二
 	 * 
 	 * @param month
@@ -1553,7 +1553,7 @@ public abstract class CalendarUtils {
 		return getMonthWeek_CN(getMonthWeek());
 	}
 
-	/**
+	/*
 	 * 将日期的数字形式转成汉字 12转成一十二
 	 * 
 	 * @param month
@@ -1564,7 +1564,7 @@ public abstract class CalendarUtils {
 		return getMonthWeek_CN(getMonthWeek(date));
 	}
 
-	/**
+	/*
 	 * 将日期的数字形式转成汉字 12转成一十二
 	 * 
 	 * @param month
@@ -1575,7 +1575,7 @@ public abstract class CalendarUtils {
 		return "第" + NumberUtils.numToUpper(monthWeek) + "周";
 	}
 
-	/**
+	/*
 	 * 获得两个时间点之间相差的天数
 	 * 
 	 * @param date1
@@ -1591,7 +1591,7 @@ public abstract class CalendarUtils {
 		return (int) ((date2.getTime() - date1.getTime()) / (24 * 60 * 60 * 1000));
 	}
 
-	/**
+	/*
 	 * 根据日期偏移天数取得日期<br/>
 	 * offset > 0 ,往后延迟offset天， <br/>
 	 * offset < 0 向前推进 offset天 <br/>
@@ -1612,7 +1612,7 @@ public abstract class CalendarUtils {
 		return calendar.getTime();
 	}
 
-	/**
+	/*
 	 * 取得日期格式中的分钟。
 	 * 
 	 * @param date
@@ -1628,7 +1628,7 @@ public abstract class CalendarUtils {
 		return calendar.get(Calendar.SECOND);
 	}
 
-	/**
+	/*
 	 * 根据一个日期，返回是星期几的字符串
 	 */
 	public static String getWeek(String datestr) {
@@ -1642,7 +1642,7 @@ public abstract class CalendarUtils {
 		return TimeUtils.getWeek(c.getTime());
 	}
 
-	/**
+	/*
 	 * 代表含义：一周中的第几天，对应星期几，第一天为星期日，于此类推。
 	 * 
 	 * <pre>
@@ -1687,7 +1687,7 @@ public abstract class CalendarUtils {
 		return "星期" + NumberUtils.numToUpper(weekDay);
 	}
 
-	/**
+	/*
 	 * 将经 getYearForChinese(String dateString) 转化后的类似于 一二 这样的月转成 一十二
 	 * 
 	 * @param monthChinese
@@ -1759,7 +1759,7 @@ public abstract class CalendarUtils {
 		return dataChinese.toString();
 	}
 
-	/**
+	/*
 	 * 计算指定日期+addMonth月+15号 返回格式"2008-02-15"
 	 * 
 	 * @param date
@@ -1775,42 +1775,42 @@ public abstract class CalendarUtils {
 		return cal.getTime();
 	}
 
-	/**
+	/*
 	 * 获取本周一日期
 	 */
 	public static String getMonday() {
 		return "";
 	}
 
-	/**
+	/*
 	 * 获取本周二日期
 	 */
 	public static String getTuesday() {
 		return "";
 	}
 
-	/**
+	/*
 	 * 获取本周三日期
 	 */
 	public static String getWednesday() {
 		return "";
 	}
 
-	/**
+	/*
 	 * 获取本周四日期
 	 */
 	public static String getThursday() {
 		return "";
 	}
 
-	/**
+	/*
 	 * 获取本周五日期
 	 */
 	public static String getFriday() {
 		return "";
 	}
 
-	/**
+	/*
 	 * 获取本周六日期
 	 */
 	public static String getSaturday() {
@@ -1823,14 +1823,14 @@ public abstract class CalendarUtils {
 		return preMonday;
 	}
 
-	/**
+	/*
 	 * 获取本周日日期
 	 */
 	public static String getSunday() {
 		return "";
 	}
 
-	/**
+	/*
 	 * 工作日 获得本周星期日的日期
 	 * 
 	 * @return
@@ -1847,7 +1847,7 @@ public abstract class CalendarUtils {
 		return preMonday;
 	}
 
-	/**
+	/*
 	 * 将小时化成分钟,再加分钟时间
 	 */
 	public static int toMinutes(Date date) {
@@ -1856,7 +1856,7 @@ public abstract class CalendarUtils {
 		return c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE);
 	}
 
-	/**
+	/*
 	 * 获取当前日期 格式为：xxxx-yy-zz (eg: 2008-08-19) 方法的实现逻辑描述:
 	 */
 	public static String today() {
@@ -1881,7 +1881,7 @@ public abstract class CalendarUtils {
 	}
 
 
-	/**
+	/*
 	 * 判断当前时间距离第二天凌晨的秒数
 	 * 
 	 * @return 返回值单位为[s:秒]
@@ -1918,7 +1918,7 @@ public abstract class CalendarUtils {
 		System.out.println(getYear_CN("2015"));
 		System.out.println(getMinutes());
 		System.out.println(getSeconds());
-		/** ***********Test of convertTimeSpan***************** */
+		/*
 		// System.out.println(getLastDayOfMonth(new Date()));
 		System.out.println(getSpecDate(new Date(), 2, 15));
 

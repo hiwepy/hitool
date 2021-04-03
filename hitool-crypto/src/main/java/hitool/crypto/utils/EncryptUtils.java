@@ -18,7 +18,7 @@ import org.apache.commons.codec.binary.Base64;
 
 import hitool.crypto.enums.Algorithm;
 
-/**
+/*
  * 
  * 加密工具类
  */
@@ -30,7 +30,7 @@ public class EncryptUtils {
 		return EncryptUtils.encrypt(algorithm, URLEncoder.encode(text, "UTF-8").getBytes(), pubKey);
 	}
 
-	/**
+	/*
 	 * 加密数据
 	 * 
 	 * @param algorithm
@@ -94,7 +94,7 @@ public class EncryptUtils {
 		return Base64.encodeBase64String(encrypt(cipher, plainText, pubKey));
 	}
 
-	/**
+	/*
 	 * 
 	 * 加密文件
 	 * 

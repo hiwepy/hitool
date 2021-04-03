@@ -3,13 +3,13 @@ package hitool.crypto;
 import java.security.cert.Certificate;
 import java.util.Date;
 
-/**
+/*
  * 
  * 证书验证接口
  */
 public interface CertificateVerifier {
 
-	/**
+	/*
 	 * 
 	 *  判断证书是否过期
 	 * @param date

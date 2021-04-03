@@ -26,7 +26,7 @@ public abstract class WebResponseUtils {
 	// -- 常用数值定义 --//
 	public static final long ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
 
-	/**
+	/*
 	 * 直接用语句生成新页面而不走action的转发
 	 * @param response
 	 * @param text
@@ -51,7 +51,7 @@ public abstract class WebResponseUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * 直接输出纯字符串.
 	 * @param response
 	 * @param text
@@ -64,7 +64,7 @@ public abstract class WebResponseUtils {
 		renderText(response, String.valueOf(text));
 	}
 
-	/**
+	/*
 	 * 直接输出纯HTML.
 	 * @param response
 	 * @param text
@@ -73,7 +73,7 @@ public abstract class WebResponseUtils {
 		render(response, text == null ? "" : text, HTML_TYPE);
 	}
 
-	/**
+	/*
 	 *  直接输出纯XML.
 	 * @param response
 	 * @param text
@@ -82,7 +82,7 @@ public abstract class WebResponseUtils {
 		render(response, text == null ? "" : text, XML_TYPE);
 	}
 
-	/**
+	/*
 	 * 直接输出纯JSON.
 	 * @param response
 	 * @param text
@@ -91,7 +91,7 @@ public abstract class WebResponseUtils {
 		render(response, text == null ? "" : text, JSON_TYPE);
 	}
 	
-	/**
+	/*
 	 * 输出二进制数据
 	 * @param response
 	 * @param mimetype
@@ -112,7 +112,7 @@ public abstract class WebResponseUtils {
 		}
 	}
 	
-	/**
+	/*
 	 * 输出二进制数据
 	 * @param response
 	 * @param mimetype
@@ -132,7 +132,7 @@ public abstract class WebResponseUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 设置客户端缓存过期时间 的Header.
 	 * @param response
 	 * @param expiresSeconds
@@ -144,7 +144,7 @@ public abstract class WebResponseUtils {
 		response.setHeader("Cache-Control", "private, max-age=" + expiresSeconds);
 	}
 
-	/**
+	/*
 	 * 设置禁止客户端缓存的Header.
 	 * @param response
 	 */
@@ -156,7 +156,7 @@ public abstract class WebResponseUtils {
 		response.setHeader("Cache-Control", "no-cache, no-store, max-age=0");
 	}
 
-	/**
+	/*
 	 * 设置LastModified Header.
 	 * @param response
 	 * @param lastModifiedDate
@@ -165,7 +165,7 @@ public abstract class WebResponseUtils {
 		response.setDateHeader("Last-Modified", lastModifiedDate);
 	}
 
-	/**
+	/*
 	 * 设置Etag Header.
 	 * @param response
 	 * @param etag
@@ -174,7 +174,7 @@ public abstract class WebResponseUtils {
 		response.setHeader("ETag", etag);
 	}
 
-	/**
+	/*
 	 * 根据浏览器If-Modified-Since Header, 计算文件是否已被修改.
 	 * 				  如果无修改, checkIfModify返回false ,设置304 not modify status.
 	 * @param request
@@ -190,7 +190,7 @@ public abstract class WebResponseUtils {
 		return true;
 	}
 
-	/**
+	/*
 	 * 
 	 * 根据浏览器 If-None-Match Header, 计算Etag是否已无效.
 	 * 如果Etag有效, checkIfNoneMatch返回false, 设置304 not modify status.
@@ -223,7 +223,7 @@ public abstract class WebResponseUtils {
 		return true;
 	}
 
-	/**
+	/*
 	 * 设置让浏览器弹出下载对话框的Header.
 	 * @param response
 	 * @param fileName	  下载后的文件名.
@@ -236,7 +236,7 @@ public abstract class WebResponseUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 关于下载中文文件名的问题，不同浏览器需要使用不同的编码，下载前要在Java中进行文件名编码
 	 *  			 在多数浏览器中使用 UTF8 ，而在 firefox 和 safari 中使用 ISO8859-1 。
 	 *  			 经测试在 IE、Firefox、Chorme、Safari、Opera 上都能正常显示中文文件名（只测试了较新的浏览器）
@@ -253,7 +253,7 @@ public abstract class WebResponseUtils {
 		return new String(name.getBytes("UTF-8"), "ISO8859-1");
 	}
 	
-	/**
+	/*
 	 * 方法用途和描述: 获取内容描述
 	 * @param name
 	 * @return
@@ -265,7 +265,7 @@ public abstract class WebResponseUtils {
 		return (new StringBuilder((attachment?"attachment":"inline")+";filename=\"").append(getEncodeFileName(request,fileName)).append("\"")).toString();
 	}
 	
-	/**
+	/*
 	 * 方法用途和描述: 获取内容描述
 	 * @param name
 	 * @return

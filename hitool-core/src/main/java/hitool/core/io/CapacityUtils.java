@@ -1,4 +1,4 @@
-/** 
+/*
  * Copyright (c) 2018, hiwepy (https://github.com/hiwepy).
  * All Rights Reserved. 
  */
@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
+/*
  * 
  */
 public class CapacityUtils {
@@ -39,7 +39,7 @@ public class CapacityUtils {
 		 */
 	}
 
-	/**
+	/*
 	 *  计算指定数值单位对应的字节数：如 1KB 计算得到 1024
 	 * @param value
 	 * @return

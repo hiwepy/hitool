@@ -11,7 +11,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import hitool.crypto.InputStreamEncryptor;
 import hitool.crypto.StringVerifier;
-/**
+/*
  * 
  * 标准MD5+Base64加密方法，使用java类库的security包的MessageDigest类处理
  */
@@ -24,14 +24,14 @@ public class MD5Base64Crypto implements StringEncoder,BinaryEncoder,InputStreamE
 		return  instance;
 	}
 	
-	/**
+	/*
 	 * 密码验证方法
 	 */
 	public boolean verify(String source, String encrypt){
 		return encode(source).equals(encrypt);
 	}
 
-	/**
+	/*
 	 * 重载一个多次加密时的密码验证方法
 	 * @throws EncoderException 
 	 */
@@ -60,7 +60,7 @@ public class MD5Base64Crypto implements StringEncoder,BinaryEncoder,InputStreamE
 		return Base64.encodeBase64String(DigestUtils.md5(source));
 	}
 	
-	/**
+	/*
 	 * 提供一个MD5多次加密方法
 	 */
 	public String encode(String source, int times){

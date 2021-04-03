@@ -6,7 +6,7 @@ import hitool.mail.provider.EmailPropertiesProvider;
 
 public class DefaultEmailPropertiesProvider implements EmailPropertiesProvider {
 
-	/**
+	/*
 	 * 基于配置文件的默认配置
 	 */
 	protected Properties defaultProps = new Properties();

@@ -18,12 +18,12 @@ package hitool.core.lang3;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
+/*
  * Logging utility methods
  */
 public class LoggerUtils {
 
-    /**
+    /*
      * Formats messages using parameters. For example, the call:
      * 
      * <pre>

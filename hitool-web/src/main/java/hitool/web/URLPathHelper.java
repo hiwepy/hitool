@@ -16,7 +16,7 @@ import hitool.core.collections.map.LinkedMultiValueMap;
 import hitool.core.collections.map.MultiValueMap;
 import hitool.core.lang3.StringUtils;
 
-/**
+/*
  * Helper class for URL path matching. Provides support for URL paths in
  * RequestDispatcher includes and support for consistent URL decoding.
  *
@@ -32,7 +32,7 @@ import hitool.core.lang3.StringUtils;
  */
 public class URLPathHelper {
 
-	/**
+	/*
 	 * Special WebSphere request attribute, indicating the original request URI.
 	 * Preferable over the standard Servlet 2.4 forward attribute on WebSphere,
 	 * simply because we need the very first URI in the request forwarding chain.
@@ -53,7 +53,7 @@ public class URLPathHelper {
 	private String defaultEncoding = WebUtils.DEFAULT_CHARACTER_ENCODING;
 
 
-	/**
+	/*
 	 * Set if URL lookup should always use full path within current servlet
 	 * context. Else, the path within the current servlet mapping is used
 	 * if applicable (i.e. in the case of a ".../*" servlet mapping in web.xml).
@@ -63,7 +63,7 @@ public class URLPathHelper {
 		this.alwaysUseFullPath = alwaysUseFullPath;
 	}
 
-	/**
+	/*
 	 * Set if context path and request URI should be URL-decoded.
 	 * Both are returned <i>undecoded</i> by the Servlet API,
 	 * in contrast to the servlet path.
@@ -81,7 +81,7 @@ public class URLPathHelper {
 		this.urlDecode = urlDecode;
 	}
 
-	/**
+	/*
 	 * Set if ";" (semicolon) content should be stripped from the request URI.
 	 * <p>Default is "true".
 	 */
@@ -89,14 +89,14 @@ public class URLPathHelper {
 		this.removeSemicolonContent = removeSemicolonContent;
 	}
 
-	/**
+	/*
 	 * Whether configured to remove ";" (semicolon) content from the request URI.
 	 */
 	public boolean shouldRemoveSemicolonContent() {
 		return this.removeSemicolonContent;
 	}
 
-	/**
+	/*
 	 * Set the default character encoding to use for URL decoding.
 	 * Default is ISO-8859-1, according to the Servlet spec.
 	 * <p>If the request specifies a character encoding itself, the request
@@ -113,7 +113,7 @@ public class URLPathHelper {
 		this.defaultEncoding = defaultEncoding;
 	}
 
-	/**
+	/*
 	 * Return the default character encoding to use for URL decoding.
 	 */
 	protected String getDefaultEncoding() {
@@ -121,7 +121,7 @@ public class URLPathHelper {
 	}
 
 
-	/**
+	/*
 	 * Return the mapping lookup path for the given request, within the current
 	 * servlet mapping if applicable, else within the web application.
 	 * <p>Detects include request URL if called within a RequestDispatcher include.
@@ -145,7 +145,7 @@ public class URLPathHelper {
 		}
 	}
 
-	/**
+	/*
 	 * Return the path within the servlet mapping for the given request,
 	 * i.e. the part of the request's URL beyond the part that called the servlet,
 	 * or "" if the whole URL has been used to identify the servlet.
@@ -199,7 +199,7 @@ public class URLPathHelper {
 		}
 	}
 
-	/**
+	/*
 	 * Return the path within the web application for the given request.
 	 * <p>Detects include request URL if called within a RequestDispatcher include.
 	 * @param request current HTTP request
@@ -218,7 +218,7 @@ public class URLPathHelper {
 		}
 	}
 
-	/**
+	/*
 	 * Match the given "mapping" to the start of the "requestUri" and if there
 	 * is a match return the extra part. This method is needed because the
 	 * context path and the servlet path returned by the HttpServletRequest are
@@ -257,7 +257,7 @@ public class URLPathHelper {
 		return (index1 != -1 ? requestUri.substring(index1) : "");
 	}
 
-	/**
+	/*
 	 * Sanitize the given path with the following rules:
 	 * <ul>
 	 *     <li>replace all "//" by "/"</li>
@@ -277,7 +277,7 @@ public class URLPathHelper {
 		return sanitized;
 	}
 
-	/**
+	/*
 	 * Return the request URI for the given request, detecting an include request
 	 * URL if called within a RequestDispatcher include.
 	 * <p>As the value returned by {@code request.getRequestURI()} is <i>not</i>
@@ -296,7 +296,7 @@ public class URLPathHelper {
 		return decodeAndCleanUriString(request, uri);
 	}
 
-	/**
+	/*
 	 * Return the context path for the given request, detecting an include request
 	 * URL if called within a RequestDispatcher include.
 	 * <p>As the value returned by {@code request.getContextPath()} is <i>not</i>
@@ -316,7 +316,7 @@ public class URLPathHelper {
 		return decodeRequestString(request, contextPath);
 	}
 
-	/**
+	/*
 	 * Return the servlet path for the given request, regarding an include request
 	 * URL if called within a RequestDispatcher include.
 	 * <p>As the value returned by {@code request.getServletPath()} is already
@@ -339,7 +339,7 @@ public class URLPathHelper {
 	}
 
 
-	/**
+	/*
 	 * Return the request URI for the given request. If this is a forwarded request,
 	 * correctly resolves to the request URI of the original request.
 	 */
@@ -354,7 +354,7 @@ public class URLPathHelper {
 		return decodeAndCleanUriString(request, uri);
 	}
 
-	/**
+	/*
 	 * Return the context path for the given request, detecting an include request
 	 * URL if called within a RequestDispatcher include.
 	 * <p>As the value returned by {@code request.getContextPath()} is <i>not</i>
@@ -370,7 +370,7 @@ public class URLPathHelper {
 		return decodeRequestString(request, contextPath);
 	}
 
-	/**
+	/*
 	 * Return the servlet path for the given request, detecting an include request
 	 * URL if called within a RequestDispatcher include.
 	 * @param request current HTTP request
@@ -384,7 +384,7 @@ public class URLPathHelper {
 		return servletPath;
 	}
 
-	/**
+	/*
 	 * Return the query string part of the given request's URL. If this is a forwarded request,
 	 * correctly resolves to the query string of the original request.
 	 * @param request current HTTP request
@@ -400,7 +400,7 @@ public class URLPathHelper {
 		}
 	}
 
-	/**
+	/*
 	 * Decode the supplied URI string and strips any extraneous portion after a ';'.
 	 */
 	private String decodeAndCleanUriString(HttpServletRequest request, String uri) {
@@ -410,7 +410,7 @@ public class URLPathHelper {
 		return uri;
 	}
 
-	/**
+	/*
 	 * Decode the given source string with a URLDecoder. The encoding will be taken
 	 * from the request, falling back to the default "ISO-8859-1".
 	 * <p>The default implementation uses {@code URLDecoder.decode(input, enc)}.
@@ -444,7 +444,7 @@ public class URLPathHelper {
 		}
 	}
 
-	/**
+	/*
 	 * Determine the encoding for the given request.
 	 * Can be overridden in subclasses.
 	 * <p>The default implementation checks the request encoding,
@@ -462,7 +462,7 @@ public class URLPathHelper {
 		return enc;
 	}
 
-	/**
+	/*
 	 * Remove ";" (semicolon) content from the given request URI if the
 	 * {@linkplain #setRemoveSemicolonContent(boolean) removeSemicolonContent}
 	 * property is set to "true". Note that "jssessionid" is always removed.
@@ -495,7 +495,7 @@ public class URLPathHelper {
 		return requestUri;
 	}
 
-	/**
+	/*
 	 * Decode the given URI path variables via
 	 * {@link #decodeRequestString(HttpServletRequest, String)} unless
 	 * {@link #setUrlDecode(boolean)} is set to {@code true} in which case it is
@@ -519,7 +519,7 @@ public class URLPathHelper {
 		}
 	}
 
-	/**
+	/*
 	 * Decode the given matrix variables via
 	 * {@link #decodeRequestString(HttpServletRequest, String)} unless
 	 * {@link #setUrlDecode(boolean)} is set to {@code true} in which case it is
