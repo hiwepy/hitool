@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.WriteListener;
 
 public class ServletByteArrayOutputStream extends ServletOutputStream {
 	
@@ -17,5 +18,15 @@ public class ServletByteArrayOutputStream extends ServletOutputStream {
 	public void write(int b) throws IOException {
 		bout.write(b);
 	}
+	
+	@Override
+	public boolean isReady() {
+		return true;
+	}
 
+	@Override
+	public void setWriteListener(WriteListener writeListener) {
+		
+	}
+	
 }

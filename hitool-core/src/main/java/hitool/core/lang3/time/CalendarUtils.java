@@ -192,11 +192,8 @@ public abstract class CalendarUtils {
 
 	/**
 	 * 在给定的日期点上加入指定的月
-	 * 
-	 * @param date
-	 *            给定的日期点
-	 * @param days
-	 *            天数，正数为向后；负数为向前
+	 * @param date 给定的日期点
+	 * @param days 天数，正数为向后；负数为向前
 	 * @return 返回改变后的时间点
 	 */
 	public static Date getNewMonthDate(Date date, int months) {
@@ -215,10 +212,8 @@ public abstract class CalendarUtils {
 	/**
 	 * 把日期对象加减年、月、日后得到新的日期对象
 	 * 
-	 * @param date
-	 *            需要加减年、月、日的日期对象
-	 * @param depart
-	 *            年 、月、日
+	 * @param date 需要加减年、月、日的日期对象
+	 * @param depart 年 、月、日
 	 * @param number加减因子
 	 * @return 新的日期对象
 	 */
@@ -238,10 +233,8 @@ public abstract class CalendarUtils {
 	/**
 	 * 在给定的日期点上加入指定的天数
 	 * 
-	 * @param date
-	 *            给定的日期点
-	 * @param days
-	 *            天数，正数为向后；负数为向前
+	 * @param date 给定的日期点
+	 * @param days 天数，正数为向后；负数为向前
 	 * @return 返回改变后的时间点
 	 */
 	public static Date getNewDate(Date date, int days) {
@@ -260,8 +253,7 @@ public abstract class CalendarUtils {
 	/**
 	 * 在当前的日期点上加入指定的天数
 	 * 
-	 * @param days
-	 *            天数，正数为向后；负数为向前
+	 * @param days 天数，正数为向后；负数为向前
 	 * @return 返回改变后的时间
 	 */
 	public static Date getNewDate(int days) {
@@ -276,10 +268,8 @@ public abstract class CalendarUtils {
 	/**
 	 * 在给定的日期点上加入指定的天数
 	 * 
-	 * @param date
-	 *            给定的日期点
-	 * @param days
-	 *            天数，正数为向后；负数为向前
+	 * @param date 给定的日期点
+	 * @param days 天数，正数为向后；负数为向前
 	 * @return 返回改变后的时间点
 	 */
 	public static String getNewDate(String dateStr, String format, int days) {
@@ -291,7 +281,6 @@ public abstract class CalendarUtils {
 		return DateUtils.formatDate(date, format);
 	}
 
-	// add by messi(chencao)
 	/**
 	 * 把参数日期的时,分,秒清零,返回下一天 如:参数为2006-08-22 12:33 那么该方法返回 2006-08-23 00:00 ×
 	 */
@@ -1891,6 +1880,22 @@ public abstract class CalendarUtils {
 		// +":"+minute+":"+seconds;
 	}
 
+
+	/**
+	 * 判断当前时间距离第二天凌晨的秒数
+	 * 
+	 * @return 返回值单位为[s:秒]
+	 */
+	public static long getSecondsNextEarlyMorning() {
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return (cal.getTimeInMillis() - System.currentTimeMillis()) / 1000;
+	}
+	
 	public static void main(String[] args) {
 
 		System.out.println(DateUtils.formatDateTime(getPreYearBegin()));

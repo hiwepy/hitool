@@ -9,8 +9,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,9 +17,7 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import hitool.core.lang3.Assert;
 import hitool.core.lang3.StringUtils;
 
-public abstract class DateUtils extends org.apache.commons.lang3.time.DateUtils {
-
-	protected static ConcurrentMap<String, SimpleDateFormat> COMPLIED_FORMAT = new ConcurrentHashMap<String, SimpleDateFormat>();
+public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
 	/** 短日时间格式：HH:mm */
 	public static final String SHORT_TIME_FORMAT = "HH:mm";
@@ -162,44 +158,6 @@ public abstract class DateUtils extends org.apache.commons.lang3.time.DateUtils 
 	 */
 	protected static final String DATE_DAY_PATTERN_TWO = "^\\d{2,4}\\/\\d{1,2}\\/\\d{1,2}$";
 
-	static {
-
-		// 日期格式
-
-		COMPLIED_FORMAT.put(SHORT_TIME_FORMAT, FORMAT_SHORT_TIME);
-		COMPLIED_FORMAT.put(SHORT_TIME_FORMAT_CN, FORMAT_SHORT_TIME_CN);
-		COMPLIED_FORMAT.put(TIME_FORMAT, FORMAT_TIME);
-		COMPLIED_FORMAT.put(TIME_FORMAT_CN, FORMAT_TIME_CN);
-		COMPLIED_FORMAT.put(TIME_LONGFORMAT, FORMAT_LONGTIME);
-		COMPLIED_FORMAT.put(TIME_LONGFORMAT_CN, FORMAT_LONGTIME_CN);
-
-		COMPLIED_FORMAT.put(DATE_FORMAT, FORMAT_DATE);
-		COMPLIED_FORMAT.put(DATE_FORMAT_TWO, FORMAT_DATE_TWO);
-		COMPLIED_FORMAT.put(DATE_FORMAT_CN, FORMAT_DATE_CN);
-
-		COMPLIED_FORMAT.put(MONTH_FORMAT, FORMAT_MONTH);
-		COMPLIED_FORMAT.put(MONTH_FORMAT_TWO, FORMAT_MONTH_TWO);
-		COMPLIED_FORMAT.put(MONTH_FORMAT_CN, FORMAT_MONTH_CN);
-
-		COMPLIED_FORMAT.put(EEE_DATE_FORMAT, FORMAT_EEE_DATE);
-		COMPLIED_FORMAT.put(MMM_DATE_FORMAT, FORMAT_MMM_DATE);
-		COMPLIED_FORMAT.put(MMM_DATE_TIME_FORMAT, FORMAT_MMM_DATE_TIME);
-
-		COMPLIED_FORMAT.put(DATE_TIME_FORMAT, FORMAT_DATE_TIME);
-		COMPLIED_FORMAT.put(DATE_TIME_FORMAT_TWO, FORMAT_DATE_TIME_TWO);
-		COMPLIED_FORMAT.put(DATE_TIME_FORMAT_CN, FORMAT_DATE_TIME_CN);
-
-		COMPLIED_FORMAT.put(DATE_LONGFORMAT, FORMAT_LONGDATE);
-		COMPLIED_FORMAT.put(DATE_LONGFORMAT_TWO, FORMAT_LONGDATE_TWO);
-		COMPLIED_FORMAT.put(DATE_LONGFORMAT_DATE_CN, FORMAT_LONGDATE_DATE_CN);
-		COMPLIED_FORMAT.put(DATE_LONGFORMAT_TIME_CN, FORMAT_LONGDATE_TIME_CN);
-
-		COMPLIED_FORMAT.put(TIMESTAMP_FORMAT, FORMAT_TIMESTAMP);
-		COMPLIED_FORMAT.put(TIMESTAMP_FORMAT_TWO, FORMAT_TIMESTAMP_TWO);
-		COMPLIED_FORMAT.put(TIMESTAMP_FORMAT_DATE_CN, FORMAT_TIMESTAMP_DATE_CN);
-		COMPLIED_FORMAT.put(TIMESTAMP_FORMAT_TIME_CN, FORMAT_TIMESTAMP_TIME_CN);
-	}
-
 	/**
 	 * 根据给出的字符串格式，获取相应的日期格式化对象
 	 * 
@@ -211,20 +169,7 @@ public abstract class DateUtils extends org.apache.commons.lang3.time.DateUtils 
 	}
 
 	public static SimpleDateFormat getDateFormat(String format, Locale locale) {
-		if (StringUtils.isNotEmpty(format)) {
-			String formatKey = format + locale.toString();
-			SimpleDateFormat ret = COMPLIED_FORMAT.get(formatKey);
-			if (ret != null) {
-				return ret;
-			}
-			ret = new SimpleDateFormat(format, locale);
-			SimpleDateFormat existing = COMPLIED_FORMAT.putIfAbsent(formatKey, ret);
-			if (existing != null) {
-				ret = existing;
-			}
-			return ret;
-		}
-		return null;
+		return new SimpleDateFormat(format, locale);
 	}
 
 	/**
@@ -232,10 +177,6 @@ public abstract class DateUtils extends org.apache.commons.lang3.time.DateUtils 
 	 */
 	public static SimpleDateFormat getLongDateFormat() {
 		return getDateFormat(DATE_LONGFORMAT);
-	}
-
-	public static boolean hasFormat(String format) {
-		return COMPLIED_FORMAT.containsKey(format);
 	}
 
 	/**
@@ -417,7 +358,7 @@ public abstract class DateUtils extends org.apache.commons.lang3.time.DateUtils 
 		if (locale == null) {
 			locale = Locale.getDefault();
 		}
-		return getDateFormat(format, locale).format(date);
+		return new SimpleDateFormat(format, locale).format(date);
 	}
 
 	/**

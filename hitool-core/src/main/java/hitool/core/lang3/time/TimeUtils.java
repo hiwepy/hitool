@@ -11,12 +11,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import hitool.core.lang3.StringUtils;
 
 /**
  * 
@@ -32,10 +28,8 @@ import hitool.core.lang3.StringUtils;
  *	//EE-MM-dd-yyyy:Mon-07-25-2016
  * </pre>
  */
-public abstract class TimeUtils {
+public class TimeUtils {
 
-	protected static ConcurrentMap<String, SimpleDateFormat> COMPLIED_FORMAT = new ConcurrentHashMap<String, SimpleDateFormat>();
-	
     /** 时间格式：hh24 */
     public static final String TIME_FORMAT_24HOUR = "hh24";
     /** 时间格式：hh12 */
@@ -89,32 +83,7 @@ public abstract class TimeUtils {
 	private static final Pattern regex = Pattern.compile("^([1-9][0-9]*\\.?[0-9]*)\\s*([smhd]{1})$");
 	
 	static {
-        
-        //时间格式
-		COMPLIED_FORMAT.put(TIME_FORMAT_24HOUR, new SimpleDateFormat(TIME_FORMAT_24HOUR ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_12HOUR, new SimpleDateFormat(TIME_FORMAT_12HOUR ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_DD, new SimpleDateFormat(TIME_FORMAT_DD ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_EE, new SimpleDateFormat(TIME_FORMAT_EE ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_EEEE, new SimpleDateFormat(TIME_FORMAT_EEEE ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_MM, new SimpleDateFormat(TIME_FORMAT_MM ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_MMMM, new SimpleDateFormat(TIME_FORMAT_MMMM ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_YY, new SimpleDateFormat(TIME_FORMAT_YY ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_YYYY, new SimpleDateFormat(TIME_FORMAT_YYYY ));
-        COMPLIED_FORMAT.put(SHORT_TIME_FORMAT, new SimpleDateFormat(SHORT_TIME_FORMAT ));
-        COMPLIED_FORMAT.put(SHORT_TIME_FORMAT_CN, new SimpleDateFormat(SHORT_TIME_FORMAT_CN ));
-        COMPLIED_FORMAT.put(TIME_FORMAT, new SimpleDateFormat(TIME_FORMAT ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_CN, new SimpleDateFormat(TIME_FORMAT_CN ));
-        COMPLIED_FORMAT.put(TIME_LONGFORMAT, new SimpleDateFormat(TIME_LONGFORMAT ));
-        COMPLIED_FORMAT.put(TIME_LONGFORMAT_CN, new SimpleDateFormat(TIME_LONGFORMAT_CN ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_SECOND, new SimpleDateFormat(TIME_FORMAT_SECOND ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_SECOND_CN, new SimpleDateFormat(TIME_FORMAT_SECOND_CN ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_MINUTE, new SimpleDateFormat(TIME_FORMAT_MINUTE ));
-        COMPLIED_FORMAT.put(TIME_FORMAT_MINUTE_CN, new SimpleDateFormat(TIME_FORMAT_MINUTE_CN ));
-        COMPLIED_FORMAT.put(TIMESTAMP_SECOND, new SimpleDateFormat(TIMESTAMP_SECOND ));
-        COMPLIED_FORMAT.put(TIMESTAMP_MICROSECOND, new SimpleDateFormat(TIMESTAMP_MICROSECOND ));
-        COMPLIED_FORMAT.put(TIMESTAMP_DAY, new SimpleDateFormat(TIMESTAMP_DAY ));
-        COMPLIED_FORMAT.put(TIMESTAMP_FORMAT, new SimpleDateFormat(TIMESTAMP_FORMAT ));
-        COMPLIED_FORMAT.put(TIMESTAMP_LONGFORMAT, new SimpleDateFormat(TIMESTAMP_LONGFORMAT ));
+		
         /*
 	        (s:秒钟,m:分钟,h:小时,d:天)
 	        1秒=1000毫秒(ms), 
@@ -136,19 +105,7 @@ public abstract class TimeUtils {
 	 * 根据给出的字符串格式，获取相应的时间格式化对象
 	 */
 	public static SimpleDateFormat getTimeFormat(String format) {
-		if (StringUtils.isNotEmpty(format)) {
-			SimpleDateFormat ret = COMPLIED_FORMAT.get(format);
-			if (ret != null) {
-				return ret;
-			}
-			ret = new SimpleDateFormat(format);
-			SimpleDateFormat existing = COMPLIED_FORMAT.putIfAbsent(format, ret);
-			if (existing != null) {
-				ret = existing;
-			}
-			return ret;
-		}
-		return null;
+		return new SimpleDateFormat(format);
 	}
 	
 	/**

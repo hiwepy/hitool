@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.WriteListener;
 import javax.servlet.http.HttpServletResponse;
 
 public class ServletCachedResponseOutputStream extends ServletOutputStream {
@@ -67,6 +68,16 @@ public class ServletCachedResponseOutputStream extends ServletOutputStream {
 
 	public void reset() {
 		// noop
+	}
+	
+	@Override
+	public boolean isReady() {
+		return true;
+	}
+
+	@Override
+	public void setWriteListener(WriteListener writeListener) {
+		
 	}
 
 }

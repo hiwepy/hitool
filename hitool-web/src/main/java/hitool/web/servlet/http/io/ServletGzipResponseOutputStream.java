@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.WriteListener;
 import javax.servlet.http.HttpServletResponse;
 
 public class ServletGzipResponseOutputStream extends ServletOutputStream {
@@ -82,4 +83,13 @@ public class ServletGzipResponseOutputStream extends ServletOutputStream {
 		// noop
 	}
 
+	@Override
+	public boolean isReady() {
+		return true;
+	}
+
+	@Override
+	public void setWriteListener(WriteListener writeListener) {
+		
+	}
 }
