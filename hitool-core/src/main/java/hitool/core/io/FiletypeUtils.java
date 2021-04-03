@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Properties;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -104,31 +103,23 @@ public abstract class FiletypeUtils {
 	
 	
 	private static String get10ByteHeader(File file) {
-        InputStream input = null;
         String value = null;
-        try {
-            input = new FileInputStream(file);
+        try (InputStream input = new FileInputStream(file);){
             byte[] b = new byte[10];
             input.read(b, 0, b.length);
             value = bytesToHexString(b);
         } catch (Exception e) {
-        } finally {
-        	IOUtils.closeQuietly(input);
         }
         return value;
     }
 	
 	private static String get3ByteHeader(File file) {
-        InputStream input = null;
         String value = null;
-        try {
-            input = new FileInputStream(file);
+        try (InputStream input = new FileInputStream(file);){
             byte[] b = new byte[3];
             input.read(b, 0, b.length);
             value = bytesToHexString(b);
         } catch (Exception e) {
-        } finally {
-        	IOUtils.closeQuietly(input);
         }
         return value;
     }

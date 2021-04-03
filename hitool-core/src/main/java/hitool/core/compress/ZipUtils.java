@@ -46,7 +46,7 @@ public abstract class ZipUtils extends CompressUtils {
 
 	public static byte[] toCompressedBytes(Collection<File> srcFiles, File destFile) throws IOException {
 		if (srcFiles != null) {
-			try (ByteArrayOutputStream outzip = toCompressedOutputStream(srcFiles, destFile);){
+			try (ByteArrayOutputStream outzip = toCompressedOutputStream(srcFiles, destFile);) {
 				// 获取压缩后的结果
 				return outzip.toByteArray();
 			}
@@ -56,7 +56,7 @@ public abstract class ZipUtils extends CompressUtils {
 
 	public static byte[] toCompressedBytes(File srcFiles, File destFile) throws IOException {
 		if (srcFiles != null) {
-			try (ByteArrayOutputStream outzip = toCompressedOutputStream(srcFiles, destFile);){
+			try (ByteArrayOutputStream outzip = toCompressedOutputStream(srcFiles, destFile);) {
 				// 获取压缩后的结果
 				return outzip.toByteArray();
 			}
@@ -77,8 +77,9 @@ public abstract class ZipUtils extends CompressUtils {
 			throws IOException {
 		if (srcFiles != null) {
 			try (ByteArrayOutputStream outzip = new ByteArrayOutputStream();
-					ArchiveOutputStream archOuts = FACTORY.createArchiveOutputStream(ArchiveStreamFactory.ZIP, outzip);){
-				
+					ArchiveOutputStream archOuts = FACTORY.createArchiveOutputStream(ArchiveStreamFactory.ZIP,
+							outzip);) {
+
 				ZipUtils.compressFiles(srcFiles, archOuts, File.separator);
 				// 获取压缩后的结果
 				return outzip;
@@ -128,7 +129,7 @@ public abstract class ZipUtils extends CompressUtils {
 		try (InputStream input = new ByteArrayInputStream(databytes);
 				ByteArrayOutputStream output = new ByteArrayOutputStream();
 				ZipOutputStream zipOutput = new ZipOutputStream(output);) {
-			
+
 			zipOutput.putNextEntry(new ZipEntry("0"));
 			IOUtils.copy(input, zipOutput);
 			zipOutput.closeEntry();
@@ -140,18 +141,12 @@ public abstract class ZipUtils extends CompressUtils {
 	/** 用于单文件压缩 */
 	public static void compress(File srcFile, File destFile) throws IOException {
 		if (srcFile != null && srcFile.isFile()) {
-			ZipArchiveOutputStream out = null;
-			InputStream is = null;
-			try {
-				is = new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE);
-				out = new ZipArchiveOutputStream(
-						new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));
+			try (InputStream is = new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE);
+					ZipArchiveOutputStream out = new ZipArchiveOutputStream(
+							new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));) {
 				out.putArchiveEntry(new ZipArchiveEntry(srcFile, srcFile.getName()));
 				IOUtils.copy(is, out);
 				out.closeArchiveEntry();
-			} finally {
-				IOUtils.closeQuietly(is);
-				IOUtils.closeQuietly(out);
 			}
 		}
 	}
@@ -175,19 +170,14 @@ public abstract class ZipUtils extends CompressUtils {
 	public static void compressDir(File directory, String[] extensions, boolean recursive, OutputStream outzip)
 			throws IOException {
 		if (directory != null && directory.isDirectory()) {
-			ArchiveOutputStream ouput = null;
-			try {
-				/**
-				 * 打包的方法我们会用到ZipOutputStream这样一个输出流, 所以这里我们把输出流转换一下
-				 */
-				ouput = FACTORY.createArchiveOutputStream(ArchiveStreamFactory.ZIP, outzip);
+			/**
+			 * 打包的方法我们会用到ZipOutputStream这样一个输出流, 所以这里我们把输出流转换一下
+			 */
+			try (ArchiveOutputStream ouput = FACTORY.createArchiveOutputStream(ArchiveStreamFactory.ZIP, outzip);) {
 				Collection<File> inputFiles = FileUtils.listFiles(directory, extensions, recursive);
 				ZipUtils.compressFiles(inputFiles, ouput, directory.getAbsolutePath());
-
 			} catch (ArchiveException e) {
 				throw new IOException(e);
-			} finally {
-				IOUtils.closeQuietly(ouput);
 			}
 		}
 	}
@@ -265,21 +255,17 @@ public abstract class ZipUtils extends CompressUtils {
 						zipOut.setUseZip64(Zip64Mode.AsNeeded);
 
 						// 向压缩文件中输出数据
-						FileInputStream input = null;
-						BufferedInputStream bufferInput = null;
-						try {
+
+						byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
+						try (FileInputStream input = new FileInputStream(inputFile);
+								BufferedInputStream bufferInput = new BufferedInputStream(input,
+										DEFAULT_BUFFER_SIZE);) {
 							int nNumber;
-							byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
-							input = new FileInputStream(inputFile);
-							bufferInput = new BufferedInputStream(input, DEFAULT_BUFFER_SIZE);
+
 							while ((nNumber = bufferInput.read(buffer)) != -1) {
 								zipOut.write(buffer, 0, nNumber);
 							}
 							zipOut.closeArchiveEntry();
-						} finally {
-							// 关闭创建的流对象
-							IOUtils.closeQuietly(bufferInput);
-							IOUtils.closeQuietly(input);
 						}
 					}
 				} else {
@@ -380,25 +366,15 @@ public abstract class ZipUtils extends CompressUtils {
 
 	/**
 	 * 字节解压缩
-	 * 
-	 * @param databytes
-	 * @return
-	 * @throws Exception
 	 */
 	public static byte[] decompress(byte[] databytes) throws IOException {
-		InputStream input = null;
-		ByteArrayOutputStream output = null;
 		byte[] outBytes = null;
-		try {
-			input = new ByteArrayInputStream(databytes);
-			output = new ByteArrayOutputStream();
+		try (InputStream input = new ByteArrayInputStream(databytes);
+				ByteArrayOutputStream output = new ByteArrayOutputStream();) {
 			// 解压缩
 			GZipUtils.decompress(input, output);
 			// 获取解压后的数据
 			outBytes = output.toByteArray();
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(output);
 		}
 		return outBytes;
 	}
@@ -410,28 +386,21 @@ public abstract class ZipUtils extends CompressUtils {
 	public static void decompress(File srcFile, File destDir) throws IOException {
 		// 预处理存储目标目录
 		destDir = FileUtils.getDestDir(destDir);
-		ZipArchiveInputStream input = null;
-		try {
-			input = new ZipArchiveInputStream(
-					new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE));
+		try (ZipArchiveInputStream input = new ZipArchiveInputStream(
+				new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE));) {
+
 			ZipArchiveEntry entry = null;
 			while ((entry = input.getNextZipEntry()) != null) {
 				if (entry.isDirectory()) {
 					File directory = new File(destDir, entry.getName());
 					directory.mkdirs();
 				} else {
-					OutputStream output = null;
-					try {
-						output = new BufferedOutputStream(new FileOutputStream(new File(destDir, entry.getName())),
-								DEFAULT_BUFFER_SIZE);
+					try (OutputStream output = new BufferedOutputStream(
+							new FileOutputStream(new File(destDir, entry.getName())), DEFAULT_BUFFER_SIZE);) {
 						IOUtils.copy(input, output);
-					} finally {
-						IOUtils.closeQuietly(output);
 					}
 				}
 			}
-		} finally {
-			IOUtils.closeQuietly(input);
 		}
 	}
 
@@ -439,9 +408,8 @@ public abstract class ZipUtils extends CompressUtils {
 		// 预处理存储目标目录
 		destDir = FileUtils.getDestDir(destDir);
 		// 加载zip文件对象
-		ZipFile file = null;
-		try {
-			file = new ZipFile(srcFile.getAbsolutePath(), encoding);
+		try (ZipFile file = new ZipFile(srcFile.getAbsolutePath(), encoding);) {
+
 			// 迭代zip文件明细
 			Enumeration<ZipArchiveEntry> en = file.getEntries();
 			ZipArchiveEntry ze;
@@ -472,20 +440,12 @@ public abstract class ZipUtils extends CompressUtils {
 							parent.mkdirs();
 						}
 					}
-					InputStream in = null;
-					OutputStream os = null;
-					try {
-						in = new ZipArchiveInputStream(file.getInputStream(ze), encoding, true);
-						os = new FileOutputStream(folder);
+					try (InputStream in = new ZipArchiveInputStream(file.getInputStream(ze), encoding, true);
+							OutputStream os = new FileOutputStream(folder);) {
 						IOUtils.copy(in, os);
-					} finally {
-						IOUtils.closeQuietly(in);
-						IOUtils.closeQuietly(os);
 					}
 				}
 			}
-		} finally {
-			IOUtils.closeQuietly(file);
 		}
 	}
 
@@ -502,24 +462,15 @@ public abstract class ZipUtils extends CompressUtils {
 			innerfolder.setReadable(true);
 			innerfolder.mkdirs();
 		}
-		ZipArchiveInputStream in = null;
-		try {
-			in = new ZipArchiveInputStream(file.getInputStream(ze), encoding, true);
+		try (ZipArchiveInputStream in = new ZipArchiveInputStream(file.getInputStream(ze), encoding, true);) {
 			ZipArchiveEntry innerzae = null;
 			while ((innerzae = in.getNextZipEntry()) != null) {
-				OutputStream fos = null;
-				try {
-					fos = new FileOutputStream(
-							folder + File.separator + innerzip + File.separator + innerzae.getName());
+				try (OutputStream fos = new FileOutputStream(
+						folder + File.separator + innerzip + File.separator + innerzae.getName());) {
 					IOUtils.copy(in, fos);
 					fos.flush();
-				} finally {
-					IOUtils.closeQuietly(in);
-					IOUtils.closeQuietly(fos);
 				}
 			}
-		} finally {
-			IOUtils.closeQuietly(in);
 		}
 	}
 

@@ -14,9 +14,9 @@ import hitool.core.lang3.StringUtils;
 
 /**
  * 字符串格式化：其中从bean中获得数据方式使用到了ognl
- * <b>Example:</b>
- * <pre>
- * Map<String, Object> context = new HashMap<String, Object>();
+ * &lt;b&gt;Example:&lt;/b&gt;
+ * &lt;pre&gt;
+ * Map&lt;String, Object&gt; context = new HashMap&lt;String, Object&gt;();
  * context.put("xn", "2013-2014");
  * context.put("xq", "2");
  * context.put("xm", "test");
@@ -24,13 +24,13 @@ import hitool.core.lang3.StringUtils;
  * context.put("a", "10000");
  * context.put("b", "2");
  * 		
- * Map<String, Object> p1 = new HashMap<String, Object>();
- * Map<String, Object> p2 = new HashMap<String, Object>();
+ * Map&lt;String, Object&gt; p1 = new HashMap&lt;String, Object&gt;();
+ * Map&lt;String, Object&gt; p2 = new HashMap&lt;String, Object&gt;();
  * p1.put("name", "张三");
  * p2.put("name", "李四");
  * context.put("p1", p1);
  * context.put("p2", p2);
- * Map<String, Object> root = new HashMap<String, Object>();
+ * Map&lt;String, Object&gt; root = new HashMap&lt;String, Object&gt;();
  * root.put("username","zhangsan");
  * context.put("user", root);
  * 		
@@ -42,7 +42,7 @@ import hitool.core.lang3.StringUtils;
  * System.out.println(OgnlFormatUtils.format("新增【'{1}'】学年【{0}】学期", new String[]{"2","2012-2013"}));
  * //占位符替换格式法，此方法可根据用户给出的正则进行符合正则的占位符替换，占位符出现顺序为数组元素顺序，数组元素个数需多于占位符个数
  * System.out.println(OgnlFormatUtils.format("新增【?】学年【?】学期","\\?", new String[]{"2","2012-2013"}));
- * </pre>
+ * &lt;/pre&gt;
  */
 public class OgnlFormatUtils {
 

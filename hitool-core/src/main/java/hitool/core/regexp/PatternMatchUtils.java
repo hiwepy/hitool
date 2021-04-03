@@ -1,8 +1,5 @@
 package hitool.core.regexp;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Utility methods for simple pattern matching, in particular for
  * Spring's typical "xxx*", "*xxx" and "*xxx*" pattern styles.
@@ -12,18 +9,6 @@ import java.util.regex.Pattern;
  */
 public abstract class PatternMatchUtils {
 
-	/**
-	 * 正则表达式验证方法:匹配表达式则返回true,不匹配则返回false
-	 *@param regexp
-	 *@param str
-	 *@return
-	 */
-	public static boolean matches(String regexp, String str) { 
-        Pattern pattern = RegexpPatternUtils.getPattern(regexp); 
-        Matcher matcher = pattern.matcher(str); 
-        return matcher.matches(); 
-    }
-	
 	/**
 	 * Match a String against the given pattern, supporting the following simple
 	 * pattern styles: "xxx*", "*xxx", "*xxx*" and "xxx*yyy" matches (with an
@@ -36,19 +21,24 @@ public abstract class PatternMatchUtils {
 		if (pattern == null || str == null) {
 			return false;
 		}
+
 		int firstIndex = pattern.indexOf('*');
 		if (firstIndex == -1) {
 			return pattern.equals(str);
 		}
+
 		if (firstIndex == 0) {
 			if (pattern.length() == 1) {
 				return true;
 			}
-			int nextIndex = pattern.indexOf('*', firstIndex + 1);
+			int nextIndex = pattern.indexOf('*', 1);
 			if (nextIndex == -1) {
 				return str.endsWith(pattern.substring(1));
 			}
 			String part = pattern.substring(1, nextIndex);
+			if (part.isEmpty()) {
+				return simpleMatch(pattern.substring(nextIndex), str);
+			}
 			int partIndex = str.indexOf(part);
 			while (partIndex != -1) {
 				if (simpleMatch(pattern.substring(nextIndex), str.substring(partIndex + part.length()))) {
@@ -58,6 +48,7 @@ public abstract class PatternMatchUtils {
 			}
 			return false;
 		}
+
 		return (str.length() >= firstIndex &&
 				pattern.substring(0, firstIndex).equals(str.substring(0, firstIndex)) &&
 				simpleMatch(pattern.substring(firstIndex), str.substring(firstIndex)));
@@ -73,8 +64,8 @@ public abstract class PatternMatchUtils {
 	 */
 	public static boolean simpleMatch(String[] patterns, String str) {
 		if (patterns != null) {
-			for (int i = 0; i < patterns.length; i++) {
-				if (simpleMatch(patterns[i], str)) {
+			for (String pattern : patterns) {
+				if (simpleMatch(pattern, str)) {
 					return true;
 				}
 			}
@@ -83,3 +74,4 @@ public abstract class PatternMatchUtils {
 	}
 
 }
+

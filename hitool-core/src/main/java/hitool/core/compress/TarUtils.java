@@ -19,25 +19,25 @@ import org.apache.commons.io.IOUtils;
 
 import hitool.core.io.FileUtils;
 
-/**
+/*
  * Apache commons compress TAR打包
  */
 public abstract class TarUtils extends CompressUtils {
 
 	protected static final String EXT = ".tar";
 
-	/**
+	/*
 	 * 归档
 	 * 
 	 * @param srcFile:要归档的文件或者目录
-	 * @throws IOException
+	 * @throws IOException IO 异常
 	 */
 	public static void compress(File srcFile) throws IOException {
 		File destFile = new File(srcFile.getParentFile(), FilenameUtils.getBaseName(srcFile.getName()) + EXT);
 		TarUtils.compress(srcFile, destFile);
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param srcFile
@@ -53,37 +53,31 @@ public abstract class TarUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 归档
 	 * 
 	 * @param srcFile
 	 *            :要归档的文件或者目录
 	 * @param destPath
 	 *            :目标路径
-	 * @throws IOException
+	 * @throws IOException IO 异常
 	 */
 	public static void compress(File srcFile, File destFile) throws IOException {
 		TarUtils.compress(srcFile, destFile, BASE_DIR);
 	}
 
-	/**
+	/*
 	 * 归档
 	 * 
-	 * @param srcFile
-	 *            :要归档的文件或者目录
-	 * @param destPath
-	 *            :目标路径
-	 * @throws IOException
+	 * @param srcFile :要归档的文件或者目录
+	 * @param destPath :目标路径
+	 * @throws IOException IO 异常
 	 */
 	public static void compress(File srcFile, File destFile, String basePath) throws IOException {
-		TarArchiveOutputStream output = null;
-		try {
-			output = new TarArchiveOutputStream(
-					new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));
+		try (TarArchiveOutputStream output = new TarArchiveOutputStream(
+				new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));) {
 			TarUtils.compress(srcFile, output, basePath);
 			output.flush();
-		} finally {
-			IOUtils.closeQuietly(output);
 		}
 	}
 
@@ -93,20 +87,16 @@ public abstract class TarUtils extends CompressUtils {
 	}
 
 	public static void compress(File[] srcFiles, File destFile, String basePath) throws IOException {
-		TarArchiveOutputStream output = null;
-		try {
-			output = new TarArchiveOutputStream(
-					new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));
+		try (TarArchiveOutputStream output = new TarArchiveOutputStream(
+				new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));) {
 			for (File srcFile : srcFiles) {
 				// 压缩
 				TarUtils.compress(srcFile, output, basePath);
 			}
-		} finally {
-			IOUtils.closeQuietly(output);
 		}
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param filePath
@@ -116,7 +106,7 @@ public abstract class TarUtils extends CompressUtils {
 		TarUtils.compress(filePath, true);
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param filePath
@@ -128,7 +118,7 @@ public abstract class TarUtils extends CompressUtils {
 		TarUtils.compress(new File(filePath), delete);
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param srcFile
@@ -147,7 +137,7 @@ public abstract class TarUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 目录 归档
 	 * 
 	 * @param dir
@@ -168,7 +158,7 @@ public abstract class TarUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 文件归档
 	 * 
 	 * @param file：待归档文件
@@ -177,39 +167,31 @@ public abstract class TarUtils extends CompressUtils {
 	 * @throws Exception
 	 */
 	private static void compressFile(File file, TarArchiveOutputStream taos, String basePath) throws IOException {
-		/**
+		/*
 		 * 归档内文件名定义
-		 * 
-		 * <pre>
-		 *  
 		 * 如果有多级目录，那么这里就需要给出包含目录的文件名 
 		 * 如果用WinRAR打开归档包，中文名将显示为乱码
-		 * </pre>
 		 */
-		BufferedInputStream input = null;
-		try {
+		try (BufferedInputStream input = new BufferedInputStream(new FileInputStream(file), DEFAULT_BUFFER_SIZE);) {
 			TarArchiveEntry entry = new TarArchiveEntry(basePath + file.getName());
 			entry.setSize(file.length());
 			taos.putArchiveEntry(entry);
-			input = new BufferedInputStream(new FileInputStream(file), DEFAULT_BUFFER_SIZE);
 			IOUtils.copy(input, taos);
 			taos.closeArchiveEntry();
-		} finally {
-			IOUtils.closeQuietly(input);
 		}
 	}
 
-	/**
+	/*
 	 * 解归档
 	 * 
 	 * @param srcFile
-	 * @throws IOException
+	 * @throws IOException IO 异常
 	 */
 	public static void decompress(File srcFile) throws IOException {
 		TarUtils.decompress(srcFile, true);
 	}
 
-	/**
+	/*
 	 * 解归档
 	 * 
 	 * @param srcFile
@@ -225,34 +207,30 @@ public abstract class TarUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 解归档
 	 * 
-	 * @param srcFile
-	 * @param destFile
-	 * @throws IOException
+	 * @param srcFile 文件路径
+	 * @param destFile 文件路径
+	 * @throws IOException IO 异常
 	 */
 	public static void decompress(File srcFile, File destFile) throws IOException {
-		TarArchiveInputStream input = null;
-		try {
-			input = new TarArchiveInputStream(new FileInputStream(srcFile));
+		try (TarArchiveInputStream input = new TarArchiveInputStream(new FileInputStream(srcFile));) {
 			TarUtils.decompress(destFile, input);
-		} finally {
-			IOUtils.closeQuietly(input);
 		}
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
-	 * @param filePath
-	 * @throws Exception
+	 * @param filePath 文件路径
+	 * @throws IOException IO 异常
 	 */
-	public static void decompress(String filePath) throws Exception {
+	public static void decompress(String filePath) throws IOException {
 		TarUtils.decompress(filePath, true);
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param filePath
@@ -264,12 +242,12 @@ public abstract class TarUtils extends CompressUtils {
 		TarUtils.decompress(new File(filePath), delete);
 	}
 
-	/**
+	/*
 	 * 文件 解归档
 	 * 
 	 * @param destFile
 	 * @param tais
-	 * @throws IOException
+	 * @throws IOException IO 异常
 	 */
 	private static void decompress(File destFile, TarArchiveInputStream tais) throws IOException {
 		TarArchiveEntry entry = null;
@@ -287,22 +265,16 @@ public abstract class TarUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 文件解归档
 	 * 
-	 * @param destFile
-	 *            ： 目标文件
-	 * @param tais
-	 *            ：TarArchiveInputStream
-	 * @throws IOException
+	 * @param destFile ： 目标文件
+	 * @param tais  ：TarArchiveInputStream
+	 * @throws IOException IO 异常
 	 */
 	private static void decompressFile(File destFile, TarArchiveInputStream tais) throws IOException {
-		BufferedOutputStream output = null;
-		try {
-			output = new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE);
+		try (BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE);){
 			IOUtils.copy(tais, output);
-		} finally {
-			IOUtils.closeQuietly(output);
 		}
 	}
 

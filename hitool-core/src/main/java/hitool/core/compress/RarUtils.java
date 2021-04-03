@@ -12,7 +12,7 @@ import com.github.junrar.exception.RarException;
 
 public class RarUtils extends CompressUtils {
 
-	/**
+	/*
 	 * 根据原始rar路径，解压到指定文件夹下.
 	 * 
 	 * @param srcFile

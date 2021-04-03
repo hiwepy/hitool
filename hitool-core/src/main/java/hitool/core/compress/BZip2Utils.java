@@ -22,14 +22,14 @@ import org.apache.commons.io.IOUtils;
 
 import hitool.core.lang3.CharsetUtils;
 
-/**
+/*
  * .bz2文件压缩解压工具
  */
 public abstract class BZip2Utils extends CompressUtils {
 
 	protected static final CharSequence EXT = ".bz2";
 
-	/**
+	/*
 	 * 压缩字符串
 	 * 
 	 * @param text
@@ -43,7 +43,7 @@ public abstract class BZip2Utils extends CompressUtils {
 		return CharsetUtils.newStringUtf8(BZip2Utils.compress(text.getBytes()));
 	}
 
-	/**
+	/*
 	 * 压缩字节码
 	 * 
 	 * @param databytes
@@ -51,24 +51,18 @@ public abstract class BZip2Utils extends CompressUtils {
 	 * @throws IOException
 	 */
 	public static byte[] compress(byte[] databytes) throws IOException {
-		InputStream input = null;
-		ByteArrayOutputStream output = null;
 		byte[] outBytes = null;
-		try {
-			input = new ByteArrayInputStream(databytes);
-			output = new ByteArrayOutputStream();
+		try (InputStream input = new ByteArrayInputStream(databytes);
+				ByteArrayOutputStream output = new ByteArrayOutputStream();) {
 			// 压缩
 			BZip2Utils.compress(input, output);
 			// 获取压缩后的结果
 			outBytes = output.toByteArray();
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(output);
 		}
 		return outBytes;
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param file
@@ -80,7 +74,7 @@ public abstract class BZip2Utils extends CompressUtils {
 		BZip2Utils.compress(file, true);
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param srcFile
@@ -97,35 +91,23 @@ public abstract class BZip2Utils extends CompressUtils {
 	}
 
 	public static void compress(File srcFile, File destFile) throws IOException {
-		InputStream input = null;
-		OutputStream output = null;
-		try {
-			input = new FileInputStream(srcFile);
-			output = new FileOutputStream(destFile);
+		try (InputStream input = new FileInputStream(srcFile);
+				OutputStream output = new FileOutputStream(destFile);) {
 			// 压缩
 			BZip2Utils.compress(input, output);
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(output);
 		}
 	}
 
 	public static void compress(InputStream in, OutputStream out) throws IOException {
-		InputStream input = null;
-		BZip2CompressorOutputStream output = null;
-		try {
-			input = new BufferedInputStream(in, DEFAULT_BUFFER_SIZE);
-			output = new BZip2CompressorOutputStream(new BufferedOutputStream(out, DEFAULT_BUFFER_SIZE));
+		try (InputStream input = new BufferedInputStream(in, DEFAULT_BUFFER_SIZE);
+				BZip2CompressorOutputStream output = new BZip2CompressorOutputStream(new BufferedOutputStream(out, DEFAULT_BUFFER_SIZE));) {
 			IOUtils.copy(input, output);
 			output.finish();
 			output.flush();
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(output);
 		}
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param filePath
@@ -135,7 +117,7 @@ public abstract class BZip2Utils extends CompressUtils {
 		BZip2Utils.compress(filePath, true);
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param filePath
@@ -147,7 +129,7 @@ public abstract class BZip2Utils extends CompressUtils {
 		BZip2Utils.compress(new File(filePath), delete);
 	}
 
-	/**
+	/*
 	 * 字节解压缩
 	 * 
 	 * @param databytes
@@ -155,24 +137,18 @@ public abstract class BZip2Utils extends CompressUtils {
 	 * @throws Exception
 	 */
 	public static byte[] decompress(byte[] databytes) throws IOException {
-		InputStream input = null;
-		ByteArrayOutputStream output = null;
 		byte[] outBytes = null;
-		try {
-			input = new ByteArrayInputStream(databytes);
-			output = new ByteArrayOutputStream();
+		try (InputStream input = new ByteArrayInputStream(databytes);
+				ByteArrayOutputStream output = new ByteArrayOutputStream();) {
 			// 解压缩
 			BZip2Utils.decompress(input, output);
 			// 获取解压后的数据
 			outBytes = output.toByteArray();
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(output);
 		}
 		return outBytes;
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param file
@@ -182,7 +158,7 @@ public abstract class BZip2Utils extends CompressUtils {
 		BZip2Utils.decompress(file, true);
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param srcFile
@@ -199,20 +175,14 @@ public abstract class BZip2Utils extends CompressUtils {
 	}
 
 	public static void decompress(File srcFile, File destDir) throws IOException {
-		InputStream input = null;
-		OutputStream output = null;
-		try {
-			File destFile = new File(destDir, FilenameUtils.getBaseName(srcFile.getName()));
-			input = new FileInputStream(srcFile);
-			output = new FileOutputStream(destFile);
+		File destFile = new File(destDir, FilenameUtils.getBaseName(srcFile.getName()) + EXT);
+		try(InputStream input = new FileInputStream(srcFile);
+				OutputStream output = new FileOutputStream(destFile);) {
 			BZip2Utils.decompress(input, output);
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(output);
 		}
 	}
 
-	/**
+	/*
 	 * 数据流解压缩
 	 * 
 	 * @param in
@@ -220,20 +190,14 @@ public abstract class BZip2Utils extends CompressUtils {
 	 * @throws Exception
 	 */
 	public static void decompress(InputStream in, OutputStream out) throws IOException {
-		InputStream input = null;
-		OutputStream output = null;
-		try {
-			input = new BZip2CompressorInputStream(new BufferedInputStream(in, DEFAULT_BUFFER_SIZE));
-			output = new BufferedOutputStream(out, DEFAULT_BUFFER_SIZE);
+		try (InputStream input = new BZip2CompressorInputStream(new BufferedInputStream(in, DEFAULT_BUFFER_SIZE));
+				OutputStream output = new BufferedOutputStream(out, DEFAULT_BUFFER_SIZE);) {
 			IOUtils.copy(input, output);
 			output.flush();
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(output);
 		}
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param filePath
@@ -243,7 +207,7 @@ public abstract class BZip2Utils extends CompressUtils {
 		BZip2Utils.decompress(filePath, true);
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param filePath

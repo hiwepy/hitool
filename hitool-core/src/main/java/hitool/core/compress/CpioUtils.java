@@ -23,36 +23,26 @@ import org.apache.commons.io.IOUtils;
 public abstract class CpioUtils extends CompressUtils {
 
 	public static void doCompress(File srcFile, File destFile) throws IOException {
-		CpioArchiveOutputStream out = null;
-		InputStream input = null;
-		try {
-			input = new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE);
-			out = new CpioArchiveOutputStream(
-					new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));
+		try (InputStream input = new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE);
+			CpioArchiveOutputStream out = new CpioArchiveOutputStream(
+					new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));) {
 			out.putArchiveEntry(new CpioArchiveEntry(srcFile, srcFile.getName()));
 			IOUtils.copy(input, out);
 			out.closeArchiveEntry();
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(out);
 		}
 	}
 
 	public static void doDecompress(File srcFile, File destDir) throws IOException {
-		CpioArchiveInputStream is = null;
-		try {
-			is = new CpioArchiveInputStream(new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE));
+		try (CpioArchiveInputStream is = new CpioArchiveInputStream(new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE));) {
 			CpioArchiveEntry entry = null;
 			while ((entry = is.getNextCPIOEntry()) != null) {
 				if (entry.isDirectory()) {
 					File directory = new File(destDir, entry.getName());
 					directory.mkdirs();
 				} else {
-					BufferedOutputStream bos = null;
-					try {
+					try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(destDir, entry.getName())),
+							DEFAULT_BUFFER_SIZE);) {
 						byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
-						bos = new BufferedOutputStream(new FileOutputStream(new File(destDir, entry.getName())),
-								DEFAULT_BUFFER_SIZE);
 						int len;
 						long size = entry.getSize();
 						while (size > 0) {
@@ -65,13 +55,9 @@ public abstract class CpioUtils extends CompressUtils {
 							}
 							bos.write(buffer, 0, len);
 						}
-					} finally {
-						IOUtils.closeQuietly(bos);
 					}
 				}
 			}
-		} finally {
-			IOUtils.closeQuietly(is);
 		}
 	}
 

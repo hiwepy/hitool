@@ -14,8 +14,7 @@ import java.nio.channels.FileChannel;
 @SuppressWarnings("resource")
 public class FileChannelUtils {
 
-	public static FileChannel getInputChannel(File source)
-			throws FileNotFoundException {
+	public static FileChannel getInputChannel(File source) throws FileNotFoundException {
 		return new FileInputStream(source).getChannel();
 	}
 

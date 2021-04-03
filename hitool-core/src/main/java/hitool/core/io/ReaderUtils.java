@@ -11,7 +11,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
-import java.net.URISyntaxException;
 
 public abstract class ReaderUtils {
 
@@ -120,12 +119,6 @@ public abstract class ReaderUtils {
 		return r;
 	}
 
-	public static StringBuffer readFile(String filepath) throws IOException,
-			URISyntaxException {
-		return readFile(new File(ResourceUtils.getRelativeResourceAsURL(
-				filepath).toURI()));
-	}
-
 	public static StringBuffer readFile(File file) throws IOException {
 		BufferedReader in = new BufferedReader(new FileReader(file));
 		String s = new String();
@@ -148,19 +141,6 @@ public abstract class ReaderUtils {
 				System.in));
 		System.out.println("Enter a line:");
 		return stdin.readLine();
-	}
-
-	/**
-	 * 接收键盘的输入路径读取文件
-	 * 
-	 * @return
-	 * @throws Exception
-	 */
-	public static StringBuffer readerSystemInPath() throws Exception {
-		BufferedReader stdin = new BufferedReader(new InputStreamReader(
-				System.in));
-		System.out.println("Enter a file path:");
-		return readFile(stdin.readLine());
 	}
 
 	public static Reader convertToReader(InputStream in) {

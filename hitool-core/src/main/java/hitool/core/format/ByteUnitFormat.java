@@ -13,9 +13,6 @@ import java.text.DecimalFormat;
  * Create by IntelliJ IDEA
  * Formatting byte size to human readable format
  * https://github.com/clyoudu/clyoudu-util
- * @author chenlei
- * @dateTime 2018/12/7 17:35
- * @description ByteUnitFormat
  */
 public enum ByteUnitFormat {
     B(Unit.B) {

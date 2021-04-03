@@ -19,7 +19,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
@@ -34,9 +33,6 @@ import java.nio.charset.Charset;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -99,35 +95,10 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 	public static long copy(byte[] in, OutputStream out) throws IOException {
 		Assert.notNull(in, "No input byte array specified");
 		Assert.notNull(out, "No OutputStream specified");
-		ByteArrayInputStream byteIn = new ByteArrayInputStream(in);
-		long count = copy(byteIn, out);
-		byteIn.close();
-		IOUtils.closeQuietly(byteIn);
-		return count;
-	}
-
-	/**
-	 * Copy the contents of the given InputStream into a String. Leaves the stream
-	 * open when done.
-	 * 
-	 * @param in
-	 *            the InputStream to copy from
-	 * @return the String that has been copied to
-	 * @throws IOException
-	 *             in case of I/O errors
-	 */
-	public static String copyToString(InputStream in, Charset charset) throws IOException {
-		Assert.notNull(in, "No InputStream specified");
-		StringBuilder out = new StringBuilder();
-		InputStreamReader reader = new InputStreamReader(in, charset);
-		char[] buffer = new char[BUFFER_SIZE];
-		int bytesRead = -1;
-		while ((bytesRead = reader.read(buffer)) != -1) {
-			out.append(buffer, 0, bytesRead);
+		try (ByteArrayInputStream byteIn = new ByteArrayInputStream(in);){
+			return copy(byteIn, out);
 		}
-		IOUtils.closeQuietly(reader);
-		return out.toString();
-	}
+	} 
 
 	/**
 	 * Copy the contents of the given String to the given output OutputStream.
@@ -149,56 +120,6 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 		Writer writer = new OutputStreamWriter(out, charset);
 		writer.write(in);
 		writer.flush();
-	}
-
-	// ---------------------------------------------------------------------
-	// Write methods for java.io.InputStream / java.io.OutputStream
-	// ---------------------------------------------------------------------
-
-	/**
-	 * Write the contents of the given byte array to the given OutputStream. Leaves
-	 * the stream open when done.
-	 * 
-	 * @param in
-	 *            the byte array to copy from
-	 * @param out
-	 *            the OutputStream to copy to
-	 * @throws IOException
-	 *             in case of I/O errors
-	 */
-	public static void write(byte[] in, OutputStream out) throws IOException {
-		Assert.notNull(in, "No input byte array specified");
-		Assert.notNull(out, "No OutputStream specified");
-		out.write(in);
-	}
-
-	/**
-	 * 方法用途和描述: 输出流
-	 * 
-	 * @param bytes
-	 * @param response
-	 * @throws IOException
-	 */
-	public static void write(byte bytes[], HttpServletResponse response) throws IOException {
-		ServletOutputStream ouputStream = response.getOutputStream();
-		ouputStream.write(bytes, 0, bytes.length);
-		ouputStream.flush();
-		ouputStream.close();
-	}
-
-	/**
-	 * 方法用途和描述: 向浏览器输出一个对象
-	 * 
-	 * @param response
-	 * @param obj
-	 * @throws IOException
-	 */
-	public static void write(HttpServletResponse response, Object obj) throws IOException {
-		response.setContentType("application/octet-stream");
-		ObjectOutputStream out = new ObjectOutputStream(response.getOutputStream());
-		out.writeObject(obj);
-		out.flush();
-		out.close();
 	}
 
 	// ---------------------------------------------------------------------

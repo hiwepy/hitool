@@ -24,10 +24,10 @@ public class FileReadUtils {
 	}
 
 	public static List<String> readerLines(File file) throws IOException {
-		BufferedReader input = new BufferedReader(new FileReader(file));
-		List<String> lines = IOUtils.readLines(input);
-		IOUtils.closeQuietly(input);
-		return lines;
+		try(BufferedReader input = new BufferedReader(new FileReader(file));){
+			List<String> lines = IOUtils.readLines(input);
+			return lines;
+		}
 	}
 
 	public static String readRawFile(File file, boolean reportExceptions) {

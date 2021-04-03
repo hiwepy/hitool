@@ -17,14 +17,14 @@ import org.apache.commons.compress.archivers.ar.ArArchiveOutputStream;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
-/**
+/*
  * Apache commons compress AR打包
  */
 public abstract class ArUtils extends CompressUtils {
 
 	protected static final CharSequence EXT = ".bz2";
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param file
@@ -36,7 +36,7 @@ public abstract class ArUtils extends CompressUtils {
 		ArUtils.compress(file, true);
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param srcFile
@@ -58,14 +58,10 @@ public abstract class ArUtils extends CompressUtils {
 	}
 
 	public static void compress(File srcFile, File destFile, String basePath) throws IOException {
-		ArArchiveOutputStream output = null;
-		try {
-			output = new ArArchiveOutputStream(
-					new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));
+		try (ArArchiveOutputStream output = new ArArchiveOutputStream(
+				new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));) {
 			// 压缩
 			ArUtils.compress(srcFile, destFile, basePath);
-		} finally {
-			IOUtils.closeQuietly(output);
 		}
 	}
 
@@ -75,20 +71,15 @@ public abstract class ArUtils extends CompressUtils {
 	}
 
 	public static void compress(File[] srcFiles, File destFile, String basePath) throws IOException {
-		ArArchiveOutputStream output = null;
-		try {
-			output = new ArArchiveOutputStream(
-					new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));
+		try (ArArchiveOutputStream output = new ArArchiveOutputStream(
+				new BufferedOutputStream(new FileOutputStream(destFile), DEFAULT_BUFFER_SIZE));) {
 			for (File srcFile : srcFiles) {
-				// 压缩
 				ArUtils.compress(srcFile, output, basePath);
 			}
-		} finally {
-			IOUtils.closeQuietly(output);
 		}
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param srcFile
@@ -107,7 +98,7 @@ public abstract class ArUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 目录 归档
 	 * 
 	 * @param dir
@@ -128,7 +119,7 @@ public abstract class ArUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 文件归档
 	 * 
 	 * @param file：待归档文件
@@ -137,28 +128,15 @@ public abstract class ArUtils extends CompressUtils {
 	 * @throws Exception
 	 */
 	private static void compressFile(File file, ArArchiveOutputStream output, String basePath) throws IOException {
-		/**
-		 * 归档内文件名定义
-		 * 
-		 * <pre>
-		 *  
-		 * 如果有多级目录，那么这里就需要给出包含目录的文件名 
-		 * 如果用WinRAR打开归档包，中文名将显示为乱码
-		 * </pre>
-		 */
-		BufferedInputStream input = null;
-		try {
+		try (BufferedInputStream input = new BufferedInputStream(new FileInputStream(file), DEFAULT_BUFFER_SIZE);) {
 			ArArchiveEntry entry = new ArArchiveEntry(basePath + file.getName(), file.length());
 			output.putArchiveEntry(entry);
-			input = new BufferedInputStream(new FileInputStream(file), DEFAULT_BUFFER_SIZE);
 			IOUtils.copy(input, output);
 			output.closeArchiveEntry();
-		} finally {
-			IOUtils.closeQuietly(input);
 		}
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param filePath
@@ -168,7 +146,7 @@ public abstract class ArUtils extends CompressUtils {
 		ArUtils.compress(filePath, true);
 	}
 
-	/**
+	/*
 	 * 文件压缩
 	 * 
 	 * @param filePath
@@ -180,7 +158,7 @@ public abstract class ArUtils extends CompressUtils {
 		ArUtils.compress(new File(filePath), delete);
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param file
@@ -190,7 +168,7 @@ public abstract class ArUtils extends CompressUtils {
 		ArUtils.decompress(srcFile, true);
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param srcFile
@@ -207,17 +185,14 @@ public abstract class ArUtils extends CompressUtils {
 	}
 
 	public static void decompress(File srcFile, File destDir) throws IOException {
-		ArArchiveInputStream input = null;
-		try {
-			input = new ArArchiveInputStream(
-					new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE));
+		try(ArArchiveInputStream input = new ArArchiveInputStream(
+				new BufferedInputStream(new FileInputStream(srcFile), DEFAULT_BUFFER_SIZE));) {
 			// 解压
 			ArUtils.decompress(input, destDir);
-		} finally {
-			IOUtils.closeQuietly(input);
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void decompress(ArArchiveInputStream input, File destDir) throws IOException {
 		try {
 			ArArchiveEntry entry = null;
@@ -226,11 +201,10 @@ public abstract class ArUtils extends CompressUtils {
 					File directory = new File(destDir, entry.getName());
 					directory.mkdirs();
 				} else {
-					BufferedOutputStream bos = null;
-					try {
+					try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(destDir, entry.getName())),
+							DEFAULT_BUFFER_SIZE);){
 						byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
-						bos = new BufferedOutputStream(new FileOutputStream(new File(destDir, entry.getName())),
-								DEFAULT_BUFFER_SIZE);
+						
 						int len;
 						long size = entry.getSize();
 						while (size > 0) {
@@ -243,8 +217,6 @@ public abstract class ArUtils extends CompressUtils {
 							}
 							bos.write(buffer, 0, len);
 						}
-					} finally {
-						IOUtils.closeQuietly(bos);
 					}
 				}
 			}
@@ -253,7 +225,7 @@ public abstract class ArUtils extends CompressUtils {
 		}
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param filePath
@@ -263,7 +235,7 @@ public abstract class ArUtils extends CompressUtils {
 		ArUtils.decompress(filePath, true);
 	}
 
-	/**
+	/*
 	 * 文件解压缩
 	 * 
 	 * @param filePath

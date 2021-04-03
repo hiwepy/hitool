@@ -47,18 +47,10 @@ public class FileCopyUtils extends FileUtils {
 	public static long copy(File in, File out) throws IOException {
 		Assert.notNull(in, "No input File specified");
 		Assert.notNull(out, "No output File specified");
-		long length = 0;
-		InputStream fileIn = null;
-		OutputStream fileOut = null;
-		try {
-			fileIn = new FileInputStream(in);
-			fileOut = new FileOutputStream(out);
-			length = IOUtils.copy(fileIn, fileOut, BUFFER_SIZE);
-		} finally {
-			IOUtils.closeQuietly(fileIn);
-			IOUtils.closeQuietly(fileOut);
+		try (InputStream fileIn = new FileInputStream(in);
+				OutputStream fileOut = new FileOutputStream(out);) {
+			return IOUtils.copy(fileIn, fileOut, BUFFER_SIZE);
 		}
-		return length;
 	}
 
 	/**
@@ -77,15 +69,9 @@ public class FileCopyUtils extends FileUtils {
 	public static void copy(byte[] in, File out) throws IOException {
 		Assert.notNull(in, "No input byte array specified");
 		Assert.notNull(out, "No output File specified");
-		ByteArrayInputStream inStream = null;
-		FileOutputStream fileOut = null;
-		try {
-			inStream = new ByteArrayInputStream(in);
-			fileOut = new FileOutputStream(out);
+		try (ByteArrayInputStream inStream = new ByteArrayInputStream(in);
+				FileOutputStream fileOut = new FileOutputStream(out);) {
 			IOUtils.copy(inStream, fileOut, BUFFER_SIZE);
-		} finally {
-			IOUtils.closeQuietly(inStream);
-			IOUtils.closeQuietly(fileOut);
 		}
 	}
 

@@ -1,21 +1,13 @@
 package hitool.core.io;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
-import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.io.RandomAccessFile;
-import java.io.StringReader;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 import java.util.ArrayList;
@@ -43,33 +35,11 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 	// read toByteArray
 	// ---------------------------------------------------------------------
 
-	/**
-	 * Copy the contents of the given input File into a new byte array.
-	 * 将给定的文件类读出成byte数组格式并返回
-	 * 
-	 * @param in
-	 *            the file to copy from <br/>
-	 *            将被赢取的文件
-	 * @return the new byte array that has been copied to <br/>
-	 *         给定的文件的内容的byte格式
-	 * @throws java.io.IOException
-	 *             in case of I/O errors
-	 */
 	public static byte[] toByteArray(File in) throws IOException {
 		Assert.notNull(in, "No input File specified");
-		InputStream input = null;
-		ByteArrayOutputStream output = null;
-		byte[] bytes = null;
-		try {
-			input = new BufferedInputStream(new FileInputStream(in));
-			output = new ByteArrayOutputStream();
-			IOUtils.copy(input, output);
-			bytes = output.toByteArray();
-		} finally {
-			IOUtils.closeQuietly(input);
-			IOUtils.closeQuietly(output);
+		try (InputStream input = new BufferedInputStream(new FileInputStream(in));) {
+			return IOUtils.toByteArray(input);
 		}
-		return bytes;
 	}
 
 	public static byte[] toByteArray(String destDir, String fileName)
@@ -79,7 +49,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		File file = new File(destDir + fileSeparator + fileName);
 		return toByteArray(file);
 	}
-
+	
 	public static byte[] toByteArray(String filePath) throws IOException {
 		Assert.notNull(filePath, "No filePath specified");
 		File file = FileUtils.getFile(filePath);
@@ -94,42 +64,8 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		if (!file.exists()) {
 			file.createNewFile();
 		}
-		RandomAccessFile fileIn = null;
-		try {
-			fileIn = new RandomAccessFile(file, "rwd");
+		try (RandomAccessFile fileIn = new RandomAccessFile(file, "rwd");){
 			fileIn.write(bytes);
-		} finally {
-			IOUtils.closeQuietly(fileIn);
-		}
-	}
-
-	// ---------------------------------------------------------------------
-	// Write methods for java.io.File
-	// ---------------------------------------------------------------------
-
-	/**
-	 * 输出到文件
-	 * 
-	 * @param str
-	 * @param outPath
-	 * @throws IOException
-	 */
-	public static void writeToFile(String text, String outPath)
-			throws IOException {
-		PrintWriter out1 = null;
-		BufferedReader in4 = null;
-		try {
-			in4 = new BufferedReader(new StringReader(text));
-			out1 = new PrintWriter(new BufferedWriter(new FileWriter(outPath)));
-			while ((text = in4.readLine()) != null) {
-				out1.println(text);
-			}
-
-		} catch (EOFException ex) {
-			LOG.error("End of stream", ex.getCause());
-		} finally {
-			IOUtils.closeQuietly(out1);
-			IOUtils.closeQuietly(in4);
 		}
 	}
 
@@ -181,8 +117,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 	public static File createDir(File dir) {
 		if (!dir.exists()) {
 			if (!dir.mkdirs()) {
-				LOG.error("could not create directory path for ["
-						+ dir.getAbsolutePath() + "]");
+				LOG.error("could not create directory path for [" + dir.getAbsolutePath() + "]");
 			}
 		}
 		return dir;
@@ -270,21 +205,6 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		}
 
 		return ret;
-	}
-
-	public static File getFile(String path) throws IOException {
-		File file = new File(path);
-		if (!file.exists()) {
-			try {
-				// file = new
-				// File(ResourceUtils.getResourceAsURL(path).getPath());
-				file = new File(ResourceUtils.getRelativeResourceAsURL(path).toURI());
-			} catch (URISyntaxException e) {
-				throw new FileNotFoundException(
-						"the Path refers to the file does not exist or is not a file !");
-			}
-		}
-		return file;
 	}
 
 	public static File getFile(URI uri) throws IOException {
@@ -409,38 +329,6 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		} else {
 			return true;
 		}
-	}
-
-	public static void main(String[] args) {
-		File sourceFile = new File(
-				"D:\\DeveloperTomcat6\\work\\Catalina/localhost/WebOA/org/apache/jsp/editor/jsp/upload_jsp.class");
-		System.out.println(FileUtils.getWebPath(sourceFile, "localhost"));
-
-		/*
-		 * String infilePath = "E:\\项目\\workplace.rar"; String outfilePath2 =
-		 * "E:\\workplace2.rar"; String outfilePath3 = "E:\\workplace3.rar";
-		 * long a = System.currentTimeMillis(); copyIO(infilePath,
-		 * outfilePath2); long b = System.currentTimeMillis();
-		 * System.out.println(b - a); copyNIO(infilePath, outfilePath3); long c
-		 * = System.currentTimeMillis(); System.out.println(c - b);
-		 */
-		// writeToFile("dsgsdfgsdfg的分公司的后果","F:\\TestIO.txt");
-		// System.out.println(readerByline("cityData/cityData.txt"));
-		// System.out.println(systemInPath());
-		// System.out.println(readerStr("asdasfds"));
-		// System.out.println(readerBytes("dfsdf ".getBytes()) );
-		/*
-		 * try { BufferedInputStream buff = new
-		 * BufferedInputStream(ClassLoaderUtil
-		 * .getStream("cityData/cityData.txt")); byte[] bytes = new byte[1024];
-		 * while (buff.read(bytes) != -1) {
-		 * 
-		 * } ByteBuffer ss = ByteBuffer.wrap(bytes);
-		 * System.out.println(ss.toString()); } catch (MalformedURLException e)
-		 * { e.printStackTrace(); } catch (IOException e) { e.printStackTrace();
-		 * }
-		 */
-
 	}
 
 }

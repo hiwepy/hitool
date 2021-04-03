@@ -23,21 +23,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import hitool.core.regexp.matcher.StringRegexpMatcher;
-
 /**
  *  使用正则表达式验证【身份证相关字符串】或提取数据
  */
-public class IDCardRegex extends StringRegexpMatcher {
-
-	public IDCardRegex() {
-		super("special");
-	}
-
-	public IDCardRegex(int mask) {
-		super("special", mask);
-	}
-
+public class IDCardRegex {
 
     /** 中国公民身份证号码最小长度。 */
     public static final int CHINA_ID_MIN_LENGTH = 15;
@@ -68,6 +57,7 @@ public class IDCardRegex extends StringRegexpMatcher {
     public static Map<String, Integer> twFirstCode = new HashMap<String, Integer>();
     /** 香港身份首字母对应数字 */
     public static Map<String, Integer> hkFirstCode = new HashMap<String, Integer>();
+    
     static {
         cityCodes.put("11", "北京");
         cityCodes.put("12", "天津");
