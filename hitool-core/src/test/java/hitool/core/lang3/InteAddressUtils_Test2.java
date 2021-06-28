@@ -21,7 +21,7 @@ import junit.framework.TestCase;
 public class InteAddressUtils_Test2 extends TestCase {
 
 	public void testInetAddress_1(){
-		System.out.println("IP地址:" + InetAddressUtils.getIPString(InetAddressUtils.getIPBytes("127.0.0.1")));
+		System.out.println("IP地址:" + InetAddressUtils.getIPString(InetAddressUtils.getIpV4Bytes("127.0.0.1")));
 	}
 	
 	public void testInetAddress_2() {

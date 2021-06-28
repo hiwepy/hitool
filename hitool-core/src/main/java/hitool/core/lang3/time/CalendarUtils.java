@@ -15,6 +15,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import hitool.core.lang3.Assert;
+import hitool.core.lang3.StringUtils;
 
 /*
  * 日历操作辅助类：提供常规日历相关操作方法
@@ -274,7 +275,7 @@ public abstract class CalendarUtils {
 	 */
 	public static String getNewDate(String dateStr, String format, int days) {
 		if (dateStr == null) {
-			return "";
+			return StringUtils.EMPTY;
 		}
 		Date date = DateUtils.parseDate(dateStr, format);
 		date = getNewDate(date, days);
@@ -324,7 +325,7 @@ public abstract class CalendarUtils {
 	 * @return
 	 */
 	public static String getNextMonthFirst() {
-		String str = "";
+		String str = StringUtils.EMPTY;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		Calendar lastDate = getCalendar();
@@ -340,7 +341,7 @@ public abstract class CalendarUtils {
 	 * @return
 	 */
 	public static String getNextMonthEnd() {
-		String str = "";
+		String str = StringUtils.EMPTY;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		Calendar lastDate = getCalendar();
@@ -357,7 +358,7 @@ public abstract class CalendarUtils {
 	 * @return
 	 */
 	public static String getNextYearEnd() {
-		String str = "";
+		String str = StringUtils.EMPTY;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		Calendar lastDate = getCalendar();
@@ -989,7 +990,7 @@ public abstract class CalendarUtils {
 	 * 获得本季度最后一天
 	 */
 	public static String getEndDayOfSeason(int month) {
-		int array[][] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
+		
 		int season = 1;
 		if (month >= 1 && month <= 3) {
 			season = 1;
@@ -1003,7 +1004,8 @@ public abstract class CalendarUtils {
 		if (month >= 10 && month <= 12) {
 			season = 4;
 		}
-		int end_month = array[season - 1][2];
+		
+		int end_month = seasons[season - 1][2];
 
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");// 可以方便地修改日期格式
@@ -1018,15 +1020,13 @@ public abstract class CalendarUtils {
 
 	/*
 	 * 得到本日的上月时间 如果当日为2007-9-1,那么获得2007-8-1
-	 * 
-	 * 
 	 */
 	public static Date getDateBeforeMonth() {
 		Calendar cal = getCalendar();
 		cal.add(Calendar.MONTH, -1);
 		return cal.getTime();
 	}
-
+	
 	public static Date getDateBeforeDay() {
 		Calendar cal = getCalendar();
 		cal.add(Calendar.DAY_OF_YEAR, -1);
@@ -1695,10 +1695,10 @@ public abstract class CalendarUtils {
 	 * @return 将转换后的月份返回
 	 */
 	public static String getMonthDay_CNe(String monthChinese) {
-		String[] ss = monthChinese.split("");
+		String[] ss = monthChinese.split(StringUtils.EMPTY);
 		StringBuilder sb = new StringBuilder();
 		sb.append(ss[1]).append("十").append(ss[2]);
-		return sb.toString().replace("0", "");
+		return sb.toString().replace("0", StringUtils.EMPTY);
 	}
 
 	public static int getYear() {
@@ -1729,7 +1729,7 @@ public abstract class CalendarUtils {
 
 	public static String getYear_CN(String dateStr) {
 		StringBuilder dataChinese = new StringBuilder();
-		String[] dateArray = dateStr.split("");
+		String[] dateArray = dateStr.split(StringUtils.EMPTY);
 		for (String s1 : dateArray) {
 			if ("0".equals(s1)) {
 				dataChinese.append("〇");
@@ -1779,35 +1779,35 @@ public abstract class CalendarUtils {
 	 * 获取本周一日期
 	 */
 	public static String getMonday() {
-		return "";
+		return StringUtils.EMPTY;
 	}
 
 	/*
 	 * 获取本周二日期
 	 */
 	public static String getTuesday() {
-		return "";
+		return StringUtils.EMPTY;
 	}
 
 	/*
 	 * 获取本周三日期
 	 */
 	public static String getWednesday() {
-		return "";
+		return StringUtils.EMPTY;
 	}
 
 	/*
 	 * 获取本周四日期
 	 */
 	public static String getThursday() {
-		return "";
+		return StringUtils.EMPTY;
 	}
 
 	/*
 	 * 获取本周五日期
 	 */
 	public static String getFriday() {
-		return "";
+		return StringUtils.EMPTY;
 	}
 
 	/*
@@ -1827,7 +1827,7 @@ public abstract class CalendarUtils {
 	 * 获取本周日日期
 	 */
 	public static String getSunday() {
-		return "";
+		return StringUtils.EMPTY;
 	}
 
 	/*
@@ -1958,6 +1958,7 @@ public abstract class CalendarUtils {
 		 * tt.convertDateToString(tt.getTimeYearNext()));
 		 * System.out.println("获得本年有多少天 ：" + tt.getMaxYear());
 		 */
+		
 	}
 
 }

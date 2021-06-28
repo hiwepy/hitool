@@ -49,8 +49,7 @@ public abstract class NumberUtils {
 	 * <b>function:</b> 月转化为大写
 	 * 
 	 * @createDate 2010-5-27 上午10:41:42
-	 * @param month
-	 *            月份
+	 * @param month 月份
 	 * @return 返回转换后大写月份
 	 */
 	public static String monthToUppder(int month) {
@@ -65,7 +64,7 @@ public abstract class NumberUtils {
 	
     public static void main(String[] args) {
 		
-    	System.out.println(numToUpper(2015));
+    	System.out.println(numToUpper(2150));
     	/*
     	Calendar calendar = Calendar.getInstance();
     	try {

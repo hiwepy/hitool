@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,116 +20,10 @@ import hitool.core.lang3.StringUtils;
 
 public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
-	/* 短日时间格式：HH:mm */
-	public static final String SHORT_TIME_FORMAT = "HH:mm";
-	/* 短日时间格式：HH:mm */
-	public static final SimpleDateFormat FORMAT_SHORT_TIME = new SimpleDateFormat(SHORT_TIME_FORMAT);
-	/* 短日时间格式：HH时mm分 */
-	public static final String SHORT_TIME_FORMAT_CN = "HH时mm分";
-	/* 短日时间格式：HH时mm分 */
-	public static final SimpleDateFormat FORMAT_SHORT_TIME_CN = new SimpleDateFormat(SHORT_TIME_FORMAT_CN);
-	/* 时间格式：HH:mm:ss */
-	public static final String TIME_FORMAT = "HH:mm:ss";
-	/* 时间格式：HH:mm:ss */
-	public static final SimpleDateFormat FORMAT_TIME = new SimpleDateFormat(TIME_FORMAT);
-	/* 时间格式：HH时mm分ss秒 */
-	public static final String TIME_FORMAT_CN = "HH时mm分ss秒";
-	/* 时间格式：HH时mm分ss秒 */
-	public static final SimpleDateFormat FORMAT_TIME_CN = new SimpleDateFormat(TIME_FORMAT_CN);
-	/* 时间格式,主要是针对timestamp：HH:mm:ss:SS */
-	public static final String TIME_LONGFORMAT = "HH:mm:ss:SS";
-	/* 时间格式,主要是针对timestamp：HH:mm:ss:SS */
-	public static final SimpleDateFormat FORMAT_LONGTIME = new SimpleDateFormat(TIME_LONGFORMAT);
-	/* 时间格式,主要是针对timestamp：HH时mm分ss秒SS毫秒 */
-	public static final String TIME_LONGFORMAT_CN = "HH时mm分ss秒SS毫秒";
-	/* 时间格式,主要是针对timestamp：HH时mm分ss秒SS毫秒 */
-	public static final SimpleDateFormat FORMAT_LONGTIME_CN = new SimpleDateFormat(TIME_LONGFORMAT_CN);
-
-	/* 短日期格式：yyyy-MM-dd */
-	public static final String DATE_FORMAT = "yyyy-MM-dd";
-	/* 短日期格式：yyyy-MM-dd */
-	public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat(DATE_FORMAT);
-	/* 短日期格式：yyyy/MM/dd */
-	public static final String DATE_FORMAT_TWO = "yyyy/MM/dd";
-	/* 短日期格式：yyyy/MM/dd */
-	public static final SimpleDateFormat FORMAT_DATE_TWO = new SimpleDateFormat(DATE_FORMAT_TWO);
-	/* 短日期格式：yyyy年MM月dd日 */
-	public static final String DATE_FORMAT_CN = "yyyy年MM月dd日";
-	/* 短日期格式：yyyy年MM月dd日 */
-	public static final SimpleDateFormat FORMAT_DATE_CN = new SimpleDateFormat(DATE_FORMAT_CN);
-
-	/* 日期格式：yyyy-MM */
-	public static final String MONTH_FORMAT = "yyyy-MM";
-	/* 日期格式：yyyy-MM */
-	public static final SimpleDateFormat FORMAT_MONTH = new SimpleDateFormat(MONTH_FORMAT);
-	/* 日期格式：yyyy/MM */
-	public static final String MONTH_FORMAT_TWO = "yyyy/MM";
-	/* 日期格式：yyyy/MM */
-	public static final SimpleDateFormat FORMAT_MONTH_TWO = new SimpleDateFormat(MONTH_FORMAT_TWO);
-	/* 日期格式：yyyy年MM月 */
-	public static final String MONTH_FORMAT_CN = "yyyy年MM月";
-	/* 日期格式：yyyy年MM月 */
-	public static final SimpleDateFormat FORMAT_MONTH_CN = new SimpleDateFormat(MONTH_FORMAT_CN);
-	/* 日期格式：EEE, dd MMM yyyy */
-	public static final String EEE_DATE_FORMAT = "EEE, dd MMM yyyy";
-	/* 日期格式：EEE, dd MMM yyyy */
-	public static final SimpleDateFormat FORMAT_EEE_DATE = new SimpleDateFormat(EEE_DATE_FORMAT);
-	/* 日期格式：dd MMM yyyy */
-	public static final String MMM_DATE_FORMAT = "dd MMM yyyy";
-	/* 日期格式：dd MMM yyyy */
-	public static final SimpleDateFormat FORMAT_MMM_DATE = new SimpleDateFormat(MMM_DATE_FORMAT);
-	/* 日期格式：dd MMM yyyy HH:mm:ss */
-	public static final String MMM_DATE_TIME_FORMAT = MMM_DATE_FORMAT + " " + TIME_FORMAT;
-	/* 日期格式：dd MMM yyyy HH:mm:ss */
-	public static final SimpleDateFormat FORMAT_MMM_DATE_TIME = new SimpleDateFormat(MMM_DATE_TIME_FORMAT);
-
-	/* 日期格式：yyyy-MM-dd HH:mm */
-	public static final String DATE_TIME_FORMAT = DATE_FORMAT + " " + SHORT_TIME_FORMAT;
-	/* 日期格式：yyyy-MM-dd HH:mm */
-	public static final SimpleDateFormat FORMAT_DATE_TIME = new SimpleDateFormat(DATE_TIME_FORMAT);
-	/* 日期格式：yyyy/MM/dd HH:mm */
-	public static final String DATE_TIME_FORMAT_TWO = DATE_FORMAT_TWO + " " + SHORT_TIME_FORMAT;
-	/* 日期格式：yyyy年MM月dd日 HH:mm */
-	public static final SimpleDateFormat FORMAT_DATE_TIME_TWO = new SimpleDateFormat(DATE_TIME_FORMAT_TWO);
-	/* 日期格式：yyyy年MM月dd日 HH:mm */
-	public static final String DATE_TIME_FORMAT_CN = DATE_FORMAT_CN + " " + SHORT_TIME_FORMAT;
-	/* 日期格式：yyyy年MM月dd日 HH:mm */
-	public static final SimpleDateFormat FORMAT_DATE_TIME_CN = new SimpleDateFormat(DATE_TIME_FORMAT_CN);
-
-	/* 长日期格式：yyyy-MM-dd HH:mm:ss */
-	public static final String DATE_LONGFORMAT = DATE_FORMAT + " " + TIME_FORMAT;
-	/* 长日期格式：yyyy-MM-dd HH:mm:ss */
-	public static final SimpleDateFormat FORMAT_LONGDATE = new SimpleDateFormat(DATE_LONGFORMAT);
-	/* 长日期格式：yyyy/MM/dd HH:mm:ss */
-	public static final String DATE_LONGFORMAT_TWO = DATE_FORMAT_TWO + " " + TIME_FORMAT;
-	/* 长日期格式：yyyy/MM/dd HH:mm:ss */
-	public static final SimpleDateFormat FORMAT_LONGDATE_TWO = new SimpleDateFormat(DATE_LONGFORMAT_TWO);
-	/* 长日期格式：yyyy年MM月dd日 HH:mm:ss */
-	public static final String DATE_LONGFORMAT_DATE_CN = DATE_FORMAT_CN + " " + TIME_FORMAT;
-	/* 长日期格式：yyyy年MM月dd日 HH:mm:ss */
-	public static final SimpleDateFormat FORMAT_LONGDATE_DATE_CN = new SimpleDateFormat(DATE_LONGFORMAT_DATE_CN);
-	/* 长日期格式：yyyy年MM月dd日 HH时mm分ss秒 */
-	public static final String DATE_LONGFORMAT_TIME_CN = DATE_FORMAT_CN + " " + TIME_FORMAT_CN;
-	/* 长日期格式：yyyy年MM月dd日 HH时mm分ss秒 */
-	public static final SimpleDateFormat FORMAT_LONGDATE_TIME_CN = new SimpleDateFormat(DATE_LONGFORMAT_TIME_CN);
-
-	/* 长日期格式,主要是针对timestamp：yyyy-MM-dd HH:mm:ss.SSS */
-	public static final String TIMESTAMP_FORMAT = DATE_FORMAT + " " + TIME_LONGFORMAT;
-	/* 长日期格式,主要是针对timestamp：yyyy-MM-dd HH:mm:ss.SSS */
-	public static final SimpleDateFormat FORMAT_TIMESTAMP = new SimpleDateFormat(TIMESTAMP_FORMAT);
-	/* 长日期格式,主要是针对timestamp：yyyy/MM/dd HH:mm:ss.SSS */
-	public static final String TIMESTAMP_FORMAT_TWO = DATE_FORMAT_TWO + " " + TIME_LONGFORMAT;
-	/* 长日期格式,主要是针对timestamp：yyyy/MM/dd HH:mm:ss.SSS */
-	public static final SimpleDateFormat FORMAT_TIMESTAMP_TWO = new SimpleDateFormat(TIMESTAMP_FORMAT_TWO);
-	/* 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH:mm:ss.SSS */
-	public static final String TIMESTAMP_FORMAT_DATE_CN = DATE_FORMAT_CN + " " + TIME_LONGFORMAT;
-	/* 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH:mm:ss.SSS */
-	public static final SimpleDateFormat FORMAT_TIMESTAMP_DATE_CN = new SimpleDateFormat(TIMESTAMP_FORMAT_DATE_CN);
-	/* 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH时mm分ss秒SS毫秒 */
-	public static final String TIMESTAMP_FORMAT_TIME_CN = DATE_FORMAT_CN + " " + TIME_LONGFORMAT_CN;
-	/* 长日期格式,主要是针对timestamp：yyyy年MM月dd日 HH时mm分ss秒SS毫秒 */
-	public static final SimpleDateFormat FORMAT_TIMESTAMP_TIME_CN = new SimpleDateFormat(TIMESTAMP_FORMAT_TIME_CN);
-
+	private static String[] parsePatterns = { "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM",
+			"yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM", "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss",
+			"yyyy.MM.dd HH:mm", "yyyy.MM" };
+	
 	/*
 	 * 默认验证日期正则表达式
 	 */
@@ -176,7 +71,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * 获取长日期格式：yyyy-MM-dd HH:mm:ss 格式对象
 	 */
 	public static SimpleDateFormat getLongDateFormat() {
-		return getDateFormat(DATE_LONGFORMAT);
+		return getDateFormat(DateFormats.DATE_LONGFORMAT);
 	}
 
 	/*
@@ -187,7 +82,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return 被格式化后的日期字符串形式
 	 */
 	public static String format(Date date) {
-		return getDateFormat(DATE_LONGFORMAT).format(date);
+		return getDateFormat(DateFormats.DATE_LONGFORMAT).format(date);
 	}
 
 	/*
@@ -219,7 +114,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return 格式化后的字符串形式日期
 	 */
 	public static String format(long date) {
-		return getDateFormat(DATE_LONGFORMAT).format(date);
+		return getDateFormat(DateFormats.DATE_LONGFORMAT).format(date);
 	}
 
 	/*
@@ -243,12 +138,12 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 */
 	public static String formatDate(Date date) {
 		Assert.notNull(date, " date must not be null ");
-		return getDateFormat(DATE_FORMAT).format(date);
+		return getDateFormat(DateFormats.DATE_FORMAT).format(date);
 	}
 
 	public static String formatDateTime(Date date) {
 		Assert.notNull(date, " date must not be null ");
-		return getDateFormat(DATE_LONGFORMAT).format(date);
+		return getDateFormat(DateFormats.DATE_LONGFORMAT).format(date);
 	}
 
 	/*
@@ -277,12 +172,12 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 */
 	public static String formatDate_CN(Date date) {
 		Assert.notNull(date, " date must not be null ");
-		return getDateFormat(DATE_FORMAT_CN).format(date);
+		return getDateFormat(DateFormats.DATE_FORMAT_CN).format(date);
 	}
 
 	public static String formatDateTime_CN(Date date) {
 		Assert.notNull(date, " date must not be null ");
-		return getDateFormat(DATE_LONGFORMAT_TIME_CN).format(date);
+		return getDateFormat(DateFormats.DATE_LONGFORMAT_TIME_CN).format(date);
 	}
 
 	// 取得当前系统的日期
@@ -328,7 +223,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		if (style < 1 || style > 3) {
 			throw new IllegalArgumentException("parameter is invalid.");
 		}
-		String newDate = "";
+		String newDate = StringUtils.EMPTY;
 		if (loc == null) {
 			loc = Locale.getDefault();
 		}
@@ -386,14 +281,14 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 			Pattern p1 = Pattern.compile(DATE_LONGFORMAT_PATTERN);
 			Matcher m1 = p1.matcher(datestr);
 			if (m1.matches()) {
-				date = getDateFormat(DATE_LONGFORMAT).parse(datestr);
+				date = getDateFormat(DateFormats.DATE_LONGFORMAT).parse(datestr);
 			}
 
 			if (date == null) {
 				Pattern p2 = Pattern.compile(DATE_DAY_PATTERN);
 				Matcher m2 = p2.matcher(datestr);
 				if (m2.matches()) {
-					date = getDateFormat(DATE_FORMAT).parse(datestr);
+					date = getDateFormat(DateFormats.DATE_FORMAT).parse(datestr);
 				}
 			}
 
@@ -401,7 +296,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 				Pattern p3 = Pattern.compile(DATE_LONGFORMAT_PATTERN_TWO);
 				Matcher m3 = p3.matcher(datestr);
 				if (m3.matches()) {
-					date = getDateFormat(DATE_LONGFORMAT_TWO).parse(datestr);
+					date = getDateFormat(DateFormats.DATE_LONGFORMAT_TWO).parse(datestr);
 				}
 			}
 
@@ -409,7 +304,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 				Pattern p4 = Pattern.compile(DATE_DAY_PATTERN_TWO);
 				Matcher m4 = p4.matcher(datestr);
 				if (m4.matches()) {
-					date = getDateFormat(DATE_FORMAT_TWO).parse(datestr);
+					date = getDateFormat(DateFormats.DATE_FORMAT_TWO).parse(datestr);
 				}
 			}
 
@@ -417,7 +312,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 				Pattern p5 = Pattern.compile(DATE_TIME_PATTERN);
 				Matcher m5 = p5.matcher(datestr);
 				if (m5.matches()) {
-					date = getDateFormat(DATE_TIME_FORMAT).parse(datestr);
+					date = getDateFormat(DateFormats.DATE_TIME_FORMAT).parse(datestr);
 				}
 			}
 
@@ -425,7 +320,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 				Pattern p6 = Pattern.compile(DATE_TIMESTAMP_PATTERN);
 				Matcher m6 = p6.matcher(datestr);
 				if (m6.matches()) {
-					date = getDateFormat(TIMESTAMP_FORMAT).parse(datestr);
+					date = getDateFormat(DateFormats.TIMESTAMP_FORMAT).parse(datestr);
 				}
 			}
 
@@ -436,19 +331,19 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	}
 
 	public static Date parseDate(String datestr) {
-		return parseDate(datestr, DATE_FORMAT);
+		return parseDate(datestr, DateFormats.DATE_FORMAT);
 	}
 
 	public static Date parseDateTime(String datestr) {
-		return parseDate(datestr, DATE_LONGFORMAT);
+		return parseDate(datestr, DateFormats.DATE_LONGFORMAT);
 	}
 
 	public static Date parseDateTime_CN(String datestr) {
-		return parseDate(datestr, DATE_LONGFORMAT_TIME_CN);
+		return parseDate(datestr, DateFormats.DATE_LONGFORMAT_TIME_CN);
 	}
 
 	public static Date parseDate_CN(String datestr) {
-		return parseDate(datestr, DATE_FORMAT_CN);
+		return parseDate(datestr, DateFormats.DATE_FORMAT_CN);
 	}
 
 	/*
@@ -476,14 +371,14 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * 两个时间之间的天数
 	 */
 	public static long getDiffDays(String date1, String date2) {
-		if (date1 == null || date1.equals("")) {
+		if (date1 == null || date1.equals(StringUtils.EMPTY)) {
 			return 0;
 		}
-		if (date2 == null || date2.equals("")) {
+		if (date2 == null || date2.equals(StringUtils.EMPTY)) {
 			return 0;
 		}
 		// 转换为标准时间
-		SimpleDateFormat myFormatter = getDateFormat(DATE_FORMAT);
+		SimpleDateFormat myFormatter = getDateFormat(DateFormats.DATE_FORMAT);
 		long day = 0;
 		try {
 			Date date = myFormatter.parse(date1);
@@ -500,18 +395,17 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @param date
 	 * @return
 	 */
-	@SuppressWarnings("null")
 	public static String getFormatDateV2(String date) {
-		if (date == null) {
-			return date;
+		if (Objects.isNull(date)) {
+			return null;
 		}
 		String[] datearr = StringUtils.split(date, "-");
 		StringBuffer ret = new StringBuffer();
 
-		if (datearr == null && datearr.length < 3) {
+		if (Objects.isNull(datearr) || datearr.length < 3) {
 			return date;
 		}
-
+		
 		ret.append(datearr[0]);
 		ret.append("-");
 		ret.append(Integer.parseInt(datearr[1]) < 10 ? "0" + datearr[1] : datearr[1]);
@@ -523,9 +417,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
 	/*
 	 * 从时间串中获取小时数。
-	 * 
-	 * @param datestr
-	 *            "2007-10-12 13:25:00"
+	 * @param datestr  "2007-10-12 13:25:00"
 	 * @return
 	 * @throws ParseException
 	 */
@@ -533,27 +425,26 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		if (StringUtils.isBlank(datestr)) {
 			return 0;
 		}
-		Date date = getDateFormat(DATE_LONGFORMAT).parse(datestr);
-		datestr = getDateFormat(DATE_LONGFORMAT).format(date);
+		Date date = getDateFormat(DateFormats.DATE_LONGFORMAT).parse(datestr);
+		datestr = getDateFormat(DateFormats.DATE_LONGFORMAT).format(date);
 		return Integer.parseInt(datestr.substring(datestr.length() - 8, datestr.length() - 6));
 	}
-
+	
 	public static String getDayBegin(String datestr) throws ParseException {
 		Assert.hasText(datestr, " datestr must not be null ");
-		Date date = getDateFormat(DATE_FORMAT).parse(datestr);
-		datestr = getDateFormat(DATE_FORMAT).format(date);
+		Date date = getDateFormat(DateFormats.DATE_FORMAT).parse(datestr);
+		datestr = getDateFormat(DateFormats.DATE_FORMAT).format(date);
 		return datestr + " 00:00:00";
 	}
 
 	/*
 	 * 时间查询时,结束时间的 23:59:59
-	 * 
 	 * @throws ParseException
 	 */
 	public static String getDayEnd(String datestr) throws ParseException {
 		Assert.hasText(datestr, " datestr must not be null ");
-		Date date = getDateFormat(DATE_FORMAT).parse(datestr);
-		datestr = getDateFormat(DATE_FORMAT).format(date);
+		Date date = getDateFormat(DateFormats.DATE_FORMAT).parse(datestr);
+		datestr = getDateFormat(DateFormats.DATE_FORMAT).format(date);
 		return datestr + " 23:59:59";
 	}
 
@@ -564,7 +455,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return String 返回格式化后的当前服务器系统日期，格式为yyyy-MM-dd，如2006-02-15
 	 */
 	public static String getCurrDate() {
-		return formatDate(new Date(), DATE_FORMAT);
+		return formatDate(new Date(), DateFormats.DATE_FORMAT);
 	}
 
 	/*
@@ -576,8 +467,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 *  getCurrDate(&quot;yyyy-MM-dd HH:mm:ss&quot;)=&quot;2003-09-24 09:19:10&quot;
 	 * </pre>
 	 * 
-	 * @param dateFormatString
-	 *            日期格式字符串
+	 * @param format 日期格式字符串
 	 * @return String
 	 */
 	public static String getCurrDate(String format) {
@@ -591,7 +481,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return String 返回格式化后的当前服务器系统时间，格式为yyyy-MM-dd HH:mm:ss，如2006-02-15 15:23:45
 	 */
 	public static String getCurrDateTime() {
-		return formatDate(new Date(), DATE_LONGFORMAT);
+		return formatDate(new Date(), DateFormats.DATE_LONGFORMAT);
 	}
 
 	/*
@@ -601,7 +491,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return String 返回当前服务器系统日期，格式为yyyy年MM月dd日，如2006年02月15日
 	 */
 	public static String getCurrDate_CN() {
-		return formatDate(new Date(), DATE_FORMAT_CN);
+		return formatDate(new Date(), DateFormats.DATE_FORMAT_CN);
 	}
 
 	/*
@@ -611,7 +501,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return String 返回格式化后的当前服务器系统时间，格式为yyyy年MM月dd日 HH:mm:ss，如2006年02月15日 15:23:45
 	 */
 	public static String getCurrDateTime_CN() {
-		return formatDate(new Date(), DATE_LONGFORMAT_DATE_CN);
+		return formatDate(new Date(), DateFormats.DATE_LONGFORMAT_DATE_CN);
 	}
 
 	/*
@@ -621,23 +511,22 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * <li>3.将每个32位的二进制串转换成一个8位的16进制串。</li>
 	 * <li>4.将3个8位的16进制串合并成一个串，中间以","分割。</li>
 	 * 
-	 * @param timespan
-	 *            一个48位的二进制串，如："011111111011111111111111111111111111111111111110"
+	 * @param timespan 一个48位的二进制串，如："011111111011111111111111111111111111111111111110"
 	 * @return 一个16进制串，每位间以","分割。如："3fffcfff,ffffffff,fffffffc"
 	 */
 	public static String getHexTimeFromBinary(String timespan) {
-		if (timespan == null || timespan.equals("")) {
-			return "";
+		if (timespan == null || timespan.equals(StringUtils.EMPTY)) {
+			return StringUtils.EMPTY;
 		}
 
-		String ret = "";
-		String tmp = "";
+		String ret = StringUtils.EMPTY;
+		String tmp = StringUtils.EMPTY;
 		for (int i = 0; i < timespan.length(); i++) {
 			tmp += timespan.charAt(i);
 			tmp += timespan.charAt(i);
 			// tmp += i;
 			if ((i + 1) % 16 == 0) {
-				if (!ret.equals("")) {
+				if (!ret.equals(StringUtils.EMPTY)) {
 					ret += ",";
 				}
 				Long t = Long.parseLong(tmp, 2);
@@ -650,7 +539,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 				}
 
 				ret += hexStr;
-				tmp = "";
+				tmp = StringUtils.EMPTY;
 			}
 		}
 
@@ -660,17 +549,16 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	/*
 	 * 进行时段格式转换，将输入的26位的2进制串转换成48位的二进制串。
 	 * 
-	 * @param timespan
-	 *            一个16进制串，每位间以","分割。如："3fffcfff,ffffffff,fffffffc"
+	 * @param timespan 一个16进制串，每位间以","分割。如："3fffcfff,ffffffff,fffffffc"
 	 * @return 一个48位的二进制串，如："011111111011111111111111111111111111111111111110"
 	 */
 	public static String getBinaryTimeFromHex(String timespan) {
-		if (timespan == null || timespan.equals("")) {
-			return "";
+		if (StringUtils.isBlank(timespan)) {
+			return StringUtils.EMPTY;
 		}
 
-		String tmp = "";
-		String ret = "";
+		String tmp = StringUtils.EMPTY;
+		String ret = StringUtils.EMPTY;
 		String[] strArr = timespan.split(",");
 		for (int i = 0; i < strArr.length; i++) {
 			String binStr = Long.toBinaryString(Long.parseLong(strArr[i], 16));
@@ -698,12 +586,12 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return 一个48位的二进制串，如："011111111011111111111111111111111111111111111110"
 	 */
 	public static String getBinaryTimeFromDec(String timespan) {
-		if (timespan == null || timespan.equals("")) {
-			return "";
+		if (StringUtils.isBlank(timespan)) {
+			return StringUtils.EMPTY;
 		}
 
-		String tmp = "";
-		String ret = "";
+		String tmp = StringUtils.EMPTY;
+		String ret = StringUtils.EMPTY;
 		String[] strArr = timespan.split(",");
 		for (int i = 0; i < strArr.length; i++) {
 			String binStr = Long.toBinaryString(Long.parseLong(strArr[i], 10));
@@ -735,18 +623,18 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return 一个16进制串，每位间以","分割。如："1234567890,1234567890,1234567890"
 	 */
 	public static String getDecTimeFromBinary(String timespan) {
-		if (timespan == null || timespan.equals("")) {
-			return "";
+		if (StringUtils.isBlank(timespan)) {
+			return StringUtils.EMPTY;
 		}
 
-		String ret = "";
-		String tmp = "";
+		String ret = StringUtils.EMPTY;
+		String tmp = StringUtils.EMPTY;
 		for (int i = 0; i < timespan.length(); i++) {
 			tmp += timespan.charAt(i);
 			tmp += timespan.charAt(i);
 			// tmp += i;
 			if ((i + 1) % 16 == 0) {
-				if (!ret.equals("")) {
+				if (!ret.equals(StringUtils.EMPTY)) {
 					ret += ",";
 				}
 				Long t = Long.parseLong(tmp, 2);
@@ -759,7 +647,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 				}
 
 				ret += decStr;
-				tmp = "";
+				tmp = StringUtils.EMPTY;
 			}
 		}
 
@@ -771,7 +659,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 */
 	public static boolean isDate(String date, String expression) {
 		// 使用正则表达式进行判定
-		if (expression == null || expression.trim().length() == 0) {
+		if (StringUtils.isBlank(expression)) {
 			expression = DATE_PATTERN;
 		}
 		Pattern pattern;
@@ -785,14 +673,14 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	}
 
 	public static boolean isDate(String datestr) {
-		return isFormat(datestr, DATE_FORMAT) || isFormat(datestr, DATE_FORMAT_TWO) || isFormat(datestr, DATE_FORMAT_CN)
-				|| isFormat(datestr, MONTH_FORMAT) || isFormat(datestr, MONTH_FORMAT_TWO)
-				|| isFormat(datestr, MONTH_FORMAT_CN) || isFormat(datestr, DATE_TIME_FORMAT)
-				|| isFormat(datestr, DATE_TIME_FORMAT_TWO) || isFormat(datestr, DATE_TIME_FORMAT_CN)
-				|| isFormat(datestr, DATE_LONGFORMAT) || isFormat(datestr, DATE_LONGFORMAT_TWO)
-				|| isFormat(datestr, DATE_LONGFORMAT_DATE_CN) || isFormat(datestr, DATE_LONGFORMAT_TIME_CN)
-				|| isFormat(datestr, TIMESTAMP_FORMAT) || isFormat(datestr, TIMESTAMP_FORMAT_TWO)
-				|| isFormat(datestr, TIMESTAMP_FORMAT_DATE_CN) || isFormat(datestr, TIMESTAMP_FORMAT_TIME_CN);
+		return isFormat(datestr, DateFormats.DATE_FORMAT) || isFormat(datestr, DateFormats.DATE_FORMAT_TWO) || isFormat(datestr, DateFormats.DATE_FORMAT_CN)
+				|| isFormat(datestr, DateFormats.MONTH_FORMAT) || isFormat(datestr, DateFormats.MONTH_FORMAT_TWO)
+				|| isFormat(datestr, DateFormats.MONTH_FORMAT_CN) || isFormat(datestr, DateFormats.DATE_TIME_FORMAT)
+				|| isFormat(datestr, DateFormats.DATE_TIME_FORMAT_TWO) || isFormat(datestr, DateFormats.DATE_TIME_FORMAT_CN)
+				|| isFormat(datestr, DateFormats.DATE_LONGFORMAT) || isFormat(datestr, DateFormats.DATE_LONGFORMAT_TWO)
+				|| isFormat(datestr, DateFormats.DATE_LONGFORMAT_DATE_CN) || isFormat(datestr, DateFormats.DATE_LONGFORMAT_TIME_CN)
+				|| isFormat(datestr, DateFormats.TIMESTAMP_FORMAT) || isFormat(datestr, DateFormats.TIMESTAMP_FORMAT_TWO)
+				|| isFormat(datestr, DateFormats.TIMESTAMP_FORMAT_DATE_CN) || isFormat(datestr, DateFormats.TIMESTAMP_FORMAT_TIME_CN);
 	}
 
 	public static boolean isFormat(String datestr, String format) {
@@ -809,9 +697,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		}
 	}
 
-	private static String[] parsePatterns = { "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM",
-			"yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM", "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss",
-			"yyyy.MM.dd HH:mm", "yyyy.MM" };
 
 	/*
 	 * 得到当前日期字符串 格式（yyyy-MM-dd）
@@ -943,7 +828,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		long min = ((timeMillis / (60 * 1000)) - day * 24 * 60 - hour * 60);
 		long s = (timeMillis / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
 		long sss = (timeMillis - day * 24 * 60 * 60 * 1000 - hour * 60 * 60 * 1000 - min * 60 * 1000 - s * 1000);
-		return (day > 0 ? day + "," : "") + hour + ":" + min + ":" + s + "." + sss;
+		return (day > 0 ? day + "," : StringUtils.EMPTY) + hour + ":" + min + ":" + s + "." + sss;
 	}
 
 	/*

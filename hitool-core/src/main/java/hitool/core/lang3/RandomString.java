@@ -1,27 +1,27 @@
 package hitool.core.lang3;
 
-
+import java.util.Calendar;
 import java.util.Random;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/*
- * A provider of randomized {@link String} values.
+/**
+ * A provider of randomized {@link java.lang.String} values.
  */
 public class RandomString {
 
-    /*
-     * The default length of a randomized {@link String}.
+    /**
+     * The default length of a randomized {@link java.lang.String}.
      */
     public static final int DEFAULT_LENGTH = 8;
 
-    /*
-     * The symbols which are used to create a random {@link String}.
+    /**
+     * The symbols which are used to create a random {@link java.lang.String}.
      */
     private static final char[] SYMBOL;
 
-    /*
+    /**
      * The amount of bits to extract out of an integer for each key generated.
      */
     private static final int KEY_BITS;
@@ -45,26 +45,26 @@ public class RandomString {
         KEY_BITS = bits - (Integer.bitCount(SYMBOL.length) == bits ? 0 : 1);
     }
 
-    /*
+    /**
      * A provider of random values.
      */
     private final Random random;
 
-    /*
+    /**
      * The length of the random strings that are created by this instance.
      */
     private final int length;
 
-    /*
-     * Creates a random {@link String} provider where each {@link String} is of
+    /**
+     * Creates a random {@link java.lang.String} provider where each {@link java.lang.String} is of
      * {@link net.bytebuddy.utility.RandomString#DEFAULT_LENGTH} length.
      */
     public RandomString() {
         this(DEFAULT_LENGTH);
     }
 
-    /*
-     * Creates a random {@link String} provider where each value is of the given length.
+    /**
+     * Creates a random {@link java.lang.String} provider where each value is of the given length.
      *
      * @param length The length of the random {@link String}.
      */
@@ -76,20 +76,20 @@ public class RandomString {
         random = new Random();
     }
 
-    /*
-     * Creates a random {@link String} of {@link net.bytebuddy.utility.RandomString#DEFAULT_LENGTH} length.
+    /**
+     * Creates a random {@link java.lang.String} of {@link net.bytebuddy.utility.RandomString#DEFAULT_LENGTH} length.
      *
-     * @return A random {@link String}.
+     * @return A random {@link java.lang.String}.
      */
     public static String make() {
         return make(DEFAULT_LENGTH);
     }
 
-    /*
-     * Creates a random {@link String} of the given {@code length}.
+    /**
+     * Creates a random {@link java.lang.String} of the given {@code length}.
      *
      * @param length The length of the random {@link String}.
-     * @return A random {@link String}.
+     * @return A random {@link java.lang.String}.
      */
     public static String make(int length) {
         return new RandomString(length).nextString();
@@ -110,10 +110,10 @@ public class RandomString {
         return new String(buffer);
     }
 
-    /*
-     * Creates a new random {@link String}.
+    /**
+     * Creates a new random {@link java.lang.String}.
      *
-     * @return A random {@link String} of the given length for this instance.
+     * @return A random {@link java.lang.String} of the given length for this instance.
      */
     public String nextString() {
         char[] buffer = new char[length];
@@ -134,12 +134,15 @@ public class RandomString {
 			String uuid = UUID.randomUUID().toString().replace("-", "");
 			Pattern pattern = Pattern.compile("[^0-9]");
 			Matcher matcher = pattern.matcher(uuid);
-			/*
-			 * Calendar c = Calendar.getInstance(); int seconds = c.get(Calendar.SECOND);
-			 * all = matcher.replaceAll("").substring(0,6)+seconds; Pattern compile =
-			 * Pattern.compile("^(\\d)\\1{7}$"); if(!compile.matcher(all).matches()){ break;
-			 * }
-			 */
+
+			Calendar c = Calendar.getInstance();
+			int seconds = c.get(Calendar.SECOND);
+			all = matcher.replaceAll("").substring(0, 6) + seconds;
+			Pattern compile = Pattern.compile("^(\\d)\\1{7}$");
+			if (!compile.matcher(all).matches()) {
+				break;
+			}
+			
 			all = matcher.replaceAll("").substring(0, 8);
 			if (!isMather(all)) {
 				break;

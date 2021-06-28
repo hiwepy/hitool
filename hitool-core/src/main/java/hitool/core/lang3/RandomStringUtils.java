@@ -61,8 +61,9 @@ public abstract class RandomStringUtils extends org.apache.commons.lang3.RandomS
 	}
 
 	/*
-	 * 这是典型的随机洗牌算法。 流程是从备选数组中选择一个放入目标数组中，将选取的数组从备选数组移除（放至最后，并缩小选择区域）
-	 * 算法时间复杂度O（n） @return 随机8为不重复数组
+	 * 这是典型的随机洗牌算法。 
+	 * 流程是从备选数组中选择一个放入目标数组中，将选取的数组从备选数组移除（放至最后，并缩小选择区域）算法时间复杂度O（n） 
+	 * @return 随机8位不重复数组
 	 */
 	public static String randomNum(int pwd_len) {
 		String no = "";
@@ -95,12 +96,9 @@ public abstract class RandomStringUtils extends org.apache.commons.lang3.RandomS
 	/*
 	 * 交换方法
 	 * 
-	 * @param i
-	 *            交换位置
-	 * @param j
-	 *            互换的位置
-	 * @param nums
-	 *            数组
+	 * @param i 交换位置
+	 * @param j 互换的位置
+	 * @param nums 数组
 	 */
 	private static void swap(int i, int j, int[] nums) {
 		int temp = nums[i];
