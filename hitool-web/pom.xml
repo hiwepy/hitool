@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.github.hiwepy</groupId>
 		<artifactId>hitool</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.0.1.RELEASE</version>
 	</parent>
 	<artifactId>hitool-web</artifactId>
 
@@ -34,12 +34,6 @@
 			<artifactId>cos</artifactId>
 			<scope>provided</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
 
     </dependencies>
 

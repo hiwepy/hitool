@@ -4,7 +4,7 @@
 
 	<groupId>com.github.hiwepy</groupId>
 	<artifactId>hitool</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>${project.groupId}:${project.artifactId}</name>

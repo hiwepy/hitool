@@ -26,7 +26,7 @@ public class BeanConvertUtils extends ConvertUtilsBean {
     private static BeanConvertUtils convertUtils = new BeanConvertUtils();
     
     // ------------------------------------------------------- Class Methods
-    /** Get singleton instance */
+    
     protected static BeanConvertUtils getInstance() {
         return convertUtils;
     }

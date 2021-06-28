@@ -320,7 +320,6 @@ public class OrderedProperties extends Properties {
 		return super.remove(key);
 	}
 
-	/** @param comment  */
 	public void addComment(String comment) {
 		if (comment != null) {
 			context.addCommentLine("#" + comment);
