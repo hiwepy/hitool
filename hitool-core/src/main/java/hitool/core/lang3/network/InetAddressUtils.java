@@ -109,7 +109,8 @@ import org.slf4j.LoggerFactory;
 public abstract class InetAddressUtils {
 
 	protected static Logger LOG = LoggerFactory.getLogger(InetAddressUtils.class);
-	protected static String LOCALIP = "127.0.0.1";
+	protected static String LOCAL_IP = "127.0.0.1";
+	protected static String LOCAL_IP_255 = "255.255.255.0";
 	protected static String LOCALHOST = "localhost";
 	protected static String UNKNOWN_HOST_ADDRESS = "Unknown Host Address";
 
@@ -131,7 +132,7 @@ public abstract class InetAddressUtils {
 	public static byte[] getIpV4Bytes(String ipOrMask) {
 		// ipv6的地址，不解析，返回127.0.0.1
 		if (ipOrMask.contains(":")) {
-			ipOrMask = LOCALIP;
+			ipOrMask = LOCAL_IP;
 		}
 		byte[] ret = new byte[4];
 		StringTokenizer st = new StringTokenizer(ipOrMask, ".");
@@ -431,7 +432,7 @@ public abstract class InetAddressUtils {
 
 	public static boolean internalIp(String ip) {
 		byte[] addr = textToNumericFormatV4(ip);
-		return internalIp(addr) || LOCALIP.equals(ip);
+		return internalIp(addr) || LOCAL_IP.equals(ip);
 	}
 	
 	private static boolean internalIp(byte[] addr) {
@@ -540,4 +541,26 @@ public abstract class InetAddressUtils {
 		return bytes;
 	}
 	
+	public static boolean isSameSegment(String remoteIp) {
+		String localIp = getLocalHostAddress();
+		int mask = InetAddressUtils.getIpV4Value(LOCAL_IP_255);
+		boolean flag = (mask & InetAddressUtils.getIpV4Value(localIp)) == (mask & InetAddressUtils.getIpV4Value(remoteIp));
+		return flag;
+	}
+	
+	public static String getLocalHostAddress() {
+		try {
+			return InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+		}
+		return LOCAL_IP;
+	}
+	
+	public static String getLocalHostName() {
+		try {
+			return InetAddress.getLocalHost().getHostName();
+		} catch (UnknownHostException e) {
+		}
+		return UNKNOWN_HOST_ADDRESS;
+	}
 }
