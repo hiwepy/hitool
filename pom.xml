@@ -406,7 +406,7 @@
 		<jdom.version>2.0.2</jdom.version>
 		<jmock.version>2.12.0</jmock.version>
 		<junrar.version>7.4.0</junrar.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<lombok.version>1.18.20</lombok.version>
 		<oro.version>2.0.8</oro.version>
 		<ognl.version>3.2.19</ognl.version>
