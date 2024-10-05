@@ -10,16 +10,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.PropertyFilter;
-import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 
+import com.alibaba.fastjson2.JSONWriter;
+import com.alibaba.fastjson2.filter.PropertyFilter;
 import hitool.core.fastjson.filter.NullPropertyFilter;
 
 /*
- <p>SerializerFeature属性</p>
+ <p>JSONWriter.Feature属性</p>
  <table style="height:800px; width:744px" cellspacing="1" cellpadding="1" border="1"> 
 	 <tbody> 
 	  <tr> 
@@ -196,64 +196,66 @@ public class FastJSONObject extends JSONObject {
 	 */
 	public static PropertyFilter NULL_PROPERTY_FILTER = new NullPropertyFilter();
 	
-	protected static  SerializerFeature[] PARSER_FEATURES = { 
-        
-        SerializerFeature.IgnoreNonFieldGetter,
-        SerializerFeature.IgnoreErrorGetter
+	protected static JSONWriter.Feature[] PARSER_FEATURES = {
+
+			JSONWriter.Feature.IgnoreNonFieldGetter,
+			JSONWriter.Feature.IgnoreErrorGetter
         
 	};
 	
 	/*
 	 * 默认json格式化方式
 	 */
-	protected static  SerializerFeature[] GENERATE_FEATURES = { 
+	protected static  JSONWriter.Feature[] GENERATE_FEATURES = { 
 		
-		SerializerFeature.QuoteFieldNames,
-		SerializerFeature.SortField,
-		SerializerFeature.PrettyFormat,
+		JSONWriter.Feature.UnquoteFieldName,
+		JSONWriter.Feature.SortMapEntriesByKeys,
+		JSONWriter.Feature.PrettyFormat,
 		
 		// 输出空置字段
-		SerializerFeature.WriteMapNullValue,
+		JSONWriter.Feature.WriteMapNullValue,
 
 		//用枚举name()输出
-		SerializerFeature.WriteEnumUsingName,
+		JSONWriter.Feature.WriteEnumsUsingName,
 	    
 		//list字段如果为null，输出为[]，而不是null
-        SerializerFeature.WriteNullListAsEmpty,
+        JSONWriter.Feature.WriteNullListAsEmpty,
 
         //字符类型字段如果为null，输出为""，而不是null
-        SerializerFeature.WriteNullStringAsEmpty,
+        JSONWriter.Feature.WriteNullStringAsEmpty,
         
         //数值字段如果为null，输出为0，而不是null
-        SerializerFeature.WriteNullNumberAsZero,
+        JSONWriter.Feature.WriteNullNumberAsZero,
 
         //Boolean字段如果为null，输出为false，而不是null
-        SerializerFeature.WriteNullBooleanAsFalse,
+        JSONWriter.Feature.WriteNullBooleanAsFalse,
 
-        SerializerFeature.WriteNonStringKeyAsString,
-        SerializerFeature.WriteNonStringValueAsString,
+        JSONWriter.Feature.WriteNonStringKeyAsString,
+        JSONWriter.Feature.WriteNonStringValueAsString,
         
-        SerializerFeature.WriteBigDecimalAsPlain,
+        JSONWriter.Feature.WriteBigDecimalAsPlain,
         
         
         //如果是true，类中的Get方法对应的Field是transient，序列化时将会被忽略。默认为true
-        SerializerFeature.SkipTransientField,
+		//JSONWriter.Feature..SkipTransientField,
         
         //消除对同一对象循环引用的问题，默认为false
-        SerializerFeature.DisableCircularReferenceDetect,
+		// JSONWriter.Feature.ReferenceDetection,
+
+		//使用指定的格式格式化日期类型对象
+	    // JSONWriter.Feature.WriteDateUseDateFormat
+		// JSONWriter.Feature.DisableCircularReferenceDetect,
         
         //使用指定的格式格式化日期类型对象
-        SerializerFeature.WriteDateUseDateFormat,
-        
-        
-        SerializerFeature.IgnoreNonFieldGetter,
-        SerializerFeature.IgnoreErrorGetter
+       	// JSONWriter.Feature.WriteDateUseDateFormat,
+		JSONWriter.Feature.IgnoreNonFieldGetter,
+		JSONWriter.Feature.IgnoreErrorGetter
         
         
 	};
 	
 	static {
-		JSON.DEFFAULT_DATE_FORMAT = "YYYY-MM-dd HH:mm:ss";
+		JSON..DEFFAULT_DATE_FORMAT = "YYYY-MM-dd HH:mm:ss";
 	}
 	
 	public static <T> String defaults(String key,String value) {

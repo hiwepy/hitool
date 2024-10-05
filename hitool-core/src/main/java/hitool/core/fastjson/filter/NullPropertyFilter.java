@@ -4,7 +4,10 @@
  */
 package hitool.core.fastjson.filter;
 
-import com.alibaba.fastjson.serializer.PropertyFilter;
+
+import com.alibaba.fastjson2.filter.PropertyFilter;
+
+import java.util.Objects;
 
 public class NullPropertyFilter implements PropertyFilter {
 
@@ -18,6 +21,8 @@ public class NullPropertyFilter implements PropertyFilter {
 	@Override
 	public boolean apply(Object source, String name, Object value) {
 		//所属对象和属性值均不能为空
+		Objects.isNull(source);
+
 		return (source != null && value != null  && !"null".equalsIgnoreCase(String.valueOf(value))) ?  true : false;
 		
 	}

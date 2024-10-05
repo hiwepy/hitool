@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.alibaba.fastjson.serializer.JSONSerializer;
-import com.alibaba.fastjson.serializer.PropertyPreFilter;
-import com.alibaba.fastjson.serializer.SerialContext;
+import com.alibaba.fastjson2.serializer.JSONSerializer;
+import com.alibaba.fastjson2.serializer.PropertyPreFilter;
+import com.alibaba.fastjson2.serializer.SerialContext;
 
 public class PatternPropertyPreFilter implements PropertyPreFilter {
 

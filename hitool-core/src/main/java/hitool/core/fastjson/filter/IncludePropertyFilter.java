@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.alibaba.fastjson.serializer.PropertyFilter;
+import com.alibaba.fastjson2.serializer.PropertyFilter;
 
 public class IncludePropertyFilter implements PropertyFilter {
 
