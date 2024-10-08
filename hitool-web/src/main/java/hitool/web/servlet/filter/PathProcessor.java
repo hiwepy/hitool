@@ -1,6 +1,6 @@
 package hitool.web.servlet.filter;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 
 /*
  *  给过滤器设置路径

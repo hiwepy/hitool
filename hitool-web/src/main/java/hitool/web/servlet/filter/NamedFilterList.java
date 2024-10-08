@@ -18,8 +18,8 @@ package hitool.web.servlet.filter;
 
 import java.util.List;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
 
 public interface NamedFilterList extends List<Filter> {
 	 

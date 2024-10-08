@@ -15,10 +15,10 @@
  */
 package hitool.web.servlet.filter;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,8 +64,8 @@ public abstract class AbstractFilter implements Filter {
 	 * If initialized as bean in a Spring application context,
 	 * it falls back to the bean name as defined in the bean factory.
 	 * @return the filter name, or <code>null</code> if none available
-	 * @see javax.servlet.GenericServlet#getServletName()
-	 * @see javax.servlet.FilterConfig#getFilterName()
+	 * @see jakarta.servlet.GenericServlet#getServletName()
+	 * @see jakarta.servlet.FilterConfig#getFilterName()
 	 * @see #setBeanName
 	 */
 	protected final String getFilterName() {

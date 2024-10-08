@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,25 +22,24 @@ import ognl.OgnlException;
 
 
 @SuppressWarnings({ "unchecked", "unused" })
+@Slf4j
 public abstract class OgnlPropertyUtils {
 
 	/*
 	 * Logging for this instance
 	 */
-	protected static Logger LOG = LoggerFactory.getLogger(OgnlPropertyUtils.class);
-
 	public static Object getProperty(Object bean, String expression){
 		// Do nothing unless both arguments have been specified
 		if ((bean == null) || (expression == null)) {
 			return null;
 		}
-		if (LOG.isDebugEnabled()) {
-			LOG.debug("OgnlBeanUtils.getProperty(" + bean.getClass() + ", " + expression + ")");
+		if (log.isDebugEnabled()) {
+			log.debug("OgnlBeanUtils.getProperty(" + bean.getClass() + ", " + expression + ")");
 		}
 		try { 
-			if(bean instanceof Map){
+			if(bean instanceof OgnlContext){
 				//调用OgnlRuntime的方法判断是否包含该属性
-				return Ognl.getValue(Ognl.parseExpression(expression),(Map)bean,new Object());
+				return Ognl.getValue(Ognl.parseExpression(expression), (OgnlContext) bean, new Object());
 			}else{
 				OgnlContext context = (OgnlContext) Ognl.createDefaultContext(bean);
 				//调用OgnlRuntime的方法判断是否包含该属性
@@ -59,15 +59,15 @@ public abstract class OgnlPropertyUtils {
 		if ((bean == null) || (expression == null)) {
 			return null;
 		}
-		if (LOG.isDebugEnabled()) {
-			LOG.debug("OgnlBeanUtils.getProperty(" + bean + ", " + expression +", " + reusltType + ")");
+		if (log.isDebugEnabled()) {
+			log.debug("OgnlBeanUtils.getProperty(" + bean + ", " + expression +", " + reusltType + ")");
 		}
 		try { 
-			if(bean instanceof Map){
+			if(bean instanceof OgnlContext){
 				//调用OgnlRuntime的方法判断是否包含该属性
-				return Ognl.getValue(Ognl.parseExpression(expression),(Map)bean,new Object(),reusltType);
+				return Ognl.getValue(Ognl.parseExpression(expression), (OgnlContext)bean,new Object(),reusltType);
 			}else{
-				OgnlContext context = (OgnlContext) Ognl.createDefaultContext(bean);
+				OgnlContext context = Ognl.createDefaultContext(bean);
 				//调用OgnlRuntime的方法判断是否包含该属性
 				return Ognl.getValue(Ognl.parseExpression(expression),context,bean,reusltType);
 			}
@@ -85,15 +85,13 @@ public abstract class OgnlPropertyUtils {
 		if ((bean == null) || (expression == null)) {
 			return;
 		}
-		if (LOG.isDebugEnabled()) {
-			LOG.debug("OgnlBeanUtils.setProperty(" + bean + ", " + expression +", " + value + ")");
+		if (log.isDebugEnabled()) {
+			log.debug("OgnlBeanUtils.setProperty(" + bean + ", " + expression +", " + value + ")");
 		}
-		try { 
-			Map context = null;
-			if(bean instanceof Map){
-				context = (Map)bean;
+		try {
+			if(bean instanceof OgnlContext){
 				//调用OgnlRuntime的方法判断是否包含该属性
-				Ognl.setValue(Ognl.parseExpression(expression),context,new Object(),value);
+				Ognl.setValue(Ognl.parseExpression(expression),(OgnlContext) bean,new Object(),value);
 			}else{
 				//调用OgnlRuntime的方法判断是否包含该属性
 				Ognl.setValue(Ognl.parseExpression(expression),Ognl.createDefaultContext(bean),bean,value);
@@ -122,8 +120,8 @@ public abstract class OgnlPropertyUtils {
 		if ((bean == null) || (expression == null)) {
 			return null;
 		}
-		if (LOG.isDebugEnabled()) {
-			LOG.debug("JavaBeanUtils.getArrayProperty(" + bean + ", " + expression + ")");
+		if (log.isDebugEnabled()) {
+			log.debug("JavaBeanUtils.getArrayProperty(" + bean + ", " + expression + ")");
 		}
 		Object value = OgnlPropertyUtils.getProperty(bean, expression);
 		if (value == null) {
@@ -162,8 +160,8 @@ public abstract class OgnlPropertyUtils {
 		if ((bean == null) || (properties == null)) {
 			return;
 		}
-		if (LOG.isDebugEnabled()) {
-			LOG.debug("OgnlBeanUtils.populate(" + bean + ", " + properties + ")");
+		if (log.isDebugEnabled()) {
+			log.debug("OgnlBeanUtils.populate(" + bean + ", " + properties + ")");
 		}
 		// Loop through the property name/value pairs to be set
 		Iterator<String> names = properties.keySet().iterator();

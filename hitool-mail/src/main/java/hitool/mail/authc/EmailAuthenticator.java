@@ -1,7 +1,8 @@
 package hitool.mail.authc;
 
-import javax.mail.Authenticator;
-import javax.mail.PasswordAuthentication;
+
+import jakarta.mail.Authenticator;
+import jakarta.mail.PasswordAuthentication;
 
 /*
  * 密码验证器
@@ -32,6 +33,7 @@ public class EmailAuthenticator extends Authenticator {
 		this.password = password;
 	}
 
+	@Override
 	protected PasswordAuthentication getPasswordAuthentication() {
 		return new PasswordAuthentication(getUsername(), getPassword());
 	}

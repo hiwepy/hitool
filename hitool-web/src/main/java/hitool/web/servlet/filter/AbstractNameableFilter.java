@@ -30,6 +30,7 @@ public abstract class AbstractNameableFilter extends AbstractFilter implements N
 		return this.name;
 	}
 
+	@Override
 	public void setName(String name) {
 		this.name = name;
 	}

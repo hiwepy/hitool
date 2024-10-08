@@ -10,14 +10,14 @@ import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
 
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import hitool.web.servlet.filter.OncePerRequestFilter;
 import hitool.web.servlet.http.HttpServletCacheResponseWrapper;
@@ -26,6 +26,7 @@ public class HttpServletRequestCacheFilter extends OncePerRequestFilter {
 
 	long cacheTimeout = Long.MAX_VALUE;
 
+	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
 		String ct = filterConfig.getInitParameter("cacheTimeout");
@@ -35,6 +36,7 @@ public class HttpServletRequestCacheFilter extends OncePerRequestFilter {
 		this.sc = filterConfig.getServletContext();
 	}
 
+	@Override
 	@SuppressWarnings({ "unused", "resource" })
 	protected void doFilterInternal(ServletRequest request,
 			ServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -63,7 +65,7 @@ public class HttpServletRequestCacheFilter extends OncePerRequestFilter {
 			}
 			id = id + ldata.toString();
 		}
-		File tempDir = (File) sc.getAttribute("javax.servlet.context.tempdir");
+		File tempDir = (File) sc.getAttribute("jakarta.servlet.context.tempdir");
 
 		// get possible cache
 		String temp = tempDir.getAbsolutePath();

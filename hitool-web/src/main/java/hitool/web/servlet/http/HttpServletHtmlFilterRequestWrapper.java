@@ -1,7 +1,7 @@
 package hitool.web.servlet.http;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 
 
 /*
@@ -19,7 +19,7 @@ public class HttpServletHtmlFilterRequestWrapper extends HttpServletRequestWrapp
 	/*
 	 * 覆盖需要增强的getParameter方法
 	 * 
-	 * @see javax.servlet.ServletRequestWrapper#getParameter(java.lang.String)
+	 * @see jakarta.servlet.ServletRequestWrapper#getParameter(java.lang.String)
 	 */
 	@Override
 	public String getParameter(String name) {

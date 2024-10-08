@@ -18,8 +18,8 @@ package hitool.web.servlet.filter.chain;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
 
 import hitool.web.servlet.filter.NamedFilterList;
 

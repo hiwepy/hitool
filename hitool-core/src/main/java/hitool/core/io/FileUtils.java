@@ -164,11 +164,12 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 	 *  删除指定的文件
 	 * @param file
 	 */
-	public static void delete(File file) {
+	public static File delete(File file) {
 		if (!file.delete()) {
 			System.err.println("could not delete file ["
 					+ file.getAbsolutePath() + "]");
 		}
+		return file;
 	}
 
 	public static String getWebPath(File path, String split) {

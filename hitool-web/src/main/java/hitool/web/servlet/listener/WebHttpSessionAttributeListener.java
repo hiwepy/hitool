@@ -1,7 +1,7 @@
 package hitool.web.servlet.listener;
 
-import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionBindingEvent;
+import jakarta.servlet.http.HttpSessionAttributeListener;
+import jakarta.servlet.http.HttpSessionBindingEvent;
 
 public class WebHttpSessionAttributeListener implements HttpSessionAttributeListener {
 

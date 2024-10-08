@@ -27,14 +27,14 @@ import java.util.Enumeration;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletRequestWrapper;
-import javax.servlet.ServletResponse;
-import javax.servlet.ServletResponseWrapper;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletRequestWrapper;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.ServletResponseWrapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import hitool.core.lang3.Assert;
 import hitool.core.lang3.StringUtils;
@@ -46,22 +46,22 @@ public abstract class WebUtils {
 	 * <p>If included via a RequestDispatcher, the current resource will see the
 	 * originating request. Its own URI and paths are exposed as request attributes.
 	 */
-	public static final String INCLUDE_REQUEST_URI_ATTRIBUTE = "javax.servlet.include.request_uri";
-	public static final String INCLUDE_CONTEXT_PATH_ATTRIBUTE = "javax.servlet.include.context_path";
-	public static final String INCLUDE_SERVLET_PATH_ATTRIBUTE = "javax.servlet.include.servlet_path";
-	public static final String INCLUDE_PATH_INFO_ATTRIBUTE = "javax.servlet.include.path_info";
-	public static final String INCLUDE_QUERY_STRING_ATTRIBUTE = "javax.servlet.include.query_string";
+	public static final String INCLUDE_REQUEST_URI_ATTRIBUTE = "jakarta.servlet.include.request_uri";
+	public static final String INCLUDE_CONTEXT_PATH_ATTRIBUTE = "jakarta.servlet.include.context_path";
+	public static final String INCLUDE_SERVLET_PATH_ATTRIBUTE = "jakarta.servlet.include.servlet_path";
+	public static final String INCLUDE_PATH_INFO_ATTRIBUTE = "jakarta.servlet.include.path_info";
+	public static final String INCLUDE_QUERY_STRING_ATTRIBUTE = "jakarta.servlet.include.query_string";
 
 	/*
 	 * Standard Servlet 2.4+ spec request attributes for forward URI and paths.
 	 * <p>If forwarded to via a RequestDispatcher, the current resource will see its
 	 * own URI and paths. The originating URI and paths are exposed as request attributes.
 	 */
-	public static final String FORWARD_REQUEST_URI_ATTRIBUTE = "javax.servlet.forward.request_uri";
-	public static final String FORWARD_CONTEXT_PATH_ATTRIBUTE = "javax.servlet.forward.context_path";
-	public static final String FORWARD_SERVLET_PATH_ATTRIBUTE = "javax.servlet.forward.servlet_path";
-	public static final String FORWARD_PATH_INFO_ATTRIBUTE = "javax.servlet.forward.path_info";
-	public static final String FORWARD_QUERY_STRING_ATTRIBUTE = "javax.servlet.forward.query_string";
+	public static final String FORWARD_REQUEST_URI_ATTRIBUTE = "jakarta.servlet.forward.request_uri";
+	public static final String FORWARD_CONTEXT_PATH_ATTRIBUTE = "jakarta.servlet.forward.context_path";
+	public static final String FORWARD_SERVLET_PATH_ATTRIBUTE = "jakarta.servlet.forward.servlet_path";
+	public static final String FORWARD_PATH_INFO_ATTRIBUTE = "jakarta.servlet.forward.path_info";
+	public static final String FORWARD_QUERY_STRING_ATTRIBUTE = "jakarta.servlet.forward.query_string";
 
 	/*
 	 * Standard Servlet 2.3+ spec request attributes for error pages.
@@ -69,12 +69,12 @@ public abstract class WebUtils {
 	 * to them directly rather than through the servlet container's error page
 	 * resolution mechanism.
 	 */
-	public static final String ERROR_STATUS_CODE_ATTRIBUTE = "javax.servlet.error.status_code";
-	public static final String ERROR_EXCEPTION_TYPE_ATTRIBUTE = "javax.servlet.error.exception_type";
-	public static final String ERROR_MESSAGE_ATTRIBUTE = "javax.servlet.error.message";
-	public static final String ERROR_EXCEPTION_ATTRIBUTE = "javax.servlet.error.exception";
-	public static final String ERROR_REQUEST_URI_ATTRIBUTE = "javax.servlet.error.request_uri";
-	public static final String ERROR_SERVLET_NAME_ATTRIBUTE = "javax.servlet.error.servlet_name";
+	public static final String ERROR_STATUS_CODE_ATTRIBUTE = "jakarta.servlet.error.status_code";
+	public static final String ERROR_EXCEPTION_TYPE_ATTRIBUTE = "jakarta.servlet.error.exception_type";
+	public static final String ERROR_MESSAGE_ATTRIBUTE = "jakarta.servlet.error.message";
+	public static final String ERROR_EXCEPTION_ATTRIBUTE = "jakarta.servlet.error.exception";
+	public static final String ERROR_REQUEST_URI_ATTRIBUTE = "jakarta.servlet.error.request_uri";
+	public static final String ERROR_SERVLET_NAME_ATTRIBUTE = "jakarta.servlet.error.servlet_name";
 
 
 	/*
@@ -93,7 +93,7 @@ public abstract class WebUtils {
 	 * Standard Servlet spec context attribute that specifies a temporary
 	 * directory for the current web application, of type {@code java.io.File}.
 	 */
-	public static final String TEMP_DIR_CONTEXT_ATTRIBUTE = "javax.servlet.context.tempdir";
+	public static final String TEMP_DIR_CONTEXT_ATTRIBUTE = "jakarta.servlet.context.tempdir";
 
 	/*
 	 * HTML escape parameter at the servlet context level
@@ -245,7 +245,7 @@ public abstract class WebUtils {
 	 * @param path the path within the web application
 	 * @return the corresponding real path
 	 * @throws FileNotFoundException if the path cannot be resolved to a resource
-	 * @see javax.servlet.ServletContext#getRealPath
+	 * @see jakarta.servlet.ServletContext#getRealPath
 	 */
 	public static String getRealPath(ServletContext servletContext, String path) throws FileNotFoundException {
 		Assert.notNull(servletContext, "ServletContext must not be null");
@@ -437,7 +437,7 @@ public abstract class WebUtils {
 	/*
 	 * Determine whether the given request is an include request,
 	 * that is, not a top-level HTTP request coming in from the outside.
-	 * <p>Checks the presence of the "javax.servlet.include.request_uri"
+	 * <p>Checks the presence of the "jakarta.servlet.include.request_uri"
 	 * request attribute. Could check any request attribute that is only
 	 * present in an include request.
 	 * @param request current servlet request
@@ -448,18 +448,18 @@ public abstract class WebUtils {
 	}
 
 	/*
-	 * Expose the Servlet spec's error attributes as {@link javax.servlet.http.HttpServletRequest}
+	 * Expose the Servlet spec's error attributes as {@link jakarta.servlet.http.HttpServletRequest}
 	 * attributes under the keys defined in the Servlet 2.3 specification, for error pages that
 	 * are rendered directly rather than through the Servlet container's error page resolution:
-	 * {@code javax.servlet.error.status_code},
-	 * {@code javax.servlet.error.exception_type},
-	 * {@code javax.servlet.error.message},
-	 * {@code javax.servlet.error.exception},
-	 * {@code javax.servlet.error.request_uri},
-	 * {@code javax.servlet.error.servlet_name}.
+	 * {@code jakarta.servlet.error.status_code},
+	 * {@code jakarta.servlet.error.exception_type},
+	 * {@code jakarta.servlet.error.message},
+	 * {@code jakarta.servlet.error.exception},
+	 * {@code jakarta.servlet.error.request_uri},
+	 * {@code jakarta.servlet.error.servlet_name}.
 	 * <p>Does not override values if already present, to respect attribute values
 	 * that have been exposed explicitly before.
-	 * <p>Exposes status code 200 by default. Set the "javax.servlet.error.status_code"
+	 * <p>Exposes status code 200 by default. Set the "jakarta.servlet.error.status_code"
 	 * attribute explicitly (before or after) in order to expose a different status code.
 	 * @param request current servlet request
 	 * @param ex the exception encountered
@@ -487,14 +487,14 @@ public abstract class WebUtils {
 	}
 
 	/*
-	 * Clear the Servlet spec's error attributes as {@link javax.servlet.http.HttpServletRequest}
+	 * Clear the Servlet spec's error attributes as {@link jakarta.servlet.http.HttpServletRequest}
 	 * attributes under the keys defined in the Servlet 2.3 specification:
-	 * {@code javax.servlet.error.status_code},
-	 * {@code javax.servlet.error.exception_type},
-	 * {@code javax.servlet.error.message},
-	 * {@code javax.servlet.error.exception},
-	 * {@code javax.servlet.error.request_uri},
-	 * {@code javax.servlet.error.servlet_name}.
+	 * {@code jakarta.servlet.error.status_code},
+	 * {@code jakarta.servlet.error.exception_type},
+	 * {@code jakarta.servlet.error.message},
+	 * {@code jakarta.servlet.error.exception},
+	 * {@code jakarta.servlet.error.request_uri},
+	 * {@code jakarta.servlet.error.servlet_name}.
 	 * @param request current servlet request
 	 */
 	public static void clearErrorRequestAttributes(HttpServletRequest request) {
@@ -615,9 +615,9 @@ public abstract class WebUtils {
 	 * (if this is null or the empty string, all parameters will match)
 	 * @return map containing request parameters <b>without the prefix</b>,
 	 * containing either a String or a String array as values
-	 * @see javax.servlet.ServletRequest#getParameterNames
-	 * @see javax.servlet.ServletRequest#getParameterValues
-	 * @see javax.servlet.ServletRequest#getParameterMap
+	 * @see jakarta.servlet.ServletRequest#getParameterNames
+	 * @see jakarta.servlet.ServletRequest#getParameterValues
+	 * @see jakarta.servlet.ServletRequest#getParameterMap
 	 */
 	public static Map<String, Object> getParametersStartingWith(ServletRequest request, String prefix) {
 		Assert.notNull(request, "Request must not be null");
@@ -1000,7 +1000,7 @@ public abstract class WebUtils {
      * @param source  the String to decode
      * @return the decoded String
      * @see #DEFAULT_CHARACTER_ENCODING
-     * @see javax.servlet.ServletRequest#getCharacterEncoding
+     * @see jakarta.servlet.ServletRequest#getCharacterEncoding
      * @see java.net.URLDecoder#decode(String, String)
      * @see java.net.URLDecoder#decode(String)
      */
@@ -1078,7 +1078,7 @@ public abstract class WebUtils {
      *
      * @param request current HTTP request
      * @return the encoding for the request (never <code>null</code>)
-     * @see javax.servlet.ServletRequest#getCharacterEncoding()
+     * @see jakarta.servlet.ServletRequest#getCharacterEncoding()
      */
     protected static String determineEncoding(HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
@@ -1251,7 +1251,7 @@ public abstract class WebUtils {
          * @param contextRelative whether to interpret a given URL that starts with a slash ("/")
          *                        as relative to the current ServletContext, i.e. as relative to the
          *                        web application root.
-         * @see javax.servlet.http.HttpServletRequest#getContextPath
+         * @see jakarta.servlet.http.HttpServletRequest#getContextPath
          */
         @SuppressWarnings("unused")
 		public void setContextRelative(boolean contextRelative) {
@@ -1269,7 +1269,7 @@ public abstract class WebUtils {
          * after a POST request; turn this flag off in such a scenario.
          *
          * @param http10Compatible whether to stay compatible with HTTP 1.0 clients.
-         * @see javax.servlet.http.HttpServletResponse#sendRedirect
+         * @see jakarta.servlet.http.HttpServletResponse#sendRedirect
          */
         @SuppressWarnings("unused")
 		public void setHttp10Compatible(boolean http10Compatible) {

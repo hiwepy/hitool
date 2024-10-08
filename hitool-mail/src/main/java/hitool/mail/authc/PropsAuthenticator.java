@@ -1,11 +1,10 @@
 package hitool.mail.authc;
 
-import java.util.Properties;
-
-import javax.mail.Authenticator;
-import javax.mail.PasswordAuthentication;
-
 import hitool.mail.JavaMailKey;
+import jakarta.mail.Authenticator;
+import jakarta.mail.PasswordAuthentication;
+
+import java.util.Properties;
 
 public class PropsAuthenticator extends Authenticator {
 

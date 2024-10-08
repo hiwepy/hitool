@@ -2,11 +2,11 @@ package hitool.web.servlet.filter;
 
 import java.io.IOException;
 
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
 
 /*
  *  增加过滤标记，实现一次请求仅会过滤一次
@@ -35,6 +35,7 @@ public abstract class OncePerRequestFilter extends AbstractNameableFilter {
 	 * @see #isEnabled
 	 * @see #doFilterInternal
 	 */
+	@Override
 	public final void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
 		String alreadyFilteredAttributeName = getAlreadyFilteredAttributeName();
@@ -59,6 +60,7 @@ public abstract class OncePerRequestFilter extends AbstractNameableFilter {
 		}
 	}
 
+	@Override
 	public void destroy() {
 		this.filterConfig = null;
 	}
@@ -96,7 +98,7 @@ public abstract class OncePerRequestFilter extends AbstractNameableFilter {
 	
 	/*
      * Same contract as for
-     * {@link #doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)},
+     * {@link #doFilter(jakarta.servlet.ServletRequest, jakarta.servlet.ServletResponse, jakarta.servlet.FilterChain)},
      * but guaranteed to be invoked only once per request.
      *
      * @param request  incoming {@code ServletRequest}

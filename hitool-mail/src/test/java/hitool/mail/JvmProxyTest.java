@@ -1,16 +1,11 @@
 package hitool.mail;
 
-import java.io.InputStream;
-import java.net.Authenticator;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Properties;
-
+import hitool.mail.authc.ProxyAuthenticator;
 import org.junit.Before;
 
-import hitool.mail.authc.ProxyAuthenticator;
+import java.io.InputStream;
+import java.net.*;
+import java.util.Properties;
 
 public class JvmProxyTest {
 

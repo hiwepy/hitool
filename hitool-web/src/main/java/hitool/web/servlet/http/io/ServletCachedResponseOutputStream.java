@@ -11,9 +11,9 @@ package hitool.web.servlet.http.io;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.WriteListener;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.WriteListener;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class ServletCachedResponseOutputStream extends ServletOutputStream {
 	
@@ -29,6 +29,7 @@ public class ServletCachedResponseOutputStream extends ServletOutputStream {
 		this.cache = cache;
 	}
 
+	@Override
 	public void close() throws IOException {
 		if (closed) {
 			throw new IOException("This output stream has already been closed");
@@ -37,6 +38,7 @@ public class ServletCachedResponseOutputStream extends ServletOutputStream {
 		closed = true;
 	}
 
+	@Override
 	public void flush() throws IOException {
 		if (closed) {
 			throw new IOException("Cannot flush a closed output stream");
@@ -44,6 +46,7 @@ public class ServletCachedResponseOutputStream extends ServletOutputStream {
 		cache.flush();
 	}
 
+	@Override
 	public void write(int b) throws IOException {
 		if (closed) {
 			throw new IOException("Cannot write to a closed output stream");
@@ -51,10 +54,12 @@ public class ServletCachedResponseOutputStream extends ServletOutputStream {
 		cache.write((byte) b);
 	}
 
+	@Override
 	public void write(byte b[]) throws IOException {
 		write(b, 0, b.length);
 	}
 
+	@Override
 	public void write(byte b[], int off, int len) throws IOException {
 		if (closed) {
 			throw new IOException("Cannot write to a closed output stream");

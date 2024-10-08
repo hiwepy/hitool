@@ -4,9 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponseWrapper;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponseWrapper;
 
 import hitool.web.servlet.http.io.FilterServletOutputStream;
 
@@ -25,15 +25,17 @@ public class GenericResponseWrapper extends HttpServletResponseWrapper {
 		byte[] ret = output.toByteArray();
 		return ret;
 	}
-
+	@Override
 	public ServletOutputStream getOutputStream() {
 		return new FilterServletOutputStream(output);
 	}
 
+	@Override
 	public PrintWriter getWriter() {
 		return new PrintWriter(getOutputStream(), true);
 	}
 
+	@Override
 	public void setContentLength(int length) {
 		this.contentLength = length;
 		super.setContentLength(length);
@@ -43,11 +45,13 @@ public class GenericResponseWrapper extends HttpServletResponseWrapper {
 		return contentLength;
 	}
 
+	@Override
 	public void setContentType(String type) {
 		this.contentType = type;
 		super.setContentType(type);
 	}
 
+	@Override
 	public String getContentType() {
 		return contentType;
 	}

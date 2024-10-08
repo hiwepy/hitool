@@ -15,7 +15,7 @@
  */
 package hitool.web;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import hitool.core.lang3.StringUtils;
 import hitool.core.lang3.network.InetAddressUtils;

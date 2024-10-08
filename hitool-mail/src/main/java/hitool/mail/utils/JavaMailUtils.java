@@ -1,11 +1,10 @@
 package hitool.mail.utils;
 
-import java.util.Properties;
-
-import javax.mail.Session;
-
 import hitool.mail.JavaMailKey;
 import hitool.mail.authc.PropsAuthenticator;
+import jakarta.mail.Session;
+
+import java.util.Properties;
 
 public abstract class JavaMailUtils {
 

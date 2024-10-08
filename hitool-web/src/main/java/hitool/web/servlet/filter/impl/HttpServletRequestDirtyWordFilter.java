@@ -8,13 +8,13 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import hitool.web.servlet.filter.OncePerRequestFilter;
 import hitool.web.servlet.http.HttpServletDirtyWordFilterRequestWrapper;
@@ -26,6 +26,7 @@ public class HttpServletRequestDirtyWordFilter extends OncePerRequestFilter {
 
 	List<String> dirtyWords = new ArrayList<String>();
 
+	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
 		String dirtyWordPath = filterConfig.getInitParameter("dirtyWord");
@@ -47,6 +48,7 @@ public class HttpServletRequestDirtyWordFilter extends OncePerRequestFilter {
 		}
 	}
 
+	@Override
 	protected void doFilterInternal(ServletRequest request,
 			ServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;

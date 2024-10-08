@@ -18,7 +18,7 @@ public class CookieModel {
 
 	/*
 	 * Use the given name for cookies created by this generator.
-	 * @see javax.servlet.http.Cookie#getName()
+	 * @see jakarta.servlet.http.Cookie#getName()
 	 */
 	public void setCookieName(String cookieName) {
 		this.cookieName = cookieName;
@@ -34,7 +34,7 @@ public class CookieModel {
 	/*
 	 * Use the given domain for cookies created by this generator.
 	 * The cookie is only visible to servers in this domain.
-	 * @see javax.servlet.http.Cookie#setDomain
+	 * @see jakarta.servlet.http.Cookie#setDomain
 	 */
 	public void setCookieDomain(String cookieDomain) {
 		this.cookieDomain = cookieDomain;
@@ -50,7 +50,7 @@ public class CookieModel {
 	/*
 	 * Use the given path for cookies created by this generator.
 	 * The cookie is only visible to URLs in this path and below.
-	 * @see javax.servlet.http.Cookie#setPath
+	 * @see jakarta.servlet.http.Cookie#setPath
 	 */
 	public void setCookiePath(String cookiePath) {
 		this.cookiePath = cookiePath;
@@ -66,7 +66,7 @@ public class CookieModel {
 	/*
 	 * Use the given maximum age (in seconds) for cookies created by this generator.
 	 * Useful special value: -1 ... not persistent, deleted when client shuts down
-	 * @see javax.servlet.http.Cookie#setMaxAge
+	 * @see jakarta.servlet.http.Cookie#setMaxAge
 	 */
 	public void setCookieMaxAge(Integer cookieMaxAge) {
 		this.cookieMaxAge = cookieMaxAge;
@@ -83,7 +83,7 @@ public class CookieModel {
 	 * Set whether the cookie should only be sent using a secure protocol,
 	 * such as HTTPS (SSL). This is an indication to the receiving browser,
 	 * not processed by the HTTP server itself. Default is "false".
-	 * @see javax.servlet.http.Cookie#setSecure
+	 * @see jakarta.servlet.http.Cookie#setSecure
 	 */
 	public void setCookieSecure(boolean cookieSecure) {
 		this.cookieSecure = cookieSecure;
@@ -100,7 +100,7 @@ public class CookieModel {
 	/*
 	 * Set whether the cookie is supposed to be marked with the "HttpOnly" attribute.
 	 * <p>Note that this feature is only available on Servlet 3.0 and higher.
-	 * @see javax.servlet.http.Cookie#setHttpOnly
+	 * @see jakarta.servlet.http.Cookie#setHttpOnly
 	 */
 	public void setCookieHttpOnly(boolean cookieHttpOnly) {
 		this.cookieHttpOnly = cookieHttpOnly;

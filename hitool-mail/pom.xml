@@ -28,8 +28,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
 		</dependency>
 
 		<dependency>
@@ -45,33 +45,35 @@
 		<!-- The JavaBeans(TM) Activation Framework is used by the JavaMail(TM) 
 			API to manage MIME data -->
 		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId>
+			<groupId>jakarta.activation</groupId>
+			<artifactId>jakarta.activation-api</artifactId>
 		</dependency>
-		<!-- JavaMail API <dependency> <groupId>javax.mail</groupId> <artifactId>javax.mail-api</artifactId> 
-			</dependency> -->
-		<!-- JavaMail API (sun) 注意： 有的jar没有包含sun的实现，只包含了api，这类jar名称通常为javax.mail-api-x.x.x.jar，在使用smtp协议发邮件过程中会报错： 
-			另一种jar是包含了sun的实现的，名称通常为javax.mail-x.x.x.jar，使用smtp协议发邮件正常！ -->
+		<!-- https://mvnrepository.com/artifact/com.sun.mail/jakarta.mail -->
 		<dependency>
 			<groupId>com.sun.mail</groupId>
-			<artifactId>javax.mail</artifactId>
+			<artifactId>jakarta.mail</artifactId>
 		</dependency>
 
 		<!-- 使用 Spring的Java Mail实现 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-email</artifactId>
+			<artifactId>commons-email2-core</artifactId>
 			<scope>provided</scope>
 			<exclusions>
 				<exclusion>
 					<artifactId>activation</artifactId>
-					<groupId>javax.activation</groupId>
+					<groupId>jakarta.activation</groupId>
 				</exclusion>
 				<exclusion>
 					<groupId>com.sun.mail</groupId>
-					<artifactId>javax.mail</artifactId>
+					<artifactId>jakarta.mail</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email2-jakarta</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<!-- 使用 Spring的Java Mail实现 -->
 		<dependency>

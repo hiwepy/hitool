@@ -1,8 +1,8 @@
 package hitool.mail.provider.def;
 
-import java.util.Properties;
-
 import hitool.mail.provider.EmailPropertiesProvider;
+
+import java.util.Properties;
 
 public class DefaultEmailPropertiesProvider implements EmailPropertiesProvider {
 

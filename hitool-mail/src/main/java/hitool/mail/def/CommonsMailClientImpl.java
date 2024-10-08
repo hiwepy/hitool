@@ -1,26 +1,21 @@
 package hitool.mail.def;
 
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
-
-import javax.mail.MessagingException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeUtility;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.HtmlEmail;
-import org.apache.commons.mail.SimpleEmail;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import hitool.mail.JavaMailClientAdapter;
 import hitool.mail.JavaMailKey;
 import hitool.mail.conf.EmailBody;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeUtility;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.mail2.jakarta.Email;
+import org.apache.commons.mail2.jakarta.HtmlEmail;
+import org.apache.commons.mail2.jakarta.SimpleEmail;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.InputStream;
+import java.time.Duration;
+import java.util.*;
 
 /*
  * Java邮件发送-commons-email实现
@@ -89,7 +84,7 @@ protected void sendMail(EmailBody email,boolean isHtml) throws Exception{
 		// SMTP邮件服务器默认端口
 		mailSender.setSmtpPort(Integer.parseInt(props.getProperty(JavaMailKey.MAIL_PORT)));
 		// 发送超时时间，默认2500
-		mailSender.setSocketTimeout(Integer.parseInt(props.getProperty(JavaMailKey.MAIL_SMTP_TIMEOUT, "25000")));
+		mailSender.setSocketTimeout(Duration.ofSeconds(Integer.parseInt(props.getProperty(JavaMailKey.MAIL_SMTP_TIMEOUT, "25000"))));
 		// 是否启用调试模式（启用调试模式可打印客户端与服务器交互过程时一问一答的响应消息）
 		mailSender.setDebug(Boolean.parseBoolean(props.getProperty(JavaMailKey.MAIL_DEBUG, "false")));
 		// 是否使用 STARTTLS安全连接

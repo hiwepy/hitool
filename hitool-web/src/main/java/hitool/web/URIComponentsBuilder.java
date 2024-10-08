@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import hitool.core.collections.map.LinkedMultiValueMap;
 import hitool.core.collections.map.MultiValueMap;

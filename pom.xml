@@ -170,7 +170,7 @@
 						<!-- forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 pretest： 
 							每一个测试创建一个新进程，为每个测试创建新的JVM是单独测试的最彻底方式，但也是最慢的，不适合hudson上持续回归。 once：在一个进程中进行所有测试。once为默认设置，在Hudson上持续回归时建议使用默认设置。 
 							always：在一个进程中并行的运行脚本，Junit4.7以上版本才可以使用，surefire的版本要在2.6以上提供这个功能，其中 threadCount：执行时，指定可分配的线程数量。只和参数parallel配合使用有效。默认：5。 -->
-						<forkMode>once</forkMode>
+						<!--<forkMode>once</forkMode>-->
 						<argLine>-Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m
 							-Dfile.encoding=UTF-8</argLine>
 						<additionalClasspathElements>
@@ -361,9 +361,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<!-- Maven Plugin versions -->
-		<maven.version>3.6.3</maven.version>
+		<maven.version>3.9.9</maven.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
@@ -396,43 +396,44 @@
 		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<commons-codec.version>1.17.1</commons-codec.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
-		<commons-collections4.version>4.4</commons-collections4.version>
-		<commons-compress.version>1.20</commons-compress.version>
-		<commons-email.version>1.5</commons-email.version>
-		<commons-fileupload.version>1.4</commons-fileupload.version>
+		<commons-collections4.version>4.5.0-M2</commons-collections4.version>
+		<commons-compress.version>1.27.1</commons-compress.version>
+		<commons-email.version>1.6.0</commons-email.version>
+		<commons-email2.version>2.0.0-M1</commons-email2.version>
+		<commons-fileupload.version>1.5</commons-fileupload.version>
+		<commons-fileupload2.version>2.0.0-M1</commons-fileupload2.version>
 		<commons-io.version>2.17.0</commons-io.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<commons-lang3.version>3.17.0</commons-lang3.version>
-		<commons-logging.version>1.2</commons-logging.version>
-		<commons-net.version>3.7.2</commons-net.version>
-		<commons-pool2.version>2.9.0</commons-pool2.version>
-		<commons-text.version>1.9</commons-text.version>
-		<cos.version>2020.4</cos.version>
-		<dom4j.version>1.6.1</dom4j.version>
+		<commons-logging.version>1.3.4</commons-logging.version>
+		<commons-net.version>3.11.1</commons-net.version>
+		<commons-pool2.version>2.12.0</commons-pool2.version>
+		<commons-text.version>1.12.0</commons-text.version>
+		<dom4j.version>2.1.4</dom4j.version>
 		<fastjson2.version>2.0.53</fastjson2.version>
 		<freemarker.version>2.3.31</freemarker.version>
 		<guava.version>30.0-jre</guava.version>
 		<jakarta-regexp.version>1.4</jakarta-regexp.version>
 		<jaxen.version>1.1.1</jaxen.version>
-		<janino.version>3.1.3</janino.version>
-		<java.version>1.8</java.version>
+		<janino.version>3.1.12</janino.version>
 		<javassist.version>3.27.0-GA</javassist.version>
-		<javax.annotation-api.version>1.3.2</javax.annotation-api.version>
-		<javax.activation.version>1.1.1</javax.activation.version>
-		<javax.mail-api.version>1.6.2</javax.mail-api.version>
-		<javax.el.version>3.0.1-b06</javax.el.version>
-		<javax.jsp-api.version>2.3.3</javax.jsp-api.version>
-		<javax.jstl-api.version>1.2.1</javax.jstl-api.version>
-		<javax.jstl-impl.version>1.2.5</javax.jstl-impl.version>
-		<javax.persistence-api.version>1.0.2</javax.persistence-api.version>
-		<javax.portlet-api.version>3.0.1</javax.portlet-api.version>
-		<javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-		<javax.websocket-api.version>1.1</javax.websocket-api.version>
-		<jaxb.version>3.0.0</jaxb.version>
-		<jdom.version>2.0.2</jdom.version>
-		<jmock.version>2.12.0</jmock.version>
+		<jakarta-activation.version>2.1.3</jakarta-activation.version>
+		<jakarta-annotation.version>3.0.0</jakarta-annotation.version>
+		<jakarta-el.version>6.0.1</jakarta-el.version>
+		<jakarta-mail.version>2.1.3</jakarta-mail.version>
+		<jakarta-management.version>1.1.4</jakarta-management.version>
+		<jakarta-persistence.version>3.2.0</jakarta-persistence.version>
+		<jakarta-servlet.version>6.0.0</jakarta-servlet.version>
+		<jakarta-servlet-jsp.version>4.0.0</jakarta-servlet-jsp.version>
+		<jakarta-servlet-jsp-jstl.version>3.0.1</jakarta-servlet-jsp-jstl.version>
+		<jakarta-transaction.version>2.0.1</jakarta-transaction.version>
+		<jakarta-validation.version>3.0.2</jakarta-validation.version>
+		<jakarta-websocket.version>2.2.0</jakarta-websocket.version>
+		<jdom2.version>2.0.6.1</jdom2.version>
+		<jmock.version>2.13.1</jmock.version>
 		<junrar.version>7.5.5</junrar.version>
-		<junit.version>4.13.1</junit.version>
+		<junit.version>4.13.2</junit.version>
+		<junit-jupiter.version>5.10.3</junit-jupiter.version>
 		<lombok.version>1.18.20</lombok.version>
 		<oro.version>2.0.8</oro.version>
 		<ognl.version>3.4.3</ognl.version>
@@ -441,11 +442,11 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<slf4j.version>1.7.36</slf4j.version>
 		<simple-xml.version>2.7.1</simple-xml.version>
-		<spring.version>5.3.5</spring.version>
+		<spring.version>6.1.2</spring.version>
 		<xmlbeans.version>2.6.0</xmlbeans.version>
 		<xerces.version>2.12.1</xerces.version>
 		<xmlschema-core.version>2.2.5</xmlschema-core.version>
-		<xstream.version>1.4.16</xstream.version>
+		<xstream.version>1.4.20</xstream.version>
 		<xml-apis.version>1.3.04</xml-apis.version>
 		<zip64file.version>1.02</zip64file.version>
 
@@ -462,26 +463,13 @@
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
 			</dependency>
-			<!--dbunit ：dbunit是一个基于junit扩展的数据库测试框架 -->
-			<dependency>
-				<groupId>org.dbunit</groupId>
-				<artifactId>dbunit</artifactId>
-				<version>${dbunit.version}</version>
-			</dependency>
-			<!--
-				httpunit：HttpUnit是SourceForge下面的一个开源项目，它是基于JUnit的一个测试框架，主要关注于测试Web应用；
-				解决使用JUnit框架无法对远程Web内容进行测试的弊端
-			-->
-			<dependency>
-				<groupId>org.httpunit</groupId>
-				<artifactId>httpunit</artifactId>
-				<version>${httpunit.version}</version>
-			</dependency>
 			<!--jmock：JMock是一个使用模拟对象机制测试Java代码的开发包 -->
+			<!-- https://mvnrepository.com/artifact/org.jmock/jmock-junit5 -->
 			<dependency>
 				<groupId>org.jmock</groupId>
-				<artifactId>jmock-junit4</artifactId>
+				<artifactId>jmock-junit5</artifactId>
 				<version>${jmock.version}</version>
+				<scope>test</scope>
 			</dependency>
 
 			<!-- For Lombok -->
@@ -492,166 +480,94 @@
 				<version>${lombok.version}</version>
 			</dependency>
 
-		 	<!-- ###################### Java Mail 组件  ###################### -->
-			
 			<!-- The JavaBeans(TM) Activation Framework is used by the JavaMail(TM) API to manage MIME data -->
+			<!-- https://mvnrepository.com/artifact/jakarta.annotation/jakarta.annotation-api -->
 			<dependency>
-				<groupId>javax.activation</groupId>
-				<artifactId>activation</artifactId>
-				<version>${javax.activation.version}</version>
+				<groupId>jakarta.activation</groupId>
+				<artifactId>jakarta.activation-api</artifactId>
+				<version>${jakarta-activation.version}</version>
 			</dependency>
-			<!-- JavaMail API  -->
+			<!-- Jakarta Annotations API ：https://mvnrepository.com/artifact/jakarta.annotation/jakarta.annotation-api -->
 			<dependency>
-				<groupId>javax.mail</groupId>
-				<artifactId>javax.mail-api</artifactId>
-				<version>${javax.mail-api.version}</version>
+				<groupId>jakarta.annotation</groupId>
+				<artifactId>jakarta.annotation-api</artifactId>
+				<version>${jakarta-annotation.version}</version>
 			</dependency>
-			<!-- JavaMail API (sun)
-			注意：
-				有的jar没有包含sun的实现，只包含了api，这类jar名称通常为javax.mail-api-x.x.x.jar，在使用smtp协议发邮件过程中会报错：
-				另一种jar是包含了sun的实现的，名称通常为javax.mail-x.x.x.jar，使用smtp协议发邮件正常！
-			-->
+			<!-- Jakarta Expression Language API ：https://mvnrepository.com/artifact/jakarta.el/jakarta.el-api  -->
 			<dependency>
-			    <groupId>com.sun.mail</groupId>
-			    <artifactId>javax.mail</artifactId>
-			    <version>${javax.mail-api.version}</version>
+				<groupId>jakarta.el</groupId>
+				<artifactId>jakarta.el-api</artifactId>
+				<version>${jakarta-el.version}</version>
 			</dependency>
-			
-			<!-- ###################### Java Web API ###################### -->
-			
+			<!-- Jakarta Mail API 2.1 Specification API ：https://mvnrepository.com/artifact/jakarta.mail/jakarta.mail-api  -->
 			<dependency>
-				<groupId>com.sun</groupId>
-				<artifactId>tools</artifactId>
-				<version>1.5.0</version>
+				<groupId>jakarta.mail</groupId>
+				<artifactId>jakarta.mail-api</artifactId>
+				<version>${jakarta-mail.version}</version>
 			</dependency>
-			
-			<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+			<!-- Jakarta Servlet API ：https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api-->
 			<dependency>
-			    <groupId>javax.annotation</groupId>
-			    <artifactId>javax.annotation-api</artifactId>
-			    <version>${javax.annotation-api.version}</version>
+				<groupId>jakarta.servlet</groupId>
+				<artifactId>jakarta.servlet-api</artifactId>
+				<version>${jakarta-servlet.version}</version>
 			</dependency>
-			<!-- The Java Portlet API version 3.0 developed by the Java Community Process JSR-362 Expert Group. -->
+			<!-- Jakarta Server Pages API ：https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api  -->
 			<dependency>
-				<groupId>javax.portlet</groupId>
-				<artifactId>portlet-api</artifactId>
-				<version>${javax.portlet-api.version}</version>
+				<groupId>jakarta.servlet.jsp</groupId>
+				<artifactId>jakarta.servlet.jsp-api</artifactId>
+				<version>${jakarta-servlet-jsp.version}</version>
 			</dependency>
-			<!-- Java Servlet API -->
+			<!-- Jakarta Standard Tag Library API ：https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
 			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>javax.servlet-api</artifactId>
-				<version>${javax.servlet-api.version}</version>
+				<groupId>jakarta.servlet.jsp.jstl</groupId>
+				<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+				<version>${jakarta-servlet-jsp-jstl.version}</version>
 			</dependency>
-			<!-- JavaServer Pages(TM) API  -->
+			<!-- Jakarta Persistence API ：https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
 			<dependency>
-			    <groupId>javax.servlet.jsp</groupId>
-			    <artifactId>javax.servlet.jsp-api</artifactId>
-			    <version>${javax.jsp-api.version}</version>
+				<groupId>jakarta.persistence</groupId>
+				<artifactId>jakarta.persistence-api</artifactId>
+				<version>${jakarta-persistence.version}</version>
 			</dependency>
-			<!-- JavaServer Pages(TM) Standard Tag Library API -->
-			<!-- JSTL（JSP Standard Tag Library，JSP标准标签库) 是一个不断完善的开放源代码的JSP标签库，是由apache的jakarta小组来维护的。 -->
+			<!-- Jakarta WebSocket - Server API ：https://mvnrepository.com/artifact/jakarta.websocket/jakarta.websocket-api  -->
 			<dependency>
-			    <groupId>javax.servlet.jsp.jstl</groupId>
-			    <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-			    <version>${javax.jstl-api.version}</version>
+				<groupId>jakarta.websocket</groupId>
+				<artifactId>jakarta.websocket-api</artifactId>
+				<version>${jakarta-websocket.version}</version>
 			</dependency>
-			<!-- An implementation of the JSP Standard Tag Library (JSTL).  -->
+			<!-- Jakarta WebSocket - Client API ：https://mvnrepository.com/artifact/jakarta.websocket/jakarta.websocket-client-api  -->
 			<dependency>
-			    <groupId>org.apache.taglibs</groupId>
-			    <artifactId>taglibs-standard-impl</artifactId>
-			    <version>${javax.jstl-impl.version}</version>
+				<groupId>jakarta.websocket</groupId>
+				<artifactId>jakarta.websocket-client-api</artifactId>
+				<version>${jakarta-websocket.version}</version>
 			</dependency>
-			<!-- Expression Language 3.0 API   -->
+			<!-- https://mvnrepository.com/artifact/com.sun.mail/jakarta.mail -->
 			<dependency>
-			    <groupId>javax.el</groupId>
-			    <artifactId>javax.el-api</artifactId>
-			    <version>${javax.el.version}</version>
+				<groupId>com.sun.mail</groupId>
+				<artifactId>jakarta.mail</artifactId>
+				<version>2.0.1</version>
 			</dependency>
-			<!-- Java Persistence API  -->
-			<dependency>
-				<groupId>javax.persistence</groupId>
-				<artifactId>persistence-api</artifactId>
-				<version>${javax.persistence-api.version}</version>
-			</dependency>
-			<!-- JSR 356: Java API for WebSocket  -->
-			<dependency>
-			    <groupId>javax.websocket</groupId>
-			    <artifactId>javax.websocket-api</artifactId>
-			    <version>${javax.websocket-api.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>javax.websocket</groupId>
-			    <artifactId>javax.websocket-client-api</artifactId>
-			    <version>${javax.websocket-api.version}</version>
-			</dependency>
-
-			<!-- ######################XML校验工具###################### -->
-			
-			<!-- Sun Multi Schema XML Validator Isorelax  -->
-			<dependency>
-			    <groupId>com.sun.xml.bind.jaxb</groupId>
-			    <artifactId>isorelax</artifactId>
-			    <version>20090621</version>
-			</dependency>
-			<dependency>
-			    <groupId>com.github.relaxng</groupId>
-			    <artifactId>relaxngDatatype</artifactId>
-			    <version>2011.1</version>
-			</dependency>
-			<!-- Sun Multi Schema XML Validator  -->
-			<dependency>
-				<groupId>net.java.dev.msv</groupId>
-				<artifactId>msv-core</artifactId>
-				<version>2013.6.1</version>
-			</dependency>
-			<!-- XML Schema datatypes library  -->
-			<dependency>
-				<groupId>net.java.dev.msv</groupId>
-				<artifactId>xsdlib</artifactId>
-				<version>2013.6.1</version>
-			</dependency>
-			<!-- SAX-like API for parsing XML DTDs.  -->
-			<dependency>
-				<groupId>com.sun.xml.dtd-parser</groupId>
-				<artifactId>dtd-parser</artifactId>
-				<version>1.2</version>
-			</dependency>
-			
 			<!-- ######################XML解析转换工具包###################### -->
 			
 			<!--  Dom4j是一个Java的XML API，类似于jdom，用来读写XML文件的工具包。 -->
+			<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
 			<dependency>
-				<groupId>dom4j</groupId>
+				<groupId>org.dom4j</groupId>
 				<artifactId>dom4j</artifactId>
 				<version>${dom4j.version}</version>
 			</dependency>
 			<!--JDOM是一种使用 XML（标准通用标记语言下的一个子集） 的独特 Java 工具包，。它的设计包含 Java 语言的语法乃至语义。-->
+			<!-- https://mvnrepository.com/artifact/org.jdom/jdom2 -->
 			<dependency>
 				<groupId>org.jdom</groupId>
-				<artifactId>jdom</artifactId>
-				<version>${jdom.version}</version>
+				<artifactId>jdom2</artifactId>
+				<version>${jdom2.version}</version>
 			</dependency>
 			<!-- XStream是 thoughtworks开发的开源框架，用于实现XML数据于Java对象、Json数据的转换 -->
 			<dependency>
 				<groupId>com.thoughtworks.xstream</groupId>
 				<artifactId>xstream</artifactId>
 				<version>${xstream.version}</version>
-			</dependency>
-			<!-- XML Pull Parsing API  -->
-			<dependency>
-				<groupId>xmlpull</groupId>
-				<artifactId>xmlpull</artifactId>
-				<version>1.1.3.4d_b4_min</version>
-			</dependency>
-			<!-- 
-			Simple 是一个 Java 框架，用于简化序列化和反序列化 XML 的过程。使用 Simple，开发人员可以简化（名字由此而来）将简单老 Java 对象（POJO）转换成 XML
-			 文档的过程 — 即所谓的序列化（serialization）过程。Simple 也可促进相反的过程：开发人员可以将 XML 文档转换成 POJO — 即所谓的反序列化（deserialization）过程。
-			 -->
-			<dependency>
-				<groupId>org.simpleframework</groupId>
-				<artifactId>simple-xml</artifactId>
-				<version>${simple-xml.version}</version>
 			</dependency>
 			<!--
 				Jaxen是一个Java编写的开源的XPath库。这是适应多种不同的对象模型，包括DOM，XOM，dom4j和JDOM。
@@ -817,17 +733,29 @@
 				<artifactId>commons-collections4</artifactId>
 				<version>${commons-collections4.version}</version>
 			</dependency>
-			<!-- apache 上传组件 -->
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-core -->
 			<dependency>
-				<groupId>commons-fileupload</groupId>
-				<artifactId>commons-fileupload</artifactId>
-				<version>${commons-fileupload.version}</version>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-fileupload2-core</artifactId>
+				<version>${commons-fileupload2.version}</version>
 			</dependency>
-			<!-- O'Reilly公司的Java HTTP文件上传组件，简单实用，做的非常好。  -->
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-jakarta -->
 			<dependency>
-			    <groupId>com.jfinal</groupId>
-			    <artifactId>cos</artifactId>
-			    <version>${cos.version}</version>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-fileupload2-jakarta</artifactId>
+				<version>${commons-fileupload2.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-jakarta-servlet5 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-fileupload2-jakarta-servlet5</artifactId>
+				<version>${commons-fileupload2.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-jakarta-servlet6 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-fileupload2-jakarta-servlet6</artifactId>
+				<version>${commons-fileupload2.version}</version>
 			</dependency>
 			<!-- Commons项目中用来处理IO的一些工具类包 -->
 			<dependency>
@@ -884,6 +812,24 @@
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-email</artifactId>
 				<version>${commons-email.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email2-core -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-email2-core</artifactId>
+				<version>${commons-email2.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email2-jakarta -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-email2-jakarta</artifactId>
+				<version>${commons-email2.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email2-javax -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-email2-javax</artifactId>
+				<version>${commons-email2.version}</version>
 			</dependency>
 			<!-- An open source java library to handle zip files  -->
 			<dependency>
@@ -1004,12 +950,6 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-webmvc</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
-			<!-- 介于组件和业务之前的Spring扩展 -->
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-biz</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
 						

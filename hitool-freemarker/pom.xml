@@ -11,8 +11,8 @@
 	
 	<dependencies>
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
 		</dependency>
 		<!-- FreeMarker是一个用Java语言编写的模板引擎，它基于模板来生成文本输出 -->
 		<dependency>

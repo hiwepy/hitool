@@ -1,7 +1,7 @@
 package hitool.web.servlet.listener;
 
-import javax.servlet.ServletContextAttributeEvent;
-import javax.servlet.ServletContextAttributeListener;
+import jakarta.servlet.ServletContextAttributeEvent;
+import jakarta.servlet.ServletContextAttributeListener;
 
 public class WebServletContextAttributeListener implements ServletContextAttributeListener {
 

@@ -1,15 +1,14 @@
 package hitool.mail;
 
-import java.util.Properties;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import hitool.mail.conf.EmailBody;
 import hitool.mail.def.CommonsMailClientImpl;
 import hitool.mail.provider.EmailPropertiesProvider;
 import hitool.mail.provider.def.DefaultEmailPropertiesProvider;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Properties;
 
 public class CommonsMailClientTest {
 

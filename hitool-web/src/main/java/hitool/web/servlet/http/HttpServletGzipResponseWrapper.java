@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponseWrapper;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponseWrapper;
 
 import hitool.web.servlet.http.io.ServletGzipResponseOutputStream;
 
@@ -45,10 +45,12 @@ public class HttpServletGzipResponseWrapper extends HttpServletResponseWrapper {
 		}
 	}
 
+	@Override
 	public void flushBuffer() throws IOException {
 		stream.flush();
 	}
 
+	@Override
 	public ServletOutputStream getOutputStream() throws IOException {
 		if (writer != null) {
 			throw new IllegalStateException(
@@ -61,6 +63,7 @@ public class HttpServletGzipResponseWrapper extends HttpServletResponseWrapper {
 		return (stream);
 	}
 
+	@Override
 	public PrintWriter getWriter() throws IOException {
 		if (writer != null) {
 			return (writer);

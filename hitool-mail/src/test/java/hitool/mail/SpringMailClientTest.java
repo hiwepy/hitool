@@ -1,16 +1,15 @@
 package hitool.mail;
 
-import java.util.Properties;
-
+import hitool.mail.conf.EmailBody;
+import hitool.mail.def.SpringMailClientImpl;
+import hitool.mail.provider.EmailPropertiesProvider;
+import hitool.mail.provider.def.DefaultEmailPropertiesProvider;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-import hitool.mail.conf.EmailBody;
-import hitool.mail.def.SpringMailClientImpl;
-import hitool.mail.provider.EmailPropertiesProvider;
-import hitool.mail.provider.def.DefaultEmailPropertiesProvider;
+import java.util.Properties;
 
 public class SpringMailClientTest {
 

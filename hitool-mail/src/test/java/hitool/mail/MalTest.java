@@ -1,15 +1,14 @@
 package hitool.mail;
 
+import org.apache.commons.mail2.core.EmailException;
+import org.apache.commons.mail2.jakarta.EmailAttachment;
+import org.apache.commons.mail2.jakarta.HtmlEmail;
+import org.apache.commons.mail2.jakarta.MultiPartEmail;
+import org.apache.commons.mail2.jakarta.SimpleEmail;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.apache.commons.mail.EmailAttachment;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
-import org.apache.commons.mail.MultiPartEmail;
-import org.apache.commons.mail.SimpleEmail;
-
-import sun.misc.BASE64Encoder;
 
 public class MalTest {
 	public String send(){
@@ -41,7 +40,7 @@ public class MalTest {
 		return result;
 	}
 	
-	public String sendEnclosure() throws EmailException{
+	public String sendEnclosure() throws EmailException {
 		String result = null;
 		EmailAttachment emailattachment = new EmailAttachment();
            //设置附件路径
@@ -53,8 +52,7 @@ public class MalTest {
 	       /* 
             * 设置附件的中文乱码问题，解决附件的中文名称 乱码问题 
             */  
-           BASE64Encoder enc = new BASE64Encoder();  
-           //this.getName().getBytes()使用的是系统缺省的编码处理,这里是GBK  
+           //this.getName().getBytes()使用的是系统缺省的编码处理,这里是GBK
            //emailattachment.setName("=?GBK?B?"+enc.encode(file.getBytes())+"?=");  
              
            //attachment.setName(this.getName()); //不处理字符集的话,发送的附件中文名称是乱码 

@@ -15,9 +15,9 @@
  */
 package hitool.web.servlet.filter.chain;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
 
 /*
  * 定义如何获取对应请求的过滤器链

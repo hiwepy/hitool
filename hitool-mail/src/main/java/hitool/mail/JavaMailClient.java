@@ -15,10 +15,10 @@
  */
 package hitool.mail;
 
-import java.io.InputStream;
-
 import hitool.mail.conf.EmailBody;
 import hitool.mail.provider.EmailPropertiesProvider;
+
+import java.io.InputStream;
 
 public interface JavaMailClient {
 

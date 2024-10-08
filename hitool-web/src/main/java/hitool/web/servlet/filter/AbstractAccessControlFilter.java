@@ -15,8 +15,8 @@
  */
 package hitool.web.servlet.filter;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
 
 public abstract class AbstractAccessControlFilter extends AbstractPathMatchFilter {
 	

@@ -2,7 +2,7 @@ package hitool.core.beanutils.converters.request;
 
 import java.util.Enumeration;
 
-import javax.servlet.ServletRequest;
+import jakarta.servlet.ServletRequest;
 
 import org.apache.commons.beanutils.ConversionException;
 import org.apache.commons.beanutils.Converter;

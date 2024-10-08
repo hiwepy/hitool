@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import hitool.freemarker.loader.ClasspathTemplateLoader;
 

@@ -3,7 +3,7 @@ package hitool.freemarker.model;
 import java.io.File;
 import java.util.List;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 public class LookupModel {
 
